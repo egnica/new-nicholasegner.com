@@ -1,0 +1,7 @@
+.page {
+  /* background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/background_one.webp"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+}

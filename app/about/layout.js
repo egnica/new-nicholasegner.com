@@ -12,7 +12,7 @@ export const metadata = {
     type: "profile",
     images: [
       {
-        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg", // update this path
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
         width: 615,
         height: 923,
         alt: "Nicholas Egner",

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 function About() {
   return (
@@ -36,6 +37,14 @@ function About() {
       <div>
         <h1>Nicholas Egner</h1>
         <p>This is the about page</p>
+        <div style={{ height: "40%" }}>
+          <Image
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg"
+            height={542}
+            width={361}
+            alt="Picture on Nicholas Egner - Minneapolis Web Developer"
+          />
+        </div>
       </div>
     </>
   );
