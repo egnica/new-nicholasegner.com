@@ -5,3 +5,19 @@
   background-size: cover;
   height: 1000px;
 }
+
+/* *********SKILLS ********* */
+.cont {
+  padding: 20px;
+}
+.skillsBtnContain {
+  display: flex;
+  gap: 10px;
+}
+.skillsBtn {
+  background-color: rgb(91, 121, 255);
+  color: aliceblue;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
