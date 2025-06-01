@@ -10,26 +10,28 @@ function Skills() {
   return (
     <div className={styles.cont}>
       <p>Skills</p>
-      {revealSkill == "" &&
-      <div className={styles.skillsBtnContain}>
-        <div
-          onClick={() => setRevealSkill("stack")}
-          className={styles.skillsBtn}
-        >
-          Tech Stack
+      {revealSkill == "" && (
+        <div className={styles.skillsBtnContain}>
+          <div
+            onClick={() => setRevealSkill("stack")}
+            className={styles.skillsBtn}
+          >
+            Tech Stack
+          </div>
+          <div
+            onClick={() => setRevealSkill("projects")}
+            className={styles.skillsBtn}
+          >
+            Featured Projects
+          </div>
         </div>
-        <div
-          onClick={() => setRevealSkill("projects")}
-          className={styles.skillsBtn}
-        >
-          Featured Projects
-        </div>
-      </div>
-}
+      )}
 
       {revealSkill == "stack" ? (
         <div>
           Tech Stack
+          <div onClick={() => setRevealSkill("")}>Back</div>
+          
           <Stack />
         </div>
       ) : revealSkill == "projects" ? (
