@@ -16,6 +16,15 @@
           ]
         }
       ]
+    },
+    {
+      "title": "title of project",
+      "url": "URL of project",
+      "image": ["image URL 1", "image URL 2", "image URL 3"],
+      "description": "description of project",
+      "stack": ["tech1", "tech2", "tech3"],
+      "repo": "https://github.com/username/project-name",
+      "status": "Launched or In Progress"
     }
   ],
   "stack": [
@@ -148,5 +157,73 @@
       ]
     }
   ],
-  "projects": []
+  "projects": [
+    {
+      "title": "Portfolio",
+      "url": "URL_HERE",
+      "urlBtnText": "Visit Portfolio",
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "nicholasegner.com is my personal portfolio and digital playground. Welcome! You're actually on it right now. It's a space to showcase my work, test ideas, and experiment with tools that reflect where I’m growing as both a developer and creative.<br/><br/>Built with performance and SEO in mind, the site is powered by Next.js, animated with Framer Motion, and hosted on AWS Amplify. It features a custom CMS structure for managing content, uses MongoDB for backend support, and is designed to let the work shine.<br/><br/>Every decision, from route structure to image optimization, reflects a hands-on, iterative approach to modern web development. The site grows alongside me.",
+      "stack": [
+        "Next.js",
+        "CSS Modules",
+        "Framer Motion",
+        "AWS Amplify",
+        "MongoDB"
+      ],
+      "repo": "https://github.com/egnica/new-nicholasegner.com",
+      "status": "Launched"
+    },
+    {
+      "title": "Digital Insights Hub",
+      "url": "URL_HERE",
+      "urlBtnText": "View Project",
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "Digital Insights Hub is a custom-built multimedia dashboard designed to help users explore comparative content across a variety of formats.<br/><br/>The tool was developed to support research and presentation workflows, making it easy to surface insights, organize materials, and share findings.<br/><br/>Built with Next.js and Framer Motion for smooth UI interactions, and powered by the FileMaker Data API, this project demonstrates how structured data and visual clarity can simplify the complex task of comparing banking websites and apps, providing a clear view into their performance, usability, and design strengths.",
+      "stack": [
+        "Next.js",
+        "FileMaker Data API",
+        "Framer Motion",
+        "AWS Amplify"
+      ],
+      "repo": "https://github.com/egnica/TestDrive-2025",
+      "status": "Launched"
+    },
+    {
+      "title": "Late Start Dev",
+      "url": "https://latestartdev.com/",
+      "urlBtnText": "Read the Blog",
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "Late Start Dev is a personal blog documenting the experience of learning web development later in life.<br/><br/>The blog features life lessons learned, code experiments, project breakdowns, and honest reflections on what it means to grow as a developer outside of the traditional career timeline. The name itself plays two roles. It's a reference to both starting a tech career later than most, and the broader idea that it's never too late to pursue something new.<br/><br/>Built with Next.js and deployed via AWS Amplify, the blog uses Amazon S3 for media storage and markdown for content flexibility. It’s lightweight, SEO-optimized, and purposefully minimal to keep the focus on clarity and consistency.<br/><br/>Late Start Dev is an evolving record of progress, persistence, and the belief that momentum matters more than timing.",
+      "stack": ["Next.js", "Markdown", "AWS Amplify", "Amazon S3"],
+      "repo": "https://github.com/egnica/My-Blog",
+      "status": "Launched"
+    },
+    {
+      "title": "Nicholas Egner: SEO Strategy Project",
+      "url": null,
+      "urlBtnText": null,
+      "repo": null,
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "Nicholas Egner: SEO Strategy Project is a personal SEO  project I undertook to reclaim control of my online identity. For years, searching 'Nicholas Egner' on Google returned mugshots of a convicted felon with my same name, someone I’ve never met, but whose picture and record dominated the search results of my name.<br/><br/>This project was my way of pushing back. I built nicholasegner.com, authored meaningful blog content under my real name, and implemented a full suite of structured metadata  including JSON-LD, Open Graph tags, canonical URLs, and robots meta directives. I also monitored progress in Google Search Console, iterating over time.<br/><br/>As a result, nicholasegner.com now ranks #1 for my name, replacing irrelevant and damaging content with a professional, accurate digital presence.<br/><br/>This wasn’t just about SEO, it was about visibility, credibility, and owning the story that shows up when someone searches for me.",
+      "stack": [
+        "JSON-LD",
+        "Open Graph",
+        "Robots Meta",
+        "Google Search Console",
+        "Next.js"
+      ],
+      "status": "Launched"
+    },
+    {
+      "title": "GIGnnovate",
+      "url": "URL_HERE",
+      "urlBtnText": "Visit Site",
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "GIGnnovate is my freelance brand. A creative hub for showcasing the services I offer in web development, branding, and digital strategy.<br/><br/>The site is built with Next.js and hosted on AWS Amplify, with styling powered by CSS Modules and animated transitions crafted with Framer Motion. It reflects not only the technical skill I bring to client work, but also the visual creativity and strategic thinking that set my freelance services apart.<br/><br/>GIGnnovate is still in active development and will eventually include service tiers. The brand represents more than just web design, it encompasses full-service solutions including SEO strategy, custom web applications, database-integrated business workflows, and dynamic visual tools like dashboards and content platforms. On the creative side, I also offer video production, editing, and graphic design to help clients stand out and communicate more effectively.",
+      "stack": ["Next.js", "Framer Motion", "CSS Modules", "AWS Amplify"],
+      "repo": "https://github.com/egnica/dudewithacar",
+      "status": "In Progress"
+    }
+  ]
 }

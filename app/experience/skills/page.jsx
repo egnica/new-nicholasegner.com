@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "../../page.module.css";
 import Stack from "./skillscomps/stack";
+import Projects from "./skillscomps/projects";
 
 function Skills() {
   const [revealSkill, setRevealSkill] = useState("");
@@ -31,11 +32,10 @@ function Skills() {
         <div>
           Tech Stack
           <div onClick={() => setRevealSkill("")}>Back</div>
-          
           <Stack />
         </div>
       ) : revealSkill == "projects" ? (
-        <div>Featured Projects</div>
+        <Projects />
       ) : null}
     </div>
   );
