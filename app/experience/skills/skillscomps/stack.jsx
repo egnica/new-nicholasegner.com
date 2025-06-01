@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import StackJson from "../../../../stack.json";
 
 function Stack() {
+  
   const [stackSelect, setStackSelect] = useState("");
   const [selectedObject, setSelectedObject] = useState("");
   useEffect(() => {
@@ -60,11 +61,12 @@ function Stack() {
             );
           })}
       </div>
-      {selectedObject && stackSelect && (
+      {selectedObject && (
         <div>
           <h3>{selectedObject.name}</h3>
           <p>{selectedObject.text}</p>
           <div
+            style={{ border: "1px solid red" }}
             className={styles.svgWrap}
             dangerouslySetInnerHTML={{ __html: selectedObject.image }}
           />
