@@ -224,6 +224,23 @@
       "stack": ["Next.js", "Framer Motion", "CSS Modules", "AWS Amplify"],
       "repo": "https://github.com/egnica/dudewithacar",
       "status": "In Progress"
+    },
+    {
+      "title": "DudeWithaCar.com",
+      "url": "https://www.dudewithacar.com/",
+      "urlBtnText": "Preview MVP",
+      "image": ["IMAGE_URL_1", "IMAGE_URL_2", "IMAGE_URL_3"],
+      "description": "dudewithacar.com is a  service platform that connects people who need something moved. Whether it’s a ride, a haul, or a delivery, with someone who has a car and can get the job done.<br/><br/>The platform includes one-click login via Supabase Auth, a streamlined job request form, and a backend dashboard where drivers can accept, deny, or counter offers. Payments are powered by Stripe, and user activity is tracked to support future features like ratings and recurring customers.<br/><br/>Built with Next.js and Supabase on a PostgreSQL database, the MVP is designed to test real-world needs quickly, while maintaining flexibility for future development. Resend is integrated to handle transactional emails like job confirmations and status updates.<br/><br/> This project reflects a blend of lean startup thinking, practical backend logic, and user-first design.",
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "Stripe",
+        "PostgreSQL",
+        "Resend",
+        "AWS Amplify"
+      ],
+      "repo": "https://github.com/egnica/dudewithacar",
+      "status": "In Progress"
     }
   ]
 }
