@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 
 export default function Home() {
+<<<<<<< HEAD
   const Star = "https://wodniack.dev/images/asset-star.svg";
   const name = "nicholas egner";
   const front = "<<<<<<<<<<<<<<<";
@@ -72,6 +73,17 @@ export default function Home() {
         {front} || 1001000 100001 1100001 101011 || {back}
       </div>
       <div className={styles.coverBottom}></div>
+=======
+  return (
+    <div className={styles.page}>
+      <h1>Nicholas Egner</h1>
+      <Link href={"./about"}>
+        <div>About</div>
+      </Link>
+      <Link href={"./experience"}>
+        <div>Experience</div>
+      </Link>
+>>>>>>> 3c8f0722ad23ed190c6a9d3e4ff8bcf8d76dd5ed
     </div>
   );
 }
