@@ -1,10 +1,22 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
+import TextCont from "./components/textContBtn";
 
 export default function Home() {
-<<<<<<< HEAD
-  const Star = "https://wodniack.dev/images/asset-star.svg";
+  const Star = ({ className }) => (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 49 49"
+      xmlSpace="preserve"
+    >
+      <path
+        fill="#ffffff"
+        d="m24.5 0 3.3 21.2L49 24.5l-21.2 3.3L24.5 49l-3.3-21.2L0 24.5l21.2-3.3L24.5 0z"
+      />
+    </svg>
+  );
   const name = "nicholas egner";
   const front = "<<<<<<<<<<<<<<<";
   const back = ">>>>>>>>>>>>>>>>";
@@ -16,8 +28,8 @@ export default function Home() {
           <Image
             className={styles.logo}
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg"
-            width={130}
-            height={130}
+            width={20}
+            height={20}
             alt="Nicholas Egner Logo"
           />
         </a>
@@ -27,35 +39,34 @@ export default function Home() {
         <Image
           className={styles.mainImage}
           src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/placeholder.jpg"
-          width={600}
+          width={500}
           height={300}
           alt="Picture of Nicholas Egner"
         />
         <div className={styles.mainBtnCont}>
-          <div className={styles.textCont}>
-            <h2>My Story</h2>
-
+          <TextCont
+            title={"MY STORY"}
+            btnText={"Watch the Story"}
+            path={"./about-me"}
+          >
             <p>
               This interactive video series walks you through my background,
               what drives me, and where I’m heading next. Click below to choose
               your path and watch the story unfold.
             </p>
-            <Link className={styles.mainBtn} href={"./about-me"}>
-              Watch the Story
-            </Link>
-          </div>
-          <div className={styles.textCont}>
-            <h2>Career Dashboard</h2>
+          </TextCont>
 
+          <TextCont
+            title={"CAREER DASHBOARD"}
+            btnText={"Explore the Dashboard"}
+            path={"./skills"}
+          >
             <p>
               This interactive dashboard lets you explore my skills, tools, and
               real-world projects. Along with the creative work and work history
               that shaped them. It’s part portfolio, part proof of concept.
             </p>
-            <Link className={styles.mainBtn} href={"./skills"}>
-              Explore the Dashboard
-            </Link>
-          </div>
+          </TextCont>
         </div>
       </div>
 
@@ -66,24 +77,15 @@ export default function Home() {
       </div>
       <div className={styles.nameCont}>
         <h1>{name}</h1>
-        <Image src={Star} width={50} height={50} alt="star divider" />
+
+        <Star className={styles.star} />
+
         <h1>web developer</h1>
       </div>
       <div className={styles.nameBottom}>
         {front} || 1001000 100001 1100001 101011 || {back}
       </div>
       <div className={styles.coverBottom}></div>
-=======
-  return (
-    <div className={styles.page}>
-      <h1>Nicholas Egner</h1>
-      <Link href={"./about"}>
-        <div>About</div>
-      </Link>
-      <Link href={"./experience"}>
-        <div>Experience</div>
-      </Link>
->>>>>>> 3c8f0722ad23ed190c6a9d3e4ff8bcf8d76dd5ed
     </div>
   );
 }
