@@ -6,6 +6,7 @@ import styles from "../page.module.css";
 import Stack from "./skillscomps/stack";
 import Projects from "./skillscomps/projects";
 import Header from "../components/header";
+import ContState from "../components/textContState";
 
 function Skills() {
   const [revealSkill, setRevealSkill] = useState("");
@@ -13,21 +14,34 @@ function Skills() {
     <>
       <Header />
       <div className={styles.cont}>
-        <h2>Skills - To Pay The Bills</h2>
+        <h1>Skills - To Pay The Bills</h1>
         {revealSkill == "" && (
           <div className={styles.skillsBtnContain}>
-            <div
-              onClick={() => setRevealSkill("stack")}
-              className={styles.skillsBtn}
+            <ContState
+              title={"TECH STACK"}
+              btnText={"Open Tech Stack"}
+              clickFun={() => setRevealSkill("stack")}
             >
-              Tech Stack
-            </div>
-            <div
-              onClick={() => setRevealSkill("projects")}
-              className={styles.skillsBtn}
+              <p>
+                <strong>Here’s what I build with.</strong>
+                <br /> From frontend frameworks to backend databases, these are
+                the tools I use to bring ideas to life. Fast, responsive, and
+                scalable. Every choice here reflects real-world use, not just
+                buzzwords.
+              </p>
+            </ContState>
+            <ContState
+              title={"PROJECTS"}
+              btnText={"Explore My Work"}
+              clickFun={() => setRevealSkill("projects")}
             >
-              Featured Projects
-            </div>
+              <p>
+                <strong>This is where the stack comes alive.</strong> <br />
+                Here’s a selection of projects that show what I can do. From
+                interactive dashboards to full-stack apps. Everything here ties
+                back to real needs, real users, and real outcomes.
+              </p>
+            </ContState>
           </div>
         )}
 

@@ -34,7 +34,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; */
-  background-color: #e5e5e5;
+  background-color: var(--bg-color);
   display: grid;
   grid-template-columns: auto 1fr;
 }
@@ -47,7 +47,7 @@
 }
 .textCont {
   display: grid;
-  background-color: #b08c57c3;
+  background-color: var(--two-color);
   box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
   -webkit-box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
@@ -62,6 +62,7 @@
   background-color: #ffffff;
   background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/texture.webp");
   background-size: cover;
+  background-size: cover;
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
@@ -73,7 +74,7 @@
   -moz-box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.46) inset;
   place-content: center;
   padding: 10px;
-  background-color: #ffffff55;
+  background-color: #ffffff8a;
   position: absolute;
   top: 0;
   left: 0;
@@ -83,7 +84,7 @@
 }
 .transparentCont p {
   font-size: 1.1em;
-  color: #383838;
+  color: var(--text-color);
 }
 
 .textCont h2 {
@@ -92,12 +93,15 @@
 }
 
 .mainBtn {
-  background-color: #ffff;
+  background-color: var(--three-color);
+  color: var(--bg-text);
+
   border-radius: 10px;
   margin: auto;
   padding: 10px;
   width: 80%;
   text-align: center;
+  cursor: pointer;
 }
 .nameCont {
   border-top: 1px solid black;
@@ -133,23 +137,62 @@
 }
 
 /* *********SKILLS ********* */
-.cont {
-  padding: 20px;
+
+.cont h1 {
+  font-size: 4em;
 }
 .skillsBtnContain {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  background-color: rgb(240, 248, 255);
+  border: 10px solid var(--four-color);
+  margin: 10px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  border-radius: 20px;
+}
+.btnCont2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 20px 50px;
 }
 .skillsBtn {
-  background-color: rgb(91, 121, 255);
-  color: aliceblue;
-  padding: 20px;
-  border-radius: 10px;
+  background: linear-gradient(to bottom, #1a2d6b, #0b1d51);
+  color: white;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid #0b1d51;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    /* subtle inner highlight */ 0 4px 8px rgba(0, 0, 0, 0.3); /* outer drop shadow */
+  text-shadow: 0 1px rgba(0, 0, 0, 0.4); /* adds legibility */
+  transition: all 0.2s ease;
   cursor: pointer;
 }
+.objectCont {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  padding: 20px 50px;
+}
+.objectContText {
+  align-content: center;
+}
+.objectContText hr {
+  max-width: 400px;
+}
+.objectContText h2 {
+  font-size: 3.5em;
+}
+.objectContText p {
+  max-width: 400px;
+  color: var(--bg-text);
+  font-size: large;
+  
+}
 .svgWrap {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   display: block;
 }
 .svgWrap svg {
