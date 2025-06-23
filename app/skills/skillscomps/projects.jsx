@@ -20,7 +20,9 @@ function Projects() {
           <BtnWrap
             key={index}
             title={item.title}
-            clickFunc={() => setSelectProject(item.title)}
+            clickFunc={() =>
+              setSelectProject((prev) => (prev == item.title ? "" : item.title))
+            }
           >
             {item.title}
           </BtnWrap>
@@ -28,8 +30,16 @@ function Projects() {
       </div>
       {selectProject && (
         <div className={styles.projectOutputContain}>
-          <h2>{projectFind.title}</h2>
-          <ImageCarousel imageArray={projectFind.image} />
+          <div className={styles.imageTextCont}>
+            <ImageCarousel imageArray={projectFind.image} />
+            <div className={styles.innerContain}>
+              <h2>{projectFind.title}</h2>
+              <p
+                className={styles.textDecrip}
+                dangerouslySetInnerHTML={{ __html: projectFind.description }}
+              ></p>
+            </div>
+          </div>
         </div>
       )}
     </>

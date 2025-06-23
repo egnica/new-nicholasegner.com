@@ -36,8 +36,10 @@ function Carousel({ imageArray }) {
 
   return (
     <div>
-      <div style={{ display: "flex" }}>
-        <div onClick={goPrev}>←</div>
+      <div className={styles.controlContain}>
+        <div className={styles.arrow} onClick={goPrev}>
+          ←
+        </div>
         {imageArray.map((_, index) => (
           <div
             key={index}
@@ -45,7 +47,9 @@ function Carousel({ imageArray }) {
             className={styles.dot}
           ></div>
         ))}
-        <div onClick={goNext}>→</div>
+        <div className={styles.arrow} onClick={goNext}>
+          →
+        </div>
       </div>
       <Image
         width={640}

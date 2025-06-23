@@ -1,32 +1,32 @@
 "use client";
 import styles from "../../page.module.css";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import StackJson from "../../../stack.json";
 import Wrapper from "../../components/textContState";
 import BtnWrap from "../../components/selectStateBtn";
 
-function Stack() {
-  const [stackSelect, setStackSelect] = useState("");
+function Stack({ stackSelect, onStackChange }) {
   const [selectedObject, setSelectedObject] = useState("");
+
   useEffect(() => {
-    setSelectedObject("");
+    setSelectedObject(""); // Clear selected object when stack changes
   }, [stackSelect]);
 
-  const stackObject = Object.values(StackJson.stack).find(
-    (item) => stackSelect == item.category
-  );
-
   const clickHandler = (item) => {
-    setStackSelect((prev) => (prev === item ? "" : item));
+    onStackChange(stackSelect === item ? "" : item);
   };
 
   const clickSingleObject = (item) => {
-    setSelectedObject((prev) => (prev.name == item.name ? "" : item));
+    setSelectedObject((prev) => (prev.name === item.name ? "" : item));
   };
+
+  const stackObject = Object.values(StackJson.stack).find(
+    (item) => stackSelect === item.category
+  );
+
   return (
     <div>
-      {stackSelect == "" && (
+      {stackSelect === "" && (
         <div className={styles.skillsBtnContain}>
           <Wrapper
             title={"FRONTEND"}
@@ -56,7 +56,6 @@ function Stack() {
               Supabase, or AWS, I’m focused on performance and reliability.
             </p>
           </Wrapper>
-
           <Wrapper
             title={"DEVOPS & HOSTING"}
             btnText={"View Deployment Tools"}
@@ -85,18 +84,19 @@ function Stack() {
           </Wrapper>
         </div>
       )}
+
       <div className={styles.btnCont2}>
         {stackSelect &&
-          Object.entries(stackObject.technologies).map(([_, item], index) => {
-            return (
-              <BtnWrap
-                key={index}
-                clickFunc={() => clickSingleObject(item)}
-                title={item.name}
-              />
-            );
-          })}
+          stackObject &&
+          Object.entries(stackObject.technologies).map(([_, item], index) => (
+            <BtnWrap
+              key={index}
+              clickFunc={() => clickSingleObject(item)}
+              title={item.name}
+            />
+          ))}
       </div>
+
       {selectedObject && (
         <div className={styles.objectCont}>
           <div

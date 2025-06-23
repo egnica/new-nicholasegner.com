@@ -140,6 +140,10 @@
 
 .cont h1 {
   font-size: 4em;
+  padding: 20px;
+}
+.careerNav {
+  display: flex;
 }
 .skillsBtnContain {
   display: grid;
@@ -207,10 +211,36 @@
 .projectOutputContain {
   padding-left: 20px;
 }
+.imageTextCont {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+.innerContain {
+  margin: auto;
+}
+.innerContain h2 {
+  padding-left: 40px;
+  font-size: 2em;
+}
+.textDecrip {
+  padding: 0 50px 0 40px;
+  font-size: large;
+  padding-top: 5px;
+}
+/******************** carousel */
+.controlContain {
+  display: flex;
+  padding: 0 5px;
+}
+.arrow {
+  font-size: 3em;
+  cursor: pointer;
+}
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: #0b1d51;
   border-radius: 40px;
-  margin: 0 5px;
+  margin: auto;
+  cursor: pointer;
 }
