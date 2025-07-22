@@ -1,15 +1,29 @@
-'use client'
+"use client";
 import React from "react";
 import Intro from "./video-comps/Intro";
 import { useState } from "react";
+import styles from "../page.module.css";
 
 function AboutMe() {
-  return (
-    <>
-      <div>AboutMe</div>
+  const [title, setTitle] = useState("intro");
+  const [currentTime, setCurrentTime] = useState(0);
 
-      <Intro />
-    </>
+  const timeFunction = (time) => setCurrentTime(time);
+
+  return (
+    <div className={styles.videoPage}>
+      <p>{currentTime}</p>
+      <h1>CHANGE TEXT FOR VIDEO</h1>
+      <div className={styles.mainBtnCont}>
+        <div>INTRO</div>
+        <div>INTRO</div>
+        <div>INTRO</div>
+        <div>INTRO</div>
+        <div>INTRO</div>
+      </div>
+
+      <Intro timeStamp={timeFunction} />
+    </div>
   );
 }
 

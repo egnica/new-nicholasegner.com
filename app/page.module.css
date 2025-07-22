@@ -244,3 +244,31 @@
   margin: auto;
   cursor: pointer;
 }
+
+/**************** about-me video page */
+.videoPage {
+  padding: 20px;
+  display: grid;
+}
+.mainBtnCont {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.videoContent {
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 0.5fr;
+}
+.videoContainer {
+  margin: auto;
+  width: 100%;
+}
+.rightBtnCont {
+}
+.leftBtnCont{
+
+}
+.textContentCont{
+
+}
