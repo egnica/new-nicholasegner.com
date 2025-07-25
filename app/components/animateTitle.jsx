@@ -1,7 +1,15 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function animateTitle({ children, start, end, time, tag }) {
+function animateTitle({
+  children,
+  start,
+  end,
+  time,
+  tag,
+  style = {},
+  onClick,
+}) {
   const MotionTag = motion[tag];
 
   const titleVariant = {
@@ -14,6 +22,7 @@ function animateTitle({ children, start, end, time, tag }) {
       x: 0,
       transition: { duration: 0.5, ease: "easeIn" },
     },
+
     exit: {
       opacity: 0,
       x: 150,
@@ -27,10 +36,14 @@ function animateTitle({ children, start, end, time, tag }) {
         {time > start && time < end && (
           <MotionTag
             variants={titleVariant}
+            onClick={onClick}
             key={"key" + start + end}
             initial="start"
             animate="visible"
             exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            style={style}
           >
             {children}
           </MotionTag>

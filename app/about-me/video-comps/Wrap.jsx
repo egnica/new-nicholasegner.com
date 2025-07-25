@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "../../page.module.css";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import AnimateTitle from "@/app/components/animateTitle";
+import AnimateBtn from "@/app/components/animateBtn";
+import Link from "next/link";
 
-function wrap({ timeStamp }) {
+function Wrap({ timeStamp, fromClick }) {
   const videoRef = useRef(null);
   const [currentTime, setCurrentTime] = useState(0);
+  const [overLayOn, setOverLayOn] = useState("");
+  const [videoSelect, setVideoSelect] = useState(null);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -15,66 +19,110 @@ function wrap({ timeStamp }) {
       setCurrentTime(video.currentTime);
       timeStamp(video.currentTime);
     };
-
     video.addEventListener("timeupdate", handleTimeUpdate);
     return () => video.removeEventListener("timeupdate", handleTimeUpdate);
   }, []);
 
-  const titleVariant = {
-    start: {
-      opacity: 0,
-      x: -150,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, ease: "easeIn" },
-    },
-    exit: {
-      opacity: 0,
-      x: 150,
-      transition: { duration: 0.5, ease: "easeIn" },
-    },
+  const videoArray = [
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/nick-child.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/worstThing.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Hello-Squirrel.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4",
+  ];
+
+  const overLay = (num) => {
+    setOverLayOn("on");
+    setVideoSelect(num);
   };
+
+  const clickStop = () => {
+    const video = videoRef.current;
+    video.pause();
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    overLayOn == "on"
+      ? video.pause()
+      : overLayOn == "off"
+      ? video.play()
+      : null;
+  }, [overLayOn]);
 
   return (
     <>
-      <p>{currentTime}</p>
-
       <div className={styles.videoContent}>
         <div className={styles.rightBtnCont}>
-          {currentTime > 1 && currentTime < 5 && <div>Button 2</div>}
-          <div>BTN 1</div>
+          {/* <AnimateBtn
+            onClick={() => overLay(0)}
+            start={1}
+            end={28}
+            time={currentTime}
+          >
+            My Childhood
+          </AnimateBtn> */}
         </div>
         <video className={styles.videoContainer} ref={videoRef} controls>
           <source
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/intro.mp4"
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/wrap_up.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
         <div className={styles.leftBtnCont}>
-          <div>BTN 1</div>
+          {/* <a
+            href="https://elginil.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={6.5}
+              end={28}
+              time={currentTime}
+            >
+              Elgin,
+              <br /> IL.
+            </AnimateBtn>
+          </a> */}
         </div>
-        <p>click links</p>
+        <p></p>
         <div className={styles.textContentCont}>
-          <AnimatePresence mode="wait">
-            {(currentTime > 1.3 || currentTime < 4.4) && (
-              <motion.div
-                key="Nicholas Egner"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h1>Nicholas Egner</h1>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* <AnimateTitle
+            style={{ color: "blue" }}
+            start={1}
+            end={6}
+            time={currentTime}
+            tag={"h2"}
+            onClick={() => clickStop()}
+          >
+            <a
+              href="https://www.youtube.com/watch?v=5NeS4ueaU6w"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Everyone has a stroy...
+            </a>
+          </AnimateTitle> */}
         </div>
+        {overLayOn == "on" && (
+          <div onClick={() => setOverLayOn("off")} className={styles.overLay}>
+            <div className={styles.cancelContain}>
+              <p className={styles.cancelX}>x</p>
+              <div></div>
+            </div>
+
+            <video className={styles.videoContainer} controls>
+              <source src={videoArray[videoSelect]} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )}
       </div>
     </>
   );
 }
 
-export default wrap;
+export default Wrap;

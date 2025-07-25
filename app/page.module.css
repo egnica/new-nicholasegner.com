@@ -95,7 +95,6 @@
 .mainBtn {
   background-color: var(--three-color);
   color: var(--bg-text);
-
   border-radius: 10px;
   margin: auto;
   padding: 10px;
@@ -252,23 +251,77 @@
 }
 .mainBtnCont {
   margin: auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
+
+.mainVideBtns {
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-size: 18px;
+}
+
 .videoContent {
   display: grid;
   grid-template-columns: 0.5fr 3fr 0.5fr;
+  position: relative;
 }
 .videoContainer {
   margin: auto;
   width: 100%;
+  padding: 5px;
+}
+.interBtn {
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  width: 100%;
 }
 .rightBtnCont {
+  display: grid;
+  margin: auto;
+  gap: 10px;
+  text-align: center;
+  width: 100%;
 }
-.leftBtnCont{
 
+.leftBtnCont {
+  display: grid;
+  margin: auto;
+  gap: 10px;
+  text-align: center;
+  width: 100%;
 }
-.textContentCont{
-
+.textContentCont {
+}
+.overLay {
+  background-color: #000000dd;
+  position: absolute;
+  width: 100%;
+  display: grid;
+  padding-bottom: 5%;
+}
+.overLay video {
+  width: 80%;
+  margin: auto;
+}
+.cancelContain {
+  display: grid;
+  grid-template-columns: 0.01fr;
+}
+.cancelX {
+  margin: 15px 0 0 15px;
+  padding: 0px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.836);
+  font-family: "Courier New", Courier, monospace;
+}
+.cancelX:hover {
+  scale: 1.2;
 }
