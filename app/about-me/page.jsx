@@ -62,7 +62,7 @@ function AboutMe() {
       color: "rgba(222, 222, 248, 1)",
       boxShadow: "0 4px 15px 0 rgba(0, 0, 0, 0.2)",
       transition: { duration: 0.5, ease: "easeIn" },
-      border: "rgba(248, 248, 255, 1) .5px solid",
+      border: "black .5px solid",
     },
     hover: {
       scale: 1.01,
@@ -85,7 +85,7 @@ function AboutMe() {
       backgroundSize: "cover",
       backgroundPosition: "20% 80%",
       color: "rgba(222, 222, 248, 1)",
-      border: "black .5px solid",
+      border: "rgba(248, 248, 255, 1) .5px solid",
     },
     exit: {
       opacity: 0,
@@ -95,85 +95,89 @@ function AboutMe() {
   };
 
   return (
-    <div className={styles.videoPage}>
-      <p>{currentVideo}</p>
-      <p>{currentTime}</p>
-      <h1>{titleForSection()}</h1>
-      <div className={styles.mainBtnCont}>
-        <motion.div
-          key="intro"
-          className={styles.mainVideBtns}
-          variants={navButtons}
-          initial="start"
-          animate={currentVideo == "intro" ? "selected" : "visible"}
-          whileHover="hover"
-          onClick={() => setCurrentVideo("intro")}
-        >
-          INTRO
-        </motion.div>
-        <motion.div
-          className={styles.mainVideBtns}
-          key={"background"}
-          variants={navButtons}
-          initial="start"
-          animate={currentVideo == "background" ? "selected" : "visible"}
-          exit="exit"
-          whileHover="hover"
-          whileTap="click"
-          onClick={() => {
-            setCurrentVideo("background");
-          }}
-        >
-          BACKGROUND
-        </motion.div>
-        <motion.div
-          className={styles.mainVideBtns}
-          key={"present"}
-          variants={navButtons}
-          initial="start"
-          animate={currentVideo == "present" ? "selected" : "visible"}
-          exit="exit"
-          whileHover="hover"
-          whileTap="click"
-          onClick={() => {
-            setCurrentVideo("present");
-          }}
-        >
-          PRESENT
-        </motion.div>
-        <motion.div
-          className={styles.mainVideBtns}
-          key={"future"}
-          variants={navButtons}
-          initial="start"
-          animate={currentVideo == "future" ? "selected" : "visible"}
-          exit="exit"
-          whileHover="hover"
-          whileTap="click"
-          onClick={() => {
-            setCurrentVideo("future");
-          }}
-        >
-          FUTURE
-        </motion.div>
-        <motion.div
-          className={styles.mainVideBtns}
-          key={"wrap"}
-          variants={navButtons}
-          initial="start"
-          animate={currentVideo == "wrap" ? "selected" : "visible"}
-          exit="exit"
-          whileHover="hover"
-          whileTap="click"
-          onClick={() => {
-            setCurrentVideo("wrap");
-          }}
-        >
-          WRAP-UP
-        </motion.div>
+    <>
+      <div className={styles.backColor}></div>
+      <div className={styles.videoPage}>
+        <p style={{ color: "white" }}>{currentTime}</p>
+        {/* <h1>{titleForSection()}</h1> */}
+        <div className={styles.mainBtnContVid}>
+          <motion.div
+            className={styles.mainVideBtns}
+            key={"intro"}
+            variants={navButtons}
+            initial="start"
+            animate={currentVideo == "intro" ? "selected" : "visible"}
+            exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            onClick={() => setCurrentVideo("intro")}
+          >
+            INTRO
+          </motion.div>
+          <motion.div
+            className={styles.mainVideBtns}
+            key={"background"}
+            variants={navButtons}
+            initial="start"
+            animate={currentVideo == "background" ? "selected" : "visible"}
+            exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            onClick={() => {
+              setCurrentVideo("background");
+            }}
+          >
+            BACKGROUND
+          </motion.div>
+          <motion.div
+            className={styles.mainVideBtns}
+            key={"present"}
+            variants={navButtons}
+            initial="start"
+            animate={currentVideo == "present" ? "selected" : "visible"}
+            exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            onClick={() => {
+              setCurrentVideo("present");
+            }}
+          >
+            PRESENT
+          </motion.div>
+          <motion.div
+            className={styles.mainVideBtns}
+            key={"future"}
+            variants={navButtons}
+            initial="start"
+            animate={currentVideo == "future" ? "selected" : "visible"}
+            exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            onClick={() => {
+              setCurrentVideo("future");
+            }}
+          >
+            FUTURE
+          </motion.div>
+          <motion.div
+            className={styles.mainVideBtns}
+            key={"wrap"}
+            variants={navButtons}
+            initial="start"
+            animate={currentVideo == "wrap" ? "selected" : "visible"}
+            exit="exit"
+            whileHover="hover"
+            whileTap="click"
+            onClick={() => {
+              setCurrentVideo("wrap");
+            }}
+          >
+            WRAP-UP
+          </motion.div>
+        </div>
+        <div>{renderVideo()}</div>
       </div>
-      <div>{renderVideo()}</div>
-    </div>
+    </>
   );
 }
 

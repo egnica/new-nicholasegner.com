@@ -64,7 +64,12 @@ function Future({ timeStamp, fromClick }) {
             My Childhood
           </AnimateBtn> */}
         </div>
-        <video className={styles.videoContainer} ref={videoRef} controls>
+        <video
+          className={styles.videoContainer}
+          ref={videoRef}
+          controls
+          autoPlay
+        >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/future.mp4"
             type="video/mp4"

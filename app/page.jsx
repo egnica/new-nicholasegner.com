@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 import TextCont from "./components/textContBtn";
+import { motion, AnimatePresence, color } from "framer-motion";
 
 export default function Home() {
   const Star = ({ className }) => (
@@ -17,6 +19,17 @@ export default function Home() {
       />
     </svg>
   );
+
+  const skillsArray = [
+    "web developer",
+    "app developer",
+    "content creator",
+    "video producer",
+    "video editor",
+    "seo specialist",
+    "digital experiences",
+  ];
+
   const name = "nicholas egner";
   const front = "<<<<<<<<<<<<<<<";
   const back = ">>>>>>>>>>>>>>>>";
@@ -35,41 +48,6 @@ export default function Home() {
         </a>
         <h1>Nicholas Egner - Minneapolis Web Developer</h1>
       </div>
-      <div className={styles.mainCont}>
-        <Image
-          className={styles.mainImage}
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/placeholder.jpg"
-          width={500}
-          height={300}
-          alt="Picture of Nicholas Egner"
-        />
-        <div className={styles.mainBtnCont}>
-          <TextCont
-            title={"MY STORY"}
-            btnText={"Watch the Story"}
-            path={"./about-me"}
-          >
-            <p>
-              This interactive video series walks you through my background,
-              what drives me, and where I’m heading next. Click below to choose
-              your path and watch the story unfold.
-            </p>
-          </TextCont>
-
-          <TextCont
-            title={"CAREER DASHBOARD"}
-            btnText={"Explore the Dashboard"}
-            path={"./skills"}
-          >
-            <p>
-              This interactive dashboard lets you explore my skills, tools, and
-              real-world projects. Along with the creative work and work history
-              that shaped them. It’s part portfolio, part proof of concept.
-            </p>
-          </TextCont>
-        </div>
-      </div>
-
       <div className={styles.nameTop}>
         <p>
           {front} || 1001000 100001 1100001 101011 || {back}
@@ -85,6 +63,33 @@ export default function Home() {
       <div className={styles.nameBottom}>
         {front} || 1001000 100001 1100001 101011 || {back}
       </div>
+
+      <div className={styles.mainBtnCont}>
+        <TextCont
+          title={"MY STORY"}
+          btnText={"Watch the Story"}
+          path={"./about-me"}
+        >
+          <p>
+            This interactive video series walks you through my background, what
+            drives me, and where I’m heading next. Click below to choose your
+            path and watch the story unfold.
+          </p>
+        </TextCont>
+
+        <TextCont
+          title={"CAREER DASHBOARD"}
+          btnText={"Explore the Dashboard"}
+          path={"./skills"}
+        >
+          <p>
+            This interactive dashboard lets you explore my skills, tools, and
+            real-world projects. Along with the creative work and work history
+            that shaped them. It’s part portfolio, part proof of concept.
+          </p>
+        </TextCont>
+      </div>
+
       <div className={styles.coverBottom}></div>
     </div>
   );

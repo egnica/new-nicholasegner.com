@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import styles from "../page.module.css";
 
 function animateTitle({
   children,
@@ -15,7 +16,7 @@ function animateTitle({
   const titleVariant = {
     start: {
       opacity: 0,
-      x: -150,
+      x: -50,
     },
     visible: {
       opacity: 1,
@@ -25,7 +26,7 @@ function animateTitle({
 
     exit: {
       opacity: 0,
-      x: 150,
+      x: 50,
       transition: { duration: 0.5, ease: "easeIn" },
     },
   };
@@ -37,6 +38,7 @@ function animateTitle({
           <MotionTag
             variants={titleVariant}
             onClick={onClick}
+            className={styles.motionText}
             key={"key" + start + end}
             initial="start"
             animate="visible"

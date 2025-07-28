@@ -24,12 +24,7 @@ function Present({ timeStamp, fromClick }) {
   }, []);
 
   const videoArray = [
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/nick-child.mp4",
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/worstThing.mp4",
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Hello-Squirrel.mp4",
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4",
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4",
-    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4",
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/chaos.mp4",
   ];
 
   const overLay = (num) => {
@@ -83,7 +78,12 @@ function Present({ timeStamp, fromClick }) {
             Wrap It Up
           </AnimateBtn>
         </div>
-        <video className={styles.videoContainer} ref={videoRef} controls>
+        <video
+          className={styles.videoContainer}
+          ref={videoRef}
+          controls
+          autoPlay
+        >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/present.mp4"
             type="video/mp4"
@@ -117,14 +117,29 @@ function Present({ timeStamp, fromClick }) {
               end={23.7}
               time={currentTime}
             >
-              'This is fine'
+              'This is Fine'
+            </AnimateBtn>
+          </a>
+
+          <a
+            href="https://en.wikipedia.org/wiki/Beetlejuice"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={25.3}
+              end={38.9}
+              time={currentTime}
+            >
+              Beetlejuice (1988)
             </AnimateBtn>
           </a>
         </div>
         <p></p>
         <div className={styles.textContentCont}>
           <AnimateTitle
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
             start={6.4}
             end={23.7}
             time={currentTime}
@@ -139,6 +154,22 @@ function Present({ timeStamp, fromClick }) {
               Uncharted Waters
             </a>
           </AnimateTitle>
+          <AnimateTitle start={42.7} end={46.3} time={currentTime} tag={"p"}>
+            In the Beetlejuice universe, sandworms are colossal, worm-like
+            creatures that inhabit Titan, a moon of Saturn, which serves as a
+            limbo-like realm between life and death.
+          </AnimateTitle>
+
+          <AnimateTitle
+            style={{ color: "#abaaffff", cursor: "pointer" }}
+            start={53.4}
+            end={59}
+            time={currentTime}
+            tag={"h1"}
+            onClick={() => overLay(0)}
+          >
+            Chaos?? Really, Chaos?
+          </AnimateTitle>
         </div>
         {overLayOn == "on" && (
           <div onClick={() => setOverLayOn("off")} className={styles.overLay}>
@@ -147,7 +178,7 @@ function Present({ timeStamp, fromClick }) {
               <div></div>
             </div>
 
-            <video className={styles.videoContainer} controls>
+            <video className={styles.videoContainer} controls autoPlay>
               <source src={videoArray[videoSelect]} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

@@ -245,24 +245,45 @@
 }
 
 /**************** about-me video page */
+.backColor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  outline: 22px dashed red;
+  background: radial-gradient(
+    circle,
+    #20015a 0%,
+    #2a45f9 40%,
+    #011d83 70%,
+    #070505 100%
+  );
+}
 .videoPage {
+  position: relative;
   padding: 20px;
   display: grid;
+  z-index: 100;
 }
-.mainBtnCont {
+.mainBtnContVid {
   margin: auto;
   display: grid;
   place-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
+  padding: 10px;
 }
 
 .mainVideBtns {
   padding: 10px;
   text-align: center;
   border-radius: 10px;
-
   cursor: pointer;
+  min-width: 120px; /* Prevents shrinking */
+  min-height: 48px; /* Makes height consistent */
   font-size: 18px;
 }
 
@@ -275,6 +296,8 @@
   margin: auto;
   width: 100%;
   padding: 5px;
+  box-shadow: 0 0 50px 15px rgba(255, 255, 255, 0.25); /* glow effect */
+  border-radius: 10px; /* optional: gives a more modern soft edge */
 }
 .interBtn {
   margin: auto;
@@ -288,6 +311,7 @@
   gap: 10px;
   text-align: center;
   width: 100%;
+  padding: 0 5px;
 }
 
 .leftBtnCont {
@@ -296,31 +320,43 @@
   gap: 10px;
   text-align: center;
   width: 100%;
+  padding: 0 5px;
 }
 .textContentCont {
+  display: inline-block; /* Shrink-wrap content */
+  width: auto;
+}
+.motionText {
+  color: white;
 }
 .overLay {
+  position: fixed; /* fixed to viewport instead of parent */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: #000000dd;
-  position: absolute;
-  width: 100%;
   display: grid;
-  padding-bottom: 5%;
+  place-items: center;
+  z-index: 9999;
 }
 .overLay video {
   width: 80%;
   margin: auto;
 }
 .cancelContain {
-  display: grid;
-  grid-template-columns: 0.01fr;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 2%;
 }
 .cancelX {
-  margin: 15px 0 0 15px;
-  padding: 0px 5px;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.836);
   font-family: "Courier New", Courier, monospace;
+  font-size: larger;
 }
 .cancelX:hover {
   scale: 1.2;

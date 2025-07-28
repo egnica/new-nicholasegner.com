@@ -165,7 +165,12 @@ function Past({ timeStamp, fromClick }) {
               A: My Background
             </span> */}
         </div>
-        <video className={styles.videoContainer} ref={videoRef} controls>
+        <video
+          className={styles.videoContainer}
+          ref={videoRef}
+          controls
+          autoPlay
+        >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/past.mp4"
             type="video/mp4"
@@ -366,7 +371,7 @@ function Past({ timeStamp, fromClick }) {
           {/*
             COPY FOR NEW ADDEND TILE ELEMENT
           -
-           <AnimateTitle    style={{ color: "blue" }}
+           <AnimateTitle    style={{ color: "#abaaffff" }}
               start={1}
               end={4.8}
               time={currentTime}
@@ -376,7 +381,7 @@ function Past({ timeStamp, fromClick }) {
           -
           */}
           <AnimateTitle
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
             start={1}
             end={6}
             time={currentTime}
@@ -400,7 +405,7 @@ function Past({ timeStamp, fromClick }) {
             time={currentTime}
             tag={"h2"}
             onClick={() => clickStop()}
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
           >
             <a
               href="https://www.youtube.com/watch?v=lwfJ7fjjwvc"
@@ -425,7 +430,7 @@ function Past({ timeStamp, fromClick }) {
             time={currentTime}
             tag={"h2"}
             onClick={() => clickStop()}
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
           >
             <a
               href="https://www.youtube.com/watch?v=52ZdwZ7Ig-8&list=RD52ZdwZ7Ig-8&start_radio=1"
@@ -441,7 +446,7 @@ function Past({ timeStamp, fromClick }) {
             time={currentTime}
             tag={"h1"}
             onClick={() => clickStop()}
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
           >
             <a
               href="https://latestartdev.com/"
@@ -456,10 +461,9 @@ function Past({ timeStamp, fromClick }) {
           <div onClick={() => setOverLayOn("off")} className={styles.overLay}>
             <div className={styles.cancelContain}>
               <p className={styles.cancelX}>x</p>
-              <div></div>
             </div>
 
-            <video className={styles.videoContainer} controls>
+            <video className={styles.videoContainer} controls autoPlay>
               <source src={videoArray[videoSelect]} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

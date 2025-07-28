@@ -3,6 +3,7 @@ import styles from "../../page.module.css";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, color } from "framer-motion";
 import AnimateTitle from "@/app/components/animateTitle";
+import AnimateBtn from "@/app/components/animateBtn";
 import Link from "next/link";
 
 function Intro({ timeStamp, fromClick }) {
@@ -22,10 +23,30 @@ function Intro({ timeStamp, fromClick }) {
     return () => video.removeEventListener("timeupdate", handleTimeUpdate);
   }, []);
 
+  const clickStop = () => {
+    const video = videoRef.current;
+    video.pause();
+  };
+
   return (
     <>
       <div className={styles.videoContent}>
-        <div className={styles.rightBtnCont}></div>
+        <div className={styles.rightBtnCont}>
+          <a
+            href="https://en.wikipedia.org/wiki/Back_to_the_Future_Part_II"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={31.5}
+              end={300}
+              time={currentTime}
+            >
+              Back to the Future Part II
+            </AnimateBtn>
+          </a>
+        </div>
         <video className={styles.videoContainer} ref={videoRef} controls>
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/intro.mp4"
@@ -33,7 +54,78 @@ function Intro({ timeStamp, fromClick }) {
           />
           Your browser does not support the video tag.
         </video>
-        <div className={styles.leftBtnCont}></div>
+        <div className={styles.leftBtnCont}>
+          <a
+            href="https://www.linkedin.com/in/nicholas-egner/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1.0}
+              end={300}
+              time={currentTime}
+            >
+              LinkedIn
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://github.com/egnica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1.5}
+              end={300}
+              time={currentTime}
+            >
+              Github
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://latestartdev.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={2}
+              end={300}
+              time={currentTime}
+            >
+              Late Start Dev
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://g.co/kgs/34UbRKk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={2.5}
+              end={300}
+              time={currentTime}
+            >
+              Google Profile
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://g.page/r/CSbhU6mFyb4qEAE/review"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={3}
+              end={300}
+              time={currentTime}
+            >
+              Google Reviews
+            </AnimateBtn>
+          </a>
+        </div>
         <p></p>
         <div className={styles.textContentCont}>
           {/*
@@ -46,7 +138,7 @@ function Intro({ timeStamp, fromClick }) {
           */}
 
           <AnimateTitle
-            style={{ color: "blue" }}
+            style={{ color: "#abaaffff" }}
             start={1}
             end={4.8}
             time={currentTime}
@@ -54,6 +146,7 @@ function Intro({ timeStamp, fromClick }) {
           >
             <Link
               href={"../../about"}
+              onClick={() => clickStop()}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -89,7 +182,7 @@ function Intro({ timeStamp, fromClick }) {
             end={19.2}
             time={currentTime}
             tag={"h2"}
-            style={{ cursor: "pointer", color: "blue" }}
+            style={{ cursor: "pointer", color: "#abaaffff" }}
           >
             <span onClick={() => fromClick("background")}>
               A: My Background
@@ -101,7 +194,7 @@ function Intro({ timeStamp, fromClick }) {
             end={21.1}
             time={currentTime}
             tag={"h2"}
-            style={{ cursor: "pointer", color: "blue" }}
+            style={{ cursor: "pointer", color: "#abaaffff" }}
           >
             <span onClick={() => fromClick("present")}>
               2: Why I am doing this
@@ -113,7 +206,7 @@ function Intro({ timeStamp, fromClick }) {
             end={33}
             time={currentTime}
             tag={"h2"}
-            style={{ cursor: "pointer", color: "blue" }}
+            style={{ cursor: "pointer", color: "#abaaffff" }}
           >
             <span onClick={() => fromClick("background")}>
               A: My Background
@@ -125,7 +218,7 @@ function Intro({ timeStamp, fromClick }) {
             end={33}
             time={currentTime}
             tag={"h2"}
-            style={{ cursor: "pointer", color: "blue" }}
+            style={{ cursor: "pointer", color: "#abaaffff" }}
           >
             <span onClick={() => fromClick("present")}>
               2: Why I am doing this
@@ -137,7 +230,7 @@ function Intro({ timeStamp, fromClick }) {
             end={33}
             time={currentTime}
             tag={"h2"}
-            style={{ cursor: "pointer", color: "blue" }}
+            style={{ cursor: "pointer", color: "#abaaffff" }}
           >
             <span onClick={() => fromClick("future")}>D: Where I am going</span>
           </AnimateTitle>
