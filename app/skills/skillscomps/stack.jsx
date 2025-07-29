@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import StackJson from "../../../stack.json";
 import Wrapper from "../../components/textContState";
 import BtnWrap from "../../components/selectStateBtn";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Stack({ stackSelect, onStackChange }) {
   const [selectedObject, setSelectedObject] = useState("");
@@ -99,15 +100,32 @@ function Stack({ stackSelect, onStackChange }) {
 
       {selectedObject && (
         <div className={styles.objectCont}>
-          <div
-            className={styles.svgWrap}
-            dangerouslySetInnerHTML={{ __html: selectedObject.image }}
-          />
-          <div className={styles.objectContText}>
-            <h2>{selectedObject.name}</h2>
-            <hr />
-            <p>{selectedObject.text}</p>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedObject.image}
+              initial={{ opacity: 0, rotateY: -90 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              exit={{ opacity: 0, rotateY: 90 }}
+              transition={{ duration: 0.5, ease: "easeIn" }}
+              style={{ overflow: "hidden" }}
+              className={styles.svgWrap}
+              dangerouslySetInnerHTML={{ __html: selectedObject.image }}
+            />
+
+            <motion.div
+              key={selectedObject.name}
+              initial={{ opacity: 0, rotateY: 90 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              exit={{ opacity: 0, rotateY: -90 }}
+              transition={{ duration: 0.5, ease: "easeIn" }}
+              style={{ overflow: "hidden" }}
+              className={styles.objectContText}
+            >
+              <h2>{selectedObject.name}</h2>
+              <hr />
+              <p>{selectedObject.text}</p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       )}
     </div>

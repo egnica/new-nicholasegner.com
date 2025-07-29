@@ -27,26 +27,44 @@ function Skills() {
 
   return (
     <>
+      <div className={styles.mainBackColor}></div>
+      <video className={styles.starOverlay} autoPlay loop muted playsInline>
+        <source
+          src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"
+          type="video/webm"
+        />
+      </video>
       <Header />
       <div className={styles.cont}>
-        <h1>Skills - To Pay The Bills</h1>
         <div className={styles.careerNav}>
-          <Link href={"./"}>
-            <div
-              style={{ width: "100px", marginLeft: "20px" }}
-              className={styles.skillsBtn}
-            >
-              Home
-            </div>
-          </Link>
+          <AnimatePresence mode="wait">
+            <Link href={"./"}>
+              <motion.div
+                key={"nameCont"}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{ width: "100px", marginLeft: "20px" }}
+                className={styles.skillsBtn}
+              >
+                Home
+              </motion.div>
+            </Link>
+          </AnimatePresence>
           {revealSkill && (
-            <div
+            <motion.div
+              key={"nameCont"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
               onClick={backBtn}
               className={styles.skillsBtn}
               style={{ width: "200px", marginLeft: "10px" }}
             >
               {stack ? "Back to Categories" : "Back to Menu"}
-            </div>
+            </motion.div>
           )}
         </div>
         {revealSkill == "" && (

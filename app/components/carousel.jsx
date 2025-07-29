@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "../page.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Carousel({ imageArray }) {
   const ArrayLength = imageArray.length;
@@ -14,7 +15,7 @@ function Carousel({ imageArray }) {
         setChangeIndex((prevIndex) =>
           prevIndex + 1 >= ArrayLength ? 0 : prevIndex + 1
         );
-      }, 4000);
+      }, 9000);
 
       return () => clearInterval(interval);
     }
@@ -35,7 +36,7 @@ function Carousel({ imageArray }) {
   };
 
   return (
-    <div>
+    <div style={{ display: "grid", placeContent: "center" }}>
       <div className={styles.controlContain}>
         <div className={styles.arrow} onClick={goPrev}>
           ←
@@ -51,12 +52,23 @@ function Carousel({ imageArray }) {
           →
         </div>
       </div>
-      <Image
-        width={640}
-        height={360}
-        alt="project image"
-        src={imageArray[changeIndex].imageUrl}
-      />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={changeIndex}
+          initial={{ opacity: 0, rotateY: 90 }}
+          animate={{ opacity: 1, rotateY: 0 }}
+          exit={{ opacity: 0, rotateY: -90 }}
+          transition={{ duration: 0.2, ease: "easeIn" }}
+        >
+          <Image
+            width={640}
+            height={360}
+            alt={imageArray[changeIndex].imageDesc}
+            src={imageArray[changeIndex].imageUrl}
+            className={styles.imageCarousel}
+          />
+        </motion.div>
+      </AnimatePresence>
       <p>{imageArray[changeIndex].imageDesc}</p>
     </div>
   );

@@ -34,6 +34,7 @@ function Projects() {
             <ImageCarousel imageArray={projectFind.image} />
             <div className={styles.innerContain}>
               <h2>{projectFind.title}</h2>
+              <hr />
               <p
                 className={styles.textDecrip}
                 dangerouslySetInnerHTML={{ __html: projectFind.description }}

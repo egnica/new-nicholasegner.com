@@ -6,15 +6,16 @@ import React from "react";
 
 function header() {
   return (
-    <header style={{ height: 75, paddingLeft: 20 }}>
+    <header style={{ paddingLeft: 20, display: "flex" }}>
       <a href={"/"}>
         <Image
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg"
+          src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
           width={120}
           height={120}
           alt="Nicholas Egner Logo"
         />
       </a>
+      <h1 className={styles.skillsH}> - SKILLS</h1>
     </header>
   );
 }

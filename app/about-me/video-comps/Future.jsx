@@ -55,14 +55,31 @@ function Future({ timeStamp, fromClick }) {
     <>
       <div className={styles.videoContent}>
         <div className={styles.rightBtnCont}>
-          {/* <AnimateBtn
-            onClick={() => overLay(0)}
-            start={1}
-            end={28}
+          <AnimateBtn
+            start={47.5}
+            end={300}
             time={currentTime}
+            onClick={() => fromClick("past")}
           >
-            My Childhood
-          </AnimateBtn> */}
+            My Past
+          </AnimateBtn>
+
+          <AnimateBtn
+            start={49.5}
+            end={300}
+            time={currentTime}
+            onClick={() => fromClick("present")}
+          >
+            The Present
+          </AnimateBtn>
+          <AnimateBtn
+            start={52}
+            end={300}
+            time={currentTime}
+            onClick={() => fromClick("wrap")}
+          >
+            Wrap It Up
+          </AnimateBtn>
         </div>
         <video
           className={styles.videoContainer}
@@ -77,21 +94,77 @@ function Future({ timeStamp, fromClick }) {
           Your browser does not support the video tag.
         </video>
         <div className={styles.leftBtnCont}>
-          {/* <a
-            href="https://elginil.gov/"
+          <a
+            href="https://www.indeed.com/career-advice/career-development/5-year-plan-template#:~:text=What%20is%20a%205%2Dyear,Goals%20to%20Improve%20Your%20Career"
             target="_blank"
             rel="noopener noreferrer"
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={6.5}
-              end={28}
+              start={1}
+              end={5}
               time={currentTime}
             >
-              Elgin,
-              <br /> IL.
+              How to Create a 5-Year Plan
             </AnimateBtn>
-          </a> */}
+          </a>
+          <a
+            href="https://blog.hubspot.com/marketing/5-year-plan#:~:text=Download%20Now-,What%20is%20a%20Five%2Dyear%20plan?,into%20action%20items%20and%20milestones"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1}
+              end={5}
+              time={currentTime}
+            >
+              6 Steps to Create Five-Year Plans That Actually Stick
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://smartasset.com/personal-finance/5-year-financial-plan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1}
+              end={5}
+              time={currentTime}
+            >
+              How to Build a 5-Year Financial Plan
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://www.helpguide.org/mental-health/anxiety/dealing-with-uncertainty"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={7.6}
+              end={16}
+              time={currentTime}
+            >
+              Dealing with Uncertainty
+            </AnimateBtn>
+          </a>
+
+          <a
+            href="https://latestartdev.com/posts/showing-up-consistently"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={7.6}
+              end={300}
+              time={currentTime}
+            >
+              Keep Showing Up - Blog Post
+            </AnimateBtn>
+          </a>
         </div>
         <p></p>
         <div className={styles.textContentCont}>

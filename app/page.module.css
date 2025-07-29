@@ -4,30 +4,67 @@
   display: flex;
   flex-direction: column;
 }
+.mainBackColor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(-45deg, #5900ff, #7b8cfd, #002197, #3d34c0);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+.starOverlay {
+  position: fixed;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  animation: flicker 10s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%,
+  95% {
+    opacity: 0.6;
+  }
+  99%,
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 /* HOME PAGE */
 .topPage {
   display: grid;
   grid-template-columns: 0.09fr auto;
+}
 
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding-left: 15px;
-}
-.topPage h1 {
-  align-content: center;
-}
 .logo {
-  padding-top: 10px;
+  padding: 10px;
+
   margin: auto;
   height: auto;
   width: auto;
 }
-.topPage h1 {
-  font-size: 1.3em;
-}
+
 .nameTop {
   text-align: center;
-  border-top: 1px solid black;
 }
 .mainCont {
   /* background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/texture.webp");
@@ -47,7 +84,7 @@
 }
 .textCont {
   display: grid;
-  background-color: var(--two-color);
+  background-color: #fefefe5d;
   box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
   -webkit-box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 10px 11px 24px -4px rgba(0, 0, 0, 0.64);
@@ -59,10 +96,7 @@
 .textCont2 {
   position: relative;
   height: 140px;
-  background-color: #ffffff;
-  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/texture.webp");
-  background-size: cover;
-  background-size: cover;
+  background-color: #ffffff39;
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
@@ -93,8 +127,13 @@
 }
 
 .mainBtn {
-  background-color: var(--three-color);
-  color: var(--bg-text);
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
   border-radius: 10px;
   margin: auto;
   padding: 10px;
@@ -103,14 +142,12 @@
   cursor: pointer;
 }
 .nameCont {
-  border-top: 1px solid black;
-  border-bottom: 1px solid #000000;
   text-align: center;
   text-transform: uppercase;
-  background-color: #0e1a40;
-  box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63) inset;
+  background-color: #2a46f9e9;
+  box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.827) inset;
   -webkit-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63) inset;
-  -moz-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63) inset;
+  -moz-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.884) inset;
   color: aliceblue;
 }
 .star {
@@ -123,16 +160,9 @@
   font-weight: 700;
   font-style: normal;
 }
+
 .nameBottom {
   text-align: center;
-  border-bottom: 1px solid black;
-}
-.coverBottom {
-  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/texture.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  flex-grow: 1;
 }
 
 /* *********SKILLS ********* */
@@ -140,22 +170,29 @@
 .cont h1 {
   font-size: 4em;
   padding: 20px;
+  color: #f6f8ff;
+}
+.skillsH {
+  font-size: 4em;
+  padding: 20px;
+  color: #f6f8ff;
 }
 .careerNav {
   display: flex;
 }
 .skillsBtnContain {
   display: grid;
-  background-color: rgb(240, 248, 255);
-  border: 10px solid var(--four-color);
+  background-color: rgba(240, 248, 255, 0.338);
+  border: 10px solid #002197;
   margin: 10px;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
   border-radius: 20px;
 }
 .btnCont2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   padding: 20px 50px;
 }
@@ -174,11 +211,22 @@
   text-shadow: 0 1px rgba(0, 0, 0, 0.4); /* adds legibility */
   transition: all 0.2s ease;
   cursor: pointer;
+  max-width: 200px;
+  min-height: 60px;
 }
 .objectCont {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  padding: 20px 50px;
+
+  background: rgba(34, 34, 34, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin: 0 2%;
+  padding: 2%;
 }
 .objectContText {
   align-content: center;
@@ -189,11 +237,14 @@
 }
 .objectContText h2 {
   font-size: 3.5em;
+  color: #e6eaf9;
 }
 .objectContText p {
   max-width: 400px;
   color: var(--bg-text);
   font-size: large;
+  padding: 10px;
+  color: #e6eaf9;
 }
 .svgWrap {
   width: 400px;
@@ -212,36 +263,61 @@
 }
 .imageTextCont {
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  padding: 2rem;
+}
+.carouselContain {
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
 }
 .innerContain {
-  margin: auto;
+  display: grid;
+  place-content: center;
+  min-height: 438px;
+  margin: 2%;
+  padding: 3%;
+  background: rgba(34, 34, 34, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 .innerContain h2 {
-  padding-left: 40px;
   font-size: 2em;
+  color: #e6eaf9;
 }
 .textDecrip {
-  padding: 0 50px 0 40px;
   font-size: large;
   padding-top: 5px;
+  color: #e6eaf9;
 }
 /******************** carousel */
 .controlContain {
   display: flex;
   padding: 0 5px;
+  max-height: 90px;
 }
 .arrow {
   font-size: 3em;
   cursor: pointer;
+  margin: auto;
+  color: #e6eaf9;
 }
 .dot {
   width: 15px;
   height: 15px;
-  background-color: #0b1d51;
+  background-color: #e6eaf9;
   border-radius: 40px;
   margin: auto;
   cursor: pointer;
+}
+
+.imageCarousel {
+  margin: auto;
 }
 
 /**************** about-me video page */
@@ -253,7 +329,7 @@
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  outline: 22px dashed red;
+
   background: radial-gradient(
     circle,
     #20015a 0%,
@@ -262,19 +338,28 @@
     #070505 100%
   );
 }
+.centerGroup {
+  position: fixed;
+  margin-top: 5%;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center; /* horizontal center */
+  z-index: 10;
+  gap: 20px;
+}
 .videoPage {
   position: relative;
-  padding: 20px;
   display: grid;
+  place-content: center;
   z-index: 100;
 }
 .mainBtnContVid {
-  margin: auto;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  padding: 10px;
+  grid-template-columns: repeat(5, auto);
+  gap: 10px;
 }
 
 .mainVideBtns {
@@ -285,6 +370,26 @@
   min-width: 120px; /* Prevents shrinking */
   min-height: 48px; /* Makes height consistent */
   font-size: 18px;
+}
+.videoShell {
+}
+.videoWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Adjust depending on layering */
+  pointer-events: none; /* Optional: allows clicks to pass through if needed */
+}
+
+.videoWrapper > * {
+  pointer-events: auto; /* Allow interaction with the video */
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .videoContent {
@@ -323,9 +428,11 @@
   padding: 0 5px;
 }
 .textContentCont {
+  min-height: 90px;
   display: inline-block; /* Shrink-wrap content */
   width: auto;
 }
+
 .motionText {
   color: white;
 }
@@ -360,4 +467,39 @@
 }
 .cancelX:hover {
   scale: 1.2;
+}
+@media only screen and (max-width: 980px) {
+  .skillsBtnContain {
+    grid-template-columns: 1fr;
+  }
+  .imageTextCont {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 675px) {
+  .mainBtnCont {
+    grid-template-columns: 1fr;
+  }
+
+  .nameCont h1 {
+    font-size: 3em;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    max-width: 600px;
+  }
+
+  .mainBtnContVid {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+  }
+
+  .mainVideBtns {
+    font-size: small;
+  }
+  .videoContent {
+    display: block;
+  }
 }

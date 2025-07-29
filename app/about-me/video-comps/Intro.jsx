@@ -127,6 +127,15 @@ function Intro({ timeStamp, fromClick }) {
           </a>
         </div>
         <p></p>
+
+
+
+
+
+
+
+
+
         <div className={styles.textContentCont}>
           {/*
             COPY FOR NEW ADDEND TILE ELEMENT
@@ -235,8 +244,16 @@ function Intro({ timeStamp, fromClick }) {
             <span onClick={() => fromClick("future")}>D: Where I am going</span>
           </AnimateTitle>
         </div>
+
+
+
+
       </div>
+
+
     </>
+
+    
   );
 }
 

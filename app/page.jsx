@@ -3,7 +3,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 import TextCont from "./components/textContBtn";
-import { motion, AnimatePresence, color } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const Star = ({ className }) => (
@@ -30,67 +31,103 @@ export default function Home() {
     "digital experiences",
   ];
 
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % skillsArray.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   const name = "nicholas egner";
-  const front = "<<<<<<<<<<<<<<<";
-  const back = ">>>>>>>>>>>>>>>>";
 
   return (
-    <div className={styles.page}>
-      <div className={styles.topPage}>
-        <a href={"./about"}>
-          <Image
-            className={styles.logo}
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg"
-            width={20}
-            height={20}
-            alt="Nicholas Egner Logo"
-          />
-        </a>
-        <h1>Nicholas Egner - Minneapolis Web Developer</h1>
-      </div>
-      <div className={styles.nameTop}>
-        <p>
-          {front} || 1001000 100001 1100001 101011 || {back}
-        </p>
-      </div>
-      <div className={styles.nameCont}>
-        <h1>{name}</h1>
+    <>
+      <div className={styles.mainBackColor}></div>
+      <video className={styles.starOverlay} autoPlay loop muted playsInline>
+        <source
+          src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"
+          type="video/webm"
+        />
+      </video>
+      <div className={styles.page}>
+        <div className={styles.topPage}>
+          <motion.a
+            href={"./about"}
+            key={"logo"}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <Image
+              className={styles.logo}
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+              width={20}
+              height={20}
+              alt="Nicholas Egner Logo"
+            />
+          </motion.a>
+        </div>
 
-        <Star className={styles.star} />
-
-        <h1>web developer</h1>
-      </div>
-      <div className={styles.nameBottom}>
-        {front} || 1001000 100001 1100001 101011 || {back}
-      </div>
-
-      <div className={styles.mainBtnCont}>
-        <TextCont
-          title={"MY STORY"}
-          btnText={"Watch the Story"}
-          path={"./about-me"}
+        <motion.div
+          key={"nameCont"}
+          initial={{ opacity: 0, }}
+          animate={{ opacity: 1, }}
+          exit={{ opacity: 0, }}
+          transition={{ duration: 0.4 }}
+          className={styles.nameCont}
         >
-          <p>
-            This interactive video series walks you through my background, what
-            drives me, and where I’m heading next. Click below to choose your
-            path and watch the story unfold.
-          </p>
-        </TextCont>
+          <motion.h1
+            key={name}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.6 }}
+          >
+            {name}
+          </motion.h1>
 
-        <TextCont
-          title={"CAREER DASHBOARD"}
-          btnText={"Explore the Dashboard"}
-          path={"./skills"}
-        >
-          <p>
-            This interactive dashboard lets you explore my skills, tools, and
-            real-world projects. Along with the creative work and work history
-            that shaped them. It’s part portfolio, part proof of concept.
-          </p>
-        </TextCont>
+          <Star className={styles.star} />
+
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={skillsArray[index]}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+            >
+              {skillsArray[index]}
+            </motion.h1>
+          </AnimatePresence>
+        </motion.div>
+
+        <div className={styles.mainBtnCont}>
+          <TextCont
+            title={"MY STORY"}
+            btnText={"Watch the Story"}
+            path={"./about-me"}
+          >
+            <p>
+              This interactive video series walks you through my background,
+              what drives me, and where I’m heading next. Click below to choose
+              your path and watch the story unfold.
+            </p>
+          </TextCont>
+
+          <TextCont
+            title={"CAREER DASHBOARD"}
+            btnText={"Explore the Dashboard"}
+            path={"./skills"}
+          >
+            <p>
+              This interactive dashboard lets you explore my skills, tools, and
+              real-world projects. Along with the creative work and work history
+              that shaped them. It’s part portfolio, part proof of concept.
+            </p>
+          </TextCont>
+        </div>
       </div>
-
-      <div className={styles.coverBottom}></div>
-    </div>
+    </>
   );
 }

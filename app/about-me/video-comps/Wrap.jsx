@@ -55,14 +55,76 @@ function Wrap({ timeStamp, fromClick }) {
     <>
       <div className={styles.videoContent}>
         <div className={styles.rightBtnCont}>
-          {/* <AnimateBtn
-            onClick={() => overLay(0)}
-            start={1}
-            end={28}
-            time={currentTime}
+          <a
+            href="https://www.linkedin.com/in/nicholas-egner/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            My Childhood
-          </AnimateBtn> */}
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1.0}
+              end={300}
+              time={currentTime}
+            >
+              LinkedIn
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://github.com/egnica"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={1.5}
+              end={300}
+              time={currentTime}
+            >
+              Github
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://latestartdev.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={2}
+              end={300}
+              time={currentTime}
+            >
+              Late Start Dev
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://g.co/kgs/34UbRKk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={2.5}
+              end={300}
+              time={currentTime}
+            >
+              Google Profile
+            </AnimateBtn>
+          </a>
+          <a
+            href="https://g.page/r/CSbhU6mFyb4qEAE/review"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AnimateBtn
+              onClick={() => clickStop()}
+              start={3}
+              end={300}
+              time={currentTime}
+            >
+              Google Reviews
+            </AnimateBtn>
+          </a>
         </div>
         <video
           className={styles.videoContainer}
@@ -77,40 +139,69 @@ function Wrap({ timeStamp, fromClick }) {
           Your browser does not support the video tag.
         </video>
         <div className={styles.leftBtnCont}>
-          {/* <a
-            href="https://elginil.gov/"
+          <a
+            href="https://en.wikipedia.org/wiki/Jerry_Maguire"
             target="_blank"
             rel="noopener noreferrer"
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={6.5}
-              end={28}
+              start={16}
+              end={19.8}
               time={currentTime}
             >
-              Elgin,
-              <br /> IL.
+              Jerry Maguire
             </AnimateBtn>
-          </a> */}
+          </a>
         </div>
         <p></p>
         <div className={styles.textContentCont}>
-          {/* <AnimateTitle
-            style={{ color: "blue" }}
+          <AnimateTitle
             start={1}
-            end={6}
+            end={60}
             time={currentTime}
             tag={"h2"}
             onClick={() => clickStop()}
+            style={{ color: "#abaaffff" }}
           >
             <a
-              href="https://www.youtube.com/watch?v=5NeS4ueaU6w"
+              href="mailto:nick@nicholasegner.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Everyone has a stroy...
+              Nicholas Egner
             </a>
-          </AnimateTitle> */}
+          </AnimateTitle>
+          <AnimateTitle
+            start={1}
+            end={60}
+            time={currentTime}
+            tag={"h4"}
+            onClick={() => clickStop()}
+          >
+            <a
+              href="mailto:nick@nicholasegner.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              nick@nicholasegner.com
+            </a>
+          </AnimateTitle>
+          <AnimateTitle
+            start={1}
+            end={60}
+            time={currentTime}
+            tag={"h4"}
+            onClick={() => clickStop()}
+          >
+            <a
+              href="tel:+16309656187"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              630.965.6187
+            </a>
+          </AnimateTitle>
         </div>
         {overLayOn == "on" && (
           <div onClick={() => setOverLayOn("off")} className={styles.overLay}>

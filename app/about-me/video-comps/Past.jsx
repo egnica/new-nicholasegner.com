@@ -59,15 +59,15 @@ function Past({ timeStamp, fromClick }) {
           <AnimateBtn
             onClick={() => overLay(0)}
             start={1}
-            end={28}
+            end={26}
             time={currentTime}
           >
             My Childhood
           </AnimateBtn>
           <AnimateBtn
             onClick={() => overLay(1)}
-            start={17}
-            end={28}
+            start={15.5}
+            end={26}
             time={currentTime}
             style={{ border: "4px red solid" }}
           >
@@ -75,16 +75,16 @@ function Past({ timeStamp, fromClick }) {
           </AnimateBtn>
           <AnimateBtn
             onClick={() => overLay(2)}
-            start={22}
-            end={28}
+            start={20}
+            end={26}
             time={currentTime}
           >
             Fun With Minneapolis Wildlife
           </AnimateBtn>
           <AnimateBtn
             onClick={() => overLay(6)}
-            start={22}
-            end={28}
+            start={20}
+            end={26}
             time={currentTime}
           >
             Whittier Neighborhood Documentary
@@ -97,8 +97,9 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={115}
-              end={123}
+              start={95.5}
+              end={100
+              }
               time={currentTime}
             >
               Skills?
@@ -107,8 +108,8 @@ function Past({ timeStamp, fromClick }) {
 
           <AnimateBtn
             onClick={() => overLay(3)}
-            start={131}
-            end={138}
+            start={106}
+            end={118}
             time={currentTime}
           >
             My Reel
@@ -116,8 +117,8 @@ function Past({ timeStamp, fromClick }) {
 
           <AnimateBtn
             onClick={() => overLay(4)}
-            start={131.5}
-            end={138}
+            start={106.5}
+            end={118}
             time={currentTime}
           >
             Past Video
@@ -125,8 +126,8 @@ function Past({ timeStamp, fromClick }) {
 
           <AnimateBtn
             onClick={() => overLay(5)}
-            start={132}
-            end={138}
+            start={107}
+            end={118}
             time={currentTime}
           >
             More Current Video
@@ -135,7 +136,7 @@ function Past({ timeStamp, fromClick }) {
           <Link href="../../skills" target="_blank" rel="noopener noreferrer">
             <AnimateBtn
               onClick={() => clickStop()}
-              start={150}
+              start={123.5}
               end={300}
               time={currentTime}
             >
@@ -144,7 +145,7 @@ function Past({ timeStamp, fromClick }) {
           </Link>
 
           <AnimateBtn
-            start={153.12}
+            start={126}
             end={300}
             time={currentTime}
             onClick={() => fromClick("future")}
@@ -153,7 +154,7 @@ function Past({ timeStamp, fromClick }) {
           </AnimateBtn>
 
           <AnimateBtn
-            start={156}
+            start={128.5}
             end={300}
             time={currentTime}
             onClick={() => fromClick("wrap")}
@@ -185,8 +186,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={6.5}
-              end={28}
+              start={5.2}
+              end={26}
               time={currentTime}
             >
               Elgin,
@@ -200,8 +201,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={12.4}
-              end={28}
+              start={10.6}
+              end={26}
               time={currentTime}
             >
               San Diego, <br />
@@ -215,8 +216,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={20.7}
-              end={28}
+              start={19}
+              end={26}
               time={currentTime}
             >
               Minneapolis,
@@ -230,7 +231,7 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={42}
+              start={40}
               end={51}
               time={currentTime}
             >
@@ -245,7 +246,7 @@ function Past({ timeStamp, fromClick }) {
             <AnimateBtn
               onClick={() => clickStop()}
               start={47.9}
-              end={73}
+              end={61}
               time={currentTime}
             >
               Dunwoody College of Technology
@@ -259,8 +260,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={52.6}
-              end={57}
+              start={51.2}
+              end={54}
               time={currentTime}
             >
               I Made A Lot Of These C# 'Console Apps'
@@ -274,8 +275,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={58}
-              end={73}
+              start={51.2}
+              end={54}
               time={currentTime}
             >
               My First REACT Repo on Github
@@ -289,8 +290,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={73.2}
-              end={76.2}
+              start={55}
+              end={61}
               time={currentTime}
             >
               RACKET: How Did Covid Change Twin Cities Restaurants?
@@ -304,8 +305,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={79.2}
-              end={97.8}
+              start={62}
+              end={92}
               time={currentTime}
             >
               Barlow Research Associates, Inc.
@@ -318,8 +319,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={108.5}
-              end={114}
+              start={90.5}
+              end={95}
               time={currentTime}
             >
               Minneapolis Miracle
@@ -329,7 +330,7 @@ function Past({ timeStamp, fromClick }) {
           <Link href="../../skills" target="_blank" rel="noopener noreferrer">
             <AnimateBtn
               onClick={() => clickStop()}
-              start={115}
+              start={95.5}
               end={400}
               time={currentTime}
             >
@@ -343,8 +344,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={122.5}
-              end={129}
+              start={98}
+              end={115}
               time={currentTime}
             >
               My First Blog Post
@@ -358,8 +359,8 @@ function Past({ timeStamp, fromClick }) {
           >
             <AnimateBtn
               onClick={() => clickStop()}
-              start={125}
-              end={129}
+              start={99}
+              end={115}
               time={currentTime}
             >
               My Repo for custom 'Digital Insights Hub'
@@ -383,7 +384,7 @@ function Past({ timeStamp, fromClick }) {
           <AnimateTitle
             style={{ color: "#abaaffff" }}
             start={1}
-            end={6}
+            end={8.29}
             time={currentTime}
             tag={"h2"}
             onClick={() => clickStop()}
@@ -396,12 +397,12 @@ function Past({ timeStamp, fromClick }) {
               Everyone has a stroy...
             </a>
           </AnimateTitle>
-          <AnimateTitle start={28} end={46} time={currentTime} tag={"h2"}>
+          <AnimateTitle start={26} end={46} time={currentTime} tag={"h2"}>
             Life in the service industry...
           </AnimateTitle>
           <AnimateTitle
             start={47.9}
-            end={73}
+            end={61}
             time={currentTime}
             tag={"h2"}
             onClick={() => clickStop()}
@@ -410,12 +411,13 @@ function Past({ timeStamp, fromClick }) {
             <a
               href="https://www.youtube.com/watch?v=lwfJ7fjjwvc"
               target="_blank"
+              onClick={() => clickStop()}
               rel="noopener noreferrer"
             >
               Back to School...
             </a>
           </AnimateTitle>
-          <AnimateTitle start={77} end={112} time={currentTime} tag={"h2"}>
+          <AnimateTitle start={62} end={91} time={currentTime} tag={"h2"}>
             <a
               href="https://www.youtube.com/watch?v=lwfJ7fjjwvc"
               target="_blank"
@@ -425,7 +427,7 @@ function Past({ timeStamp, fromClick }) {
             </a>
           </AnimateTitle>
           <AnimateTitle
-            start={112.5}
+            start={93}
             end={138}
             time={currentTime}
             tag={"h2"}
