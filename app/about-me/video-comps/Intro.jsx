@@ -47,7 +47,7 @@ function Intro({ timeStamp, fromClick }) {
             </AnimateBtn>
           </a>
         </div>
-        <video className={styles.videoContainer} ref={videoRef} controls>
+        <video className={styles.videoContainer} ref={videoRef} controls poster="https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp">
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/intro.mp4"
             type="video/mp4"
