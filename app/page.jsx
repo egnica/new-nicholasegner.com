@@ -68,12 +68,14 @@ export default function Home() {
             />
           </motion.a>
         </div>
-
+        <h1 className={styles.visuallyHidden}>
+          Nicholas Egner – Web Developer, SEO Specialist, Content Creator
+        </h1>
         <motion.div
           key={"nameCont"}
-          initial={{ opacity: 0, }}
-          animate={{ opacity: 1, }}
-          exit={{ opacity: 0, }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
           className={styles.nameCont}
         >
