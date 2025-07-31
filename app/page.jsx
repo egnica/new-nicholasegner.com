@@ -117,12 +117,13 @@ export default function Home() {
           <TextCont
             title={"MY STORY"}
             btnText={"Watch the Story"}
-            path={"./about-me"}
+            path={"./video-experience"}
           >
             <p>
               This interactive video series walks you through my background,
-              what drives me, and where I’m heading next. Click below to choose
-              your path and watch the story unfold.
+              what drives me, and where I’m heading next. Click below and choose
+              your path and watch the story unfold. It's part about me, part
+              proof of concept. Click around!
             </p>
           </TextCont>
 
@@ -134,7 +135,7 @@ export default function Home() {
             <p>
               This interactive dashboard lets you explore my skills, tools, and
               real-world projects. Along with the creative work and work history
-              that shaped them. It’s part portfolio, part proof of concept.
+              that shaped them. Split into two parts - Tech Stack and Projects
             </p>
           </TextCont>
         </div>

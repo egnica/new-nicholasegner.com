@@ -1,10 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
+import Link from "next/link";
 
 function Photos() {
   return (
     <div className={styles.photosPage}>
+      <Link href={"../about"}>
+        <h2 className={styles.skillsBtn}>Back</h2>
+      </Link>
       <h1>Photos of Nicholas Egner</h1>
       <p>
         A collection of portraits, candid moments, and behind-the-scenes shots

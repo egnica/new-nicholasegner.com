@@ -73,7 +73,7 @@ function AboutMe() {
         />
       </video>
       <Link href={"../"}>
-        <h2 style={{ color: "white", padding: "20px", minHeight: "20px" }}>
+        <h2 className={styles.skillsBtn} style={{ margin: "2%" }}>
           Home
         </h2>
       </Link>

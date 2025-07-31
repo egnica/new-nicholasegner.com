@@ -36,17 +36,6 @@
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  animation: flicker 10s ease-in-out infinite;
-}
-@keyframes flicker {
-  0%,
-  95% {
-    opacity: 0.6;
-  }
-  99%,
-  100% {
-    opacity: 0.4;
-  }
 }
 
 @keyframes gradient {
@@ -95,6 +84,7 @@
   place-content: center;
   grid-template-columns: 1fr 1fr;
   margin: 10px;
+  padding: 0 2%;
 }
 .textCont {
   display: grid;
@@ -147,7 +137,6 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-
   border-radius: 10px;
   margin: auto;
   padding: 10px;
@@ -158,11 +147,13 @@
 .nameCont {
   text-align: center;
   text-transform: uppercase;
-  background-color: #2a46f9e9;
+  background-color: #2a46f998;
   box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.827) inset;
   -webkit-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63) inset;
   -moz-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.884) inset;
   color: aliceblue;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .star {
   width: 50px;
@@ -302,8 +293,8 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  min-height: 50vh; 
-  margin-top: 2vh; 
+  min-height: 50vh;
+  margin-top: 2vh;
 }
 
 .skillsBtn {

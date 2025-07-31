@@ -15,6 +15,13 @@ export const metadata = {
   title: "Nicholas Egner | Minneapolis Web Developer & SEO Specialist",
   description:
     "Portfolio of Nicholas Egner — Minneapolis-based web developer, content creator, and SEO strategist. Explore interactive projects, videos, and digital experiences.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.nicholasegner.com/",
+  },
   keywords: [
     "Nicholas Egner",
     "web developer",
@@ -53,10 +60,6 @@ export const metadata = {
       "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
   authors: [
     {
       name: "Nicholas Egner",
@@ -69,7 +72,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

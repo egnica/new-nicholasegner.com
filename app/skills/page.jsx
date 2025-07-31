@@ -67,43 +67,69 @@ function Skills() {
             </motion.div>
           )}
         </div>
-        {revealSkill == "" && (
-          <div className={styles.skillsBtnContain}>
-            <ContState
-              title={"TECH STACK"}
-              btnText={"Open Tech Stack"}
-              clickFun={() => setRevealSkill("stack")}
-            >
-              <p>
-                <strong>Here’s what I build with.</strong>
-                <br /> From frontend frameworks to backend databases, these are
-                the tools I use to bring ideas to life. Fast, responsive, and
-                scalable. Every choice here reflects real-world use, not just
-                buzzwords.
-              </p>
-            </ContState>
-            <ContState
-              title={"PROJECTS"}
-              btnText={"Explore My Work"}
-              clickFun={() => setRevealSkill("projects")}
-            >
-              <p>
-                <strong>This is where the stack comes alive.</strong> <br />
-                Here’s a selection of projects that show what I can do. From
-                interactive dashboards to full-stack apps. Everything here ties
-                back to real needs, real users, and real outcomes.
-              </p>
-            </ContState>
-          </div>
-        )}
 
-        {revealSkill == "stack" ? (
-          <div>
-            <Stack stackSelect={stack} onStackChange={handleStackChange} />
-          </div>
-        ) : revealSkill == "projects" ? (
-          <Projects />
-        ) : null}
+        <AnimatePresence mode="wait">
+          {revealSkill == "" && (
+            <motion.div
+              key={"display-1"}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className={styles.skillsBtnContain}
+            >
+              <ContState
+                title={"TECH STACK"}
+                btnText={"Open Tech Stack"}
+                clickFun={() => setRevealSkill("stack")}
+              >
+                <p>
+                  <strong>Here’s what I build with.</strong>
+                  <br /> From frontend frameworks to backend databases, these
+                  are the tools I use to bring ideas to life. Fast, responsive,
+                  and scalable. Every choice here reflects real-world use, not
+                  just buzzwords.
+                </p>
+              </ContState>
+              <ContState
+                title={"PROJECTS"}
+                btnText={"Explore My Work"}
+                clickFun={() => setRevealSkill("projects")}
+              >
+                <p>
+                  <strong>This is where the stack comes alive.</strong> <br />
+                  Here’s a selection of projects that show what I can do. From
+                  interactive dashboards to full-stack apps. Everything here
+                  ties back to real needs, real users, and real outcomes.
+                </p>
+              </ContState>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          {revealSkill == "stack" ? (
+            <motion.div
+              key={"display-2"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Stack stackSelect={stack} onStackChange={handleStackChange} />
+            </motion.div>
+          ) : revealSkill == "projects" ? (
+            <motion.div
+              key={"display-3"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Projects />
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </div>
     </>
   );
