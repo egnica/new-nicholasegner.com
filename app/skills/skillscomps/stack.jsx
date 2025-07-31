@@ -86,17 +86,30 @@ function Stack({ stackSelect, onStackChange }) {
         </div>
       )}
 
-      <div className={styles.btnCont2}>
-        {stackSelect &&
-          stackObject &&
-          Object.entries(stackObject.technologies).map(([_, item], index) => (
+      {stackSelect && stackObject && (
+        <motion.div
+          key={"render" + selectedObject}
+          initial={
+            selectedObject == ""
+              ? { opacity: 0, y: -100 }
+              : { opacity: 0, y: 100 }
+          }
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.6 }}
+          className={
+            selectedObject ? styles.btnCont2 : styles.btnCont2Unselected
+          }
+        >
+          {Object.entries(stackObject.technologies).map(([_, item], index) => (
             <BtnWrap
               key={index}
               clickFunc={() => clickSingleObject(item)}
               title={item.name}
             />
           ))}
-      </div>
+        </motion.div>
+      )}
 
       {selectedObject && (
         <div className={styles.objectCont}>

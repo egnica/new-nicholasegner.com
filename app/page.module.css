@@ -68,10 +68,13 @@
 
 .logo {
   padding: 10px;
-
   margin: auto;
   height: auto;
   width: auto;
+}
+.aboutNicholas {
+  color: aliceblue;
+  padding: 2% 0;
 }
 
 .nameTop {
@@ -175,7 +178,91 @@
 .nameBottom {
   text-align: center;
 }
+.homeSeoContent {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  color: aliceblue;
+  padding: 5% 10%;
+  margin: 1% 10%;
+  font-size: 1.3em;
+  box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.827);
+  -webkit-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63);
+  -moz-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.884);
+}
+.bottomBuffer {
+  padding: 5%;
+}
 
+/*************ABOUT Page ***/
+.aboutButtons {
+  display: flex;
+  grid-area: c;
+  padding: 20px;
+  gap: 10px;
+}
+.aboutCont {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "c c"
+    "a b";
+}
+.imageCont {
+  grid-area: a;
+}
+.aboutImage {
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.aboutCont h1 {
+  font-size: 2.5em;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+.aboutTextCont {
+  display: grid;
+  grid-area: b;
+  place-content: center;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  color: aliceblue;
+  padding: 5% 10%;
+  height: 100%;
+  font-size: 1.3em;
+  box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.827);
+  -webkit-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63);
+  -moz-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.884);
+  max-width: 700px;
+}
+
+/********** Photos page ***/
+.photosPage {
+  padding: 5%;
+  text-align: center;
+}
+
+.photoGrid {
+  column-count: 3;
+  column-gap: 16px;
+}
+
+.photoGrid img {
+  width: 100%;
+  margin-bottom: 16px;
+  display: block;
+}
 /* *********SKILLS ********* */
 
 .cont h1 {
@@ -190,6 +277,7 @@
 }
 .careerNav {
   display: flex;
+  z-index: 2;
 }
 .skillsBtnContain {
   display: grid;
@@ -202,11 +290,22 @@
 }
 .btnCont2 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 20px 50px;
 }
+.btnCont2Unselected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; 
+  margin-top: 2vh; 
+}
+
 .skillsBtn {
   background: linear-gradient(to bottom, #1a2d6b, #0b1d51);
   color: white;
@@ -228,7 +327,6 @@
 .objectCont {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-
   background: rgba(34, 34, 34, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

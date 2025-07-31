@@ -67,9 +67,18 @@ export default function Home() {
               alt="Nicholas Egner Logo"
             />
           </motion.a>
+          <motion.a
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            className={styles.aboutNicholas}
+            href="/about"
+          >
+            - Learn more about Nicholas Egner
+          </motion.a>
         </div>
         <h1 className={styles.visuallyHidden}>
-          Nicholas Egner – Web Developer, SEO Specialist, Content Creator
+          Nicholas Egner – Web Developer, SEO Specialist, Content Creator,
+          Minneapolis
         </h1>
         <motion.div
           key={"nameCont"}
@@ -129,6 +138,25 @@ export default function Home() {
             </p>
           </TextCont>
         </div>
+
+        <motion.section
+          className={styles.homeSeoContent}
+          key={"section-text"}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4 }}
+        >
+          <h2 className={styles.visuallyHidden}>About Nicholas Egner</h2>
+          <p>
+            I’m Nicholas Egner, a Minneapolis-based web developer and content
+            creator specializing in interactive websites, SEO strategy, and
+            multimedia production. I build fast, responsive, and visually
+            compelling digital experiences that help businesses and individuals
+            stand out online.
+          </p>
+        </motion.section>
+        <div className={styles.bottomBuffer}></div>
       </div>
     </>
   );
