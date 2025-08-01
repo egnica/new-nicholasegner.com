@@ -28,7 +28,15 @@ function Stack({ stackSelect, onStackChange }) {
   return (
     <div>
       {stackSelect === "" && (
-        <div className={styles.skillsBtnContain}>
+        <motion.div
+          key={"stack-Cont"}
+          layout
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.5 }}
+          className={styles.skillsBtnContain}
+        >
           <Wrapper
             title={"FRONTEND"}
             btnText={"Explore Frontend"}
@@ -83,7 +91,7 @@ function Stack({ stackSelect, onStackChange }) {
               stories.
             </p>
           </Wrapper>
-        </div>
+        </motion.div>
       )}
 
       {stackSelect && stackObject && (
@@ -94,8 +102,8 @@ function Stack({ stackSelect, onStackChange }) {
               ? { opacity: 0, y: -100 }
               : { opacity: 0, y: 100 }
           }
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.6 }}
           className={
             selectedObject ? styles.btnCont2 : styles.btnCont2Unselected

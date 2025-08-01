@@ -73,10 +73,15 @@ function Skills() {
             <motion.div
               key={"display-1"}
               layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className={styles.skillsBtnContain}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0, height: "auto" }}
+              exit={{ opacity: 0, x: -100, height: 0 }}
+              className={styles.skillsContain}
+              transition={{
+                opacity: { duration: 0.3 },
+                x: { duration: 0.3 },
+                height: { duration: 0.1 },
+              }}
             >
               <ContState
                 title={"TECH STACK"}

@@ -20,11 +20,17 @@ function Projects() {
         {!selectProject && (
           <motion.div
             key="buttons-default"
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
+            initial={
+              selectProject == ""
+                ? { opacity: 0, y: -50 }
+                : { opacity: 0, y: -50 }
+            }
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: -20, height: 0 }}
             transition={{ duration: 0.6 }}
-            className={styles.btnCont2Unselected}
+            className={
+              selectProject ? styles.btnCont2 : styles.btnCont2Unselected
+            }
           >
             {projects.map((item) => (
               <BtnWrap
