@@ -1,31 +1,28 @@
 "use client";
 import { notFound } from "next/navigation";
-import { use } from "react";
-import stackData from "../../../../stack.json";
+import stackData from "../../../stack.json";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "../../../page.module.css";
-import Header from "../../../components/header";
+import styles from "../../page.module.css";
+import Header from "../../components/header";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
-function TechPage({ params }) {
-  const { category, tech } = use(params);
+function TechPage() {
+  const params = useParams();
+  const { tech } = params;
 
-  // Match the category (e.g., "frontend")
-  const categoryData = stackData.stack.find(
-    (item) => item.category.toLowerCase().replace(/\s+/g, "-") === category
-  );
-
-  if (!categoryData) return notFound();
-
-  // Match the technology (e.g., "react")
-  const techData = categoryData.technologies.find(
-    (t) => t.name.toLowerCase().replace(/\s+/g, "-") === tech
-  );
+  const techData = stackData.stack
+    .flatMap((item) => item.technologies)
+    .find((t) => t.slug === tech);
 
   if (!techData) return notFound();
 
   return (
     <div>
       <Header />
+      <Link style={{ margin: "2%" }} className={styles.skillsBtn} href={"/"}>
+        Home
+      </Link>
       <div className={styles.mainBackColor}></div>
       <video className={styles.starOverlay} autoPlay loop muted playsInline>
         <source

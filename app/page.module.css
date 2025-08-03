@@ -189,6 +189,7 @@
 .nameCont {
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 3%;
   background-color: #2a46f998;
   box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.827) inset;
   -webkit-box-shadow: 6px 6px 60px -9px rgba(0, 0, 0, 0.63) inset;
@@ -206,6 +207,55 @@
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.reviewContainer {
+  display: grid;
+  padding: 20px;
+  margin: 2% 5%;
+  grid-template-columns: 0.5fr 1fr;
+  place-content: center;
+}
+.googleImage {
+  margin: auto;
+  padding: 20px;
+}
+
+.reviewTextWrapper {
+  position: relative;
+  min-height: 200px;
+}
+
+.reviewText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.nameImage {
+  display: flex;
+  align-items: center;
+}
+.nameImage h2 {
+  padding-left: 10px;
+}
+
+.reviewText {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  height: 100%;
+  padding: 2% 5%;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+.review {
+  padding: 2%;
+  font-size: larger;
 }
 
 .nameBottom {
@@ -226,8 +276,54 @@
   color: aliceblue;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
+
+.bannerWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.bannerWrapper:hover .bannerScroll {
+  animation-play-state: paused;
+}
+
+.bannerScroll {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: scroll-left 50s linear infinite;
+  gap: 4rem;
+}
+
+.techIcon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.techIcon svg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .bottomBuffer {
-  padding: 5%;
+  margin-top: 2%;
+  padding: 2% 0;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /*************ABOUT Page ***/

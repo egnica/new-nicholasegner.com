@@ -5,8 +5,21 @@ import Link from "next/link";
 import TextCont from "./components/textContBtn";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import stackData from "../stack.json";
+import Reviews from "../reviews.json";
 
 export default function Home() {
+  const [index, setIndex] = useState(0);
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  const techIcons = stackData.stack.flatMap((category) =>
+    category.technologies.map((tech) => ({
+      name: tech.name,
+      svg: tech.image,
+      href: `/skills/${tech.slug}`,
+    }))
+  );
+
   const Star = ({ className }) => (
     <svg
       className={className}
@@ -31,12 +44,17 @@ export default function Home() {
     "digital experiences",
   ];
 
-  const [index, setIndex] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % skillsArray.length);
     }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setReviewIndex((prev) => (prev + 1) % Reviews.length);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -158,7 +176,61 @@ export default function Home() {
             </p>
           </motion.section>
         </Link>
-        <div className={styles.bottomBuffer}></div>
+
+        <div className={styles.reviewContainer}>
+          <motion.div
+            className={styles.googleImage}
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            <Image
+              className={styles.googleImage}
+              width={300}
+              height={163}
+              alt="google review image"
+              src={
+                "https://nciholasegner.s3.us-east-2.amazonaws.com/images/google-review.webp"
+              }
+            />
+          </motion.div>
+          <AnimatePresence mode="wait">
+            <div className={styles.reviewTextWrapper}>
+              <motion.div
+                className={styles.reviewText}
+                key={Reviews[reviewIndex].name}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className={styles.nameImage}>
+                  <img src={Reviews[reviewIndex].image} />
+                  <h2> {Reviews[reviewIndex].name}</h2>
+                </div>
+                <p className={styles.review}>{Reviews[reviewIndex].text}</p>
+              </motion.div>
+            </div>
+          </AnimatePresence>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={styles.bottomBuffer}
+        >
+          <motion.div className={styles.bannerWrapper}>
+            <div className={styles.bannerScroll}>
+              {techIcons.concat(techIcons).map((icon, i) => (
+                <Link key={`${icon.name}-${i}`} href={icon.href}>
+                  <div
+                    className={styles.techIcon}
+                    dangerouslySetInnerHTML={{ __html: icon.svg }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </>
   );
