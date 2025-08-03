@@ -11,6 +11,7 @@ import Reviews from "../reviews.json";
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [clickReveal, setClickReveal] = useState(false);
 
   const techIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
@@ -192,6 +193,22 @@ export default function Home() {
                 "https://nciholasegner.s3.us-east-2.amazonaws.com/images/google-review.webp"
               }
             />
+            <div className={styles.contReviewBtns}>
+              <a
+                href="https://g.page/r/CSbhU6mFyb4qEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className={styles.mainBtn}>Leave Review</div>
+              </a>
+              <a
+                href="https://www.google.com/search?sca_esv=36222d67fa35b916&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E6Xhf42jgYVynmHj5p93O4fptNuBxqi1Q2snmX-FRYFa0h4VC-z0PU0Ue5CCDYQq3jyQlDP29OLgdQ-zcjGpl2xvORn0KB-16Rk_DVamZriKu6Qmz2ZgGPRqOr8OF1Y5KkYg5jY%3D&q=Nicholas+Egner+-+Web+Development+Reviews&sa=X&ved=2ahUKEwiZvdam5--OAxUEEzQIHXwdDngQ0bkNegQIOBAD&biw=1449&bih=815&dpr=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className={styles.mainBtn}>Read Reviews</div>
+              </a>
+            </div>
           </motion.div>
           <AnimatePresence mode="wait">
             <div className={styles.reviewTextWrapper}>
