@@ -932,4 +932,18 @@
       ". logo ."
       "comp comp comp";
   }
+  .skillsContain {
+    grid-template-columns: 1fr;
+  }
+  .objectCont {
+    grid-template-columns: 1fr;
+    place-content: center;
+    text-align: center;
+  }
+  .svgWrap {
+    margin: auto;
+  }
+  .objectContText {
+    margin: auto;
+  }
 }
