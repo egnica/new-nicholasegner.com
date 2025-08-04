@@ -80,7 +80,12 @@ function About() {
       </Head>
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (
-          <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <a
+            key={index}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className={styles.mainBtn}>{item.title}</div>
           </a>
         ))}
