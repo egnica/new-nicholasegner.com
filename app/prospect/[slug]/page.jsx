@@ -36,11 +36,12 @@ function Prospect() {
           </div>
         </div>
         <p
-          className={styles.mainBody}
+          className={styles.textIdea}
           dangerouslySetInnerHTML={{ __html: prospectObject.mainBody }}
         ></p>
         <ProspectCarousel prospectArray={prospectObject.ideas} />
       </div>
+      <div style={{ padding: "50px" }}></div>
     </>
   );
 }
