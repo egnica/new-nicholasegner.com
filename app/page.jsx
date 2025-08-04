@@ -64,6 +64,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.mainBackColor}></div>
+      <div className={styles.mainBackColor3}></div>
       <video className={styles.starOverlay} autoPlay loop muted playsInline>
         <source
           src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"

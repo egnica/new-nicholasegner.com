@@ -21,7 +21,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: -3;
   pointer-events: none;
   background: linear-gradient(-45deg, #5900ff, #7b8cfd, #002197, #3d34c0);
   background-size: 400% 400%;
@@ -42,7 +42,24 @@
   background-position: center;
 }
 
+.mainBackColor3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-color: #e5e5e5;
+  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/blue-blur-back.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+}
+
 .starOverlay {
+  display: block;
   position: fixed;
   object-fit: cover;
   top: 0;
@@ -744,8 +761,22 @@
 .prospectPage {
   padding: 20px;
 }
-.companyPerson {
-  margin: auto;
+
+.logoName {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "comp comp comp logo";
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+}
+.companyNamePerson {
+  grid-area: comp;
+}
+
+.neLogo {
+  grid-area: logo;
 }
 .companyPerson h1 {
   font-size: 4em;
@@ -757,11 +788,6 @@
   color: #f6f8ff;
   margin: 0;
   text-shadow: 2px 2px #ff0000;
-}
-.logoName {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  place-content: center;
 }
 
 .mainBody {
@@ -856,6 +882,9 @@
   }
 }
 @media only screen and (max-width: 675px) {
+  .starOverlay {
+    display: none;
+  }
   .mainBtnCont {
     grid-template-columns: 1fr;
   }
@@ -891,5 +920,15 @@
     grid-template-columns: 1fr;
     place-content: center;
     width: 100%;
+  }
+
+  .logoName {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      ". logo ."
+      "comp comp comp";
   }
 }

@@ -20,12 +20,13 @@ function Prospect() {
       <div className={styles.prospectPage}>
         <div className={styles.companyPerson}>
           <div className={styles.logoName}>
-            <div>
+            <div className={styles.companyNamePerson}>
               <h1>{prospectObject.company}</h1>
               <h2>{prospectObject.personName}</h2>
             </div>
-            <Link href={"/"}>
+            <Link className={styles.neLogo} href={"/"}>
               <Image
+              className={styles.neLogo}
                 style={{ margin: "auto" }}
                 src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
                 width={140}
