@@ -5,6 +5,41 @@ import styles from "../page.module.css";
 import Link from "next/link";
 
 function About() {
+  const btnObject = [
+    {
+      title: "LinkedIn",
+      url: "https://www.linkedin.com/in/nicholas-egner/",
+    },
+    {
+      title: "Github",
+      url: "https://github.com/egnica",
+    },
+    {
+      title: "Resume",
+      url: "https://drive.google.com/drive/u/0/home",
+    },
+    {
+      title: "Google Business",
+      url: "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9693245,-93.1667435,12z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D",
+    },
+    {
+      title: "YouTube",
+      url: "https://www.youtube.com/@NickEgnerVideo",
+    },
+    {
+      title: "Late Start Dev - Blog",
+      url: "https://latestartdev.com/",
+    },
+    {
+      title: "Spotify",
+      url: "https://open.spotify.com/user/1224553002?si=c3d54db378354cf5&nd=1&dlsi=ffb896dd3c424f82",
+    },
+    {
+      title: "X - Twitter",
+      url: "https://x.com/NicholasEgner",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -44,11 +79,11 @@ function About() {
         />
       </Head>
       <div className={styles.aboutButtons}>
-        <div className={styles.mainBtn}>LinkedIn</div>
-        <div className={styles.mainBtn}>LinkedIn</div>
-        <div className={styles.mainBtn}>LinkedIn</div>
-        <div className={styles.mainBtn}>LinkedIn</div>
-        <div className={styles.mainBtn}>LinkedIn</div>
+        {Object.values(btnObject).map((item, index) => (
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            <div className={styles.mainBtn}>{item.title}</div>
+          </a>
+        ))}
       </div>
       <div className={styles.mainBackColor}></div>
       <video className={styles.starOverlay} autoPlay loop muted playsInline>

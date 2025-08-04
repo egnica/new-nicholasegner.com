@@ -374,6 +374,9 @@
 /*************ABOUT Page ***/
 .aboutButtons {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   grid-area: c;
   padding: 20px;
   gap: 10px;
@@ -945,5 +948,19 @@
   }
   .objectContText {
     margin: auto;
+  }
+  .aboutCont {
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "c"
+      "a"
+      "b";
+  }
+  .imageCont {
+    margin: auto;
+  }
+  .aboutTextCont {
+    margin: 0 2%;
   }
 }
