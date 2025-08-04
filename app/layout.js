@@ -12,7 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Nicholas Egner | Minneapolis Web Developer & SEO Specialist",
+  title:
+    "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
   description:
     "Portfolio of Nicholas Egner — Minneapolis-based web developer, content creator, and SEO strategist. Explore interactive projects, videos, and digital experiences.",
   robots: {
