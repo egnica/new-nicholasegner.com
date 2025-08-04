@@ -5,28 +5,28 @@
     "company": "Technology By Design",
     "personName": "Chad Carlson",
 
-    "mainBody": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letrase",
+    "mainBody": "Chad, these are just a few ideas I put together to highlight the kind of work I’ve been focused on and how it might support what you’re doing at Technology by Design.<br/><br/> None of this is meant to be a pitch with pressure... just a tailored glimpse at how I could potentially contribute. If any of these ideas spark something, I’d love to talk more. And if you know of another direction or even someone else who might benefit from this kind of work, I’m genuinely open to any conversation. Appreciate the time and the work you do.",
     "ideas": [
       {
-        "title": "This Idea 1",
-        "subtitle": "Short description of what the idea might be",
-        "body": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-        "imageAlt": "alt for image 1"
+        "title": "Custom Display Tools for FileMaker",
+        "subtitle": "Visual interfaces built on the FileMaker Data API",
+        "body": "Technology by Design provides excellent support and consulting, but many of your clients may be missing an opportunity to make their FileMaker data more accessible through user-friendly web interfaces. I've already worked with Scott on a tool called 'TestDrive'. A web application that connects directly to a FileMaker layout using the Data API. Together, we could turn this concept into a customizable framework for your clients. Imagine clean, responsive dashboards that pull live data from FileMaker. Accessible via secure login, styled to match each client’s brand, and deployable without disrupting their core systems. You bring the strategy; I’ll build the interface.",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/test-drive.webp",
+        "imageAlt": "FileMaker Data API dashboard concept"
       },
       {
-        "title": "This Idea 2",
-        "subtitle": "Short description of what the idea might be",
-        "body": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-        "imageAlt": "alt for image 2"
+        "title": "Explainer Videos for Tech Strategy",
+        "subtitle": "Visual content for onboarding, internal tools, or client education",
+        "body": "As a former media producer turned developer, I offer a unique mix of storytelling and technical know-how. One area I think could benefit Technology by Design is video. Whether it's onboarding walkthroughs for client-facing tools, animated breakdowns of your consulting process, or internal explainers for new systems. This type of content builds trust, reinforces your thoughtful approach, and helps users better understand the tools you’re putting in place. With years of experience in motion graphics, video editing, and scripting, I can translate complex ideas into clear, engaging visuals tailored to your voice and audience.  <br/><br/> Check out my <a href='https://nicholasegner.com/video-experience'>Video Experience</a> as a proof of concept of how interactive video can be engaging: <a href='https://nicholasegner.com/video-experience'>CLICK HERE</a>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
+        "imageAlt": "Tech explainer video"
       },
       {
-        "title": "This Idea 3",
-        "subtitle": "Short description of what the idea might be",
-        "body": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-        "imageAlt": "alt for image 3"
+        "title": "Branded Dashboards for Clients",
+        "subtitle": "Custom, client-facing portals for project updates, file sharing, and communication",
+        "body": "Imagine offering each of your clients a secure, branded dashboard. A single, professional interface where they can view project updates, download shared files, track key milestones, or request support. These lightweight web apps are custom-built to reflect each client’s brand and can evolve with their needs. I’d love to build a starter framework for Technology by Design to roll these out as a value-add for select clients. With your backend support and my frontend experience, we can create something that enhances transparency, boosts engagement, and reinforces the strategic partnership you bring to every relationship.",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/branded-dashboard.webp",
+        "imageAlt": "Branded client dashboard"
       }
     ]
   }

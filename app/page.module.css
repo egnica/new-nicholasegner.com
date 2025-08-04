@@ -27,6 +27,21 @@
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
+.mainBackColor2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-color: #e5e5e5;
+  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/back-2.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .starOverlay {
   position: fixed;
   object-fit: cover;
@@ -227,6 +242,7 @@
 }
 
 .reviewText {
+  display: grid;
   position: absolute;
   top: 0;
   left: 0;
@@ -262,7 +278,6 @@
 .review {
   padding: 2%;
   font-size: larger;
-  margin: auto;
 }
 .truncatedMultiline {
   display: -webkit-box;
@@ -724,6 +739,114 @@
 .cancelX:hover {
   scale: 1.2;
 }
+
+/****** prospect pages **/
+.prospectPage {
+  padding: 20px;
+}
+.companyPerson {
+  margin: auto;
+}
+.companyPerson h1 {
+  font-size: 4em;
+  margin: 0;
+  color: #f6f8ff;
+  text-shadow: 2px 2px #ff0000;
+}
+.companyPerson h2 {
+  color: #f6f8ff;
+  margin: 0;
+  text-shadow: 2px 2px #ff0000;
+}
+.logoName {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  place-content: center;
+}
+
+.mainBody {
+  font-size: 1.3em;
+}
+
+/*****ProspectCarousel****/
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+}
+
+.imageCarousel {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* optional: subtle shadow */
+  object-fit: cover; /* can help in certain layouts, optional */
+}
+
+.imageTextCont2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.controlContain2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+/* Arrows */
+.arrow2 {
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  user-select: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.arrow2:hover {
+  transform: scale(1.2);
+}
+
+/* Dots */
+.dot2 {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(67, 67, 67, 0.4);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.dot2:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+/* Active Dot (use inline class toggle in JSX) */
+.dotActive {
+  background: white;
+  transform: scale(1.4);
+}
+.textIdea {
+  position: relative;
+  font-size: 1.3em;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 30px;
+  margin: auto;
+  color: rgb(55, 55, 55);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/************MEDIA WIDTH CHANGE***/
 @media only screen and (max-width: 980px) {
   .skillsBtnContain {
     grid-template-columns: 1fr;
@@ -763,5 +886,10 @@
   }
   .videoContent {
     display: block;
+  }
+  .imageTextCont2 {
+    grid-template-columns: 1fr;
+    place-content: center;
+    width: 100%;
   }
 }

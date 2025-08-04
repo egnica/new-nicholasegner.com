@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import newProspect from "../../../prospect.json";
 import ProspectCarousel from "../../components/prospectCarousel";
+import styles from "../../page.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 function Prospect() {
   const params = useParams();
@@ -12,14 +15,33 @@ function Prospect() {
   if (!prospectObject) return notFound();
 
   return (
-    <div>
-      <div>
-        <h1>{prospectObject.company}</h1>
-        <h2>{prospectObject.personName}</h2>
-        <p dangerouslySetInnerHTML={{ __html: prospectObject.mainBody }}></p>
+    <>
+      <div className={styles.mainBackColor2}></div>
+      <div className={styles.prospectPage}>
+        <div className={styles.companyPerson}>
+          <div className={styles.logoName}>
+            <div>
+              <h1>{prospectObject.company}</h1>
+              <h2>{prospectObject.personName}</h2>
+            </div>
+            <Link href={"/"}>
+              <Image
+                style={{ margin: "auto" }}
+                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+                width={140}
+                height={140}
+                alt="Nicholas Egner Logo"
+              />
+            </Link>
+          </div>
+        </div>
+        <p
+          className={styles.mainBody}
+          dangerouslySetInnerHTML={{ __html: prospectObject.mainBody }}
+        ></p>
+        <ProspectCarousel prospectArray={prospectObject.ideas} />
       </div>
-      <ProspectCarousel prospectArray={prospectObject.ideas} />
-    </div>
+    </>
   );
 }
 

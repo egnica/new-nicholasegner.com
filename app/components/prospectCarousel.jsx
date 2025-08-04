@@ -36,49 +36,65 @@ function Carousel({ prospectArray }) {
   };
 
   return (
-    <div style={{ display: "grid", placeContent: "center" }}>
-      <div className={styles.controlContain}>
-        <div className={styles.arrow} onClick={goPrev}>
-          ←
-        </div>
-        {prospectArray.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => clickDot(index)}
-            className={styles.dot}
-          ></div>
-        ))}
-        <div className={styles.arrow} onClick={goNext}>
-          →
-        </div>
-      </div>
-
+    <>
       <div>
-        <h1>{prospectArray[changeIndex].title}</h1>
-        <h2>{prospectArray[changeIndex].subtitle}</h2>
+        <div className={styles.controlContain2}>
+          <div className={styles.arrow2} onClick={goPrev}>
+            ←
+          </div>
+          {prospectArray.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => clickDot(index)}
+              className={`${styles.dot2} ${
+                index === changeIndex ? styles.dotActive : ""
+              }`}
+            ></div>
+          ))}
+          <div className={styles.arrow2} onClick={goNext}>
+            →
+          </div>
+        </div>
       </div>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={changeIndex}
-          initial={{ opacity: 0, rotateY: 90 }}
-          animate={{ opacity: 1, rotateY: 0 }}
-          exit={{ opacity: 0, rotateY: -90 }}
-          transition={{ duration: 0.2, ease: "easeIn" }}
-        >
-          <Image
-            width={640}
-            height={360}
-            alt={prospectArray[changeIndex].imageAlt}
-            src={prospectArray[changeIndex].image}
-            className={styles.imageCarousel}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <div className={styles.imageTextCont2}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={changeIndex + "image"}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.2, ease: "easeIn" }}
+            className={styles.imageWrapper}
+          >
+            <img
+              src={prospectArray[changeIndex].image}
+              alt={prospectArray[changeIndex].imageAlt}
+              className={styles.imageCarousel}
+            />
+          </motion.div>
+        </AnimatePresence>
 
-      <div>
-        <p>{prospectArray[changeIndex].body}</p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={changeIndex + "text"}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.2, ease: "easeIn" }}
+            className={styles.textIdea}
+          >
+            <h2>{prospectArray[changeIndex].title}</h2>
+            <h4>{prospectArray[changeIndex].subtitle}</h4>
+            <br />
+            <p
+              dangerouslySetInnerHTML={{
+                __html: prospectArray[changeIndex].body,
+              }}
+            ></p>
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </div>
+    </>
   );
 }
 
