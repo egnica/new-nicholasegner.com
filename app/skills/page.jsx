@@ -31,7 +31,7 @@ function Skills() {
 
       <Header />
       <Link href={"../"}>
-        <h2 className={styles.skillsBtn} style={{ margin: "2%" }}>
+        <h2 style={{ marginLeft: "20px" }} className={styles.skillsBtn}>
           Home
         </h2>
       </Link>
