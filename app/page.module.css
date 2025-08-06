@@ -248,6 +248,7 @@
   margin: 2% 5%;
   grid-template-columns: 0.5fr 1fr;
   place-content: center;
+  min-height: ;
 }
 .googleImage {
   margin: auto;
