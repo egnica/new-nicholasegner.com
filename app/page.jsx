@@ -62,32 +62,37 @@ export default function Home() {
               alt="Nicholas Egner Logo"
             />
           </motion.a>
-          <motion.a
-            href="/about"
-            className={styles.aboutNicholas}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            Learn more about Nicholas Egner
-          </motion.a>
         </header>
 
-        <motion.section
-          className={styles.nameCont}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className={styles.nameTitle}>{name}</h1>
-
-          <Image
-            className={styles.logoMain}
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={160}
-            height={160}
-            alt="Nicholas Egner Logo"
-          />
-          <motion.section className={styles.btnTitleContain}>
+        <motion.section className={styles.nameCont}>
+          <motion.h1
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 10 }}
+            transition={{ duration: 0.6 }}
+            className={styles.nameTitle}
+          >
+            {name}
+          </motion.h1>
+          <motion.div
+            style={{ margin: "auto" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Image
+              className={styles.logoMain}
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+              width={160}
+              height={160}
+              alt="Nicholas Egner Logo"
+            />
+          </motion.div>
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className={styles.btnTitleContain}
+          >
             <Link href={"./video-experience"}>
               <div className={styles.mainBtn}>ABOUT ME</div>
             </Link>
