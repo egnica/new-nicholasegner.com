@@ -66,12 +66,7 @@ function AboutMe() {
   return (
     <>
       <div className={styles.backColor}></div>
-      <video className={styles.starOverlay} autoPlay loop muted playsInline>
-        <source
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"
-          type="video/webm"
-        />
-      </video>
+
       <Link href={"../"}>
         <h2 className={styles.skillsBtn} style={{ margin: "2%" }}>
           Home

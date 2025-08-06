@@ -1,10 +1,10 @@
 :root {
-  --one-color: #0b1d51;
-  --two-color: #725cad;
-  --three-color: #8ccdeb;
-  --four-color: #ffe3a9;
-  --text-color: #383838;
-  --bg-color: #e5e5e5;
+  --font-sans: var(--font-inter);
+  --font-alt: var(--font-manrope);
+}
+
+body {
+  font-family: var(--font-sans);
 }
 
 html,

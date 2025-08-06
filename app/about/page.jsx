@@ -91,12 +91,7 @@ function About() {
         ))}
       </div>
       <div className={styles.mainBackColor}></div>
-      <video className={styles.starOverlay} autoPlay loop muted playsInline>
-        <source
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"
-          type="video/webm"
-        />
-      </video>
+
       <div className={styles.aboutCont}>
         <div className={styles.imageCont}>
           <Image
