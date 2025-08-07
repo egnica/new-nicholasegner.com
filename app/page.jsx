@@ -138,7 +138,7 @@ export default function Home() {
                 <div className={styles.mainBtn}>Leave Review</div>
               </a>
               <a
-                href="https://www.google.com/search?q=Nicholas+Egner+Web+Development+Reviews"
+                href="https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/data=!4m2!3m1!1s0x0:0x2abec985a953e126?sa=X&ved=1t:2428&ictx=111"
                 target="_blank"
                 rel="noopener noreferrer"
               >
