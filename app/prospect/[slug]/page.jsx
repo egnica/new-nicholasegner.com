@@ -17,6 +17,7 @@ function Prospect() {
   return (
     <>
       <div className={styles.mainBackColor2}></div>
+      <div className={styles.backgroundImage}></div>
       <div className={styles.prospectPage}>
         <div className={styles.companyPerson}>
           <div className={styles.logoName}>
@@ -26,7 +27,7 @@ function Prospect() {
             </div>
             <Link className={styles.neLogo} href={"/"}>
               <Image
-              className={styles.neLogo}
+                className={styles.neLogo}
                 style={{ margin: "auto" }}
                 src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
                 width={140}

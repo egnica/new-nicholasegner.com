@@ -15,6 +15,37 @@
   z-index: -3;
   background-color: #1a1a2e;
 }
+.backgroundImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    #20015a 0%,
+    #2a45f9 40%,
+    #011d83 70%,
+    #07001e 100%
+  );
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/back-2.webp");
+  opacity: 0.5;
+}
+.mainBackColor2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  background-color: #e5e5e5;
+}
 
 .topPage {
   display: flex;
