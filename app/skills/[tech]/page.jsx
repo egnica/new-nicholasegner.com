@@ -6,7 +6,7 @@ import styles from "../../page.module.css";
 import Header from "../../components/header";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import ParticlesBackground from "../../components/particlesBackground";
+import Particles from "../../components/particlesBackground";
 
 function TechPage() {
   const params = useParams();
@@ -25,7 +25,7 @@ function TechPage() {
         Home
       </Link>
       <div className={styles.mainBackColor}></div>
-      <ParticlesBackground />
+
       <div className={styles.objectCont}>
         <AnimatePresence mode="wait">
           <motion.div

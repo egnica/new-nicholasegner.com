@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../page.module.css";
 import Link from "next/link";
+import Dots from "../components/particlesBackground";
 
 function About() {
   const btnObject = [
@@ -78,6 +79,7 @@ function About() {
           }}
         />
       </Head>
+      <Dots />
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (
           <a
@@ -129,6 +131,7 @@ function About() {
           </p>
         </div>
       </div>
+      <div style={{ padding: "30px" }}></div>
     </>
   );
 }

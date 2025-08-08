@@ -11,6 +11,24 @@ import ParticlesBackground from "./components/particlesBackground";
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [largeString, setLargeString] = useState(false);
+  const [showFull, setShowFull] = useState(false);
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    const text = Reviews[reviewIndex].text;
+    const words = text.split(" ");
+
+    setShowFull(false);
+
+    if (words.length < 40) {
+      setLargeString(false);
+      setDisplayText(text);
+    } else {
+      setLargeString(true);
+      setDisplayText(words.slice(0, 40).join(" ") + "...");
+    }
+  }, [reviewIndex]);
 
   const techIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
@@ -152,7 +170,7 @@ export default function Home() {
           <AnimatePresence mode="wait">
             <motion.div
               layout
-              className={styles.reviewText}
+              className={!showFull ? styles.reviewText : styles.reviewTextFull}
               key={Reviews[reviewIndex].name}
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
@@ -163,7 +181,18 @@ export default function Home() {
                 <img src={Reviews[reviewIndex].image} />
                 <h2>{Reviews[reviewIndex].name}</h2>
               </div>
-              <p className={styles.review}>{Reviews[reviewIndex].text}</p>
+              <p className={styles.review}>
+                {showFull ? Reviews[reviewIndex].text : displayText}
+              </p>
+
+              {largeString && (
+                <button
+                  className={styles.revealFull}
+                  onClick={() => setShowFull(!showFull)}
+                >
+                  {showFull ? "Show Less" : "Read More"}
+                </button>
+              )}
             </motion.div>
           </AnimatePresence>
         </motion.section>

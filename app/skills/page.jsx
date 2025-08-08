@@ -8,6 +8,7 @@ import Projects from "./skillscomps/projects";
 import Header from "../components/header";
 import ContState from "../components/textContState";
 import Link from "next/link";
+import Particles from "../components/particlesBackground";
 
 function Skills() {
   const [revealSkill, setRevealSkill] = useState("");
@@ -27,6 +28,7 @@ function Skills() {
 
   return (
     <>
+      <Particles />
       <div className={styles.mainBackColor}></div>
 
       <Header />
