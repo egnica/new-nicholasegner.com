@@ -17,7 +17,6 @@ function Prospect() {
   return (
     <>
       <div className={styles.mainBackColor2}></div>
-      
       <div className={styles.backgroundImage}></div>
       <div className={styles.prospectPage}>
         <div className={styles.companyPerson}>
