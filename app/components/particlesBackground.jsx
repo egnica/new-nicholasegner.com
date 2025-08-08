@@ -8,11 +8,15 @@ export default function SimpleDotsBackground() {
   let width, height;
 
   useEffect(() => {
+    // 🧠 Exit early on touch-only devices or if user prefers reduced motion
     const isTouchOnly = window.matchMedia("(hover: none)").matches;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (isTouchOnly || prefersReducedMotion) return;
+
+    if (isTouchOnly || prefersReducedMotion) {
+      return;
+    }
 
     const MAX_DOTS = 150;
     const canvas = canvasRef.current;
@@ -55,6 +59,7 @@ export default function SimpleDotsBackground() {
         newDots.push(createDot(e.clientX, e.clientY, true));
       }
 
+      // If limit is exceeded, remove oldest
       while (dots.length + newDots.length > MAX_DOTS) {
         dots.shift();
       }
@@ -73,8 +78,8 @@ export default function SimpleDotsBackground() {
         if (dist < mouse.radius) {
           const force = (mouse.radius - dist) / mouse.radius;
           const angle = Math.atan2(dy, dx);
-          dot.x += Math.cos(angle) * force * 2.5;
-          dot.y += Math.sin(angle) * force * 2.5;
+          dot.x += Math.cos(angle) * force * 2;
+          dot.y += Math.sin(angle) * force * 2;
         }
 
         dot.x += dot.dx * 0.5 + (mouse.x / width - 0.5) * 0.05;
@@ -83,25 +88,21 @@ export default function SimpleDotsBackground() {
         if (dot.x < 0 || dot.x > width) dot.dx *= -1;
         if (dot.y < 0 || dot.y > height) dot.dy *= -1;
 
-        ctx.shadowBlur = 2;
-        ctx.shadowColor = dot.color;
-
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
         ctx.fillStyle = dot.color;
         ctx.fill();
       }
 
-      // Draw connecting lines with opacity based on distance
+      // Draw connecting lines
       for (let i = 0; i < dots.length; i++) {
         for (let j = i + 1; j < dots.length; j++) {
           const dx = dots[i].x - dots[j].x;
           const dy = dots[i].y - dots[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
-            const opacity = 1 - dist / 120;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(150, 220, 255, ${opacity * 0.2})`;
+            ctx.strokeStyle = "rgba(150, 220, 255, 0.1)";
             ctx.lineWidth = 1;
             ctx.moveTo(dots[i].x, dots[i].y);
             ctx.lineTo(dots[j].x, dots[j].y);
@@ -119,7 +120,6 @@ export default function SimpleDotsBackground() {
       window.removeEventListener("resize", resize);
     };
   }, []);
-
   return (
     <canvas
       ref={canvasRef}
@@ -130,7 +130,7 @@ export default function SimpleDotsBackground() {
         zIndex: -1,
         width: "100vw",
         height: "100vh",
-        pointerEvents: "none",
+        pointerEvents: "none", // keep your content clickable
       }}
     />
   );
