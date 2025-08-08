@@ -6,6 +6,7 @@ import styles from "../../page.module.css";
 import Header from "../../components/header";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import ParticlesBackground from "../../components/particlesBackground";
 
 function TechPage() {
   const params = useParams();
@@ -24,13 +25,7 @@ function TechPage() {
         Home
       </Link>
       <div className={styles.mainBackColor}></div>
-      <video className={styles.starOverlay} autoPlay loop muted playsInline>
-        <source
-          src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/star-background.webm"
-          type="video/webm"
-        />
-      </video>
-
+      <ParticlesBackground />
       <div className={styles.objectCont}>
         <AnimatePresence mode="wait">
           <motion.div

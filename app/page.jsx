@@ -2,10 +2,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import stackData from "../stack.json";
 import Reviews from "../reviews.json";
+import ParticlesBackground from "./components/particlesBackground";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -48,6 +49,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.mainBackColor}></div>
+      <ParticlesBackground />
       <main className={styles.page}>
         <header className={styles.topPage}>
           <motion.a

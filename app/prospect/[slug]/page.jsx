@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
 import newProspect from "../../../prospect.json";
 import ProspectCarousel from "../../components/prospectCarousel";
 import styles from "../../page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+
 
 function Prospect() {
   const params = useParams();
