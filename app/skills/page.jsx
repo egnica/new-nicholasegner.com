@@ -32,10 +32,12 @@ function Skills() {
       <div className={styles.mainBackColor}></div>
 
       <Header />
-      <Link href={"../"}>
-        <h2 style={{ marginLeft: "20px" }} className={styles.skillsBtn}>
-          Home
-        </h2>
+      <Link
+        style={{ marginLeft: "20px" }}
+        className={styles.skillsBtn}
+        href={"../"}
+      >
+        Home
       </Link>
       <div className={styles.cont}>
         <Projects />
