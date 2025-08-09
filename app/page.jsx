@@ -93,20 +93,26 @@ export default function Home() {
           >
             {name}
           </motion.h1>
+
           <motion.div
             style={{ margin: "auto" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 3, y: -100 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ scale: 1.1, cursor: "pointer" }}
+            whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.6 }}
           >
-            <Image
-              className={styles.logoMain}
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-              width={160}
-              height={160}
-              alt="Nicholas Egner Logo"
-            />
+            <Link href={"./about"}>
+              <Image
+                className={styles.logoMain}
+                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+                width={160}
+                height={160}
+                alt="Nicholas Egner Logo"
+              />
+            </Link>
           </motion.div>
+
           <motion.section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
