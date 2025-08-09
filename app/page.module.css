@@ -858,4 +858,8 @@
     height: 320px;
     margin: auto;
   }
+  .aboutButtons {
+    padding: 5px;
+    gap: 5px;
+  }
 }
