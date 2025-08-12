@@ -9,7 +9,7 @@ function Photos() {
   const photoObject = [
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-portfolio.jpg",
-      alt: "Nicholas Egner presenting a project portfolio",
+      alt: "Nicholas Egner - Digital Creator",
     },
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/fiverr-cover-1.png",
@@ -17,15 +17,15 @@ function Photos() {
     },
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-outline.webp",
-      alt: "Nicholas Egner - color image",
+      alt: "Nicholas Egner - Fun Color image",
     },
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
-      alt: "Portrait of Nicholas Egner - Digital Creator",
+      alt: "Portrait of Nicholas Egner - Minneapolis Web Developer",
     },
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
-      alt: "Portrait of Nicholas Egner - Digital portfolio",
+      alt: "Nicholas Egner - Digital portfolio",
     },
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg",
@@ -61,10 +61,11 @@ function Photos() {
 
       <div className={styles.photoGrid}>
         {Object.values(photoObject).map((item, index) => (
-          <img key={index} src={item.url} alt={item.alt} />
+          <div key={index}>
+            <img src={item.url} alt={item.alt} />
+            <p>{item.alt}</p>
+          </div>
         ))}
-
-        {/* Add more images as needed */}
       </div>
     </div>
   );

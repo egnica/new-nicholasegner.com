@@ -325,8 +325,13 @@
 
 .photoGrid img {
   width: 100%;
-  margin-bottom: 16px;
+
   display: block;
+}
+.photoGrid p {
+  margin-bottom: 16px;
+  text-align: left;
+  color: #979797;
 }
 /* *********SKILLS ********* */
 
