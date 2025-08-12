@@ -5,6 +5,35 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import Particles from "../components/particlesBackground";
 
+export const metadata = {
+  title: "Photos of Nicholas Egner (Official Gallery)",
+  description:
+    "Downloadable headshots, portraits, and work images of Minneapolis-based developer Nicholas Egner.",
+  alternates: { canonical: "https://nicholasegner.com/photos" },
+  openGraph: {
+    type: "website",
+    url: "https://nicholasegner.com/photos",
+    title: "Photos of Nicholas Egner",
+    description: "Official photo gallery and press images of Nicholas Egner.",
+    images: [
+      {
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-portfolio.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nicholas Egner - Official Headshot",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Photos of Nicholas Egner",
+    description: "Official photo gallery and press images of Nicholas Egner.",
+    images: [
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-portfolio.jpg",
+    ],
+  },
+};
+
 function Photos() {
   const photoObject = [
     {
@@ -46,8 +75,55 @@ function Photos() {
     },
   ];
 
+  function JsonLd({ items }) {
+    const data = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["CollectionPage", "WebPage"],
+          "@id": "https://nicholasegner.com/photos",
+          url: "https://nicholasegner.com/photos",
+          name: "Photos of Nicholas Egner",
+          description:
+            "Official photo gallery and press images of Nicholas Egner.",
+          about: { "@id": "https://nicholasegner.com/#nicholas-egner" },
+        },
+        {
+          "@type": "Person",
+          "@id": "https://nicholasegner.com/#nicholas-egner",
+          name: "Nicholas Egner",
+          url: "https://nicholasegner.com/",
+          sameAs: [
+            "https://www.linkedin.com/in/nicholas-egner",
+            "https://latestartdev.com",
+          ],
+        },
+        // map each image as an ImageObject
+        ...items.map((img, i) => ({
+          "@type": "ImageObject",
+          "@id": `https://nicholasegner.com/photos#img${i + 1}`,
+          name: img.alt,
+          caption: img.alt,
+          contentUrl: img.url,
+          thumbnailUrl: img.url,
+          creator: { "@id": "https://nicholasegner.com/#nicholas-egner" },
+          copyrightNotice: "© Nicholas Egner",
+          representativeOfPage: i === 0, // first image as lead
+        })),
+      ],
+    };
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+    );
+  }
+
   return (
     <div className={styles.photosPage}>
+      <JsonLd items={photoObject} />
       <div className={styles.mainBackColor}></div>
       <Particles />
       <Link href={"../about"}>
