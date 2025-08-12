@@ -66,11 +66,13 @@ function Carousel({ prospectArray }) {
             transition={{ duration: 0.2, ease: "easeIn" }}
             className={styles.imageWrapper}
           >
-            <img
-              src={prospectArray[changeIndex].image}
-              alt={prospectArray[changeIndex].imageAlt}
-              className={styles.imageCarousel}
-            />
+            <a href={prospectArray[changeIndex].urlImage} target="_blank">
+              <img
+                src={prospectArray[changeIndex].image}
+                alt={prospectArray[changeIndex].imageAlt}
+                className={styles.imageCarousel}
+              />
+            </a>
           </motion.div>
         </AnimatePresence>
 
