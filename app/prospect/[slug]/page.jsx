@@ -6,7 +6,7 @@ import ProspectCarousel from "../../components/prospectCarousel";
 import styles from "../../page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
+import Particles from "../../components/particlesBackground";
 
 function Prospect() {
   const params = useParams();
@@ -17,8 +17,8 @@ function Prospect() {
 
   return (
     <>
-      <div className={styles.mainBackColor2}></div>
-      <div className={styles.backgroundImage}></div>
+      <div className={styles.mainBackColor}></div>
+      <Particles />
       <div className={styles.prospectPage}>
         <div className={styles.companyPerson}>
           <div className={styles.logoName}>
@@ -44,7 +44,7 @@ function Prospect() {
         ></p>
         <ProspectCarousel prospectArray={prospectObject.ideas} />
       </div>
-      <div style={{ padding: "50px" }}></div>
+      <div style={{ padding: "10px" }}></div>
     </>
   );
 }
