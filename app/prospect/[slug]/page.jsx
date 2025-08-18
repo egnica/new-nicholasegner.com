@@ -44,7 +44,7 @@ function Prospect() {
         ></p>
         <ProspectCarousel prospectArray={prospectObject.ideas} />
       </div>
-      <div style={{ padding: "10px" }}></div>
+      <div style={{ padding: "30px" }}></div>
     </>
   );
 }
