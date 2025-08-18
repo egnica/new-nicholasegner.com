@@ -17,7 +17,7 @@ function About() {
     },
     {
       title: "Resume",
-      url: "https://drive.google.com/drive/u/0/home",
+      url: "https://drive.google.com/file/d/1QjkOJzqmSwCDG_cjf9PBCv6h5CkbJq1w/view?usp=drive_link",
     },
     {
       title: "Google Business",
