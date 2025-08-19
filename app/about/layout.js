@@ -31,7 +31,7 @@ export default function Layout({ children }) {
   return (
     <>
       <p className={styles.skillsBtn} style={{ margin: "2%" }}>
-        <Link href="./"> HOME</Link>
+        <Link href="./">HOME</Link>
       </p>
 
       <>{children}</>
