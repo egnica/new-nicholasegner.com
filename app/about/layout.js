@@ -30,11 +30,10 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <>
-      <Link href="./">
-        <p className={styles.skillsBtn} style={{ margin: "2%" }}>
-          HOME
-        </p>
-      </Link>
+      <p className={styles.skillsBtn} style={{ margin: "2%" }}>
+        <Link href="./"> HOME</Link>
+      </p>
+
       <>{children}</>
     </>
   );
