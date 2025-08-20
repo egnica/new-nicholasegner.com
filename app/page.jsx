@@ -41,6 +41,7 @@ export default function Home() {
       loop: false,
       autoplay: true,
       path: "/nicholas-egner-animation.json",
+      name: "heroAnimation",
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
         // preserveAspectRatio: "xMidYMid meet",
@@ -48,7 +49,9 @@ export default function Home() {
         hideOnTransparent: true,
       },
     });
-
+    lottie.resize("heroAnimation");
+    // console.log(anim);
+    anim.setSpeed(1.3); // Change speed
     anim.addEventListener("DOMLoaded", () => {
       anim.addEventListener("complete", () => {
         setHeroFrames(true);
