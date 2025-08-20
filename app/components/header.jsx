@@ -15,7 +15,7 @@ function header() {
           alt="Nicholas Egner Logo"
         />
       </a>
-      <h1 className={styles.skillsH}> - SKILLS</h1>
+      <h1 className={styles.skillsH}></h1>
     </header>
   );
 }

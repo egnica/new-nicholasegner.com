@@ -51,7 +51,7 @@ export default function Home() {
     });
     lottie.resize("heroAnimation");
     // console.log(anim);
-    anim.setSpeed(1.3); // Change speed
+    anim.setSpeed(1.2); // Change speed
     anim.addEventListener("DOMLoaded", () => {
       anim.addEventListener("complete", () => {
         setHeroFrames(true);
