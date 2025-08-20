@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import stackData from "../stack.json";
 import Reviews from "../reviews.json";
+import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
   const [largeString, setLargeString] = useState(false);
   const [showFull, setShowFull] = useState(false);
   const [displayText, setDisplayText] = useState("");
+  const animRef = useRef(null);
+  const [heroFrames, setHeroFrames] = useState(false);
 
   useEffect(() => {
     const text = Reviews[reviewIndex].text;
@@ -29,6 +32,34 @@ export default function Home() {
       setDisplayText(words.slice(0, 40).join(" ") + "...");
     }
   }, [reviewIndex]);
+
+  useEffect(() => {
+    if (!animRef.current) return;
+    const anim = lottie.loadAnimation({
+      container: animRef.current,
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      path: "/nicholas-egner-animation.json",
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+        // preserveAspectRatio: "xMidYMid meet",
+        progressiveLoad: true,
+        hideOnTransparent: true,
+      },
+    });
+
+    anim.addEventListener("DOMLoaded", () => {
+      anim.addEventListener("complete", () => {
+        setHeroFrames(true);
+      });
+    });
+
+    return () => {
+      anim.removeEventListener("complete"); // cleanup
+      anim.destroy();
+    };
+  }, []);
 
   const techIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
@@ -85,33 +116,39 @@ export default function Home() {
         </header>
 
         <motion.section className={styles.nameCont}>
-          <motion.h1
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 10 }}
-            transition={{ duration: 0.6 }}
-            className={styles.nameTitle}
-          >
-            {name}
-          </motion.h1>
+          <div ref={animRef} className={styles.lottieBackground} />
 
-          <motion.div
-            style={{ margin: "auto" }}
-            initial={{ opacity: 0, scale: 3, y: -100 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            whileHover={{ scale: 1.1, cursor: "pointer" }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Link href={"./about"}>
-              <Image
-                className={styles.logoMain}
-                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-                width={160}
-                height={160}
-                alt="Nicholas Egner Logo"
-              />
-            </Link>
-          </motion.div>
+          {heroFrames && (
+            <motion.h1
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 10 }}
+              transition={{ duration: 0.6 }}
+              className={styles.nameTitle}
+            >
+              {name}
+            </motion.h1>
+          )}
+
+          {heroFrames && (
+            <motion.div
+              style={{ margin: "auto" }}
+              initial={{ opacity: 0, scale: 3, y: -100 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              whileHover={{ scale: 1.1, cursor: "pointer" }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link href={"./about"}>
+                <Image
+                  className={styles.logoMain}
+                  src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+                  width={160}
+                  height={160}
+                  alt="Nicholas Egner Logo"
+                />
+              </Link>
+            </motion.div>
+          )}
 
           <motion.section
             initial={{ opacity: 0 }}
@@ -126,19 +163,20 @@ export default function Home() {
               <div className={styles.mainBtn}>PROJECTS</div>
             </Link>
           </motion.section>
-
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={skillsArray[index]}
-              className={styles.skillTitle}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
-              transition={{ duration: 0.4 }}
-            >
-              {skillsArray[index]}
-            </motion.h1>
-          </AnimatePresence>
+          {heroFrames && (
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={skillsArray[index]}
+                className={styles.skillTitle}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.4 }}
+              >
+                {skillsArray[index]}
+              </motion.h1>
+            </AnimatePresence>
+          )}
         </motion.section>
 
         <motion.section

@@ -66,8 +66,10 @@
 }
 
 .nameCont {
+  position: relative; /* <-- key */
   display: grid;
   padding: 0 5%;
+  min-height: 60vh; /* sets hero height */
   background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp");
   background-blend-mode: darken;
   color: white;
@@ -75,6 +77,22 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: visible;
+}
+
+.lottieBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* now matches hero height */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nameCont > *:not(.lottieBackground) {
+  position: relative;
+  z-index: 1;
 }
 .logoMain {
   margin: auto;
