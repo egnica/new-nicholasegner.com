@@ -178,20 +178,32 @@
   "projects": [
     {
       "title": "Portfolio",
-      "url": "URL_HERE",
-      "urlBtnText": "Visit Portfolio",
+      "links": [
+        {
+          "title": "Video Experience",
+          "url": "https://nicholasegner.com/video-experience"
+        },
+        {
+          "title": "Projects Page",
+          "url": "https://nicholasegner.com/skills"
+        },
+        {
+          "title": "About Me Page",
+          "url": "https://nicholasegner.com/about"
+        }
+      ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "Number 1"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/portfolio-hero.gif",
+          "imageDesc": "Hero section animation using json, Lottie, and Framer Motion "
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "number 2"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/video-experence.gif",
+          "imageDesc": "Nicholas Egner 'Video Experience'"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "number 3"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/projects-page.gif",
+          "imageDesc": "Nicholas Egner - Projects page"
         }
       ],
       "description": "nicholasegner.com is my personal portfolio and digital playground. Welcome! You're actually on it right now. It's a space to showcase my work, test ideas, and experiment with tools that reflect where I’m growing as both a developer and creative.<br/><br/>Built with performance and SEO in mind, the site is powered by Next.js, animated with Framer Motion, and hosted on AWS Amplify. It features a custom CMS structure for managing content, uses MongoDB for backend support, and is designed to let the work shine.<br/><br/>Every decision, from route structure to image optimization, reflects a hands-on, iterative approach to modern web development. The site grows alongside me.",
@@ -207,20 +219,28 @@
     },
     {
       "title": "Digital Insights Hub",
-      "url": "https://nicholasegner.com",
-      "urlBtnText": "View Project",
+      "links": [
+        {
+          "title": "Clone of the Tool",
+          "url": "https://main.d283ike1beb7cu.amplifyapp.com/#feature"
+        },
+        {
+          "title": "Repository",
+          "url": "https://github.com/egnica/Dashboard-Clone"
+        }
+      ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "Number 1"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/overlook-tool.gif",
+          "imageDesc": "TestDrive Tool"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "number 2"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bank-dash.gif",
+          "imageDesc": "Bank view dashboard"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "number 3"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/feature-matrix.gif",
+          "imageDesc": "Interactive Feature Matrix"
         }
       ],
       "description": "Digital Insights Hub is a custom-built multimedia dashboard designed to help users explore comparative content across a variety of formats.<br/><br/>The tool was developed to support research and presentation workflows, making it easy to surface insights, organize materials, and share findings.<br/><br/>Built with Next.js and Framer Motion for smooth UI interactions, and powered by the FileMaker Data API, this project demonstrates how structured data and visual clarity can simplify the complex task of comparing banking websites and apps, providing a clear view into their performance, usability, and design strengths.",
@@ -235,12 +255,24 @@
     },
     {
       "title": "Late Start Dev",
-      "url": "https://latestartdev.com/",
-      "urlBtnText": "Read the Blog",
+      "links": [
+        {
+          "title": "Video Experience",
+          "url": "https://nicholasegner.com/video-experience"
+        },
+        {
+          "title": "Projects Page",
+          "url": "https://nicholasegner.com/skills"
+        },
+        {
+          "title": "About Me Page",
+          "url": "https://nicholasegner.com/about"
+        }
+      ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "Number 1"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-1.gif",
+          "imageDesc": "Multi Media Blog Post"
         },
         {
           "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
@@ -258,8 +290,20 @@
     },
     {
       "title": "Nicholas Egner: SEO Strategy Project",
-      "url": null,
-      "urlBtnText": null,
+      "links": [
+        {
+          "title": "Video Experience",
+          "url": "https://nicholasegner.com/video-experience"
+        },
+        {
+          "title": "Projects Page",
+          "url": "https://nicholasegner.com/skills"
+        },
+        {
+          "title": "About Me Page",
+          "url": "https://nicholasegner.com/about"
+        }
+      ],
       "repo": null,
       "image": [
         {
@@ -287,8 +331,20 @@
     },
     {
       "title": "GIGnnovate",
-      "url": "URL_HERE",
-      "urlBtnText": "Visit Site",
+      "links": [
+        {
+          "title": "Video Experience",
+          "url": "https://nicholasegner.com/video-experience"
+        },
+        {
+          "title": "Projects Page",
+          "url": "https://nicholasegner.com/skills"
+        },
+        {
+          "title": "About Me Page",
+          "url": "https://nicholasegner.com/about"
+        }
+      ],
       "image": [
         {
           "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
@@ -310,8 +366,20 @@
     },
     {
       "title": "DudeWithaCar.com",
-      "url": "https://www.dudewithacar.com/",
-      "urlBtnText": "Preview MVP",
+      "links": [
+        {
+          "title": "Video Experience",
+          "url": "https://nicholasegner.com/video-experience"
+        },
+        {
+          "title": "Projects Page",
+          "url": "https://nicholasegner.com/skills"
+        },
+        {
+          "title": "About Me Page",
+          "url": "https://nicholasegner.com/about"
+        }
+      ],
       "image": [
         {
           "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",

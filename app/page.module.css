@@ -499,6 +499,21 @@
   padding-top: 5px;
   color: #e6eaf9;
 }
+.linkSkillsSplit {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+.techStackCont {
+  border: 1px #e7e7e7 solid;
+}
+.stackList {
+  display: grid;
+  grid-auto-flow: column; /* fill down first, then across */
+  grid-auto-rows: auto; /* each row sizes naturally */
+  grid-template-rows: repeat(3, auto); /* 3 rows per column */
+  gap: 0.1rem 1rem; /* row-gap | column-gap */
+}
+
 /******************** carousel */
 .controlContain {
   display: flex;

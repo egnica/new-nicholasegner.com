@@ -69,7 +69,7 @@ function Carousel({ imageArray }) {
           />
         </motion.div>
       </AnimatePresence>
-      <p>{imageArray[changeIndex].imageDesc}</p>
+      <p style={{ color: "#cacbcd" }}>{imageArray[changeIndex].imageDesc}</p>
     </div>
   );
 }

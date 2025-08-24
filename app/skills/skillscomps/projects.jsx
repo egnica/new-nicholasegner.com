@@ -95,6 +95,43 @@ function Projects() {
                   className={styles.textDecrip}
                   dangerouslySetInnerHTML={{ __html: projectFind.description }}
                 ></p>
+                <div className={styles.linkSkillsSplit}>
+                  <div>
+                    <h4 className={styles.textDecrip}>Links</h4>
+                    {projectFind.links.map((item, index) => (
+                      <div
+                        key={index}
+                        style={{ lineHeight: "1.2", paddingLeft: "5%" }}
+                      >
+                        <a href={item.url} target="_blank">
+                          <p style={{ color: "lightblue" }}>{item.title} </p>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className={styles.techStackCont}>
+                    <h4
+                      style={{ textAlign: "center" }}
+                      className={styles.textDecrip}
+                    >
+                      Technology
+                    </h4>
+                    <div className={styles.stackList}>
+                      {projectFind.stack.map((item, index) => (
+                        <p
+                          key={index}
+                          style={{
+                            lineHeight: "1.1",
+                            paddingLeft: "5%",
+                            color: "lightblue",
+                          }}
+                        >
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
