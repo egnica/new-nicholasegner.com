@@ -35,6 +35,31 @@ function Carousel({ imageArray }) {
     setChangeIndex(index);
   };
 
+  const videoOrImage = (url, description) => {
+    const urlType = url.split(".")[5];
+    return urlType == "webm" ? (
+      <video
+        width={640}
+        height={360}
+        alt={description}
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={url} type="video/webm" />
+      </video>
+    ) : (
+      <Image
+        width={640}
+        height={360}
+        alt={description}
+        src={url}
+        className={styles.imageCarousel}
+      />
+    );
+  };
+
   return (
     <div style={{ display: "grid", placeContent: "center" }}>
       <div className={styles.controlContain}>
@@ -60,13 +85,17 @@ function Carousel({ imageArray }) {
           exit={{ opacity: 0, rotateY: -90 }}
           transition={{ duration: 0.2, ease: "easeIn" }}
         >
-          <Image
+          {videoOrImage(
+            imageArray[changeIndex].imageUrl,
+            imageArray[changeIndex].imageDesc
+          )}
+          {/* <Image
             width={640}
             height={360}
             alt={imageArray[changeIndex].imageDesc}
             src={imageArray[changeIndex].imageUrl}
             className={styles.imageCarousel}
-          />
+          /> */}
         </motion.div>
       </AnimatePresence>
       <p style={{ color: "#cacbcd" }}>{imageArray[changeIndex].imageDesc}</p>

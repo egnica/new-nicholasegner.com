@@ -194,15 +194,15 @@
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/portfolio-hero.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/portfolio-hero.webm",
           "imageDesc": "Hero section animation using json, Lottie, and Framer Motion "
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/video-experence.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/video-experence.webm",
           "imageDesc": "Nicholas Egner 'Video Experience'"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/projects-page.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/projects-page.webm",
           "imageDesc": "Nicholas Egner - Projects page"
         }
       ],
@@ -231,11 +231,11 @@
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/overlook-tool.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/overlook-too.webm",
           "imageDesc": "TestDrive Tool"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bank-dash.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bank-dash.webm",
           "imageDesc": "Bank view dashboard"
         },
         {
@@ -257,29 +257,25 @@
       "title": "Late Start Dev",
       "links": [
         {
-          "title": "Video Experience",
-          "url": "https://nicholasegner.com/video-experience"
+          "title": "Late Start Dev",
+          "url": "https://latestartdev.com/"
         },
         {
-          "title": "Projects Page",
-          "url": "https://nicholasegner.com/skills"
-        },
-        {
-          "title": "About Me Page",
-          "url": "https://nicholasegner.com/about"
+          "title": "Repository",
+          "url": "https://github.com/egnica/My-Blog"
         }
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-1.gif",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-1.webm",
           "imageDesc": "Multi Media Blog Post"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-front.webm",
           "imageDesc": "number 2"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-2.webm",
           "imageDesc": "number 3"
         }
       ],
@@ -307,19 +303,19 @@
       "repo": null,
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "Number 1"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/google-1.webp",
+          "imageDesc": "Nicholas Egner - Google Search"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
-          "imageDesc": "number 2"
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/google-2.webp",
+          "imageDesc": "Nicholas Egner Web Developer"
         },
         {
           "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/image-fill.webp",
           "imageDesc": "number 3"
         }
       ],
-      "description": "Nicholas Egner: SEO Strategy Project is a personal SEO  project I undertook to reclaim control of my online identity. For years, searching 'Nicholas Egner' on Google returned mugshots of a convicted felon with my same name, someone I’ve never met, but whose picture and record dominated the search results of my name.<br/><br/>This project was my way of pushing back. I built nicholasegner.com, authored meaningful blog content under my real name, and implemented a full suite of structured metadata  including JSON-LD, Open Graph tags, canonical URLs, and robots meta directives. I also monitored progress in Google Search Console, iterating over time.<br/><br/>As a result, nicholasegner.com now ranks #1 for my name, replacing irrelevant and damaging content with a professional, accurate digital presence.<br/><br/>This wasn’t just about SEO, it was about visibility, credibility, and owning the story that shows up when someone searches for me.",
+      "description": "Nicholas Egner: SEO Strategy Project is a personal SEO  project I undertook to reclaim control of my online identity. I noticed searching 'Nicholas Egner' on Google returned mugshots of a convicted felon with my same name, someone I’ve never met, but whose picture and record dominated the search results of my name.<br/><br/>This project was my way of pushing back. I built nicholasegner.com, authored meaningful blog content under my real name, and implemented a full suite of structured metadata  including JSON-LD, Open Graph tags, canonical URLs, and robots meta directives. I also monitored progress in Google Search Console, iterating over time.<br/><br/>As a result, nicholasegner.com now ranks #1 for my name, replacing irrelevant and damaging content with a professional, accurate digital presence.<br/><br/>This wasn’t just about SEO, it was about visibility, credibility, and owning the story that shows up when someone searches for me.",
       "stack": [
         "JSON-LD",
         "Open Graph",
