@@ -87,7 +87,10 @@ function Projects() {
             style={{ overflow: "hidden" }}
           >
             <div className={styles.imageTextCont}>
-              <ImageCarousel imageArray={projectFind.image} />
+              <ImageCarousel
+                key={projectFind.title}
+                imageArray={projectFind.image}
+              />
               <div className={styles.innerContain}>
                 <h2>{projectFind.title}</h2>
                 <hr />

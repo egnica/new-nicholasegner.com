@@ -36,8 +36,9 @@ function Carousel({ imageArray }) {
   };
 
   const videoOrImage = (url, description) => {
-    const urlType = url.split(".")[5];
-    return urlType == "webm" ? (
+    const isWebm = (url) => /\.webm($|\?)/i.test(url);
+
+    return isWebm(url) ? (
       <video
         width={640}
         height={360}
@@ -70,8 +71,10 @@ function Carousel({ imageArray }) {
           <div
             key={index}
             onClick={() => clickDot(index)}
-            className={styles.dot}
-          ></div>
+            className={`${styles.dot} ${
+              index === changeIndex ? styles.activeDot : ""
+            }`}
+          />
         ))}
         <div className={styles.arrow} onClick={goNext}>
           →

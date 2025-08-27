@@ -534,6 +534,10 @@
   margin: auto;
   cursor: pointer;
 }
+.activeDot {
+  background-color: #a5a5a5; /* highlight */
+  transform: scale(1.3); /* optional, makes active dot bigger */
+}
 
 .imageCarousel {
   margin: auto;
