@@ -61,9 +61,51 @@
         "title": "Custom Interactive Tools",
         "subtitle": "Branded, user-friendly data experiences",
         "body": "Since Scout uses Power BI, there’s an opportunity to deliver dashboards and data tools that look and feel truly unique. Using React-based design (like my work at Barlow), I can make data visualization more intuitive, branded, and client-friendly, hopefully standing out from standard templates. I cloned a tool I made for Barlow called TestDrive, Link: <a style='color: lightblue;' href='https://main.d283ike1beb7cu.amplifyapp.com/'> CLICK HERE</a>",
-        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/test-drive.webp",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/branded-dashboard.webp",
         "imageAlt": "Custom data dashboard concept",
         "urlImage": "https://main.d283ike1beb7cu.amplifyapp.com/"
+      }
+    ]
+  },
+  {
+    "id": "003",
+    "slug": "bellmont-partners",
+    "company": "Bellmont Partners",
+    "personName": "Kathleen Hennessy",
+    "linkImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bellmont-cover-image.png",
+    "mainBody": "Hi Kathleen, <br/><br/>It was great seeing you and catching up! I really appreciated the chance to reconnect and hear more about what you and Bellmont Partners has been up to. I put this page together as a quick way to share some of my recent work and ideas that might align with what you and your team are doing. <br/><br/> Thanks again for taking the time, and I hope we can collaborate!",
+    "ideas": [
+      {
+        "title": "Interactive Dashboards & Data Storytelling",
+        "subtitle": "Turning complex information into engaging, branded experiences",
+        "body": "Interactive dashboards can add depth to client reporting and storytelling. Instead of static presentations, these tools transform campaign data into dynamic, on-brand visuals, making it easier to showcase results and insights in real time. Built with React, these dashboards can be fully customized to reflect you or your client’s brand.<br><br>I’ve included a demo where I built a custom client-facing dashboard.  TestDrive.<br><br> <a style='color: lightblue;' href='https://main.d283ike1beb7cu.amplifyapp.com/' target='_blank'>View the example here.</a>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/branded-dashboard.webp",
+        "imageAlt": "Custom interactive data dashboard example",
+        "urlImage": "https://main.d283ike1beb7cu.amplifyapp.com/"
+      },
+      {
+        "title": "Service Explainer & Campaign Videos",
+        "subtitle": "Bringing stories to life through approachable, on-brand video",
+        "body": "Short, clear explainer videos can make messages even more accessible across web, social, and presentations. Whether clarifying complex topics or showcasing success stories, these pieces blend narrative, design, and interactivity to enhance audience understanding and engagement.<br><br>Here’s a proof-of-concept of an interactive video format I’ve been developing:<br><br> <a style='color: lightblue;' href='https://nicholasegner.com/video-experience' target='_blank'>View Interactive Video Experience</a>.<br/><small>(Optimized mobile version in progress.)</small>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
+        "imageAlt": "Interactive explainer video concept",
+        "urlImage": "https://nicholasegner.com/video-experience"
+      },
+      {
+        "title": "Event & Conference Highlight Videos",
+        "subtitle": "Capturing moments that extend a brand’s story",
+        "body": "From conferences to panel discussions, event highlight videos help transform live experiences into ongoing storytelling assets. They’re ideal for post-event engagement, social sharing, and reinforcing thought leadership long after the event ends.<br><br>This edit showcases my approach to blending narrative pacing, branded motion graphics, and clear messaging for professional audiences.<br><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4' target='_blank'>Watch Conference Edit 1</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4' target='_blank'>Watch Conference Edit 2</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/tap-to-pay.mp4' target='_blank'>Watch Tap-To-Pay</a>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
+        "imageAlt": "Conference video highlight",
+        "urlImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4"
+      },
+      {
+        "title": "Video Links",
+        "subtitle": "Links to videos I produced throughout my career",
+        "body": "A sampling of video work spanning storytelling, branded collaborations, and motion design. Each piece reflects a slightly different approach. From community-focused documentary to corporate storytelling and creative editing.<br><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/whittier.mp4' target='_blank'>Watch: Neighborhood Documentary</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4' target='_blank'>Watch: Landscape Structures Collaboration</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4' target='_blank'>Watch: Demo Reel</a>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-examples.webp",
+        "imageAlt": "Conference video highlight",
+        "urlImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4"
       }
     ]
   }
