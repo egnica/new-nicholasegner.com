@@ -114,13 +114,21 @@
     "slug": "optum-motion-designer",
     "company": "Optum | UnitedHealth Group",
     "personName": "Hiring Manager",
-    "linkImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/optum-motion-cover.webp",
+    "linkImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/united-health-cover-image.png",
     "mainBody": "Hi Hiring Manager,<br/><br/>I’m excited to share this page as a window into how I approach brand storytelling through motion, interactivity, and design. My background blends development, visual storytelling, and creative strategy — from leading digital projects at Barlow Research to helping local businesses like a Minneapolis law firm and a residential cleaning startup reimagine their brands online.<br/><br/>Optum’s mission to connect people to care through storytelling strongly resonates with me, and I’d love to contribute my mix of motion design, content strategy, and web experience to that purpose. Below are a few examples of how I bring complex ideas to life visually.",
     "ideas": [
       {
+        "title": "Professional Materials",
+        "subtitle": "Resume, cover letter, and supporting documents",
+        "body": "Below are links to my most recent professional materials. These documents provide a deeper look at my background, process, and project experience. Each file is kept up to date and tailored for use in proposals or applications.<br><br>📄 <a style='color: lightblue;' href='https://drive.google.com/file/d/1Y5fh2kpKaldkK-lhwfScYl_vGZ2LxqZ7/view?usp=sharing' target='_blank'>View Resume</a><br>✉️ <a style='color: lightblue;' href='https://drive.google.com/file/d/1fFfCGUl6JiO7vYttUe2i1TQ7uoBTc_-2/view?usp=sharingf' target='_blank'>View Cover Letter</a><br>🧩 <a style='color: lightblue;' href='https://drive.google.com/file/d/1Li761bFLrNdyzlnpXDZFNSC68bEiBICk/view?usp=sharing' target='_blank'>Professional Skill Summary</a><br><small>Updated October 2025</small>",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/materials.webp",
+        "imageAlt": "Preview of professional materials including resume and cover letter",
+        "urlImage": "https://nicholasegner.com/about"
+      },
+      {
         "title": "Social-First Motion Design",
         "subtitle": "Turning complex ideas into approachable visual stories",
-        "body": "My approach to motion design combines clarity, emotion, and rhythm — essential for engaging healthcare and wellness audiences. Each animation starts with a story: what we want people to feel or understand. From there, I use motion, typography, and pacing to guide the viewer through the message. These principles align perfectly with Optum’s social storytelling goals.<br><br>Here’s a look at my interactive motion prototype:<br><br><a style='color: lightblue;' href='https://nicholasegner.com/video-experience' target='_blank'>View Interactive Video Experience</a><br/><small>(Optimized mobile version in progress.)</small>",
+        "body": "My approach to motion design combines clarity, emotion, and rhythm — essential for engaging healthcare and wellness audiences. Each animation starts with a story: what we want people to feel or understand. From there, I use motion, typography, and pacing to guide the viewer through the message. These principles align perfectly with Optum’s social storytelling goals.<br><br>Here’s a look at my interactive motion prototype:<br><br>🎥 <a style='color: lightblue;' href='https://nicholasegner.com/video-experience' target='_blank'>View Interactive Video Experience</a><br/><small>(Optimized mobile version in progress.)</small>",
         "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
         "imageAlt": "Interactive motion design experience",
         "urlImage": "https://nicholasegner.com/video-experience"
@@ -128,7 +136,7 @@
       {
         "title": "Data Storytelling & Interactive Visualization",
         "subtitle": "Making complex information accessible and engaging",
-        "body": "At Barlow Research, I created interactive dashboards that transformed financial insights into visual stories. These tools allowed clients to explore their own data dynamically rather than passively viewing charts. The same philosophy can be applied to health and wellness content — giving audiences a way to understand complex information through clean, intuitive visuals.<br><br><a style='color: lightblue;' href='https://main.d283ike1beb7cu.amplifyapp.com/' target='_blank'>View Interactive Dashboard Demo</a>",
+        "body": "At Barlow Research, I created interactive dashboards that transformed financial insights into visual stories. These tools allowed clients to explore their own data dynamically rather than passively viewing charts. The same philosophy can be applied to health and wellness content — giving audiences a way to understand complex information through clean, intuitive visuals.<br><br>📊 <a style='color: lightblue;' href='https://main.d283ike1beb7cu.amplifyapp.com/' target='_blank'>View Interactive Dashboard Demo</a>",
         "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/branded-dashboard.webp",
         "imageAlt": "Custom data storytelling dashboard",
         "urlImage": "https://main.d283ike1beb7cu.amplifyapp.com/"
@@ -137,14 +145,14 @@
         "title": "Brand & Campaign Storytelling",
         "subtitle": "Blending motion, narrative, and design to build trust",
         "body": "Across both corporate and small business projects, I focus on crafting emotionally grounded, visually consistent stories. Whether it’s helping a Minneapolis attorney humanize his practice through clean branding and motion-driven video, or helping a cleaning startup launch its digital identity, I aim to translate real stories into visuals that build connection and credibility.",
-        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/branding-showcase.webp",
+        "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/story.webp",
         "imageAlt": "Brand storytelling showcase",
-        "urlImage": "https://nicholasegner.com"
+        "urlImage": "https://nicholasegner.com/skills"
       },
       {
         "title": "Video Portfolio",
         "subtitle": "Examples of motion, storytelling, and branded editing",
-        "body": "Here’s a small selection of past work that captures my range — from event storytelling and corporate communication to community-based documentary and motion typography.<br><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4' target='_blank'>Watch: Demo Reel</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4' target='_blank'>Watch: Landscape Collaboration</a><br><a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4' target='_blank'>Watch: Conference Edit</a>",
+        "body": "Here’s a small selection of past work that captures my range — from event storytelling and corporate communication to community-based documentary and motion typography.<br><br>🎦 <a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4' target='_blank'>Watch: Demo Reel</a><br> 🛝<a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4' target='_blank'>Watch: Landscape Collaboration</a><br>💼 <a style='color: lightblue;' href='https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4' target='_blank'>Watch: Conference Edit</a>",
         "image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-examples.webp",
         "imageAlt": "Motion and storytelling reel",
         "urlImage": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4"
