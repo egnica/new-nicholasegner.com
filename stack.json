@@ -194,15 +194,15 @@
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/portfolio-hero.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/portfolio-hero.mp4",
           "imageDesc": "Hero section animation using json, Lottie, and Framer Motion "
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/video-experence.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/video-experence.mp4",
           "imageDesc": "Nicholas Egner 'Video Experience'"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/projects-page.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/projects-page.mp4",
           "imageDesc": "Nicholas Egner - Projects page"
         }
       ],
@@ -231,11 +231,11 @@
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/overlook-too.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/overlook-too.mp4",
           "imageDesc": "TestDrive Tool"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bank-dash.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/bank-dash.mp4",
           "imageDesc": "Bank view dashboard"
         },
         {
@@ -267,15 +267,15 @@
       ],
       "image": [
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-1.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-1.mp4",
           "imageDesc": "Multi Media Blog Post"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-front.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-front.mp4",
           "imageDesc": "number 2"
         },
         {
-          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-2.webm",
+          "imageUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/blog-2.mp4",
           "imageDesc": "number 3"
         }
       ],

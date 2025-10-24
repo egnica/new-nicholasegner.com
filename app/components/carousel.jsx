@@ -36,13 +36,13 @@ function Carousel({ imageArray }) {
   };
 
   const videoOrImage = (url, description) => {
-    const isWebm = (url) => /\.webm($|\?)/i.test(url);
+    const isWebm = (url) => /\.mp4($|\?)/i.test(url);
 
     return isWebm(url) ? (
       <video
         width={640}
         height={360}
-        aria-label={description}
+        alt={description}
         autoPlay
         loop
         muted
@@ -55,7 +55,7 @@ function Carousel({ imageArray }) {
       <Image
         width={640}
         height={360}
-        aria-label={description}
+        alt={description}
         src={url}
         className={styles.imageCarousel}
       />
