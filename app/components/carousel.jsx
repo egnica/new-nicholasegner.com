@@ -42,11 +42,12 @@ function Carousel({ imageArray }) {
       <video
         width={640}
         height={360}
-        alt={description}
+        aria-label={description}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
       >
         <source src={url} type="video/webm" />
       </video>
@@ -54,7 +55,7 @@ function Carousel({ imageArray }) {
       <Image
         width={640}
         height={360}
-        alt={description}
+        aria-label={description}
         src={url}
         className={styles.imageCarousel}
       />
