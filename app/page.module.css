@@ -748,6 +748,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* optional: subtle shadow */
   object-fit: cover; /* can help in certain layouts, optional */
 }
+.imageCarousel video {
+  width: 500px;
+}
 
 .imageTextCont2 {
   display: grid;
