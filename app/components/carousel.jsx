@@ -36,9 +36,9 @@ function Carousel({ imageArray }) {
   };
 
   const videoOrImage = (url, description) => {
-    const isWebm = (url) => /\.mp4($|\?)/i.test(url);
+    const isMp4 = (url) => /\.mp4($|\?)/i.test(url);
 
-    return isWebm(url) ? (
+    return isMp4(url) ? (
       <video
         width={640}
         height={360}
@@ -49,7 +49,7 @@ function Carousel({ imageArray }) {
         playsInline
         preload="auto"
       >
-        <source src={url} type="video/webm" />
+        <source src={url} type="video/mp4" />
       </video>
     ) : (
       <Image
