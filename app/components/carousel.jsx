@@ -42,12 +42,13 @@ function Carousel({ imageArray }) {
       <video
         width={640}
         height={360}
-        alt={description}
+        aria-label={description}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
+        className={styles.imageCarousel}
       >
         <source src={url} type="video/mp4" />
       </video>
