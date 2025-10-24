@@ -95,6 +95,7 @@ function Carousel({ imageArray }) {
               ariaLabel={desc}
               width={640}
               height={360}
+              className={styles.videoCarouselMedia}
             />
           ) : (
             <Image
