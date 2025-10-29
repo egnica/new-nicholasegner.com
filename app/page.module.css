@@ -69,7 +69,7 @@
   position: relative; /* <-- key */
   display: grid;
   padding: 0 5%;
-  min-height: 60vh; /* sets hero height */
+  min-height: 500px;
   background-image: url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp");
   background-blend-mode: darken;
   color: white;
@@ -78,6 +78,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow: visible;
+}
+
+.heroTextContain {
+  display: grid;
+  height: 300px;
 }
 
 .lottieBackground {
@@ -845,6 +850,9 @@
   }
   .mainBtnCont {
     grid-template-columns: 1fr;
+  }
+  .nameCont {
+    min-height: 400px;
   }
 
   .nameCont h1 {

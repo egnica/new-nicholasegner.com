@@ -121,66 +121,73 @@ export default function Home() {
         <motion.section className={styles.nameCont}>
           <div ref={animRef} className={styles.lottieBackground} />
 
-          {heroFrames && (
-            <motion.h1
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 10 }}
-              transition={{ duration: 0.6 }}
-              className={styles.nameTitle}
-            >
-              {name}
-            </motion.h1>
-          )}
+          <div className={styles.heroTextContain}>
+            {heroFrames && (
+              <motion.h1
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 10 }}
+                transition={{ duration: 0.6 }}
+                className={styles.nameTitle}
+              >
+                {name}
+              </motion.h1>
+            )}
 
-          {heroFrames && (
+            {heroFrames && (
+              <motion.div
+                style={{ margin: "auto" }}
+                initial={{ opacity: 0, scale: 3, y: -100 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                whileHover={{ scale: 1.1, cursor: "pointer" }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Link href={"./about"}>
+                  <Image
+                    className={styles.logoMain}
+                    src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+                    width={160}
+                    height={160}
+                    alt="Nicholas Egner Logo"
+                  />
+                </Link>
+              </motion.div>
+            )}
+
             <motion.div
-              style={{ margin: "auto" }}
-              initial={{ opacity: 0, scale: 3, y: -100 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{ scale: 1.1, cursor: "pointer" }}
-              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
+              className={styles.btnTitleContain}
             >
-              <Link href={"./about"}>
-                <Image
-                  className={styles.logoMain}
-                  src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-                  width={160}
-                  height={160}
-                  alt="Nicholas Egner Logo"
-                />
+              <Link href={"./video-experience"}>
+                <div className={styles.mainBtn}>ABOUT ME</div>
+              </Link>
+              <Link href={"./skills"}>
+                <div className={styles.mainBtn}>PROJECTS</div>
               </Link>
             </motion.div>
-          )}
-
-          <motion.section
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className={styles.btnTitleContain}
-          >
-            <Link href={"./video-experience"}>
-              <div className={styles.mainBtn}>ABOUT ME</div>
-            </Link>
-            <Link href={"./skills"}>
-              <div className={styles.mainBtn}>PROJECTS</div>
-            </Link>
-          </motion.section>
-          {heroFrames && (
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={skillsArray[index]}
-                className={styles.skillTitle}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-                transition={{ duration: 0.4 }}
-              >
-                {skillsArray[index]}
-              </motion.h1>
-            </AnimatePresence>
-          )}
+            {heroFrames && (
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={skillsArray[index]}
+                  className={styles.skillTitle}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {skillsArray[index]}
+                </motion.h1>
+              </AnimatePresence>
+            )}
+          </div>
         </motion.section>
+
+        <section>
+          <div>Image</div>
+          <div>text</div>
+        </section>
 
         <motion.section
           initial={{ opacity: 0 }}
