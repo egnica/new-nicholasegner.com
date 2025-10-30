@@ -87,8 +87,6 @@ function Future({ timeStamp, fromClick }) {
           controls
           autoPlay
           playsinline
-          webkit-playsinline
-          controlslist="nofullscreen noplaybackrate nodownload"
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/future.mp4"
