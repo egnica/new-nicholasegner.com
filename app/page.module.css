@@ -78,11 +78,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow: visible;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .heroTextContain {
   display: grid;
   height: 300px;
+}
+.heroTextContain h1 {
+  font-size: 5.2rem;
 }
 
 .lottieBackground {
@@ -122,6 +126,75 @@
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 2px #000000;
+}
+
+.belowHero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 60px 5%;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #0000004e;
+}
+
+.belowHeroText {
+  color: rgb(240, 240, 240);
+  text-align: left;
+  max-width: 600px;
+}
+
+.belowHeroText h1 {
+  font-size: 2.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.belowHeroText p {
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+.belowHero img {
+  justify-self: end;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #bb2cfe 25%,
+    #ffffff 50%,
+    #bbaaff 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+  transition: transform 0.3s ease-in-out;
+}
+.name:hover {
+  transform: scale(1.03);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 .whoContainer {
@@ -577,18 +650,11 @@
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-
-  background: radial-gradient(
-    circle,
-    #20015a 0%,
-    #2a45f9 40%,
-    #011d83 70%,
-    #070505 100%
-  );
+  width: 100%;
+  background-color: #000000;
 }
 .centerGroup {
-  position: fixed;
-  margin-top: 5%;
+  margin-top: 4%;
   inset: 0;
   display: flex;
   flex-direction: column;
@@ -596,6 +662,8 @@
   align-items: center; /* horizontal center */
   z-index: 10;
   gap: 20px;
+  width: 100%;
+  padding: 0 2%;
 }
 .videoPage {
   position: relative;
@@ -647,9 +715,10 @@
 }
 .videoContainer {
   margin: auto;
+
   width: 100%;
   padding: 5px;
-  box-shadow: 0 0 50px 15px rgba(255, 255, 255, 0.25); /* glow effect */
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.25); /* glow effect */
   border-radius: 10px; /* optional: gives a more modern soft edge */
 }
 .interBtn {
@@ -664,7 +733,7 @@
   gap: 10px;
   text-align: center;
   width: 100%;
-  padding: 0 5px;
+  padding: 0 14px 0 0;
 }
 
 .leftBtnCont {
@@ -673,7 +742,7 @@
   gap: 10px;
   text-align: center;
   width: 100%;
-  padding: 0 5px;
+  padding: 0 0 0 14px;
 }
 .textContentCont {
   min-height: 90px;
@@ -862,6 +931,18 @@
     font-style: normal;
     max-width: 600px;
   }
+  .belowHero {
+    grid-template-columns: 1fr;
+  }
+  .belowHero img {
+    width: 60%;
+    margin: auto;
+  }
+  .belowHeroText {
+    margin: 0 10px;
+  }
+
+  /*VIDEO MOBILE*/
 
   .mainBtnContVid {
     display: grid;
@@ -872,10 +953,41 @@
 
   .mainVideBtns {
     font-size: small;
+    display: grid;
+    place-content: center;
   }
   .videoContent {
-    display: block;
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-areas:
+      "vContain vContain"
+      "m-text m-text"
+      "r-area l-area";
+    padding: 10px;
   }
+
+  .videoContainer {
+    grid-area: vContain;
+    margin-bottom: 15px;
+  }
+  .textContentCont {
+    grid-area: m-text;
+    margin-bottom: 15px;
+  }
+  .rightBtnCont {
+    grid-area: l-area;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .leftBtnCont {
+    grid-area: r-area;
+    padding: 5px;
+    margin: 0;
+  }
+
   .imageTextCont2 {
     grid-template-columns: 1fr;
     place-content: center;

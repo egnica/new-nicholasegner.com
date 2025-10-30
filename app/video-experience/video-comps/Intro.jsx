@@ -47,7 +47,14 @@ function Intro({ timeStamp, fromClick }) {
             </AnimateBtn>
           </a>
         </div>
-        <video className={styles.videoContainer} ref={videoRef} controls poster="https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp">
+        <video
+          className={styles.videoContainer}
+          ref={videoRef}
+          controls
+          playsinline
+          webkit-playsinline
+          poster="https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp"
+        >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/intro.mp4"
             type="video/mp4"
@@ -127,14 +134,6 @@ function Intro({ timeStamp, fromClick }) {
           </a>
         </div>
         <p></p>
-
-
-
-
-
-
-
-
 
         <div className={styles.textContentCont}>
           {/*
@@ -244,16 +243,8 @@ function Intro({ timeStamp, fromClick }) {
             <span onClick={() => fromClick("future")}>D: Where I am going</span>
           </AnimateTitle>
         </div>
-
-
-
-
       </div>
-
-
     </>
-
-    
   );
 }
 

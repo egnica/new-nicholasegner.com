@@ -98,8 +98,7 @@ function Past({ timeStamp, fromClick }) {
             <AnimateBtn
               onClick={() => clickStop()}
               start={95.5}
-              end={100
-              }
+              end={100}
               time={currentTime}
             >
               Skills?
@@ -171,6 +170,8 @@ function Past({ timeStamp, fromClick }) {
           ref={videoRef}
           controls
           autoPlay
+          playsinline
+          webkit-playsinline
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/past.mp4"

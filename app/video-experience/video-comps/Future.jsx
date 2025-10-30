@@ -86,6 +86,8 @@ function Future({ timeStamp, fromClick }) {
           ref={videoRef}
           controls
           autoPlay
+          playsinline
+          webkit-playsinline
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/future.mp4"

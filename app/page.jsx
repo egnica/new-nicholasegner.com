@@ -184,9 +184,30 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <section>
-          <div>Image</div>
-          <div>text</div>
+        <section className={styles.belowHero}>
+          <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp" />
+          <div className={styles.belowHeroText}>
+            <h1>
+              I’m&nbsp;
+              <Link href="/about" className={styles.name}>
+                Nicholas Egner
+              </Link>
+            </h1>
+            <br />
+            <p>
+              a creative technologist who blends web development, design, and
+              storytelling to help brands stand out online. I build fast,
+              engaging websites using Next.js, AWS, and MongoDB, paired with
+              strong SEO strategy and cohesive branding.
+              <br />
+              <br />
+              Beyond code, I partner with clients to create content that
+              connects. From video production and motion design to social-ready
+              visuals and on-brand messaging. My focus is simple: to bridge
+              creativity and technology in ways that drive attention, trust, and
+              growth.
+            </p>
+          </div>
         </section>
 
         <motion.section

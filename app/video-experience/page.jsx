@@ -9,6 +9,7 @@ import styles from "../page.module.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import ParticlesBackground from "../components/particlesBackground";
 
 function AboutMe() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -36,10 +37,11 @@ function AboutMe() {
   const navButtons = {
     start: {
       opacity: 0,
+      
     },
     visible: {
       opacity: 1,
-      backgroundImage: "linear-gradient(to right, #7827cf 0%, #5492fd 100%)",
+      backgroundColor: "#1f1f8fff",
       color: "white",
       border: "1px solid black",
       boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
@@ -65,14 +67,13 @@ function AboutMe() {
 
   return (
     <>
-      <div className={styles.backColor}></div>
+      <div className={styles.mainBackColor}></div>
+      <ParticlesBackground />
 
-      <Link href={"../"}>
-        <h2 className={styles.skillsBtn} style={{ margin: "2%" }}>
-          Home
-        </h2>
-      </Link>
       {/* <p style={{ color: "white" }}>{currentTime}</p> */}
+      <Link href={"../"} className={styles.skillsBtn} style={{ margin: "2%" }}>
+        Home
+      </Link>
       <div className={styles.centerGroup}>
         <div className={styles.mainBtnContVid}>
           {["intro", "background", "present", "future", "wrap"].map((key) => (
