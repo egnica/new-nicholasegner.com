@@ -182,8 +182,8 @@ function Present({ timeStamp, fromClick }) {
               className={styles.videoContainer}
               controls
               autoPlay
-              playsinline
-              webkit-playsinline
+              playsInline
+              webkitPlaysInline
             >
               <source src={videoArray[videoSelect]} type="video/mp4" />
               Your browser does not support the video tag.

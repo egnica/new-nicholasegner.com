@@ -51,8 +51,8 @@ function Intro({ timeStamp, fromClick }) {
           className={styles.videoContainer}
           ref={videoRef}
           controls
-          playsinline
-          webkit-playsinline
+          playsInline
+          webkitPlaysInline
           poster="https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp"
         >
           <source

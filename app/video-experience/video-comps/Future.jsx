@@ -87,6 +87,7 @@ function Future({ timeStamp, fromClick }) {
           controls
           autoPlay
           playsInline
+          webkitPlaysInline
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/future.mp4"
