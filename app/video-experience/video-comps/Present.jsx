@@ -83,6 +83,8 @@ function Present({ timeStamp, fromClick }) {
           ref={videoRef}
           controls
           autoPlay
+          playsInline
+          webkitPlaysInline
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/present.mp4"
@@ -180,7 +182,6 @@ function Present({ timeStamp, fromClick }) {
 
             <video
               className={styles.videoContainer}
-              ref={videoRef}
               controls
               autoPlay
               playsInline
