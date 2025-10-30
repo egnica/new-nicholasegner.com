@@ -180,6 +180,7 @@ function Present({ timeStamp, fromClick }) {
 
             <video
               className={styles.videoContainer}
+              ref={videoRef}
               controls
               autoPlay
               playsInline
