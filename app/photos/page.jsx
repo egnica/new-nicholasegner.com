@@ -12,6 +12,10 @@ function Photos() {
       alt: "Nicholas Egner - Digital Creator",
     },
     {
+      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-profile.jpg",
+      alt: "Nicholas Egner - Digital Creator",
+    },
+    {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/fiverr-cover-1.png",
       alt: "Picture of Nicholas Egner - Modern Business Website",
     },

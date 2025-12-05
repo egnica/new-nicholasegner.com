@@ -22,7 +22,7 @@ export const metadata = {
     title: "Photos of Nicholas Egner",
     description: "Official photo gallery and press images of Nicholas Egner.",
     images: [
-      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-portfolio.jpg",
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
     ],
   },
 };
