@@ -104,25 +104,41 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Nicholas Egner",
-              url: "https://www.nicholasegner.com",
-              image:
-                "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
-              jobTitle: "Web Developer, SEO Specialist, Content Creator",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Minneapolis",
-                addressRegion: "MN",
-                addressCountry: "USA",
-              },
-              sameAs: [
-                "https://www.linkedin.com/in/nicholas-egner",
-                "https://github.com/nicholasegner",
-                "https://latestartdev.com",
-                "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9693245,-93.1667435,12z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb?entry=ttu",
-                "https://www.youtube.com/@NickEgnerVideo",
-                "https://x.com/NicholasEgner",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://www.nicholasegner.com/#person",
+                  name: "Nicholas Egner",
+                  url: "https://www.nicholasegner.com",
+                  image:
+                    "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
+                  jobTitle: "Web Developer, SEO Specialist, Content Creator",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Minneapolis",
+                    addressRegion: "MN",
+                    addressCountry: "USA",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/in/nicholas-egner",
+                    "https://github.com/nicholasegner",
+                    "https://latestartdev.com",
+                    "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9693245,-93.1667435,12z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb?entry=ttu",
+                    "https://www.youtube.com/@NickEgnerVideo",
+                    "https://x.com/NicholasEgner",
+                    "https://open.spotify.com/user/1224553002",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.nicholasegner.com/#website",
+                  url: "https://www.nicholasegner.com",
+                  name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
+                  inLanguage: "en-US",
+                  publisher: {
+                    "@id": "https://www.nicholasegner.com/#person",
+                  },
+                },
               ],
             }),
           }}
