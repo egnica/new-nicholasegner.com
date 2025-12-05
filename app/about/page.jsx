@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "next/head";
+
 import Image from "next/image";
 import styles from "../page.module.css";
 import Link from "next/link";
@@ -43,42 +43,28 @@ function About() {
 
   return (
     <>
-      <Head>
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Nicholas Egner",
-              url: "https://nicholasegner.com",
-              image:
-                "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
-              sameAs: [
-                "https://www.linkedin.com/in/nicholas-egner",
-                "https://github.com/egnica",
-                "https://latestartdev.com",
-                "https://www.wikidata.org/wiki/Q133818563",
-              ],
-              jobTitle: "Web Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: "GIGnnovate",
-              },
-              alumniOf: "Dunwoody College of Technology",
+              "@type": "AboutPage",
+              "@id": "https://www.nicholasegner.com/about#webpage",
+              url: "https://www.nicholasegner.com/about",
+              name: "About Nicholas Egner",
               description:
-                "Nicholas Egner is a web developer and digital strategist specializing in online presence optimization, SEO, and custom website solutions for small businesses.",
-              knowsAbout: [
-                "React",
-                "SEO",
-                "Next.js",
-                "Web Accessibility",
-                "Content Strategy",
-              ],
+                "Learn more about Minneapolis-based web developer, SEO strategist, and digital content creator Nicholas Egner.",
+              mainEntity: {
+                "@id": "https://www.nicholasegner.com/#person",
+              },
+              isPartOf: {
+                "@id": "https://www.nicholasegner.com/#website",
+              },
             }),
           }}
         />
-      </Head>
+      </head>
       <Dots />
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (
