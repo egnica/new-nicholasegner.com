@@ -43,28 +43,27 @@ function About() {
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "AboutPage",
-              "@id": "https://www.nicholasegner.com/about#webpage",
-              url: "https://www.nicholasegner.com/about",
-              name: "About Nicholas Egner",
-              description:
-                "Learn more about Minneapolis-based web developer, SEO strategist, and digital content creator Nicholas Egner.",
-              mainEntity: {
-                "@id": "https://www.nicholasegner.com/#person",
-              },
-              isPartOf: {
-                "@id": "https://www.nicholasegner.com/#website",
-              },
-            }),
-          }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://www.nicholasegner.com/about#webpage",
+            url: "https://www.nicholasegner.com/about",
+            name: "About Nicholas Egner",
+            description:
+              "Learn more about Minneapolis-based web developer, SEO strategist, and digital content creator Nicholas Egner.",
+            mainEntity: {
+              "@id": "https://www.nicholasegner.com/#person",
+            },
+            isPartOf: {
+              "@id": "https://www.nicholasegner.com/#website",
+            },
+          }),
+        }}
+      />
+
       <Dots />
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (

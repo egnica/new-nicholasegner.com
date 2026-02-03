@@ -15,7 +15,9 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
     "react-tsparticles": "^2.12.2",
+    "shiki": "^3.20.0",
     "three": "^0.179.1",
     "tsparticles": "^3.9.1"
   }

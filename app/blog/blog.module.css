@@ -1,0 +1,298 @@
+.backColor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  background-color: #d9d9d9;
+}
+.navBtn {
+  display: block;
+
+  background-color: #f3f3f580;
+  border-radius: 20px;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+  cursor: pointer;
+  transition: 0.3s ease;
+  max-width: 140px;
+  height: 50px;
+  text-align: center;
+  place-content: center;
+}
+.navBtn:hover {
+  background-color: #f3f3f5;
+  scale: 1.05;
+  box-shadow:
+    rgba(0, 0, 0, 0.51) -6px 6px 3px 2px,
+    rgba(0, 0, 0, 0.484) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.456) 0px -3px 0px 0px inset;
+}
+.btnDiv {
+  padding-top: 10px;
+}
+
+/* Blog Main Page */
+.postsContainer {
+  padding: 2% 5%;
+}
+.latestContain {
+  padding: 10px;
+}
+.lateSplit {
+  padding: 2%;
+  display: flex;
+  background-color: #f5f3f3;
+  border-radius: 20px;
+  opacity: 1;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+  cursor: pointer;
+  transform: none;
+  gap: 15px;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  transition: 0.4s ease;
+}
+.lateSplit:hover {
+  scale: 1.04;
+  box-shadow:
+    rgba(0, 0, 0, 0.51) -6px 6px 3px 2px,
+    rgba(0, 0, 0, 0.484) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.456) 0px -3px 0px 0px inset;
+}
+@media only screen and (max-width: 675px) {
+  .lateSplit {
+    display: block;
+    padding: 4%;
+  }
+}
+
+.latestImage {
+  width: 100%;
+  height: auto;
+}
+.recentPostText {
+  margin: auto;
+}
+.latestDate {
+  padding-top: 5px;
+  font-size: smaller;
+  font-weight: 200;
+  opacity: 0.7;
+}
+.featuredContain {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+.featuredItemContain {
+  display: grid;
+  padding: 2%;
+  margin: 2%;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background-color: #f5f3f3;
+  border-radius: 10px;
+  opacity: 1;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+.featuredItemContain:hover {
+  scale: 1.06;
+  box-shadow:
+    rgba(0, 0, 0, 0.51) -6px 6px 3px 2px,
+    rgba(0, 0, 0, 0.484) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.456) 0px -3px 0px 0px inset;
+}
+@media only screen and (max-width: 675px) {
+  .featuredItemContain {
+    display: block;
+    padding: 15% 10%;
+    margin: 3%;
+  }
+  .featuredItemContain h3 {
+    font-size: smaller;
+  }
+  .latestDate {
+    text-align: center;
+  }
+}
+.featuredImage {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.featureText {
+  margin: auto;
+}
+
+/* Archive Page */
+.archiveContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+}
+.archivePost {
+  display: grid;
+  padding: 2%;
+  margin: 2% 5%;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background-color: #f5f3f3;
+  border-radius: 10px;
+  opacity: 1;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+@media only screen and (max-width: 675px) {
+  .archivePost {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+.archivePost:hover {
+  scale: 1.04;
+  box-shadow:
+    rgba(0, 0, 0, 0.51) -6px 6px 3px 2px,
+    rgba(0, 0, 0, 0.484) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.456) 0px -3px 0px 0px inset;
+}
+.archivePostImage {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.archivePostTextContain {
+  margin: auto;
+}
+.archivePostTextContain h2 {
+  font-size: 1rem;
+}
+
+/* Post Page */
+
+.postContainer {
+  padding: 5%;
+  margin: 2% 3%;
+  color: rgb(89, 89, 89);
+  background-color: #f3f3f598;
+  border-radius: 20px;
+}
+.mainBackColor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  background-color: #d3d3d3;
+}
+.postContainer h1 {
+  font-size: 2.2rem;
+  color: black;
+}
+
+.postContainer h2 {
+  font-size: 2rem;
+}
+
+.postContainer p {
+  font-size: 1.3rem;
+}
+.postContainer ul {
+  padding: 10px 10%;
+}
+
+.postContainer li {
+  font-size: 1.3rem;
+}
+
+.postContainer a {
+  color: blue;
+  font-weight: bold;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+}
+.hero img {
+  padding: 3% 0;
+}
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.textBlock {
+  padding: 0 2% 2% 2%;
+}
+.codeBlock {
+  margin: 2rem 0;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+/* This is the important part */
+.codeBlock pre {
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  border-radius: 10px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Blog Footer */
+.footerContain {
+  background-color: #d3d3d3;
+  height: 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width: 675px) {
+  .footerContain {
+    display: block;
+    text-align: center;
+  }
+}
+.svgContain {
+  margin: auto;
+}
+.svgContainSvg {
+  margin: 0 10px;
+}
+@media only screen and (max-width: 675px) {
+  .svgContainSvg {
+    width: 14%;
+  }
+}
+.svgContainSvg:hover {
+  fill: rgb(118, 118, 255);
+}
+.textContainFooter {
+  margin: auto;
+  padding: 1%;
+}
+.textContainFooter a {
+  color: rgb(50, 43, 255);
+}

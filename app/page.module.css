@@ -53,6 +53,11 @@
   align-items: center;
   padding: 1rem 2rem;
 }
+.headerNavLinks {
+  color: aliceblue;
+  display: flex;
+  gap: 20px;
+}
 
 .aboutNicholas {
   color: #fff;
@@ -490,7 +495,8 @@
   border-radius: 12px;
   font-weight: 600;
   border: 1px solid #0b1d51;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
     /* subtle inner highlight */ 0 4px 8px rgba(0, 0, 0, 0.3); /* outer drop shadow */
   text-shadow: 0 1px rgba(0, 0, 0, 0.4); /* adds legibility */
   transition: all 0.2s ease;
@@ -508,7 +514,8 @@
   border-radius: 12px;
   font-weight: 600;
   border: 1px solid #0b1d51;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 4px 8px rgba(0, 0, 0, 0.3);
   text-shadow: 0 1px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease;
@@ -861,7 +868,9 @@
   font-size: 2rem;
   color: white;
   user-select: none;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
 .arrow2:hover {
   transform: scale(1.2);
@@ -874,7 +883,9 @@
   border-radius: 50%;
   background: rgba(67, 67, 67, 0.4);
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 .dot2:hover {
   background: rgba(255, 255, 255, 0.8);

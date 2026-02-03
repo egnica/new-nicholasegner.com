@@ -111,15 +111,19 @@ export default function RootLayout({ children }) {
                   name: "Nicholas Egner",
                   url: "https://www.nicholasegner.com",
                   image:
-                    "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
-                  jobTitle: "Web Developer, SEO Specialist, Content Creator",
+                    "https://YOUR-CORRECT-BUCKET/images/nicholas-egner.jpg",
+                  jobTitle: "Creative Technologist",
                   description:
                     "Minneapolis-based web developer and SEO strategist helping small businesses and creators build fast, search-optimized websites and content.",
+                  mainEntityOfPage: {
+                    "@type": "WebPage",
+                    "@id": "https://www.nicholasegner.com/about",
+                  },
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Minneapolis",
                     addressRegion: "MN",
-                    addressCountry: "USA",
+                    addressCountry: "US",
                   },
                   alumniOf: {
                     "@type": "CollegeOrUniversity",
@@ -137,10 +141,8 @@ export default function RootLayout({ children }) {
                     "https://www.linkedin.com/in/nicholas-egner",
                     "https://github.com/egnica",
                     "https://latestartdev.com",
-                    "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9693245,-93.1667435,12z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb?entry=ttu",
                     "https://www.youtube.com/@NickEgnerVideo",
                     "https://x.com/NicholasEgner",
-                    "https://open.spotify.com/user/1224553002",
                   ],
                 },
                 {

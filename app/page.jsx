@@ -69,7 +69,7 @@ export default function Home() {
       name: tech.name,
       svg: tech.image,
       href: `/skills/${tech.slug}`,
-    }))
+    })),
   );
 
   const skillsArray = [
@@ -103,7 +103,7 @@ export default function Home() {
       <div className={styles.mainBackColor}></div>
       <ParticlesBackground />
       <main className={styles.page}>
-        <header className={styles.topPage}>
+        <nav className={styles.topPage}>
           <motion.a
             href="/about"
             initial={{ opacity: 0, scale: 0 }}
@@ -116,7 +116,11 @@ export default function Home() {
               alt="Nicholas Egner Logo"
             />
           </motion.a>
-        </header>
+          <div className={styles.headerNavLinks}>
+            <Link href={"./blog"}>Blog</Link>
+            <Link href={"./about"}>About Nick</Link>
+          </div>
+        </nav>
 
         <motion.section className={styles.nameCont}>
           <div ref={animRef} className={styles.lottieBackground} />

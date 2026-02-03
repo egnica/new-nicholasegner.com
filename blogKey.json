@@ -1,0 +1,133 @@
+{
+  "example-post-slug": {
+    "title": "Building a Blog with Content Blocks",
+    "description": "Why I’m using a JSON-driven system instead of a CMS—and how it stays flexible.",
+    "date": "2025-12-29",
+    "updated": null,
+    "published": true,
+
+    "tags": ["Next.js", "SEO", "Systems"],
+    "category": "Web Development",
+
+    "hero": {
+      "src": "https://cdn.nicholasegner.com/blog/hero/building-blog.webp",
+      "alt": "Laptop on desk with notes and coffee"
+    },
+
+    "metaImage": {
+      "src": "https://cdn.nicholasegner.com/blog/og/building-blog-1200x630.webp",
+      "alt": "Building a Blog with Content Blocks"
+    },
+
+    "vibe_audio": {
+      "label": "Boards of Canada – Dayvan Cowboy",
+      "href": "https://open.spotify.com/track/xxxxxxxx",
+      "service": "spotify"
+    },
+
+    "primaryVideo": {
+      "thumbnail": "https://cdn.nicholasegner.com/blog/video-thumbs/blog-system.webp",
+      "duration": "PT6M10S",
+
+      "src": {
+        "mp4": "https://cdn.nicholasegner.com/video/blog-system.mp4",
+        "webm": "https://cdn.nicholasegner.com/video/blog-system.webm"
+      },
+
+      "youtube": {
+        "url": "https://www.youtube.com/watch?v=abc123xyz",
+        "label": "Watch on YouTube"
+      },
+      "embedUrl": "https://cdn.nicholasegner.com/video/blog-system.mp4",
+      "contentUrl": "https://cdn.nicholasegner.com/video/blog-system.mp4",
+      "familyFriendly": true,
+      "inLanguage": "en",
+      "isAccessibleForFree": true
+    },
+
+    "schema": {
+      "articleSection": "Web Development",
+      "keywords": [
+        "Next.js blog",
+        "JSON content blocks",
+        "Shiki syntax highlighting",
+        "AWS S3 video hosting"
+      ],
+      "about": [
+        { "@type": "Thing", "name": "Next.js" },
+        { "@type": "Thing", "name": "AWS S3" },
+        { "@type": "Thing", "name": "Structured Data" }
+      ]
+    },
+
+    "contentBlocks": [
+      {
+        "type": "text",
+        "text": "I’ve built plenty of CMS-backed sites, but for my personal blog I wanted something simpler, faster, and fully under my control."
+      },
+
+      {
+        "type": "video",
+        "poster": "https://cdn.nicholasegner.com/blog/posters/blog-system.webp",
+
+        "src": {
+          "mp4": "https://cdn.nicholasegner.com/video/blog-system.mp4",
+          "webm": "https://cdn.nicholasegner.com/video/blog-system.webm"
+        },
+
+        "youtube": {
+          "url": "https://www.youtube.com/watch?v=abc123xyz",
+          "label": "Watch on YouTube"
+        }
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Why Content Blocks Work"
+      },
+
+      {
+        "type": "text",
+        "text": "Content blocks give me structure without sacrificing flexibility. Each block has a clear responsibility."
+      },
+
+      {
+        "type": "code",
+        "language": "js",
+        "filename": "PostRenderer.jsx",
+        "code": "export default function PostRenderer({ blocks }) {\n  return blocks.map(renderBlock);\n}"
+      },
+
+      {
+        "type": "image",
+        "src": "https://cdn.nicholasegner.com/blog/images/diagram.webp",
+        "alt": "Diagram showing content blocks architecture",
+        "caption": "The mental model behind the system."
+      },
+
+      {
+        "type": "ul",
+        "items": [
+          "Fast to publish",
+          "No CMS overhead",
+          "Version-controlled content"
+        ]
+      },
+
+      {
+        "type": "link",
+        "href": "/blog/another-post",
+        "label": "Read: Why I Avoid CMS Bloat"
+      },
+
+      {
+        "type": "link",
+        "href": "https://developers.google.com/search/docs/appearance/structured-data/video",
+        "label": "Google VideoObject documentation",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
+  }
+}

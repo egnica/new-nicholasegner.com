@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "nciholasegner.s3.us-east-2.amazonaws.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "latestartbucket.s3.us-east-2.amazonaws.com",
+        pathname: "/**",
+      },
     ],
   },
 };
