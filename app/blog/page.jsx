@@ -26,9 +26,10 @@ function blogMain() {
         <Particles />
 
         <h1>Nicholas Egner's Blog</h1>
-        <div className={styles.latestContain}>
-          <div className={styles.lateSplit}>
-            <Link href={`blog/${latest.slug}`}>
+
+        <Link href={`blog/${latest.slug}`}>
+          <div className={styles.latestContain}>
+            <div className={styles.lateSplit}>
               <div>
                 <h2>Latest post</h2>
                 <Image
@@ -39,14 +40,15 @@ function blogMain() {
                   height={630}
                 />
               </div>
-            </Link>
-            <div className={styles.recentPostText}>
-              <h2>{latest.title}</h2>
-              <p>{latest.description}</p>
-              <p className={styles.latestDate}>{latest.date}</p>
+
+              <div className={styles.recentPostText}>
+                <h2>{latest.title}</h2>
+                <p>{latest.description}</p>
+                <p className={styles.latestDate}>{latest.date}</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         <h2>Featured</h2>
         <div className={styles.featuredContain}>
           {featuredPosts.map((item, index) => (
