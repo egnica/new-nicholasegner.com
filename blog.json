@@ -1515,5 +1515,124 @@
         "src": "https://latestartbucket.s3.us-east-2.amazonaws.com/video/wilson-ride.mp4"
       }
     ]
+  },
+  "video-seo-trifecta": {
+    "id": "012",
+    "slug": "video-seo-trifecta",
+    "title": "The Video SEO Trifecta: How to Use YouTube for Business SEO",
+    "description": "A simple system that connects video, blog content, and structured data to strengthen your digital presence and build long-term authority.",
+    "date": "2026-02-16",
+
+    "published_time": "2026-02-16T00:00:00-06:00",
+    "modified_time": null,
+
+    "published": true,
+
+    "keywords": [
+      "YouTube SEO for business",
+      "Video SEO strategy",
+      "VideoObject schema",
+      "E-E-A-T",
+      "JSON-LD sameAs",
+      "Cross-linking SEO"
+    ],
+
+    "hero_image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+    "meta_image": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+
+    "primaryVideo": {
+      "title": "The Video SEO Trifecta",
+      "thumbnail": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+      "duration": "PT6M00S",
+      "src": {
+        "mp4": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4"
+      },
+      "youtube": {
+        "url": "https://youtu.be/wHJtIFRg4eU",
+        "label": "Watch on YouTube"
+      },
+      "embedUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4",
+      "contentUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4",
+      "familyFriendly": true,
+      "inLanguage": "en",
+      "isAccessibleForFree": true
+    },
+
+    "contentBlocks": [
+      {
+        "type": "paragraph",
+        "text": "The most underutilized SEO tool for a business might very well be YouTube.”\n\nI think most businesses think YouTube is only for influencers. Or tutorials. Or people they think are way more outgoing than them.\n\nIt’s not!\n\nYouTube is the second-largest search engine in the world.\n\nAnd I personally see it as an underutilized asset a business can gain a foothold in for organic SEO.\n\nHello! I’m Nicholas Egner, Creative Technologist.\nAnd today I’m going to show you the three parts that create what I call…\nThe Video SEO Trifecta."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 1: Make a Video"
+      },
+      {
+        "type": "paragraph",
+        "text": "This video can be a talking head… just like this.\n\nTalk about something from your real client work.\nSomething that hits Google’s E-E-A-T:\n\nExperience – You speak from real projects.\nExpertise – You explain what you’ve learned.\nAuthoritativeness – You consistently publish content.\nTrustworthiness – Your face + your name build credibility.\n\nNow shoot that video — I’m using OBS.\nNow you have a little video nugget you can share with the world.\n“Aww… isn’t he cute!”"
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 2: Upload to Your Branded YouTube Channel"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fill out the metadata. Create a thumbnail. Write a real description.\n\nNow here’s the key… keep it Unlisted for a moment.\nBecause we’re about to complete the loop."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Step 3: Make the Video the Focal Point of a Blog Post"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you wrote a script — that’s your text for the blog post. Google can crawl that text.\n\nIf you didn’t — YouTube auto-transcribes your video.\nClean it up.\nAdd a proper H1 title.\nBreak it into H2 sections.\nEmbed the new video at the top.\n\nPersonally, I host my videos outside of YouTube — I use AWS S3 — so I control the branding with no commercials.\n\nNow your page has:\n• A video\n• Structured text\n• Real headings\n\nThat’s powerful."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Close the Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Now here’s where it gets even better.\n\nLink your YouTube video URL inside the blog post.\nThen go back to YouTube and link the blog post URL in the description.\n\nThat’s called cross-linking.\nYou’re closing the loop.\n\nNow… (kendrick lamar energy)\nBing-bop-boom-boom-boom-bop-bam.\nYou’ve completed the Video Trifecta!\nVideo → Blog → YouTube.\n\nNow switch your video on YouTube from Unlisted to Public."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Why This Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "Google now sees:\n\n• Your YouTube video\n• Your article\n• Your website\n\nAll pointing to the same creator.\n\nNow you’re building authority.\nEvery time you repeat this process, your E-E-A-T grows."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Bonus Level: Entity Lock-In"
+      },
+      {
+        "type": "paragraph",
+        "text": "Let’s take this a little farther. (Squints like Sandlot.)\n\nUse JSON-LD.\nThere’s an object called sameAs.\nThis is where you link your YouTube channel, your website, your LinkedIn, and your other socials.\n\nNow Google recognizes you as a complete entity.\n\nSet your page’s schema type to VideoObject.\nThere are lots of valuable things you can put in that object.\n\nThis tells Google, in a structured way, that this page contains a video.\nYou’re not hoping Google figures it out.\nYou’re explicitly labeling it.\n\nNow your page becomes eligible to appear in:\n• Video search results\n• Rich results with thumbnails\n• And sometimes even key moments\n\nThat’s not a trick.\nThat’s structured clarity."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Close"
+      },
+      {
+        "type": "paragraph",
+        "text": "You don’t need to be an influencer.\nYou need a system.\n\nVideo.\nBlog.\nStructured data.\nRepeat.\n\nThat’s how authority compounds.\n\nAnd if you want help building that system. I offer free website and content consultations.\nLet’s make sure your digital presence is working as hard as you are."
+      }
+    ]
   }
 }

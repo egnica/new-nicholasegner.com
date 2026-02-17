@@ -58,15 +58,29 @@ function buildVideoObjectFromPrimary({ primaryVideo, post, url, image }) {
     description: post.description,
     thumbnailUrl: primaryVideo.thumbnail || image,
     uploadDate: post.published_time,
-    duration: primaryVideo.duration, // e.g. "PT6M10S"
+    duration: primaryVideo.duration,
     contentUrl: contentUrl,
     embedUrl: primaryVideo.embedUrl || contentUrl,
-    // If you have YouTube, you can include it as a sameAs (optional)
+
+    inLanguage: primaryVideo?.inLanguage || "en",
+    isFamilyFriendly:
+      typeof primaryVideo?.familyFriendly === "boolean"
+        ? primaryVideo.familyFriendly
+        : undefined,
+    isAccessibleForFree:
+      typeof primaryVideo?.isAccessibleForFree === "boolean"
+        ? primaryVideo.isAccessibleForFree
+        : undefined,
+
     sameAs: primaryVideo?.youtube?.url ? [primaryVideo.youtube.url] : undefined,
-    // Connect the video to the page
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#person` },
+
+    potentialAction: {
+      "@type": "WatchAction",
+      target: primaryVideo?.youtube?.url || contentUrl,
+    },
   };
 }
 
@@ -195,22 +209,24 @@ export default async function PostPage({ params }) {
 
         <div className={styles.hero}>
           {post.primaryVideo ? (
-            <video
-              controls
-              preload="metadata"
-              playsInline
-              poster={post.primaryVideo.thumbnail}
-              aria-label={`Video: ${post.primaryVideo.title || post.title}`}
-              className={styles.heroVideo}
-            >
-              {post.primaryVideo.src.webm && (
-                <source src={post.primaryVideo.src.webm} type="video/webm" />
-              )}
-              {post.primaryVideo.src.mp4 && (
-                <source src={post.primaryVideo.src.mp4} type="video/mp4" />
-              )}
-              Your browser does not support the video tag.
-            </video>
+            <>
+              <video
+                controls
+                preload="metadata"
+                playsInline
+                poster={post.primaryVideo.thumbnail}
+                aria-label={`Video: ${post.primaryVideo.title || post.title}`}
+                className={styles.heroVideo}
+              >
+                {post.primaryVideo.src.webm && (
+                  <source src={post.primaryVideo.src.webm} type="video/webm" />
+                )}
+                {post.primaryVideo.src.mp4 && (
+                  <source src={post.primaryVideo.src.mp4} type="video/mp4" />
+                )}
+                Your browser does not support the video tag.
+              </video>
+            </>
           ) : (
             <Image
               src={post.hero_image}
@@ -222,7 +238,18 @@ export default async function PostPage({ params }) {
             />
           )}
         </div>
-
+        {post.primaryVideo.youtube.url && (
+          <div style={{ display: "grid" }}>
+            <br />
+            <a
+              style={{ textAlign: "center" }}
+              href={post.primaryVideo.youtube.url}
+            >
+              {post.primaryVideo.youtube.label}
+            </a>
+            <br />
+          </div>
+        )}
         <ContentBlock content={post.contentBlocks} />
       </div>
 
