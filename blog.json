@@ -7,7 +7,7 @@
     "date": "27 Jun 2024",
     "published_time": "2024-06-27T16:24:36Z",
     "modified_time": "2024-06-27T16:24:36Z",
-    "featured": true,
+    "featured": false,
     "live": true,
     "keywords": ["Dev", "Next.js", "AWS Amplify", "Dynamic Routing"],
 
@@ -1390,7 +1390,7 @@
     "id": "011",
     "slug": "showing-up-consistently",
     "live": true,
-    "featured": false,
+    "featured": true,
 
     "title": "Showing Up for the Process",
     "description": "I used to think ideas were enough. Turns out, it takes a weekly system, quiet structure, and a few hard shifts to actually get things done.",
@@ -1527,7 +1527,7 @@
     "modified_time": null,
 
     "published": true,
-
+    "featured": false,
     "keywords": [
       "YouTube SEO for business",
       "Video SEO strategy",
