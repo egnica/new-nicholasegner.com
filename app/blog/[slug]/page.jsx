@@ -238,7 +238,7 @@ export default async function PostPage({ params }) {
             />
           )}
         </div>
-        {post.primaryVideo.youtube.url && (
+        {post.primaryVideo?.youtube.url && (
           <div style={{ display: "grid" }}>
             <br />
             <a
