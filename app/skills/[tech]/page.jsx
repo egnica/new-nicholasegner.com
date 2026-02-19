@@ -8,6 +8,9 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Particles from "../../components/particlesBackground";
 
+
+
+
 function TechPage() {
   const params = useParams();
   const { tech } = params;

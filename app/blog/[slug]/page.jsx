@@ -1,3 +1,4 @@
+//BLOG SLUG -
 import Posts from "../../../blog.json";
 import Image from "next/image";
 import ContentBlock from "@/app/components/contentBlock";
@@ -6,7 +7,7 @@ import Particles from "../../components/particlesBackground";
 import Footer from "@/app/components/footerBlog";
 import BackButton from "../../components/backButton";
 
-const SITE_URL = "https://www.nicholasegner.com";
+const SITE_URL = "https://nicholasegner.com";
 
 export async function generateMetadata({ params }) {
   const { slug } = params;

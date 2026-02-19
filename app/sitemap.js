@@ -1,6 +1,6 @@
 // app/sitemap.js
 
-const SITE_URL = "https://www.nicholasegner.com";
+const SITE_URL = "https://nicholasegner.com";
 
 // If your posts live in a local JSON file, import it.
 // Adjust the path to match your project.

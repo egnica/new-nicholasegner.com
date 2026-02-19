@@ -20,9 +20,7 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: "https://www.nicholasegner.com/",
-  },
+
   keywords: [
     "Nicholas Egner",
     "web developer",
@@ -33,12 +31,12 @@ export const metadata = {
     "video producer",
     "digital experiences",
   ],
-  metadataBase: new URL("https://www.nicholasegner.com"),
+  metadataBase: new URL("https://nicholasegner.com"),
   openGraph: {
     title: "Nicholas Egner | Web Developer & SEO Specialist",
     description:
       "Explore the portfolio of Nicholas Egner, a Minneapolis-based developer and digital creator.",
-    url: "https://www.nicholasegner.com",
+    url: "https://nicholasegner.com",
     siteName: "Nicholas Egner",
     images: [
       {
@@ -64,7 +62,7 @@ export const metadata = {
   authors: [
     {
       name: "Nicholas Egner",
-      url: "https://www.nicholasegner.com",
+      url: "https://nicholasegner.com",
     },
   ],
   creator: "Nicholas Egner",
@@ -107,7 +105,7 @@ export default function RootLayout({ children }) {
               "@graph": [
                 {
                   "@type": "Person",
-                  "@id": "https://www.nicholasegner.com/#person",
+                  "@id": "https://nicholasegner.com/#person",
                   name: "Nicholas Egner",
                   url: "https://www.nicholasegner.com",
                   image:
@@ -117,7 +115,7 @@ export default function RootLayout({ children }) {
                     "Minneapolis-based web developer and SEO strategist helping small businesses and creators build fast, search-optimized websites and content.",
                   mainEntityOfPage: {
                     "@type": "WebPage",
-                    "@id": "https://www.nicholasegner.com/about",
+                    "@id": "https://nicholasegner.com/about",
                   },
                   address: {
                     "@type": "PostalAddress",
@@ -143,16 +141,17 @@ export default function RootLayout({ children }) {
                     "https://latestartdev.com",
                     "https://www.youtube.com/@NickEgnerVideo",
                     "https://x.com/NicholasEgner",
+                    "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9694484,-93.3318941,11z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb",
                   ],
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://www.nicholasegner.com/#website",
+                  "@id": "https://nicholasegner.com/#website",
                   url: "https://www.nicholasegner.com",
                   name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
                   inLanguage: "en-US",
                   publisher: {
-                    "@id": "https://www.nicholasegner.com/#person",
+                    "@id": "https://nicholasegner.com/#person",
                   },
                 },
               ],
