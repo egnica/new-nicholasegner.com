@@ -9,11 +9,12 @@ import Reviews from "../reviews.json";
 import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
 
-export const metadata = {
-  alternates: {
-    canonical: "/",
-  },
-};
+// CANT BE USED WITH USE CLIENT
+// export const metadata = {
+//   alternates: {
+//     canonical: "/",
+//   },
+// };
 
 export default function Home() {
   const [index, setIndex] = useState(0);
