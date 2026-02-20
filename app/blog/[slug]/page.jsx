@@ -140,9 +140,6 @@ function buildJsonLd({ post, slug }) {
 
     // Signal primary video clearly
     blogPosting.video = primaryVideoObject;
-
-    // Also include in hasPart list
-    videoObjects.push(primaryVideoObject);
   }
 
   // Supporting videos
