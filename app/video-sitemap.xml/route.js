@@ -40,7 +40,6 @@ export async function GET() {
       <video:description><![CDATA[${post.description || ""}]]></video:description>
       <video:content_loc>${video.src.mp4}</video:content_loc>
       ${durationSeconds ? `<video:duration>${durationSeconds}</video:duration>` : ""}
-      <video:player_loc>${SITE_URL}/blog/${post.slug}</video:player_loc>
       <video:publication_date>${post.published_time}</video:publication_date>
       ${video.familyFriendly ? "<video:family_friendly>yes</video:family_friendly>" : "<video:family_friendly>no</video:family_friendly>"}
     </video:video>
