@@ -112,13 +112,11 @@ function buildJsonLd({ post, slug }) {
     description: post.description,
     image: image ? [image] : undefined,
     datePublished: post.published_time,
-    dateModified: post.modified_time,
+    ...(post.modified_time ? { dateModified: post.modified_time } : {}),
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#person` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    keywords: Array.isArray(post.keywords)
-      ? post.keywords.join(", ")
-      : undefined,
+    keywords: Array.isArray(post.keywords) ? post.keywords : undefined,
   };
 
   // --- Collect supporting videos from contentBlocks ---
