@@ -61,8 +61,8 @@ function buildVideoObjectFromPrimary({ primaryVideo, post, url, image }) {
     uploadDate: post.published_time,
     duration: primaryVideo.duration,
     contentUrl: contentUrl,
-    embedUrl: primaryVideo.embedUrl || contentUrl,
-
+    embedUrl: url,
+    url: url,
     inLanguage: primaryVideo?.inLanguage || "en",
     isFamilyFriendly:
       typeof primaryVideo?.familyFriendly === "boolean"
