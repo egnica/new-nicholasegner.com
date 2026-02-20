@@ -109,7 +109,7 @@ export default function RootLayout({ children }) {
                   name: "Nicholas Egner",
                   url: "https://www.nicholasegner.com",
                   image:
-                    "https://YOUR-CORRECT-BUCKET/images/nicholas-egner.jpg",
+                    "https://nicholasegner.com/_next/image?url=https%3A%2F%2Fnciholasegner.s3.us-east-2.amazonaws.com%2Fimages%2Fnicholas-egner.jpg&w=384&q=75",
                   jobTitle: "Creative Technologist",
                   description:
                     "Minneapolis-based web developer and SEO strategist helping small businesses and creators build fast, search-optimized websites and content.",
