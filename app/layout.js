@@ -147,7 +147,7 @@ export default function RootLayout({ children }) {
                 {
                   "@type": "WebSite",
                   "@id": "https://nicholasegner.com/#website",
-                  url: "https://www.nicholasegner.com",
+                  url: "https://nicholasegner.com",
                   name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
                   inLanguage: "en-US",
                   publisher: {
