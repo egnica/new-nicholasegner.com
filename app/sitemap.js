@@ -26,6 +26,11 @@ export default function sitemap() {
       priority: 0.6,
       changeFrequency: "weekly",
     },
+    {
+      url: `${SITE_URL}/video-sitemap.xml`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 
   // --- Blog post routes ---
