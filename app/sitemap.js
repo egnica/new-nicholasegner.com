@@ -5,6 +5,7 @@ const SITE_URL = "https://nicholasegner.com";
 // If your posts live in a local JSON file, import it.
 // Adjust the path to match your project.
 import postsData from "../blog.json";
+import techAreas from "../stack.json";
 // Example structure assumed: { posts: { "my-slug": { updatedAt, live }, ... } }
 
 export default function sitemap() {
@@ -40,5 +41,14 @@ export default function sitemap() {
       priority: 0.5,
     }));
 
-  return [...staticRoutes, ...blogRoutes];
+  // Tech Routes
+
+  const techData = techAreas.stack.flatMap((item) => item.technologies);
+  const mapItems = techData.map(({ slug }) => ({
+    url: `${SITE_URL}/skills/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...mapItems];
 }
