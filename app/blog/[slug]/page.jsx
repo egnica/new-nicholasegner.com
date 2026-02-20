@@ -194,6 +194,27 @@ export default async function PostPage({ params }) {
       <div style={{ margin: "15px 0 0 15px" }}>
         <BackButton />
       </div>
+      <br />
+      {post.primaryVideo && (
+        <div className={styles.hero}>
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            poster={post.primaryVideo.thumbnail}
+            aria-label={`Video: ${post.primaryVideo.title || post.title}`}
+            className={styles.heroVideo}
+          >
+            {post.primaryVideo.src.webm && (
+              <source src={post.primaryVideo.src.webm} type="video/webm" />
+            )}
+            {post.primaryVideo.src.mp4 && (
+              <source src={post.primaryVideo.src.mp4} type="video/mp4" />
+            )}
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
 
       <div className={styles.postContainer}>
         <div className={styles.backColor} />
@@ -203,27 +224,8 @@ export default async function PostPage({ params }) {
           <em>{post.date}</em>
         </p>
 
-        <div className={styles.hero}>
-          {post.primaryVideo ? (
-            <>
-              <video
-                controls
-                preload="metadata"
-                playsInline
-                poster={post.primaryVideo.thumbnail}
-                aria-label={`Video: ${post.primaryVideo.title || post.title}`}
-                className={styles.heroVideo}
-              >
-                {post.primaryVideo.src.webm && (
-                  <source src={post.primaryVideo.src.webm} type="video/webm" />
-                )}
-                {post.primaryVideo.src.mp4 && (
-                  <source src={post.primaryVideo.src.mp4} type="video/mp4" />
-                )}
-                Your browser does not support the video tag.
-              </video>
-            </>
-          ) : (
+        {!post.primaryVideo && (
+          <div className={styles.hero}>
             <Image
               src={post.hero_image}
               fill
@@ -232,8 +234,9 @@ export default async function PostPage({ params }) {
               style={{ objectFit: "cover" }}
               alt={`main image for ${post.title}`}
             />
-          )}
-        </div>
+          </div>
+        )}
+
         {post.primaryVideo?.youtube.url && (
           <div style={{ display: "grid" }}>
             <br />
