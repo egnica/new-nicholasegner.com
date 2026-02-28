@@ -55,15 +55,14 @@ function buildVideoObjectFromPrimary({ primaryVideo, post, url, image }) {
 
   return {
     "@type": "VideoObject",
-    name: post.title,
-    description: post.description,
-    thumbnailUrl: primaryVideo.thumbnail || image,
+    name: primaryVideo.title,
+    description: primaryVideo.videoDescription,
+    thumbnailUrl: primaryVideo.thumbnail,
     uploadDate: post.published_time,
     duration: primaryVideo.duration,
-    contentUrl: contentUrl,
-    embedUrl: url,
+    contentUrl: primaryVideo.src.mp4,
     url: url,
-    inLanguage: primaryVideo?.inLanguage || "en",
+    inLanguage: "en",
     isFamilyFriendly:
       typeof primaryVideo?.familyFriendly === "boolean"
         ? primaryVideo.familyFriendly
@@ -73,15 +72,11 @@ function buildVideoObjectFromPrimary({ primaryVideo, post, url, image }) {
         ? primaryVideo.isAccessibleForFree
         : undefined,
 
-    sameAs: primaryVideo?.youtube?.url ? [primaryVideo.youtube.url] : undefined,
+    sameAs: primaryVideo.sameAs,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#person` },
 
-    potentialAction: {
-      "@type": "WatchAction",
-      target: primaryVideo?.youtube?.url || contentUrl,
-    },
   };
 }
 
@@ -93,7 +88,6 @@ function buildVideoObjectFromBlock({ block, post, url, image, index }) {
     thumbnailUrl: image,
     uploadDate: post.published_time,
     contentUrl: block.src,
-    embedUrl: block.src,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#person` },

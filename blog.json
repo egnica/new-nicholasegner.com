@@ -1543,6 +1543,7 @@
     "primaryVideo": {
       "title": "The Video SEO Trifecta",
       "thumbnail": "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+      "videoDescription": "Nicholas Egner breaks down the three-step 'Trifecta' system: combining YouTube authority, blog content, and structured data for maximum search visibility.",
       "duration": "PT3M28S",
       "src": {
         "mp4": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4"
@@ -1551,10 +1552,12 @@
         "url": "https://youtu.be/wHJtIFRg4eU",
         "label": "Watch on YouTube"
       },
-      "embedUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4",
-      "contentUrl": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/Video-Trifecta.mp4",
+      "sameAs": [
+        "https://youtu.be/wHJtIFRg4eU",
+        "https://www.linkedin.com/posts/nicholas-egner_the-most-underutilized-seo-tool-for-businesses-activity-7429507797115027457-1fy-",
+        "https://www.facebook.com/share/v/1CfiFh4nbv/"
+      ],
       "familyFriendly": true,
-      "inLanguage": "en",
       "isAccessibleForFree": true
     },
 
