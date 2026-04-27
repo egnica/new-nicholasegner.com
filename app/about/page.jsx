@@ -17,7 +17,7 @@ function About() {
     },
     {
       title: "Resume",
-      url: "https://drive.google.com/file/d/1EGIage0moVwBg2flmIuR2KfaZP4hUflF/view?usp=sharing",
+      url: "https://drive.google.com/file/d/1rXOuyytJnn_lx3pYp6YXZvbIHRBPzszm/view?usp=sharing",
     },
     {
       title: "Google Business",
@@ -28,8 +28,8 @@ function About() {
       url: "https://www.youtube.com/@NickEgnerVideo",
     },
     {
-      title: "Late Start Dev - Blog",
-      url: "https://latestartdev.com/",
+      title: "My Blog",
+      url: "https://nicholasegner.com/blog",
     },
     {
       title: "Spotify",
