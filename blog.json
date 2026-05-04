@@ -188,7 +188,7 @@
     "id": "003",
     "slug": "query-vs-dynamic",
     "live": true,
-    "featured": true,
+    "featured": false,
 
     "title": "Do You Even Dynamic Link Bro?",
     "description": "Explore the differences between query stringing and dynamic linking in Next.js. Learn about the challenges with query stringing in React and Apache servers, and discover the benefits of dynamic linking for cleaner, SEO-friendly URLs and simplified navigation",
@@ -1527,7 +1527,7 @@
     "modified_time": null,
 
     "published": true,
-    "featured": false,
+    "featured": true,
     "keywords": [
       "YouTube SEO for business",
       "Video SEO strategy",
@@ -1635,6 +1635,117 @@
       {
         "type": "paragraph",
         "text": "You don’t need to be an influencer.\nYou need a system.\n\nVideo.\nBlog.\nStructured data.\nRepeat.\n\nThat’s how authority compounds.\n\nAnd if you want help building that system. I offer free website and content consultations.\nLet’s make sure your digital presence is working as hard as you are."
+      }
+    ]
+  },
+
+  "your-gardens-by-design-video": {
+    "id": "013",
+    "slug": "your-gardens-by-design-video",
+    "title": "How a Video Can Transform a Business’s Online Presence",
+    "description": "A real example of how video can elevate a small business, build trust, and create a stronger digital presence without overcomplicating the process.",
+    "date": "2026-05-04",
+
+    "published_time": "2026-05-04T00:00:00-05:00",
+    "modified_time": null,
+
+    "published": true,
+    "featured": false,
+    "keywords": [
+      "video marketing for local business",
+      "small business video example",
+      "brand storytelling video",
+      "website showcase video",
+      "digital presence strategy"
+    ],
+
+    "hero_image": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
+    "meta_image": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
+
+    "primaryVideo": {
+      "title": "Your Gardens By Design - Brand Video",
+      "thumbnail": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
+      "videoDescription": "A brand video created to showcase the personality, environment, and real experience behind a local business, helping strengthen their digital presence and build trust with potential clients.",
+      "duration": "PT2M23S",
+      "src": {
+        "mp4": "https://nciholasegner.s3.us-east-2.amazonaws.com/video/your-gardens.mp4"
+      },
+      "youtube": {
+        "url": "https://youtu.be/XlRwp921mp8",
+        "label": "Watch on YouTube"
+      },
+      "sameAs": [],
+      "familyFriendly": true,
+      "isAccessibleForFree": true
+    },
+
+    "contentBlocks": [
+      {
+        "type": "paragraph",
+        "text": "A lot of small businesses don’t have a visibility problem.\n\nThey have a presentation problem.\n\nThe work is great. The people are great.\nBut when someone looks them up online… it just doesn’t feel like it matches.\n\nThat’s exactly what this project was about."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Goal"
+      },
+      {
+        "type": "paragraph",
+        "text": "This video was created for Your Gardens By Design, owned by Bette Fenton and Sandra Mangel, to help showcase who they are and what it actually feels like to work with them.\n\nNot a commercial.\nNot a script-heavy production.\n\nJust something real.\n\nThe kind of video that gives someone confidence before they even pick up the phone."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Approach"
+      },
+      {
+        "type": "paragraph",
+        "text": "The focus was simple for Bette and Sandra’s business:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Show the people behind the business",
+          "Capture the space and environment",
+          "Let the personality come through naturally"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "And most importantly… reflect the client, not the creators. Because as they put it, the garden isn’t about them it’s about the person they’re designing for."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "The Result"
+      },
+      {
+        "type": "paragraph",
+        "text": "After the video was delivered, they started getting immediate feedback. 'We keep getting rave reviews on the video.' That’s the goal.Not just views. Not just likes.Real reactions from real people that reinforce the business and help future customers understand the value before they even reach out."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Where This Fits In"
+      },
+      {
+        "type": "paragraph",
+        "text": "This kind of video isn’t just for social media.\n\nIt becomes a core part of a business’s digital presence.\n\nIt can live on a website.\nIt can be shared in emails.\nIt can be posted across platforms.\n\nAnd most importantly…\n\nIt gives people a reason to trust what they’re seeing online."
+      },
+
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Close"
+      },
+      {
+        "type": "paragraph",
+        "text": "You don’t need a massive production to make an impact.\n\nYou need something that actually represents your business the right way.\n\nThat’s where video becomes powerful.\n\nIf you’re thinking about improving how your business shows up online, this is exactly the kind of starting point I’d recommend."
       }
     ]
   }
