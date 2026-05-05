@@ -1674,7 +1674,11 @@
         "url": "https://youtu.be/XlRwp921mp8",
         "label": "Watch on YouTube"
       },
-      "sameAs": [],
+      "sameAs": [
+        "https://www.linkedin.com/posts/nicholas-egner_httpslnkdingcwe6kut-we-just-wrapped-ugcPost-7457212440305610752-T1Ie?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAYTAn4BcF7sy62CIllX2WLTXwk90Ug7XCo",
+        "https://www.facebook.com/share/v/17s8B51yeC/",
+        "https://youtu.be/XlRwp921mp8"
+      ],
       "familyFriendly": true,
       "isAccessibleForFree": true
     },
