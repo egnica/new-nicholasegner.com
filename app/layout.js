@@ -122,6 +122,7 @@ export default function RootLayout({ children }) {
           "https://x.com/NicholasEgner",
           "https://www.facebook.com/nicholas.egner",
           "https://www.google.com/maps?cid=3080126939981832486",
+          "https://www.wikidata.org/wiki/Q140232047",
         ],
       },
       {
