@@ -58,7 +58,7 @@ export const projects = [
 
     heroMedia: {
       type: "video",
-      src: "https://example.com/digital-insights-hub-hero.mp4",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/bank_dashboard_smaller.mp4",
       alt: "Digital Insights Hub dashboard overview",
       caption: "Overview of the interactive research dashboard experience.",
     },
@@ -66,7 +66,7 @@ export const projects = [
     links: [
       {
         label: "View Demo",
-        url: "https://example.com/digital-insights-hub-demo",
+        url: "https://main.d283ike1beb7cu.amplifyapp.com/",
         type: "demo",
       },
       {
@@ -195,7 +195,7 @@ export const projects = [
       "nextjs",
       "react",
       "css",
-      "s3",
+      "amazons3",
       "youtube",
       "premiere",
       "aftereffects",
@@ -203,7 +203,7 @@ export const projects = [
 
     heroMedia: {
       type: "video",
-      src: "https://example.com/davis-defense-hero-loop.mp4",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/davis-website-loop.mp4",
       alt: "Davis Defense website, video hub, and social content preview",
       caption:
         "Website, video, Google Business, and social content working together as a digital visibility system.",
@@ -212,17 +212,17 @@ export const projects = [
     links: [
       {
         label: "Visit Website",
-        url: "https://example.com",
+        url: "https://www.davisdefenselawyers.com/",
         type: "live",
       },
       {
         label: "View Video Hub",
-        url: "https://example.com/video",
+        url: "https://www.davisdefenselawyers.com/video",
         type: "feature",
       },
       {
         label: "Example Watch Page",
-        url: "https://example.com/video/assault-charges-minnesota",
+        url: "https://www.davisdefenselawyers.com/video/dwi-charges-minnesota",
         type: "feature",
       },
     ],
@@ -345,7 +345,7 @@ export const projects = [
 
     heroMedia: {
       type: "video",
-      src: "https://example.com/let-us-clean-mn-hero-loop.mp4",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/LUC_loop.mp4",
       alt: "Let Us Clean MN web presence, Google Business Profile, and social video preview",
       caption:
         "A local SEO foundation built from scratch for a Minnesota cleaning service.",
@@ -354,17 +354,17 @@ export const projects = [
     links: [
       {
         label: "Visit Website",
-        url: "https://example.com",
+        url: "https://www.letuscleanmn.com/",
         type: "live",
       },
       {
         label: "View Google Business Profile",
-        url: "https://example.com/google-business",
+        url: "https://maps.app.goo.gl/7RcrwJzZW5PhrWV4A",
         type: "google-business",
       },
       {
         label: "View Social Example",
-        url: "https://example.com/let-us-clean-social",
+        url: "https://www.facebook.com/share/r/18hhPPUxQd/",
         type: "social",
       },
     ],
@@ -472,11 +472,19 @@ export const projects = [
       },
     ],
 
-    stack: ["nextjs", "react", "css", "amplify", "s3", "resend", "route53"],
+    stack: [
+      "nextjs",
+      "react",
+      "css",
+      "amplify",
+      "amazons3",
+      "resend",
+      "route53",
+    ],
 
     heroMedia: {
       type: "video",
-      src: "https://example.com/kennys-folder-services-hero-loop.mp4",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/kenny_loop.mp4",
       alt: "Kenny’s Folder Services website, service pages, and rebrand preview",
       caption:
         "A specialized service business website built around clearer positioning and search-focused service pages.",
@@ -491,11 +499,6 @@ export const projects = [
       {
         label: "View Services",
         url: "https://kennysfolderservices.com/services",
-        type: "feature",
-      },
-      {
-        label: "Contact Page",
-        url: "https://kennysfolderservices.com/contact",
         type: "feature",
       },
     ],
@@ -561,7 +564,156 @@ export const projects = [
         "A specialized service business website and search foundation project for Kenny’s Folder Services, including rebrand support, SEO service pages, Google Business Profile support, and contact form setup.",
     },
   },
+  {
+    title: "Conference Media Coverage",
+    slug: "conference-media-coverage",
+    eyebrow: "Event Video & Content Production",
+
+    summary:
+      "A video production project focused on capturing conference moments, speaker energy, attendee experience, and event storytelling through polished recap and promotional video content.",
+
+    role: [
+      "Event video coverage",
+      "Camera operation",
+      "B-roll capture",
+      "Speaker and attendee footage",
+      "Video editing",
+      "Music and pacing",
+      "Motion graphics support",
+      "Export and delivery",
+    ],
+
+    preview: {
+      problem:
+        "Live events create valuable moments, but that value can disappear quickly without strong video coverage that captures the energy, people, and story of the experience.",
+
+      approach:
+        "I captured event footage, selected key moments, edited video content, shaped the pacing and structure, and delivered polished pieces that could extend the life of the event beyond the room.",
+
+      result:
+        "The finished videos helped turn event moments into reusable marketing assets that could support promotion, recap content, brand storytelling, and future conference visibility.",
+    },
+
+    capabilities: [
+      {
+        title: "Event Video Coverage",
+        summary:
+          "Captured conference footage including speakers, attendees, venue details, interactions, and moments that communicate the energy of the event.",
+      },
+      {
+        title: "Story-Driven Editing",
+        summary:
+          "Edited footage into polished videos with structure, pacing, music, and visual rhythm designed to make the event feel engaging after the fact.",
+      },
+      {
+        title: "Brand & Promotional Content",
+        summary:
+          "Created video assets that could be reused for event recaps, future promotion, social posts, and brand storytelling.",
+      },
+      {
+        title: "Post-Production & Delivery",
+        summary:
+          "Handled editing, audio balancing, motion support, export settings, and final delivery for web and social use.",
+      },
+    ],
+
+    stack: ["premiere", "aftereffects", "photoshop", "youtube", "amazons3"],
+
+    heroMedia: {
+      type: "video",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
+      alt: "Conference media coverage video preview",
+      caption:
+        "Event video coverage and post-production for conference storytelling and promotional use.",
+    },
+
+    links: [
+      {
+        label: "View Video Example",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4",
+        type: "video",
+      },
+      {
+        label: "View Second Video",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
+        type: "video",
+      },
+    ],
+
+    caseStudy: {
+      overview:
+        "Conference Media Coverage is a video production project focused on capturing the energy, people, and story of a live event. The work included event coverage, footage selection, editing, pacing, music, motion support, and final delivery. The goal was to turn moments from the event into reusable video assets that could support promotion, recap storytelling, and future audience engagement.",
+
+      highlights: [
+        "Captured event footage including speakers, attendees, venue details, and candid moments",
+        "Edited conference footage into polished recap and promotional video content",
+        "Used pacing, music, and visual structure to communicate the energy of the event",
+        "Created reusable video assets for web, social, and future event promotion",
+        "Handled post-production and export for digital delivery",
+      ],
+    },
+
+    media: [
+      {
+        type: "video",
+        src: "https://example.com/conference-video-example-1.mp4",
+        alt: "Conference recap video example",
+        sectionTitle: "Conference Recap Video",
+        description:
+          "A polished recap video designed to capture the energy, people, and key moments of the event in a format that could be reused for promotion and brand storytelling.",
+        caption: "Conference recap and event storytelling video.",
+      },
+      {
+        type: "video",
+        src: "https://example.com/conference-video-example-2.mp4",
+        alt: "Conference promotional video example",
+        sectionTitle: "Promotional Event Video",
+        description:
+          "A second event video example focused on turning conference footage into a reusable promotional asset for web, social, and future event visibility.",
+        caption: "Promotional video content created from event coverage.",
+      },
+    ],
+
+    seo: {
+      title: "Conference Media Coverage Project | Nicholas Egner",
+      description:
+        "An event video production project by Nicholas Egner featuring conference coverage, recap editing, promotional video content, and post-production for web and social use.",
+    },
+  },
 ];
+
+export const projectsWelcome = {
+  eyebrow: "Selected Work",
+  title: "Websites, dashboards, SEO systems, and video content.",
+  summary:
+    "A collection of digital projects built to make businesses, ideas, and services easier to find, understand, and trust.",
+
+  intro:
+    "Choose a project to explore the problem, approach, capabilities, stack, and outcome.",
+
+  pillars: [
+    {
+      title: "Web & Search Foundations",
+      summary:
+        "Service websites, metadata, page structure, Google Business support, and search-focused content systems.",
+    },
+    {
+      title: "Video & Content Systems",
+      summary:
+        "Video hubs, watch pages, reels, event coverage, and social content designed to build trust and visibility.",
+    },
+    {
+      title: "Dashboards & Interactive Tools",
+      summary:
+        "Custom interfaces, comparison tools, data-driven views, and interactive experiences that make complex information easier to explore.",
+    },
+  ],
+
+  cta: {
+    label: "Start with Digital Insights Hub",
+    projectSlug: "digital-insights-hub",
+  },
+};
 
 // Template for new project objects
 const projectTemplate = {

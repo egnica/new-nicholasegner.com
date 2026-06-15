@@ -174,7 +174,7 @@ export default function Home() {
               <Link href={"./video-experience"}>
                 <div className={styles.mainBtn}>ABOUT ME</div>
               </Link>
-              <Link href={"./skills"}>
+              <Link href={"./projects"}>
                 <div className={styles.mainBtn}>PROJECTS</div>
               </Link>
             </motion.div>

@@ -1,0 +1,878 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 clamp(1rem, 3vw, 3rem) 5rem;
+  color: #f6f8ff;
+  font-family: "Ubuntu", sans-serif;
+  overflow-x: hidden;
+}
+
+.mainBackColor {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(
+      circle at 16% 10%,
+      rgba(75, 113, 255, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 88% 24%,
+      rgba(187, 170, 255, 0.13),
+      transparent 32%
+    ),
+    #1a1a2e;
+}
+
+/* ---------- Shared ---------- */
+
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: #bbaaff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 760px;
+  margin: 1rem 0 0;
+  color: #e6eaf9;
+  font-size: clamp(1.02rem, 1.6vw, 1.28rem);
+  line-height: 1.55;
+}
+
+/* ---------- Page Header ---------- */
+
+.pageHeader {
+  margin: 0 auto;
+  padding: 2% 0;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: #f6f8ff;
+  font-size: clamp(3.25rem, 8vw, 6.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.pageHeader p:last-child {
+  margin: 1.1rem 0 0;
+  color: #e6eaf9;
+  font-size: clamp(1.08rem, 2vw, 1.42rem);
+  line-height: 1.5;
+}
+
+/* ---------- Main Layout ---------- */
+
+.workLayout {
+  display: grid;
+  grid-template-columns: minmax(170px, 240px) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+  max-width: 1560px;
+  margin: 0 auto;
+}
+
+.projectStage {
+  min-width: 0;
+}
+
+/* ---------- Project Index ---------- */
+
+.projectIndex {
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+  padding-top: 0.2rem;
+}
+
+.indexLabel {
+  margin: 0 0 1.1rem;
+  color: #9fa9d8;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.projectIndexList {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.indexButton {
+  position: relative;
+  width: 100%;
+  padding: 0 0 0.85rem;
+  color: #cfd6ff;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.indexButton span {
+  display: block;
+  margin-bottom: 0.28rem;
+  color: #8f9acb;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.indexButton strong {
+  display: block;
+  color: inherit;
+  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  line-height: 1.18;
+}
+
+.indexButton:hover,
+.activeIndexButton {
+  color: #fff;
+  border-bottom-color: rgba(118, 215, 255, 0.9);
+  transform: translateX(2px);
+}
+
+.indexButton:hover span,
+.activeIndexButton span {
+  color: #bbaaff;
+}
+
+/* ---------- Project Hero ---------- */
+
+.projectDetail {
+  min-width: 0;
+}
+
+.projectHero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) minmax(360px, 0.58fr);
+  gap: clamp(1.5rem, 3.5vw, 4rem);
+  align-items: center;
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.heroCopy h2 {
+  margin: 0;
+  color: #f6f8ff;
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.heroMediaWrap {
+  min-width: 0;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: clamp(16px, 2vw, 26px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 22px 65px rgba(0, 0, 0, 0.38),
+    0 0 52px rgba(42, 69, 249, 0.13);
+}
+
+.mediaCaption {
+  max-width: 760px;
+  margin: 0.85rem 0 0;
+  color: #cfd6ff;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* ---------- Problem / Approach / Result ---------- */
+
+.storySection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.storyItem {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(187, 170, 255, 0.48);
+}
+
+.storyItem span {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #bbaaff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.storyItem h3 {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-size: clamp(1.22rem, 2vw, 1.55rem);
+  line-height: 1.12;
+}
+
+.storyItem p {
+  margin: 0;
+  color: #dce2ff;
+  line-height: 1.68;
+}
+
+/* ---------- Capabilities ---------- */
+
+.capabilitiesSection {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sectionIntro {
+  max-width: 800px;
+  margin-bottom: clamp(1.4rem, 3vw, 2.3rem);
+}
+
+.sectionIntro h2 {
+  margin: 0;
+  color: #f6f8ff;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.capabilityItem {
+  min-height: 165px;
+  margin: 2px;
+  padding: clamp(1.15rem, 2.2vw, 1.8rem);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.capabilityItem h3 {
+  margin: 0 0 0.65rem;
+  color: #fff;
+  font-size: clamp(1.08rem, 1.75vw, 1.32rem);
+  line-height: 1.15;
+}
+
+.capabilityItem p {
+  margin: 0;
+  color: #dce2ff;
+  line-height: 1.62;
+}
+
+/* ---------- Footer Meta ---------- */
+
+.projectFooter {
+  padding-top: 20px;
+}
+
+.projectMeta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  max-width: 980px;
+}
+
+.metaGroup h3 {
+  margin: 0 0 0.8rem;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.stackBadges,
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.stackBadge,
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.48rem 0.78rem;
+  color: #f6f8ff;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stackBadge {
+  text-transform: capitalize;
+}
+
+.stackBadge:hover,
+.projectLink:hover {
+  color: #07001e;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0.75rem 1rem;
+  color: #07001e;
+  font-weight: 900;
+  text-decoration: none;
+  background: #f6f8ff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.primaryCta:hover {
+  background: #76d7ff;
+  transform: translateY(-1px);
+}
+
+.stackBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.stackBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 42px;
+  padding: 0.5rem 0.8rem;
+  color: #f6f8ff;
+  font-size: 0.92rem;
+  line-height: 1;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stackBadge:hover {
+  color: #07001e;
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.stackIcon {
+  display: grid;
+  place-items: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  flex: 0 0 auto;
+}
+
+.stackIcon span,
+.stackIcon svg,
+.stackIcon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stackIcon svg,
+.stackIcon img {
+  object-fit: contain;
+}
+
+/* ---------- Responsive ---------- */
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  .storySection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .projectHero{
+    grid-template-columns: 1fr;
+  }
+
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectMeta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .page {
+    padding: 0 1rem 3.5rem;
+  }
+
+  .pageHeader {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .pageHeader h1 {
+    font-size: clamp(2.65rem, 16vw, 4rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+  }
+
+  .pageHeader p:last-child {
+    max-width: 100%;
+    margin-top: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.48;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.5rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+  }
+
+  .workLayout {
+    gap: 1.35rem;
+  }
+
+  /* Mobile project selector */
+  .projectIndex {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin-inline: -1rem;
+    padding: 0.85rem 1rem 0.7rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 46, 0.96),
+      rgba(26, 26, 46, 0.82)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .indexLabel {
+    margin: 0 0 0.55rem;
+    font-size: 0.62rem;
+  }
+
+  .projectIndexList {
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projectIndexList::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .projectIndexList::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+  }
+
+  .indexButton {
+    flex: 0 0 auto;
+    min-width: auto;
+    width: auto;
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    color: #dce2ff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    scroll-snap-align: start;
+    transform: none;
+  }
+
+  .indexButton span {
+    display: none;
+  }
+
+  .indexButton strong {
+    font-size: 0.86rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .indexButton:hover,
+  .activeIndexButton {
+    color: #07001e;
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(255, 255, 255, 0.92);
+    transform: none;
+  }
+
+  /* Hero */
+  .projectHero {
+    gap: 1.25rem;
+  }
+
+  .heroCopy h2 {
+    font-size: clamp(2.25rem, 13vw, 3.6rem);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+  }
+
+  .lead {
+    margin-top: 0.85rem;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .heroMediaWrap {
+    width: 100%;
+  }
+
+  .media {
+    width: 100%;
+    max-height: 260px;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    box-shadow:
+      0 16px 42px rgba(0, 0, 0, 0.32),
+      0 0 34px rgba(42, 69, 249, 0.11);
+  }
+
+  .mediaCaption {
+    margin-top: 0.65rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  /* Problem / Approach / Result */
+  .storySection {
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+  }
+
+  .storyItem {
+    padding-left: 0.85rem;
+  }
+
+  .storyItem span {
+    margin-bottom: 0.45rem;
+    font-size: 0.68rem;
+  }
+
+  .storyItem h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.2rem;
+  }
+
+  .storyItem p {
+    font-size: 0.95rem;
+    line-height: 1.58;
+  }
+
+  /* Capabilities */
+  .capabilitiesSection {
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+  }
+
+  .sectionIntro {
+    margin-bottom: 1rem;
+  }
+
+  .sectionIntro h2 {
+    font-size: clamp(1.85rem, 10vw, 2.75rem);
+    line-height: 0.98;
+  }
+
+  .capabilityItem {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .capabilityItem h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.08rem;
+  }
+
+  .capabilityItem p {
+    font-size: 0.94rem;
+    line-height: 1.56;
+  }
+
+  /* Footer / Stack / Links */
+  .projectFooter {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .projectMeta {
+    gap: 1.35rem;
+  }
+
+  .metaGroup h3 {
+    margin-bottom: 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .stackBadges,
+  .linkRow {
+    gap: 0.45rem;
+  }
+
+  .stackBadge,
+  .projectLink {
+    min-height: 38px;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.84rem;
+  }
+
+  .stackIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .primaryCta {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 1.35rem;
+    padding: 0.85rem 1rem;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .page {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 1rem 3.5rem;
+    overflow-x: hidden;
+  }
+
+  .pageHeader {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .pageHeader h1 {
+    font-size: clamp(2.6rem, 14vw, 3.8rem);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+  }
+
+  .pageHeader p:last-child {
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .workLayout {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .projectStage,
+  .projectDetail,
+  .projectHero,
+  .heroCopy,
+  .heroMediaWrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Mobile project buttons: block, not row */
+  .projectIndex {
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .indexLabel {
+    margin: 0 0 0.75rem;
+    font-size: 0.68rem;
+  }
+
+  .projectIndexList {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .indexButton {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0.85rem 0;
+    color: #dce2ff;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0;
+    transform: none;
+  }
+
+  .indexButton span {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #9fa9d8;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .indexButton strong {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .indexButton:hover,
+  .activeIndexButton {
+    color: #fff;
+    background: transparent;
+    border-bottom-color: #76d7ff;
+    transform: none;
+  }
+
+  .projectHero {
+    display: block;
+  }
+
+  .heroCopy h2 {
+    font-size: clamp(2.15rem, 12vw, 3.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    overflow-wrap: break-word;
+  }
+
+  .lead {
+    font-size: 0.96rem;
+    line-height: 1.48;
+  }
+
+  .heroMediaWrap {
+    margin-top: 1.25rem;
+  }
+
+  .media {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 230px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  .storySection {
+    display: block;
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+  }
+
+  .storyItem {
+    margin-bottom: 1.4rem;
+  }
+
+  .capabilityGrid {
+    display: block;
+  }
+
+  .capabilityItem {
+    min-height: auto;
+    padding: 1rem 0;
+    border-right: 0;
+    margin: 0px;
+    border-radius: 0;
+    padding-left: 8px;
+  }
+
+  .projectMeta {
+    display: block;
+  }
+
+  .metaGroup {
+    margin-bottom: 1.4rem;
+  }
+
+  .primaryCta {
+    width: 100%;
+  }
+}
