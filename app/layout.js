@@ -2,7 +2,6 @@ import { Inter, Manrope } from "next/font/google";
 import Script from "next/script"; // Optimization for Next.js Script handling
 import "./globals.css";
 
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -32,6 +31,9 @@ export const metadata = {
     "video producer",
     "digital experiences",
   ],
+  alternates: {
+    canonical: "https://nicholasegner.com",
+  },
   metadataBase: new URL("https://nicholasegner.com"),
   openGraph: {
     title: "Nicholas Egner | Web Developer & SEO Specialist",
@@ -164,7 +166,6 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
         />
         {children}
-     
       </body>
     </html>
   );
