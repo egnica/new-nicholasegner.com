@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./projects.module.css";
-import { projects, projectsWelcome } from "../lib/projects";
+import { projects } from "../lib/projects";
 import Particles from "../components/particlesBackground";
 import { getTech } from "../lib/techStack";
 import Image from "next/image";
 import oldStyles from "../page.module.css";
+import { Suspense } from "react";
 
 function ProjectMedia({ media }) {
   if (!media?.src) return null;
@@ -219,7 +220,7 @@ function ProjectContent({ project }) {
   );
 }
 
-export default function ProjectsPage() {
+function ProjectsPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -237,24 +238,22 @@ export default function ProjectsPage() {
   return (
     <main className={styles.page}>
       <nav className={oldStyles.topPage}>
-        <a
-          href="/about"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-        >
+        <Link href="/about">
           <Image
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
             width={60}
             height={60}
             alt="Nicholas Egner Logo"
           />
-        </a>
+        </Link>
+
         <div className={oldStyles.headerNavLinks}>
-          <Link href={"./"}>Home</Link>
-          <Link href={"./blog"}>Blog</Link>
-          <Link href={"./about"}>About Nick</Link>
+          <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/about">About Nick</Link>
         </div>
       </nav>
+
       <Particles />
       <div className={styles.mainBackColor} />
 
@@ -281,5 +280,13 @@ export default function ProjectsPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProjectsPageContent />
+    </Suspense>
   );
 }
