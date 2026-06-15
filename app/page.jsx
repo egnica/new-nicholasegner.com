@@ -194,6 +194,24 @@ export default function Home() {
             )}
           </div>
         </motion.section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={styles.bottomBuffer}
+        >
+          <div className={styles.bannerWrapper}>
+            <div className={styles.bannerScroll}>
+              {techIcons.concat(techIcons).map((icon, i) => (
+                <Link key={`${icon.name}-${i}`} href={icon.href}>
+                  <div
+                    className={styles.techIcon}
+                    dangerouslySetInnerHTML={{ __html: icon.svg }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </motion.section>
 
         <section className={styles.belowHero}>
           <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp" />
@@ -283,24 +301,6 @@ export default function Home() {
           </AnimatePresence>
         </motion.section>
 
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className={styles.bottomBuffer}
-        >
-          <div className={styles.bannerWrapper}>
-            <div className={styles.bannerScroll}>
-              {techIcons.concat(techIcons).map((icon, i) => (
-                <Link key={`${icon.name}-${i}`} href={icon.href}>
-                  <div
-                    className={styles.techIcon}
-                    dangerouslySetInnerHTML={{ __html: icon.svg }}
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </motion.section>
         <AboutPopup />
       </main>
     </>
