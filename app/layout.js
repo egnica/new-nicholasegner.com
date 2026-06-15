@@ -32,16 +32,22 @@ export const metadata = {
     "digital experiences",
   ],
 
-  metadataBase: new URL("https://nicholasegner.com"),
+  // 🌟 Set metadataBase to match Google's indexed version
+  metadataBase: new URL("https://www.nicholasegner.com"),
+
+  // 🌟 THE CANONICAL SHIELD: Locks down www. as the master copy
+  alternates: {
+    canonical: "https://www.nicholasegner.com",
+  },
+
   openGraph: {
     title: "Nicholas Egner | Web Developer & SEO Specialist",
     description:
       "Explore the portfolio of Nicholas Egner, a Minneapolis-based developer and digital creator.",
-    url: "https://nicholasegner.com",
+    url: "https://www.nicholasegner.com",
     siteName: "Nicholas Egner",
     images: [
       {
-        // Restored your exact S3 bucket name
         url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
         width: 1200,
         height: 630,
@@ -58,14 +64,13 @@ export const metadata = {
       "Portfolio of Nicholas Egner — developer, content creator, and SEO expert based in Minneapolis.",
     creator: "@NicholasEgner",
     images: [
-      // Restored your exact S3 bucket name
       "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
     ],
   },
   authors: [
     {
       name: "Nicholas Egner",
-      url: "https://nicholasegner.com",
+      url: "https://www.nicholasegner.com",
     },
   ],
   creator: "Nicholas Egner",
@@ -78,18 +83,17 @@ export default function RootLayout({ children }) {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://nicholasegner.com/#person",
+        "@id": "https://www.nicholasegner.com/#person",
         name: "Nicholas Egner",
-        url: "https://nicholasegner.com",
-        // Restored your exact S3 bucket name inside the Next.js optimized image path
+        url: "https://www.nicholasegner.com",
         image:
-          "https://nicholasegner.com/_next/image?url=https%3A%2F%2Fnciholasegner.s3.us-east-2.amazonaws.com%2Fimages%2Fnicholas-egner.jpg&w=384&q=75",
+          "https://www.nicholasegner.com/_next/image?url=https%3A%2F%2Fnciholasegner.s3.us-east-2.amazonaws.com%2Fimages%2Fnicholas-egner.jpg&w=384&q=75",
         jobTitle: "Creative Technologist",
         description:
           "Minneapolis-based web developer and SEO strategist helping small businesses and creators build fast, search-optimized websites and content.",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": "https://nicholasegner.com/about",
+          "@id": "https://www.nicholasegner.com/about",
         },
         address: {
           "@type": "PostalAddress",
@@ -122,12 +126,12 @@ export default function RootLayout({ children }) {
       },
       {
         "@type": "WebSite",
-        "@id": "https://nicholasegner.com/#website",
-        url: "https://nicholasegner.com",
+        "@id": "https://www.nicholasegner.com/#website",
+        url: "https://www.nicholasegner.com",
         name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
         inLanguage: "en-US",
         publisher: {
-          "@id": "https://nicholasegner.com/#person",
+          "@id": "https://www.nicholasegner.com/#person",
         },
       },
     ],
