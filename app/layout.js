@@ -31,9 +31,7 @@ export const metadata = {
     "video producer",
     "digital experiences",
   ],
-  alternates: {
-    canonical: "https://nicholasegner.com",
-  },
+
   metadataBase: new URL("https://nicholasegner.com"),
   openGraph: {
     title: "Nicholas Egner | Web Developer & SEO Specialist",
