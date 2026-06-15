@@ -118,7 +118,7 @@ export default function RootLayout({ children }) {
           "https://www.linkedin.com/in/nicholas-egner",
           "https://github.com/egnica",
           "https://latestartdev.com",
-          "https://www.youtube.com/@NickEgnerVideo",
+          "https://www.youtube.com/@NicholasEgner",
           "https://x.com/NicholasEgner",
           "https://www.facebook.com/nicholas.egner",
           "https://www.google.com/maps?cid=3080126939981832486",
