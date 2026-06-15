@@ -17,7 +17,6 @@ function ProjectMedia({ media }) {
       <video
         className={styles.media}
         src={media.src}
-        poster={media.poster}
         aria-label={media.alt || "Project video preview"}
         autoPlay
         muted
