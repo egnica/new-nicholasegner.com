@@ -211,7 +211,7 @@ function ProjectContent({ project }) {
             )}
           </div>
         )}
-
+        <br />
         <Link href={`/projects/${project.slug}`} className={styles.primaryCta}>
           View full case study
         </Link>

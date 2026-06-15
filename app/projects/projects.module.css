@@ -366,14 +366,14 @@
   justify-content: center;
   width: fit-content;
   min-height: 44px;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+ 
   padding: 0.75rem 1rem;
   color: #07001e;
   font-weight: 900;
   text-decoration: none;
   background: #f6f8ff;
   border: 1px solid rgba(255, 255, 255, 0.85);
-  border-radius: 999px;
+  
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
   transition:
     transform 0.2s ease,
@@ -894,7 +894,6 @@
   z-index: 1;
   width: min(1440px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: clamp(7rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem);
 }
 
 .caseHero {
@@ -925,9 +924,10 @@
 .caseHeroCopy h1 {
   max-width: 11ch;
   margin: 0;
-  font-size: clamp(3.25rem, 9vw, 8rem);
+  font-size: 3rem;
   line-height: 0.88;
   letter-spacing: -0.08em;
+  max-width: 100%;
 }
 
 .caseLead {
