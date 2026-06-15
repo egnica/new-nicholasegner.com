@@ -8,7 +8,7 @@ import stackData from "../stack.json";
 import Reviews from "../reviews.json";
 import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
-
+import AboutPopup from "./components/AboutPopup";
 // CANT BE USED WITH USE CLIENT
 // export const metadata = {
 //   alternates: {
@@ -301,6 +301,7 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
+        <AboutPopup />
       </main>
     </>
   );

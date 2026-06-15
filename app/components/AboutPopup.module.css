@@ -1,0 +1,88 @@
+.popupContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  max-width: 384px;
+  border: 1px solid #262626;
+  background-color: rgba(0, 0, 0, 0.523);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: slideUp 0.3s ease-in-out;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  font-size: 0.875rem;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #ffffff;
+}
+
+.description {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+  margin: 0;
+}
+
+.ctaLink {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.ctaLink:hover {
+  background-color: #e5e5e5;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
