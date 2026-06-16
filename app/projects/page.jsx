@@ -280,7 +280,8 @@ function ProjectsPageContent() {
           <ProjectContent project={selectedProject} />
         </div>
       </section>
-      <SiteFooter/>
+      <br />
+      <SiteFooter />
     </main>
   );
 }

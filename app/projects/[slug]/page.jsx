@@ -366,7 +366,7 @@ export default async function ProjectCaseStudyPage({ params }) {
           <ProjectLinks links={project.links} />
         </section>
 
-        <footer className={styles.caseFooterNav}>
+        <footer style={{}} className={styles.caseFooterNav}>
           <Link
             href={`/projects/${previousProject.slug}`}
             className={styles.caseNavCard}
@@ -388,6 +388,7 @@ export default async function ProjectCaseStudyPage({ params }) {
           </Link>
         </footer>
       </article>
+      <br />
       <SiteFooter />
     </main>
   );
