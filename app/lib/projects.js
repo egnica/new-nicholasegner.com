@@ -2,6 +2,152 @@ import { label } from "motion/react-client";
 
 export const projects = [
   {
+    title: "Davis Defense",
+    slug: "davis-defense",
+    eyebrow: "Legal Visibility & Trust System",
+
+    summary:
+      "An ongoing digital support project focused on helping a criminal defense attorney build trust, improve visibility, and publish useful legal content across his website, video hub, Google Business Profile, and social channels.",
+
+    role: [
+      "Website creation, support and maintenance",
+      "Video editing and publishing",
+      "Video hub strategy",
+      "Video watch page creation",
+      "Google Business Profile support",
+      "Review generation strategy",
+      "Social media overhaul",
+      "LinkedIn profile and presence updates",
+      "Content structure and metadata support",
+    ],
+
+    preview: {
+      problem:
+        "The firm needed a stronger digital presence that could build trust before a potential client ever reached out. The work needed to connect website content, video, reviews, social activity, and Google Business visibility into one clearer system.",
+
+      approach:
+        "I built the firm’s website into a stronger digital foundation, created and published legal explainer videos, developed dedicated video watch pages, helped improve the Google Business Profile, encouraged a more active review strategy, and refreshed the firm’s social presence, including LinkedIn.",
+
+      result:
+        "The project helped turn scattered digital activity into a more connected visibility system, giving potential clients more ways to find the firm, understand legal topics, see proof of trust, and engage with the attorney’s content.",
+    },
+
+    capabilities: [
+      {
+        title: "Website Build & Digital Structure",
+        summary:
+          "Built the firm’s website into a stronger digital foundation by organizing legal topics, video content, and trust-building material into a clearer, more useful experience for prospective clients.",
+      },
+      {
+        title: "Video Hub & Watch Pages",
+        summary:
+          "Built a structured video content system with dedicated watch pages for individual legal topics, including titles, descriptions, thumbnails, metadata, and related website content.",
+      },
+      {
+        title: "Google Business & Review Strategy",
+        summary:
+          "Supported the firm’s Google Business Profile and helped create a stronger review-generation rhythm to improve trust signals and local search presence.",
+      },
+      {
+        title: "Social Media & LinkedIn Revamp",
+        summary:
+          "Refreshed the firm’s social presence, including LinkedIn updates, and supported ongoing publishing around legal explainer videos, reviews, and trust-building content.",
+      },
+    ],
+
+    stack: [
+      "nextjs",
+      "react",
+      "css",
+      "amazons3",
+      "youtube",
+      "premiere",
+      "aftereffects",
+    ],
+
+    heroMedia: {
+      type: "video",
+      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/davis-website-loop.mp4",
+      alt: "Davis Defense website, video hub, and social content preview",
+      caption:
+        "Website, video, Google Business, and social content working together as a digital visibility system.",
+    },
+
+    links: [
+      {
+        label: "Visit Website",
+        url: "https://www.davisdefenselawyers.com/",
+        type: "live",
+      },
+      {
+        label: "View Video Hub",
+        url: "https://www.davisdefenselawyers.com/video",
+        type: "feature",
+      },
+      {
+        label: "Example Watch Page",
+        url: "https://www.davisdefenselawyers.com/video/dwi-charges-minnesota",
+        type: "feature",
+      },
+    ],
+
+    caseStudy: {
+      overview:
+        "Davis Defense is an ongoing visibility and trust-building project for a criminal defense attorney. The work connects website support, legal explainer videos, dedicated video watch pages, Google Business Profile activity, client reviews, and social media updates into a stronger digital presence. Rather than treating each channel as separate, the project focuses on making the firm easier to find, understand, and trust.",
+
+      highlights: [
+        "Created and published legal explainer videos around criminal defense topics",
+        "Built dedicated video watch pages with topic-specific titles, descriptions, thumbnails, and metadata",
+        "Supported the firm’s Google Business Profile and review-generation efforts",
+        "Helped increase the firm’s trust signals through stronger use of reviews and social proof",
+        "Revamped social media presentation, including LinkedIn profile and content updates",
+        "Connected website content, video publishing, social posts, and Google visibility into a more unified system",
+        "Maintained ongoing website updates and content support for the firm",
+      ],
+    },
+
+    media: [
+      {
+        type: "video",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/video-hub.mp4",
+        alt: "Davis Defense video hub preview",
+        sectionTitle: "Video Hub",
+        description:
+          "A structured video hub for organizing legal explainer content around criminal defense topics and making that content easier to browse from the website.",
+        caption: "Legal video hub experience.",
+      },
+      {
+        type: "video",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/watch_page.mp4",
+        alt: "Davis Defense legal video watch page",
+        sectionTitle: "Video Watch Pages",
+        description:
+          "Dedicated watch pages give each video its own focused destination with a title, description, thumbnail, metadata, and supporting legal context.",
+        caption: "Example legal video watch page.",
+      },
+      {
+        type: "image",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/andrewDavis/Videos-davis/thumbnail/video-library.webp",
+        alt: "Video Thumbnail",
+      },
+      {
+        type: "image",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/davis-linkedin.webp",
+        alt: "Davis Defense social media and LinkedIn refresh",
+        sectionTitle: "Social Media & LinkedIn",
+        description:
+          "Social channels were refreshed and used to support video publishing, legal topic education, review visibility, and ongoing trust-building.",
+        caption: "Social media and LinkedIn presence updates.",
+      },
+    ],
+
+    seo: {
+      title: "Davis Defense Project | Nicholas Egner",
+      description:
+        "A legal visibility and trust-building project involving website support, video hub strategy, video watch pages, Google Business Profile support, reviews, social media, and LinkedIn updates.",
+    },
+  },
+  {
     title: "Digital Insights Hub",
     slug: "digital-insights-hub",
     eyebrow: "Interactive Research Dashboard",
@@ -94,16 +240,16 @@ export const projects = [
     media: [
       {
         type: "video",
-        src: "https://example.com/digital-insights-hub-bank-view.mp4",
-        alt: "Digital Insights Hub bank view",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/bank-view.mp4",
+        alt: "Interactive Digital Insights Hub bank view",
         sectionTitle: "Bank View",
         description:
-          "A bank-specific view for reviewing feature-level results, scores, and performance details for an individual financial institution.",
-        caption: "Bank-level dashboard view.",
+          "A bank-specific interactive view for reviewing feature-level results, scores, and performance details for an individual financial institution.",
+        caption: "Interactive bank-level dashboard view.",
       },
       {
         type: "video",
-        src: "https://example.com/digital-insights-hub-category-view.mp4",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/category-view.mp4",
         alt: "Digital Insights Hub category view",
         sectionTitle: "Category View",
         description:
@@ -111,22 +257,20 @@ export const projects = [
         caption: "Category-level comparison experience.",
       },
       {
-        type: "image",
-        src: "https://example.com/digital-insights-hub-feature-matrix.gif",
-        alt: "Digital Insights Hub interactive feature matrix",
+        type: "video",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/feature_matrix.mp4",
+        alt: "Interactive Feature Matrix view",
         sectionTitle: "Interactive Feature Matrix",
-        description:
-          "A side-by-side comparison tool designed to compare the features of up to six banks at once.",
-        caption: "Interactive feature matrix.",
+        description: "Compare up to 6 banks",
+        caption: "Multiple bank comparison experience.",
       },
       {
-        type: "image",
-        src: "https://example.com/digital-insights-hub-downloads.webp",
-        alt: "Digital Insights Hub downloadable materials section",
-        sectionTitle: "Downloadable Materials",
-        description:
-          "A resource area for accessing program materials, research content, and annual report downloads.",
-        caption: "Downloadable program materials.",
+        type: "iframe",
+        src: "https://main.d283ike1beb7cu.amplifyapp.com/",
+        alt: "Digital Insights Hub",
+        sectionTitle: "Digital Insights Hub",
+        description: "Digital Insights Hub Tool",
+        caption: "Digital Insights Hub Tool",
       },
     ],
 
@@ -137,156 +281,6 @@ export const projects = [
     },
   },
 
-  {
-    title: "Davis Defense",
-    slug: "davis-defense",
-    eyebrow: "Legal Visibility & Trust System",
-
-    summary:
-      "An ongoing digital support project focused on helping a criminal defense attorney build trust, improve visibility, and publish useful legal content across his website, video hub, Google Business Profile, and social channels.",
-
-    role: [
-      "Website support and maintenance",
-      "Video editing and publishing",
-      "Video hub strategy",
-      "Video watch page creation",
-      "Google Business Profile support",
-      "Review generation strategy",
-      "Social media overhaul",
-      "LinkedIn profile and presence updates",
-      "Content structure and metadata support",
-    ],
-
-    preview: {
-      problem:
-        "The firm needed a stronger digital presence that could build trust before a potential client ever reached out. The work needed to connect website content, video, reviews, social activity, and Google Business visibility into one clearer system.",
-
-      approach:
-        "I supported the website, created and published legal explainer videos, built out video watch pages, helped strengthen the Google Business Profile, encouraged a more active review strategy, and revamped the firm’s social presence including LinkedIn.",
-
-      result:
-        "The project helped turn scattered digital activity into a more connected visibility system, giving potential clients more ways to find the firm, understand legal topics, see proof of trust, and engage with the attorney’s content.",
-    },
-
-    capabilities: [
-      {
-        title: "Website Support & Content Structure",
-        summary:
-          "Maintained and supported the firm’s website while helping organize legal topics, video content, and trust-building material into a clearer digital experience.",
-      },
-      {
-        title: "Video Hub & Watch Pages",
-        summary:
-          "Built a structured video content system with dedicated watch pages for individual legal topics, including titles, descriptions, thumbnails, metadata, and related website content.",
-      },
-      {
-        title: "Google Business & Review Strategy",
-        summary:
-          "Supported the firm’s Google Business Profile and helped create a stronger review-generation rhythm to improve trust signals and local search presence.",
-      },
-      {
-        title: "Social Media & LinkedIn Revamp",
-        summary:
-          "Refreshed the firm’s social presence, including LinkedIn updates, and supported ongoing publishing around legal explainer videos, reviews, and trust-building content.",
-      },
-    ],
-
-    stack: [
-      "nextjs",
-      "react",
-      "css",
-      "amazons3",
-      "youtube",
-      "premiere",
-      "aftereffects",
-    ],
-
-    heroMedia: {
-      type: "video",
-      src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/davis-website-loop.mp4",
-      alt: "Davis Defense website, video hub, and social content preview",
-      caption:
-        "Website, video, Google Business, and social content working together as a digital visibility system.",
-    },
-
-    links: [
-      {
-        label: "Visit Website",
-        url: "https://www.davisdefenselawyers.com/",
-        type: "live",
-      },
-      {
-        label: "View Video Hub",
-        url: "https://www.davisdefenselawyers.com/video",
-        type: "feature",
-      },
-      {
-        label: "Example Watch Page",
-        url: "https://www.davisdefenselawyers.com/video/dwi-charges-minnesota",
-        type: "feature",
-      },
-    ],
-
-    caseStudy: {
-      overview:
-        "Davis Defense is an ongoing visibility and trust-building project for a criminal defense attorney. The work connects website support, legal explainer videos, dedicated video watch pages, Google Business Profile activity, client reviews, and social media updates into a stronger digital presence. Rather than treating each channel as separate, the project focuses on making the firm easier to find, understand, and trust.",
-
-      highlights: [
-        "Created and published legal explainer videos around criminal defense topics",
-        "Built dedicated video watch pages with topic-specific titles, descriptions, thumbnails, and metadata",
-        "Supported the firm’s Google Business Profile and review-generation efforts",
-        "Helped increase the firm’s trust signals through stronger use of reviews and social proof",
-        "Revamped social media presentation, including LinkedIn profile and content updates",
-        "Connected website content, video publishing, social posts, and Google visibility into a more unified system",
-        "Maintained ongoing website updates and content support for the firm",
-      ],
-    },
-
-    media: [
-      {
-        type: "video",
-        src: "https://example.com/davis-defense-video-hub.mp4",
-        alt: "Davis Defense video hub preview",
-        sectionTitle: "Video Hub",
-        description:
-          "A structured video hub for organizing legal explainer content around criminal defense topics and making that content easier to browse from the website.",
-        caption: "Legal video hub experience.",
-      },
-      {
-        type: "image",
-        src: "https://example.com/davis-defense-watch-page.webp",
-        alt: "Davis Defense legal video watch page",
-        sectionTitle: "Video Watch Pages",
-        description:
-          "Dedicated watch pages give each video its own focused destination with a title, description, thumbnail, metadata, and supporting legal context.",
-        caption: "Example legal video watch page.",
-      },
-      {
-        type: "image",
-        src: "https://example.com/davis-defense-google-business.webp",
-        alt: "Davis Defense Google Business Profile and review strategy",
-        sectionTitle: "Google Business & Reviews",
-        description:
-          "Google Business Profile support and review-generation efforts help strengthen local visibility and provide trust signals for potential clients.",
-        caption: "Google Business and review strategy.",
-      },
-      {
-        type: "image",
-        src: "https://example.com/davis-defense-social-linkedin.webp",
-        alt: "Davis Defense social media and LinkedIn refresh",
-        sectionTitle: "Social Media & LinkedIn",
-        description:
-          "Social channels were refreshed and used to support video publishing, legal topic education, review visibility, and ongoing trust-building.",
-        caption: "Social media and LinkedIn presence updates.",
-      },
-    ],
-
-    seo: {
-      title: "Davis Defense Project | Nicholas Egner",
-      description:
-        "A legal visibility and trust-building project involving website support, video hub strategy, video watch pages, Google Business Profile support, reviews, social media, and LinkedIn updates.",
-    },
-  },
   {
     title: "Let Us Clean MN",
     slug: "let-us-clean-mn",
@@ -386,7 +380,7 @@ export const projects = [
     media: [
       {
         type: "image",
-        src: "https://example.com/let-us-clean-google-business.webp",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/luc-google.webp",
         alt: "Let Us Clean MN Google Business Profile setup",
         sectionTitle: "Google Business Profile Setup",
         description:
@@ -395,7 +389,7 @@ export const projects = [
       },
       {
         type: "image",
-        src: "https://example.com/let-us-clean-website.webp",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/luc-seo.webp",
         alt: "Let Us Clean MN web presence and local SEO foundation",
         sectionTitle: "Web Presence & Local SEO",
         description:
@@ -404,7 +398,7 @@ export const projects = [
       },
       {
         type: "video",
-        src: "https://example.com/let-us-clean-reel-example.mp4",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/LUC_reel-scale.mp4",
         alt: "Let Us Clean MN short-form cleaning service video",
         sectionTitle: "Short-Form Video Content",
         description:
@@ -522,7 +516,7 @@ export const projects = [
     media: [
       {
         type: "image",
-        src: "https://example.com/kennys-folder-services-homepage.webp",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/kenny-home.webp",
         alt: "Kenny’s Folder Services homepage preview",
         sectionTitle: "Specialized Service Website",
         description:
@@ -531,30 +525,12 @@ export const projects = [
       },
       {
         type: "image",
-        src: "https://example.com/kennys-folder-services-service-pages.webp",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/kenny-seo-score.webp",
         alt: "Kenny’s Folder Services SEO service pages",
         sectionTitle: "SEO-Focused Service Pages",
         description:
           "Dedicated service pages give each offering its own destination, helping users and search engines understand the difference between repair, troubleshooting, training, parts support, and equipment guidance.",
         caption: "Service page architecture for search and clarity.",
-      },
-      {
-        type: "image",
-        src: "https://example.com/kennys-folder-services-rebrand.webp",
-        alt: "Kenny’s Folder Services rebrand and naming differentiation",
-        sectionTitle: "Rebrand & Market Differentiation",
-        description:
-          "The naming pivot helped create a clearer, more distinct identity and reduced potential search confusion with similarly named competitors and domains.",
-        caption: "Brand positioning and search-safe naming.",
-      },
-      {
-        type: "image",
-        src: "https://example.com/kennys-folder-services-contact.webp",
-        alt: "Kenny’s Folder Services contact form and lead capture",
-        sectionTitle: "Contact & Lead Capture",
-        description:
-          "A focused contact page and form setup created a simple path for print shops and production teams to request help with folder machine issues.",
-        caption: "Contact form and lead routing.",
       },
     ],
 
@@ -656,21 +632,25 @@ export const projects = [
     media: [
       {
         type: "video",
-        src: "https://example.com/conference-video-example-1.mp4",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
         alt: "Conference recap video example",
         sectionTitle: "Conference Recap Video",
         description:
           "A polished recap video designed to capture the energy, people, and key moments of the event in a format that could be reused for promotion and brand storytelling.",
         caption: "Conference recap and event storytelling video.",
+        poster:
+          "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/video-graphic.webp",
       },
       {
         type: "video",
-        src: "https://example.com/conference-video-example-2.mp4",
+        src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
         alt: "Conference promotional video example",
         sectionTitle: "Promotional Event Video",
         description:
           "A second event video example focused on turning conference footage into a reusable promotional asset for web, social, and future event visibility.",
         caption: "Promotional video content created from event coverage.",
+        poster:
+          "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/video-graphic.webp",
       },
     ],
 

@@ -238,7 +238,7 @@ function ProjectsPageContent() {
   return (
     <main className={styles.page}>
       <nav className={oldStyles.topPage}>
-        <Link href="/about">
+        <Link href="/">
           <Image
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
             width={60}

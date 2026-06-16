@@ -9,6 +9,9 @@ import Reviews from "../reviews.json";
 import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
 import AboutPopup from "./components/AboutPopup";
+import TechMarquee from "./components/techBanner/techBanner";
+import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
+
 // CANT BE USED WITH USE CLIENT
 // export const metadata = {
 //   alternates: {
@@ -124,8 +127,9 @@ export default function Home() {
             />
           </motion.a>
           <div className={styles.headerNavLinks}>
-            <Link href={"./blog"}>Blog</Link>
-            <Link href={"./about"}>About Nick</Link>
+            <Link href={"/blog"}>Blog</Link>
+            <Link href={"/about"}>About Nick</Link>
+            <Link href={"/projects"}>Projects</Link>
           </div>
         </nav>
 
@@ -194,24 +198,10 @@ export default function Home() {
             )}
           </div>
         </motion.section>
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className={styles.bottomBuffer}
-        >
-          <div className={styles.bannerWrapper}>
-            <div className={styles.bannerScroll}>
-              {techIcons.concat(techIcons).map((icon, i) => (
-                <Link key={`${icon.name}-${i}`} href={icon.href}>
-                  <div
-                    className={styles.techIcon}
-                    dangerouslySetInnerHTML={{ __html: icon.svg }}
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </motion.section>
+
+        <section className={styles.bottomBuffer}>
+          <TechMarquee techIcons={techIcons} />
+        </section>
 
         <section className={styles.belowHero}>
           <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp" />
@@ -224,20 +214,34 @@ export default function Home() {
             </h1>
             <br />
             <p>
-              a creative technologist who blends web development, design, and
-              storytelling to help brands stand out online. I build fast,
-              engaging websites using Next.js, AWS, and MongoDB, paired with
-              strong SEO strategy and cohesive branding.
+              I build websites and content systems that help businesses get
+              found, gain digital credibility, and turn attention into
+              opportunity.
+            </p>
+            <br />
+            <p>
+              I work with businesses that need more than a basic website. I help
+              shape the full digital experience:
               <br />
               <br />
-              Beyond code, I partner with clients to create content that
-              connects. From video production and motion design to social-ready
-              visuals and on-brand messaging. My focus is simple: to bridge
-              creativity and technology in ways that drive attention, trust, and
-              growth.
+              <strong style={{ fontSize: "1.4rem" }} className={styles.name}>
+                the site, the message, the content, the SEO structure, the
+                video, and the trust signals{" "}
+              </strong>
+              <br />
+              <br />
+              that make people feel confident reaching out.
+            </p>
+            <br />
+            <p>
+              Whether you need a new website, stronger service pages, video
+              content, social-ready assets, or a clearer online presence, I
+              bring the technical and creative pieces together into one focused
+              system.
             </p>
           </div>
         </section>
+        <FeaturedProjectCards />
 
         <motion.section
           initial={{ opacity: 0 }}

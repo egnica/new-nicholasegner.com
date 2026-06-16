@@ -380,6 +380,7 @@
 }
 .imageCont {
   grid-area: a;
+  display: grid;
 }
 .aboutImage {
   border-radius: 10px;
@@ -1031,8 +1032,8 @@
     grid-template-rows: repeat(3, auto);
     grid-template-areas:
       "c"
-      "a"
-      "b";
+      "b"
+      "a";
   }
   .imageCont {
     margin: auto;

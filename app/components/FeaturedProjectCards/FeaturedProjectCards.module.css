@@ -1,0 +1,264 @@
+.featuredProjects {
+  width: 100%;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
+}
+
+.sectionHeader {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 3.5rem;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+  color: #fff;
+}
+
+.intro {
+  margin: 1.25rem 0 0;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+}
+
+.card {
+  min-height: 285px;
+  perspective: 1100px;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+.cardVideo {
+  width: 90%;
+  border-radius: 10px;
+  margin: auto;
+}
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 285px;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card:hover .cardInner,
+.card:focus-visible .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.35rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(255, 255, 255, 0.045)
+  );
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  backface-visibility: hidden;
+}
+
+.cardFace::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.18),
+    transparent 36%
+  );
+  opacity: 0.75;
+}
+
+.cardFront,
+.cardBack {
+  isolation: isolate;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.cardFront h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: #fff;
+}
+
+.hint {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cardBack p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cardBack span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.card:focus-visible .cardFace {
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.32),
+    0 0 0 3px rgba(255, 255, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card,
+  .cardInner {
+    min-height: 255px;
+  }
+  .cardVideo {
+    width: 90%;
+
+    margin: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .featuredProjects {
+    padding-inline: 1rem;
+  }
+  .cardVideo {
+    width: 90%;
+
+    margin: auto;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+    perspective: none;
+  }
+
+  .cardInner {
+    min-height: auto;
+    transform: none;
+  }
+
+  .card:hover .cardInner,
+  .card:focus-visible .cardInner {
+    transform: none;
+  }
+
+  .cardFace {
+    position: relative;
+    min-height: auto;
+    backface-visibility: visible;
+  }
+
+  .cardFront {
+    min-height: 185px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .cardBack {
+    transform: none;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardInner {
+    transition: none;
+  }
+
+  .card:hover .cardInner,
+  .card:focus-visible .cardInner {
+    transform: none;
+  }
+
+  .card {
+    perspective: none;
+  }
+
+  .cardInner {
+    display: grid;
+    gap: 0;
+  }
+
+  .cardFace {
+    position: relative;
+    backface-visibility: visible;
+  }
+
+  .cardBack {
+    transform: none;
+  }
+}

@@ -75,6 +75,20 @@ function ProjectMedia({ media, variant = "hero" }) {
     );
   }
 
+  if (media.type === "iframe") {
+    return (
+      <div className={`${styles.iframeShell} ${className}`}>
+        <iframe
+          src={media.src}
+          title={media.sectionTitle || media.alt || "Project preview"}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          allow="fullscreen"
+        />
+      </div>
+    );
+  }
+
   return (
     <img
       className={className}
@@ -188,7 +202,7 @@ export default async function ProjectCaseStudyPage({ params }) {
   return (
     <main className={styles.page}>
       <nav className={oldStyles.topPage}>
-        <Link href="/about">
+        <Link href="/">
           <Image
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
             width={60}
@@ -252,9 +266,7 @@ export default async function ProjectCaseStudyPage({ params }) {
             <ProjectMedia media={project.heroMedia} variant="hero" />
 
             {project.heroMedia?.caption && (
-              <p className={styles.mediaCaption}>
-                {project.heroMedia.caption}
-              </p>
+              <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
             )}
           </div>
         </header>
@@ -341,9 +353,7 @@ export default async function ProjectCaseStudyPage({ params }) {
                 >
                   <ProjectMedia media={media} variant="supporting" />
 
-                  {media.caption && (
-                    <figcaption>{media.caption}</figcaption>
-                  )}
+                  {media.caption && <figcaption>{media.caption}</figcaption>}
                 </figure>
               ))}
             </div>

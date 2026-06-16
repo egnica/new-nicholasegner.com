@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Dots from "../components/particlesBackground";
+import { color } from "motion";
 
 function About() {
   const btnObject = [
@@ -88,6 +89,14 @@ function About() {
             width={361}
             alt="Portrait of Nicholas Egner, Minneapolis Web Developer"
           />
+          <br />
+          <Image
+            className={styles.aboutImage}
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-outline.webp"
+            height={542}
+            width={361}
+            alt="Portrait of Nicholas Egner, Minneapolis Web Developer"
+          />
           <p style={{ color: "aliceblue" }}>
             <Link href={"../photos"}> More images of Nicholas Egner</Link>
           </p>
@@ -95,24 +104,42 @@ function About() {
         <div className={styles.aboutTextCont}>
           <h1>Nicholas Egner</h1>
           <p>
-            <strong>Nicholas Egner</strong> is a Minneapolis-based web
-            developer, SEO strategist, and content creator with a passion for
-            building fast, modern, and user-focused websites. His work combines
-            clean code with thoughtful design. Empowering small businesses,
-            creators, and solo entrepreneurs to improve their digital presence
-            and connect more effectively with their audience.
+            I’m a Minneapolis-based web developer, SEO strategist, and content
+            creator who helps businesses build a stronger digital presence.
             <br />
             <br />
-            With a background in media production and a technical education from
-            Dunwoody College of Technology, Nicholas blends creative thinking
-            with real-world engineering skills. He specializes in SEO
-            implementation, React-based web apps, and storytelling-driven
-            digital experiences.
+            My work sits at the intersection of websites, content, search, and
+            storytelling. I build fast, modern websites, but I also think about
+            the bigger system around them: how people find the business, how
+            they understand what it offers, and what makes them feel confident
+            enough to reach out.
             <br />
             <br />
-            Nicholas also shares his insights and learnings on his blog,
-            <a href="https://latestartdev.com/">Late Start Dev</a>, where he
-            documents his path from career change to full-stack development.
+            For many small businesses, creators, and solo entrepreneurs, the
+            website is only one piece of the problem. The message may be
+            unclear. The service pages may not explain enough. The content may
+            not support search. The video and social presence may feel
+            disconnected from the brand. I help bring those pieces together into
+            a clearer, more useful digital experience.
+            <br />
+            <br />
+            My background combines media production, design, web development,
+            and technical training from Dunwoody College of Technology. That mix
+            allows me to move between strategy and execution. I can help plan
+            the message, build the site, create the content, and structure the
+            pages in a way that supports visibility, trust, and growth.
+            <br />
+            <br />I also write about web development, SEO, content strategy, and
+            career growth through my blog,
+            <Link style={{ color: "#aeabfe" }} href="/blog">
+              {" "}
+              Late Start Dev
+            </Link>
+            , where I document what I’m learning and building along the way.
+            <br />
+            <br />
+            At the center of my work is a practical goal: help businesses become
+            easier to find, easier to understand, and easier to trust online.
           </p>
         </div>
       </div>
