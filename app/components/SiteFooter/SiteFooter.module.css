@@ -1,0 +1,231 @@
+.footer {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 4rem) 1.25rem;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(28, 27, 27, 0.08),
+      transparent 32rem
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    );
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footerInner {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.35fr) 0.7fr 0.8fr minmax(260px, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.brandBlock {
+  max-width: 440px;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.logoText {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.brandBlock p,
+.ctaBlock p {
+  margin: 1.15rem 0 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkColumn h2,
+.ctaBlock h2 {
+  margin: 0 0 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.linkColumn a,
+.bottomLinks a {
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.linkColumn a:hover,
+.bottomLinks a:hover {
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.ctaBlock {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.11),
+    rgba(255, 255, 255, 0.04)
+  );
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.ctaBlock h2 {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 1.2rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  color: #000;
+  background: #fff;
+  border: 1px solid #fff;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1440px;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomBar p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.bottomLinks a {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+@media (max-width: 1050px) {
+  .footerInner {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .footer {
+    padding-inline: 1rem;
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+  }
+
+  .bottomLinks {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkColumn a,
+  .bottomLinks a,
+  .ctaButton {
+    transition: none;
+  }
+
+  .linkColumn a:hover,
+  .bottomLinks a:hover,
+  .ctaButton:hover {
+    transform: none;
+  }
+}
+.svgContain {
+  text-align: center;
+  margin: auto;
+}
+.svgContainSvg {
+  margin: 0 10px;
+
+  fill: #e7e6e695;
+}
+
+@media only screen and (max-width: 675px) {
+  .svgContainSvg {
+    width: 14%;
+  }
+}
+.svgContainSvg:hover {
+  fill: rgb(189, 189, 248);
+}

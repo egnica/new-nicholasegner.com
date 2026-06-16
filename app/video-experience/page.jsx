@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "../components/particlesBackground";
+import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 function AboutMe() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -37,7 +38,6 @@ function AboutMe() {
   const navButtons = {
     start: {
       opacity: 0,
-      
     },
     visible: {
       opacity: 1,
@@ -95,6 +95,7 @@ function AboutMe() {
 
         <div className={styles.videoShell}>{renderVideo()}</div>
       </div>
+      <SiteFooter />
     </>
   );
 }

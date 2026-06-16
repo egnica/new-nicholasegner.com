@@ -11,6 +11,8 @@ import ParticlesBackground from "./components/particlesBackground";
 import AboutPopup from "./components/AboutPopup";
 import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
+import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
+import SiteFooter from "./components/SiteFooter/SiteFooter";
 
 // CANT BE USED WITH USE CLIENT
 // export const metadata = {
@@ -243,69 +245,10 @@ export default function Home() {
         </section>
         <FeaturedProjectCards />
 
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className={styles.reviewContainer}
-        >
-          <div className={styles.googleImage}>
-            <Image
-              width={300}
-              height={163}
-              alt="google review image"
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/google-review.webp"
-            />
-            <div className={styles.contReviewBtns}>
-              <a
-                href="https://g.page/r/CSbhU6mFyb4qEBM/review"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={styles.mainBtn}>Leave Review</div>
-              </a>
-              <a
-                href="https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/data=!4m2!3m1!1s0x0:0x2abec985a953e126?sa=X&ved=1t:2428&ictx=111"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={styles.mainBtn}>Read Reviews</div>
-              </a>
-            </div>
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              layout
-              className={!showFull ? styles.reviewText : styles.reviewTextFull}
-              key={Reviews[reviewIndex].name}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className={styles.nameImage}>
-                <img src={Reviews[reviewIndex].image} />
-                <h2>{Reviews[reviewIndex].name}</h2>
-              </div>
-              <p className={styles.review}>
-                {showFull ? Reviews[reviewIndex].text : displayText}
-              </p>
-
-              {largeString && (
-                <button
-                  className={styles.revealFull}
-                  onClick={() => setShowFull(!showFull)}
-                >
-                  {showFull ? "Show Less" : "Read More"}
-                </button>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </motion.section>
+        <GoogleReviewWall reviews={Reviews} />
 
         <AboutPopup />
+        <SiteFooter />
       </main>
     </>
   );

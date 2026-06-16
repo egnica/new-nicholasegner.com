@@ -1,0 +1,330 @@
+.reviewSection {
+  width: 100%;
+  padding: clamp(4rem, 2vw, 7rem) clamp(1rem, 4vw, 4rem);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.header h2 {
+  max-width: 760px;
+  margin: 0;
+  font-size: 3.5rem;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+  color: #fff;
+}
+
+.googleBlock {
+  display: grid;
+  justify-items: end;
+  gap: 1rem;
+}
+
+.googleImage {
+  width: 220px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.reviewActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.actionButton,
+.actionButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.actionButton {
+  color: #000;
+  background: #fff;
+  border: 1px solid #fff;
+}
+
+.actionButtonSecondary {
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.actionButton:hover,
+.actionButtonSecondary:hover {
+  transform: translateY(-2px);
+}
+
+.wallShell {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
+  animation: reviewsFade 350ms ease both;
+}
+
+.reviewCard {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.35rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(255, 255, 255, 0.045)
+  );
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+.reviewTop {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.reviewerImage {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reviewTop h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+.stars {
+  display: flex;
+  gap: 0.1rem;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.reviewText {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.74);
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.navButton {
+  width: clamp(46px, 5vw, 68px);
+  height: clamp(46px, 5vw, 68px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.navButton span {
+  display: block;
+  margin-top: -0.08em;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.7;
+}
+
+.navButton:hover {
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.navButton:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.28);
+  outline-offset: 4px;
+}
+
+.pageDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+}
+
+.dotActive {
+  width: 24px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+@keyframes reviewsFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .googleBlock {
+    justify-items: start;
+  }
+
+  .reviewActions {
+    justify-content: flex-start;
+    margin: auto;
+  }
+
+  .wallShell {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewGrid {
+    order: 1;
+  }
+
+  .navButtonLeft,
+  .navButtonRight {
+    order: 2;
+  }
+
+  .wallShell {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .reviewGrid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviewSection {
+    padding-inline: 1rem;
+  }
+
+  .reviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewCard {
+    min-height: auto;
+  }
+
+  .reviewText {
+    -webkit-line-clamp: 7;
+  }
+
+  .googleImage {
+    width: 190px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviewGrid {
+    animation: none;
+  }
+
+  .reviewCard,
+  .navButton,
+  .actionButton,
+  .actionButtonSecondary {
+    transition: none;
+  }
+
+  .reviewCard:hover,
+  .navButton:hover,
+  .actionButton:hover,
+  .actionButtonSecondary:hover {
+    transform: none;
+  }
+}

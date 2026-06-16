@@ -1,6 +1,7 @@
 import { Inter, Manrope } from "next/font/google";
 import Script from "next/script"; // Optimization for Next.js Script handling
 import "./globals.css";
+import SiteFooter from "./components/SiteFooter/SiteFooter";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -76,7 +77,6 @@ export const metadata = {
   creator: "Nicholas Egner",
   publisher: "Nicholas Egner",
 };
-
 export default function RootLayout({ children }) {
   const jsonLdSchema = {
     "@context": "https://schema.org",
@@ -141,7 +141,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${manrope.variable}`}>
-        {/* Next.js Optimized Performance Scripts */}
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
           strategy="lazyOnload"
@@ -150,25 +149,28 @@ export default function RootLayout({ children }) {
           src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"
           strategy="lazyOnload"
         />
-        {/* Google Analytics via next/script */}
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDZJLKR85X"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VDZJLKR85X');
-          `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-VDZJLKR85X');
+        `}
         </Script>
-        {/* Linked Data Graph Structured Schema */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
         />
-        {children}
+
+        <div className="siteFrame">
+          <div className="siteContent">{children}</div>
+        </div>
       </body>
     </html>
   );

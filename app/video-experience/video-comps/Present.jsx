@@ -84,7 +84,7 @@ function Present({ timeStamp, fromClick }) {
           controls
           autoPlay
           playsInline
-          webkitPlaysInline
+          webkitplaysinline="true"
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/present.mp4"
@@ -185,7 +185,7 @@ function Present({ timeStamp, fromClick }) {
               controls
               autoPlay
               playsInline
-              webkitPlaysInline
+              webkitplaysinline="true"
             >
               <source src={videoArray[videoSelect]} type="video/mp4" />
               Your browser does not support the video tag.

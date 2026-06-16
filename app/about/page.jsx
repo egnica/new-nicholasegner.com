@@ -5,6 +5,7 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import Dots from "../components/particlesBackground";
 import { color } from "motion";
+import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 function About() {
   const btnObject = [
@@ -144,6 +145,7 @@ function About() {
         </div>
       </div>
       <div style={{ padding: "30px" }}></div>
+      <SiteFooter />
     </>
   );
 }

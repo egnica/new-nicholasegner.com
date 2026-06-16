@@ -48,8 +48,8 @@ function Past({ timeStamp, fromClick }) {
     overLayOn == "on"
       ? video.pause()
       : overLayOn == "off"
-      ? video.play()
-      : null;
+        ? video.play()
+        : null;
   }, [overLayOn]);
 
   return (
@@ -171,7 +171,7 @@ function Past({ timeStamp, fromClick }) {
           controls
           autoPlay
           playsInline
-          webkitPlaysInline
+          webkitplaysinline="true"
         >
           <source
             src="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/past.mp4"

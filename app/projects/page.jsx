@@ -9,6 +9,7 @@ import { getTech } from "../lib/techStack";
 import Image from "next/image";
 import oldStyles from "../page.module.css";
 import { Suspense } from "react";
+import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 function ProjectMedia({ media }) {
   if (!media?.src) return null;
@@ -279,6 +280,7 @@ function ProjectsPageContent() {
           <ProjectContent project={selectedProject} />
         </div>
       </section>
+      <SiteFooter/>
     </main>
   );
 }

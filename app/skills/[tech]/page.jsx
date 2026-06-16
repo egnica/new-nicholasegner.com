@@ -7,9 +7,7 @@ import Header from "../../components/header";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Particles from "../../components/particlesBackground";
-
-
-
+import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 
 function TechPage() {
   const params = useParams();
@@ -57,6 +55,7 @@ function TechPage() {
           </motion.div>
         </AnimatePresence>
       </div>
+      <SiteFooter />
     </div>
   );
 }

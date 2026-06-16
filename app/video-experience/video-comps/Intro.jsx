@@ -52,7 +52,7 @@ function Intro({ timeStamp, fromClick }) {
           ref={videoRef}
           controls
           playsInline
-          webkitPlaysInline
+          webkitplaysinline="true"
           poster="https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp"
         >
           <source

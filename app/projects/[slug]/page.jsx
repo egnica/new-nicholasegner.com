@@ -6,6 +6,7 @@ import oldStyles from "../../page.module.css";
 import Particles from "../../components/particlesBackground";
 import { projects } from "../../lib/projects";
 import { getTech } from "../../lib/techStack";
+import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 
 function getProject(slug) {
   return projects.find((project) => project.slug === slug);
@@ -387,6 +388,7 @@ export default async function ProjectCaseStudyPage({ params }) {
           </Link>
         </footer>
       </article>
+      <SiteFooter />
     </main>
   );
 }
