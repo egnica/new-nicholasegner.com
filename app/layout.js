@@ -139,20 +139,31 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${manrope.variable}`}>
-        <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
-          strategy="lazyOnload"
-        />
-        <Script
-          src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"
-          strategy="lazyOnload"
+      <head>
+        <link
+          rel="preconnect"
+          href="https://nciholasegner.s3.us-east-2.amazonaws.com"
         />
 
+        <link
+          rel="dns-prefetch"
+          href="https://nciholasegner.s3.us-east-2.amazonaws.com"
+        />
+
+        <link
+          rel="preload"
+          as="image"
+          href="https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp"
+          fetchPriority="high"
+        />
+      </head>
+
+      <body className={`${inter.variable} ${manrope.variable}`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDZJLKR85X"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
           window.dataLayer = window.dataLayer || [];
