@@ -8,8 +8,6 @@ const DEFAULT_SPEED = -28; // px per second. Negative means icons move left.
 const MAX_SPEED = 180; // px per second at the far edges.
 const DEAD_ZONE = 0.16; // center area where movement slows/pauses.
 
-
-
 export default function TechMarquee({ techIcons = [], className = "" }) {
   const wrapperRef = useRef(null);
   const trackRef = useRef(null);
@@ -64,10 +62,7 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
         lastTimeRef.current = time;
       }
 
-      const deltaSeconds = Math.min(
-        0.05,
-        (time - lastTimeRef.current) / 1000,
-      );
+      const deltaSeconds = Math.min(0.05, (time - lastTimeRef.current) / 1000);
 
       lastTimeRef.current = time;
 
@@ -126,15 +121,13 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
       return;
     }
 
-    const normalized =
-      (distanceFromCenter - DEAD_ZONE) / (1 - DEAD_ZONE);
+    const normalized = (distanceFromCenter - DEAD_ZONE) / (1 - DEAD_ZONE);
 
     const easedIntensity = normalized * normalized;
 
     // Right side should make icons move left.
     // Left side should make icons move right.
-    targetSpeedRef.current =
-      -Math.sign(centered) * MAX_SPEED * easedIntensity;
+    targetSpeedRef.current = -Math.sign(centered) * MAX_SPEED * easedIntensity;
   }
 
   function handlePointerLeave() {
@@ -174,7 +167,7 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
                 href={icon.href}
                 className={styles.techLink}
                 tabIndex={copyIndex > 0 ? -1 : 0}
-                aria-label={icon.name}
+                aria-label={`View ${icon.name} skill page`}
               >
                 <div
                   className={styles.techIcon}

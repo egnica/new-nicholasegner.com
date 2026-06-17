@@ -25,11 +25,17 @@ function getReviewBatch(reviews, page, reviewsPerPage) {
 }
 
 function Stars({ rating = 5 }) {
+  const safeRating = Math.max(0, Math.min(5, Number(rating) || 0));
+
   return (
-    <div className={styles.stars} aria-label={`${rating} out of 5 stars`}>
+    <div
+      className={styles.stars}
+      role="img"
+      aria-label={`${safeRating} out of 5 stars`}
+    >
       {Array.from({ length: 5 }).map((_, index) => (
         <span key={index} aria-hidden="true">
-          {index < rating ? "★" : "☆"}
+          {index < safeRating ? "★" : "☆"}
         </span>
       ))}
     </div>
@@ -122,9 +128,12 @@ export default function GoogleReviewWall({ reviews = [] }) {
                 {review.image && (
                   <img
                     src={review.image}
-                    alt={`Google image of ${review.name}`}
+                    alt=""
+                    width={48}
+                    height={48}
                     className={styles.reviewerImage}
                     loading="lazy"
+                    decoding="async"
                   />
                 )}
 
@@ -152,7 +161,7 @@ export default function GoogleReviewWall({ reviews = [] }) {
       </div>
 
       {totalPages > 1 && (
-        <div className={styles.pageDots} aria-label="Review pages">
+        <nav className={styles.pageDots} aria-label="Review pages">
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
@@ -167,7 +176,7 @@ export default function GoogleReviewWall({ reviews = [] }) {
               aria-current={index === page ? "true" : undefined}
             />
           ))}
-        </div>
+        </nav>
       )}
     </section>
   );
