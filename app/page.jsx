@@ -8,43 +8,17 @@ import stackData from "../stack.json";
 import Reviews from "../reviews.json";
 import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
-import AboutPopup from "./components/AboutPopup";
 import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
 import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
-
-// CANT BE USED WITH USE CLIENT
-// export const metadata = {
-//   alternates: {
-//     canonical: "/",
-//   },
-// };
+import LazyMount from "./components/LazyMount";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
-  const [reviewIndex, setReviewIndex] = useState(0);
-  const [largeString, setLargeString] = useState(false);
-  const [showFull, setShowFull] = useState(false);
-  const [displayText, setDisplayText] = useState("");
   const animRef = useRef(null);
   const [heroFrames, setHeroFrames] = useState(false);
-
-  useEffect(() => {
-    const text = Reviews[reviewIndex].text;
-    const words = text.split(" ");
-
-    setShowFull(false);
-
-    if (words.length < 40) {
-      setLargeString(false);
-      setDisplayText(text);
-    } else {
-      setLargeString(true);
-      setDisplayText(words.slice(0, 40).join(" ") + "...");
-    }
-  }, [reviewIndex]);
 
   useEffect(() => {
     if (!animRef.current) return;
@@ -91,7 +65,7 @@ export default function Home() {
     "Content Creator",
     "Video Producer",
     "Video Editor",
-    "Seo Specialist",
+    "SEO Specialist",
     "Digital Experiences",
   ];
 
@@ -99,13 +73,6 @@ export default function Home() {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % skillsArray.length);
     }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setReviewIndex((prev) => (prev + 1) % Reviews.length);
-    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -244,11 +211,12 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <FeaturedProjectCards />
+        <LazyMount>
+          <FeaturedProjectCards minHeight={700} />
+        </LazyMount>
 
         <GoogleReviewWall reviews={Reviews} />
 
-        <AboutPopup />
         <LatestBlogPost />
         <SiteFooter />
       </main>
