@@ -1,7 +1,6 @@
 import { Inter, Manrope } from "next/font/google";
 import Script from "next/script"; // Optimization for Next.js Script handling
 import "./globals.css";
-import SiteFooter from "./components/SiteFooter/SiteFooter";
 
 const inter = Inter({
   variable: "--font-inter",
