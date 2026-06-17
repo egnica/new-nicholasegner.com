@@ -151,7 +151,7 @@ export default function SiteFooter() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.youtube.com/@NickEgnerVideo"
+          href="https://www.youtube.com/@NicholasEgner"
           aria-label="Visit Nicholas Egner on YouTube"
         >
           <svg
