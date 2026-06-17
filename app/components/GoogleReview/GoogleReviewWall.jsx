@@ -122,7 +122,7 @@ export default function GoogleReviewWall({ reviews = [] }) {
                 {review.image && (
                   <img
                     src={review.image}
-                    alt=""
+                    alt={`Google image of ${review.name}`}
                     className={styles.reviewerImage}
                     loading="lazy"
                   />

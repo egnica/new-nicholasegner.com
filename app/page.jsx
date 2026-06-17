@@ -174,7 +174,10 @@ export default function Home() {
         </section>
 
         <section className={styles.belowHero}>
-          <img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp" />
+          <img
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp"
+            alt="Nicholas Egner web development and digital content workspace"
+          />
           <div className={styles.belowHeroText}>
             <h1>
               I’m&nbsp;
