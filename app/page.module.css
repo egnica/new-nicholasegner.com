@@ -931,6 +931,10 @@
     grid-template-columns: 1fr;
   }
   .nameCont {
+    padding-top: 20px;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
     min-height: 400px;
   }
 
@@ -1068,5 +1072,10 @@
     min-height: 20vh;
     margin-top: 20px;
     gap: 5px;
+  }
+}
+@media (hover: none) {
+  .nameCont {
+    background-attachment: scroll;
   }
 }
