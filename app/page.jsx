@@ -13,6 +13,7 @@ import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
 import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
+import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 
 // CANT BE USED WITH USE CLIENT
 // export const metadata = {
@@ -248,6 +249,7 @@ export default function Home() {
         <GoogleReviewWall reviews={Reviews} />
 
         <AboutPopup />
+        <LatestBlogPost />
         <SiteFooter />
       </main>
     </>
