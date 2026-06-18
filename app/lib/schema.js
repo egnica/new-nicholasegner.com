@@ -322,16 +322,74 @@ export function getBlogHubSchema(posts = []) {
     ]),
   ]);
 }
-
 /* -------------------------------------------------------------------------- */
 /* BLOG POST                                                                  */
 /* -------------------------------------------------------------------------- */
 
+function personRef() {
+  return {
+    "@type": "Person",
+    "@id": schemaIds.person,
+    name: "Nicholas Egner",
+    url: SITE_URL,
+  };
+}
+
+function getCopyrightYear(dateValue) {
+  if (!dateValue) return undefined;
+
+  const year = new Date(dateValue).getFullYear();
+
+  return Number.isFinite(year) ? year : undefined;
+}
+
+function getArticleSection(post) {
+  const section =
+    post.articleSection ||
+    post.category ||
+    post.practiceArea ||
+    post.topic ||
+    post.type;
+
+  if (Array.isArray(section)) return section[0];
+
+  return section;
+}
+
+function getAboutThing(post) {
+  const section = getArticleSection(post);
+
+  if (!section) return undefined;
+
+  return {
+    "@type": "Thing",
+    name: section,
+  };
+}
+
+function getVideoContentUrl(video) {
+  return (
+    video?.contentUrl || video?.videoUrl || video?.src?.mp4 || video?.src?.webm
+  );
+}
+
+function getVideoEncodingFormat(video) {
+  if (video?.encodingFormat) return video.encodingFormat;
+
+  const contentUrl = getVideoContentUrl(video);
+
+  if (!contentUrl) return undefined;
+
+  if (contentUrl.includes(".mp4")) return "video/mp4";
+  if (contentUrl.includes(".webm")) return "video/webm";
+
+  return undefined;
+}
+
 function buildVideoObject({ video, post, pageUrl, videoId, image }) {
   if (!video) return null;
 
-  const contentUrl =
-    video.contentUrl || video.videoUrl || video?.src?.mp4 || video?.src?.webm;
+  const contentUrl = getVideoContentUrl(video);
 
   const embedUrl =
     video.embedUrl ||
@@ -347,38 +405,53 @@ function buildVideoObject({ video, post, pageUrl, videoId, image }) {
   return cleanSchema({
     "@type": "VideoObject",
     "@id": videoId,
+
     name: video.title || post.title,
     description:
       video.videoDescription || video.description || post.description,
+
     thumbnailUrl: imageArray(video.thumbnail, image, DEFAULT_IMAGE),
+
     uploadDate: video.uploadDate || post.published_time,
     duration: video.duration,
+
     contentUrl,
     embedUrl,
+    encodingFormat: getVideoEncodingFormat(video),
+
     url: pageUrl,
     inLanguage: "en-US",
+
+    width: video.width,
+    height: video.height,
+
     isAccessibleForFree:
       typeof video.isAccessibleForFree === "boolean"
         ? video.isAccessibleForFree
         : true,
+
     isFamilyFriendly:
       typeof video.familyFriendly === "boolean"
         ? video.familyFriendly
         : undefined,
+
     sameAs: video.sameAs || video?.youtube?.url,
+
+    keywords: Array.isArray(video.keywords)
+      ? video.keywords
+      : Array.isArray(post.keywords)
+        ? post.keywords
+        : undefined,
+
     transcript: video.transcript || post.transcript,
+
     mainEntityOfPage: {
       "@id": `${pageUrl}#webpage`,
     },
-    author: {
-      "@id": schemaIds.person,
-    },
-    creator: {
-      "@id": schemaIds.person,
-    },
-    publisher: {
-      "@id": schemaIds.person,
-    },
+
+    author: personRef(),
+    creator: personRef(),
+    publisher: personRef(),
   });
 }
 
@@ -410,59 +483,96 @@ export function getBlogPostSchema({ post, slug }) {
     )
     .filter(Boolean);
 
+  const mediaRefs = [primaryVideo, ...supportingVideos]
+    .filter(Boolean)
+    .map((video) => ({
+      "@id": video["@id"],
+    }));
+
   const webPage = {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: post.title,
     description: post.description,
+
     isPartOf: {
       "@id": schemaIds.website,
     },
+
     mainEntity: {
       "@id": `${pageUrl}#blogposting`,
     },
+
     breadcrumb: {
       "@id": `${pageUrl}#breadcrumb`,
     },
+
     primaryImageOfPage: {
       "@type": "ImageObject",
       "@id": `${pageUrl}#primaryimage`,
       url: image,
     },
+
+    datePublished: post.published_time,
+    dateModified: post.modified_time || post.published_time,
+
+    author: personRef(),
+    creator: personRef(),
+
     inLanguage: "en-US",
   };
 
   const blogPosting = {
     "@type": "BlogPosting",
     "@id": `${pageUrl}#blogposting`,
+
+    url: pageUrl,
+
     mainEntityOfPage: {
       "@id": `${pageUrl}#webpage`,
     },
+
     headline: post.title,
     description: post.description,
+
     image: imageArray(image),
+    thumbnailUrl: imageArray(image),
+
     datePublished: post.published_time,
     dateModified: post.modified_time || post.published_time,
-    author: {
-      "@id": schemaIds.person,
-    },
-    publisher: {
-      "@id": schemaIds.person,
-    },
+
+    articleSection: getArticleSection(post),
+    about: getAboutThing(post),
+
+    author: personRef(),
+    creator: personRef(),
+    publisher: personRef(),
+
+    copyrightYear: getCopyrightYear(post.published_time),
+    copyrightHolder: personRef(),
+
+    isAccessibleForFree: true,
+
     isPartOf: {
       "@id": schemaIds.website,
     },
+
     keywords: Array.isArray(post.keywords) ? post.keywords : undefined,
 
-    // Blog-friendly: the article is the main thing.
-    // The video supports the blog post.
+    // Blog-friendly:
+    // The article is still the main entity.
+    // The primary video supports the article.
     video: primaryVideo
       ? {
           "@id": primaryVideo["@id"],
         }
       : undefined,
 
+    // All video/media objects associated with the article.
+    associatedMedia: mediaRefs.length ? mediaRefs : undefined,
+
+    // Supporting videos specifically embedded in the article body.
     hasPart: supportingVideos.length
       ? supportingVideos.map((video) => ({
           "@id": video["@id"],

@@ -182,12 +182,12 @@ export default function Home() {
             alt="Nicholas Egner web development and digital content workspace"
           />
           <div className={styles.belowHeroText}>
-            <h1>
+            <h2>
               I’m&nbsp;
               <Link href="/about" className={styles.name}>
                 Nicholas Egner
               </Link>
-            </h1>
+            </h2>
             <br />
             <p>
               I build websites and content systems that help businesses get
