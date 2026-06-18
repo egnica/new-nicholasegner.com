@@ -1,6 +1,8 @@
 import { Inter, Manrope } from "next/font/google";
 import Script from "next/script"; // Optimization for Next.js Script handling
 import "./globals.css";
+import JsonLd from "./components/JsonLd/JsonLd";
+import { getGlobalSchema } from "./lib/schema";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,11 +36,6 @@ export const metadata = {
 
   // 🌟 Set metadataBase to match Google's indexed version
   metadataBase: new URL("https://www.nicholasegner.com"),
-
-  // 🌟 THE CANONICAL SHIELD: Locks down www. as the master copy
-  alternates: {
-    canonical: "https://www.nicholasegner.com",
-  },
 
   openGraph: {
     title: "Nicholas Egner | Web Developer & SEO Specialist",
@@ -77,68 +74,8 @@ export const metadata = {
   publisher: "Nicholas Egner",
 };
 export default function RootLayout({ children }) {
-  const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://www.nicholasegner.com/#person",
-        name: "Nicholas Egner",
-        url: "https://www.nicholasegner.com",
-        image:
-          "https://www.nicholasegner.com/_next/image?url=https%3A%2F%2Fnciholasegner.s3.us-east-2.amazonaws.com%2Fimages%2Fnicholas-egner.jpg&w=384&q=75",
-        jobTitle: "Creative Technologist",
-        description:
-          "Minneapolis-based web developer and SEO strategist helping small businesses and creators build fast, search-optimized websites and content.",
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": "https://www.nicholasegner.com/about",
-        },
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Minneapolis",
-          addressRegion: "MN",
-          addressCountry: "US",
-        },
-        alumniOf: {
-          "@type": "CollegeOrUniversity",
-          name: "Dunwoody College of Technology",
-        },
-        knowsAbout: [
-          "Web Development",
-          "SEO",
-          "Next.js",
-          "React",
-          "Content Strategy",
-          "Video Production",
-          "Digital Marketing",
-        ],
-        sameAs: [
-          "https://www.linkedin.com/in/nicholas-egner",
-          "https://github.com/egnica",
-          "https://latestartdev.com",
-          "https://www.youtube.com/@NicholasEgner",
-          "https://x.com/NicholasEgner",
-          "https://www.facebook.com/nicholas.egner",
-          "https://www.google.com/maps?cid=3080126939981832486",
-          "https://www.wikidata.org/wiki/Q140232047",
-        ],
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.nicholasegner.com/#website",
-        url: "https://www.nicholasegner.com",
-        name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
-        inLanguage: "en-US",
-        publisher: {
-          "@id": "https://www.nicholasegner.com/#person",
-        },
-      },
-    ],
-  };
-
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link
           rel="preconnect"
@@ -161,10 +98,10 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${manrope.variable}`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDZJLKR85X"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -173,10 +110,7 @@ export default function RootLayout({ children }) {
         `}
         </Script>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
-        />
+        <JsonLd data={getGlobalSchema()} />
 
         <div className="siteFrame">
           <div className="siteContent">{children}</div>

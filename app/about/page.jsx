@@ -4,8 +4,22 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Dots from "../components/particlesBackground";
-import { color } from "motion";
+
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import JsonLd from "../components/JsonLd/JsonLd";
+import { getProfilePageSchema } from "../lib/schema";
+
+export const metadata = {
+  title: "About",
+  description:
+    "Learn more about Nicholas Egner, a Minneapolis-based web developer, SEO strategist, and digital content creator.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    url: "/about",
+  },
+};
 
 function About() {
   const btnObject = [
@@ -45,28 +59,29 @@ function About() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "@id": "https://www.nicholasegner.com/about#webpage",
-            url: "https://www.nicholasegner.com/about",
-            name: "About Nicholas Egner",
-            description:
-              "Learn more about Minneapolis-based web developer, SEO strategist, and digital content creator Nicholas Egner.",
-            mainEntity: {
-              "@id": "https://www.nicholasegner.com/#person",
-            },
-            isPartOf: {
-              "@id": "https://www.nicholasegner.com/#website",
-            },
-          }),
-        }}
-      />
+      <JsonLd data={getProfilePageSchema()} />
 
       <Dots />
+      <nav className={styles.topPage}>
+        <a
+          href="/about"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <Image
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+            width={60}
+            height={60}
+            alt="Nicholas Egner Logo"
+          />
+        </a>
+        <div className={styles.headerNavLinks}>
+          <Link href={"/"}>Home</Link>
+          <Link href={"/blog"}>Blog</Link>
+          <Link href={"/about"}>About Nick</Link>
+          <Link href={"/projects"}>Projects</Link>
+        </div>
+      </nav>
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (
           <a

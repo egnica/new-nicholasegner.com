@@ -216,6 +216,7 @@ export default async function ProjectCaseStudyPage({ params }) {
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/about">About Nick</Link>
+          <Link href={"/projects"}>Projects</Link>
         </div>
       </nav>
 

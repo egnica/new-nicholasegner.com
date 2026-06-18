@@ -14,6 +14,8 @@ import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 import LazyMount from "./components/LazyMount";
+import JsonLd from "./components/JsonLd/JsonLd";
+import { getHomePageSchema } from "./lib/schema";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -80,6 +82,7 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={getHomePageSchema()} />
       <div className={styles.mainBackColor}></div>
       <ParticlesBackground />
       <main className={styles.page}>
