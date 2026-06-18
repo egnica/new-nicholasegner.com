@@ -6,14 +6,46 @@ import Link from "next/link";
 import Image from "next/image";
 import Particles from "../../components/particlesBackground";
 import JsonLd from "../../components/JsonLd/JsonLd";
-import { getBlogArchiveSchema } from "../../lib/schema";
+import { getBlogArchiveSchema, SITE_URL, DEFAULT_IMAGE } from "../../lib/schema";
 
 export const metadata = {
   title: "Blog Archive | Nicholas Egner",
   description:
-    "A chronological archive of articles and notes from Nicholas Egner on web development, SEO, video, content strategy, and digital systems.",
+    "A chronological archive of blog posts, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and related ideas.",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   alternates: {
-    canonical: "/blog/archive",
+    canonical: `${SITE_URL}/blog/archive`,
+  },
+
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/blog/archive`,
+    title: "Blog Archive | Nicholas Egner",
+    description:
+      "A chronological archive of blog posts, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and related ideas.",
+    siteName: "Nicholas Egner",
+    images: [
+      {
+        url: DEFAULT_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Nicholas Egner Blog Archive",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog Archive | Nicholas Egner",
+    description:
+      "A chronological archive of blog posts, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and related ideas.",
+    creator: "@NicholasEgner",
+    images: [DEFAULT_IMAGE],
   },
 };
 function page() {

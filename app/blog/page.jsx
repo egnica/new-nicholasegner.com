@@ -7,7 +7,48 @@ import Particles from "../components/particlesBackground";
 import Footer from "../components/footerBlog";
 import Header from "../components/header";
 import JsonLd from "../components/JsonLd/JsonLd";
-import { getBlogHubSchema } from "../lib/schema";
+import { SITE_URL, DEFAULT_IMAGE, getBlogHubSchema } from "../lib/schema";
+
+export const metadata = {
+  title: "Blog | Nicholas Egner",
+  description:
+    "Writing, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and the process behind building things online.",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+  },
+
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/blog`,
+    title: "Blog | Nicholas Egner",
+    description:
+      "Writing, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and the process behind building things online.",
+    siteName: "Nicholas Egner",
+    images: [
+      {
+        url: DEFAULT_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Nicholas Egner Blog",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Nicholas Egner",
+    description:
+      "Writing, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and the process behind building things online.",
+    creator: "@NicholasEgner",
+    images: [DEFAULT_IMAGE],
+  },
+};
 
 function blogMain() {
   const featuredPosts = Object.values(Posts).filter((post) => post.featured);

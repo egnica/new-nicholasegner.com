@@ -938,3 +938,109 @@ export function getProjectPageSchema(projectOrArgs) {
 
   return createJsonLd([webPage, creativeWork, breadcrumbs]);
 }
+
+/* -------------------------------------------------------------------------- */
+/* PROJECT DETAIL PAGE                                                        */
+/* -------------------------------------------------------------------------- */
+
+export function getVideoExperienceSchema() {
+  const pageUrl = `${SITE_URL}/video-experience`;
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: "Interactive Video Experience",
+    description:
+      "An interactive video experience from Nicholas Egner with sections covering past work, present focus, future direction, and creative digital strategy.",
+    isPartOf: {
+      "@id": schemaIds.website,
+    },
+    mainEntity: {
+      "@id": `${pageUrl}#experience`,
+    },
+    breadcrumb: {
+      "@id": `${pageUrl}#breadcrumb`,
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      "@id": `${pageUrl}#primaryimage`,
+      url: DEFAULT_IMAGE,
+    },
+    author: {
+      "@id": schemaIds.person,
+    },
+    creator: {
+      "@id": schemaIds.person,
+    },
+    inLanguage: "en-US",
+  };
+
+  const experience = {
+    "@type": "CreativeWork",
+    "@id": `${pageUrl}#experience`,
+    name: "Interactive Video Experience",
+    description:
+      "An interactive video experience from Nicholas Egner organized into intro, past, present, future, and wrap-up sections.",
+    url: pageUrl,
+    image: DEFAULT_IMAGE,
+    creator: {
+      "@id": schemaIds.person,
+    },
+    author: {
+      "@id": schemaIds.person,
+    },
+    isPartOf: {
+      "@id": schemaIds.website,
+    },
+    hasPart: [
+      {
+        "@type": "CreativeWork",
+        "@id": `${pageUrl}#intro`,
+        name: "Intro",
+        position: 1,
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${pageUrl}#past`,
+        name: "Past",
+        position: 2,
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${pageUrl}#present`,
+        name: "Present",
+        position: 3,
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${pageUrl}#future`,
+        name: "Future",
+        position: 4,
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${pageUrl}#wrap`,
+        name: "Wrap",
+        position: 5,
+      },
+    ],
+    mainEntityOfPage: {
+      "@id": `${pageUrl}#webpage`,
+    },
+    inLanguage: "en-US",
+  };
+
+  const breadcrumbs = getBreadcrumbSchema([
+    {
+      name: "Home",
+      url: SITE_URL,
+    },
+    {
+      name: "Interactive Video Experience",
+      url: pageUrl,
+    },
+  ]);
+
+  return createJsonLd([webPage, experience, breadcrumbs]);
+}
