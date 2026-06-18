@@ -10,6 +10,8 @@ import Image from "next/image";
 import oldStyles from "../page.module.css";
 import { Suspense } from "react";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import JsonLd from "../components/JsonLd/JsonLd";
+import { getProjectsHubSchema } from "../lib/schema";
 
 function ProjectMedia({ media }) {
   if (!media?.src) return null;
@@ -238,6 +240,8 @@ function ProjectsPageContent() {
 
   return (
     <main className={styles.page}>
+      <JsonLd data={getProjectsHubSchema(projects)} />
+
       <nav className={oldStyles.topPage}>
         <Link href="/">
           <Image

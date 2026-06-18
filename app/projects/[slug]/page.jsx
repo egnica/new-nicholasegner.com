@@ -7,6 +7,8 @@ import Particles from "../../components/particlesBackground";
 import { projects } from "../../lib/projects";
 import { getTech } from "../../lib/techStack";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
+import JsonLd from "../../components/JsonLd/JsonLd";
+import { getProjectPageSchema } from "../../lib/schema";
 
 function getProject(slug) {
   return projects.find((project) => project.slug === slug);
@@ -202,6 +204,7 @@ export default async function ProjectCaseStudyPage({ params }) {
 
   return (
     <main className={styles.page}>
+      <JsonLd data={getProjectPageSchema(project)} />
       <nav className={oldStyles.topPage}>
         <Link href="/">
           <Image

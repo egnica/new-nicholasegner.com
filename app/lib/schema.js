@@ -323,6 +323,71 @@ export function getBlogHubSchema(posts = []) {
   ]);
 }
 /* -------------------------------------------------------------------------- */
+/* BLOG ARCHIVE                                                                  */
+/* -------------------------------------------------------------------------- */
+
+export function getBlogArchiveSchema(posts = []) {
+  const pageUrl = `${SITE_URL}/blog/archive`;
+
+  const postItems = toItemArray(posts)
+    .filter((post) => post.live !== false)
+    .sort((a, b) => {
+      const dateA = new Date(a.published_time || a.date || 0);
+      const dateB = new Date(b.published_time || b.date || 0);
+
+      return dateB - dateA;
+    });
+
+  return createJsonLd([
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#collectionpage`,
+      url: pageUrl,
+      name: "Blog Archive",
+      description:
+        "A chronological archive of articles and notes from Nicholas Egner on web development, SEO, video, content strategy, and digital systems.",
+      isPartOf: {
+        "@id": schemaIds.website,
+      },
+      about: {
+        "@id": schemaIds.person,
+      },
+      breadcrumb: {
+        "@id": `${pageUrl}#breadcrumb`,
+      },
+      mainEntity: {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#blog-archive-list`,
+        name: "Nicholas Egner Blog Archive",
+        numberOfItems: postItems.length,
+        itemListOrder: "https://schema.org/ItemListOrderDescending",
+        itemListElement: postItems.map((post, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: post.title,
+          url: `${SITE_URL}/blog/${post.slug}`,
+        })),
+      },
+      inLanguage: "en-US",
+    },
+    getBreadcrumbSchema([
+      {
+        name: "Home",
+        url: SITE_URL,
+      },
+      {
+        name: "Blog",
+        url: `${SITE_URL}/blog`,
+      },
+      {
+        name: "Archive",
+        url: pageUrl,
+      },
+    ]),
+  ]);
+}
+
+/* -------------------------------------------------------------------------- */
 /* BLOG POST                                                                  */
 /* -------------------------------------------------------------------------- */
 

@@ -5,7 +5,20 @@ import Footer from "@/app/components/footerBlog";
 import Link from "next/link";
 import Image from "next/image";
 import Particles from "../../components/particlesBackground";
+import JsonLd from "../../components/JsonLd/JsonLd";
+import { getBlogArchiveSchema } from "../../lib/schema";
+
+export const metadata = {
+  title: "Blog Archive | Nicholas Egner",
+  description:
+    "A chronological archive of articles and notes from Nicholas Egner on web development, SEO, video, content strategy, and digital systems.",
+  alternates: {
+    canonical: "/blog/archive",
+  },
+};
 function page() {
+  <JsonLd data={getBlogArchiveSchema(Posts)} />;
+
   return (
     <>
       <Particles />
@@ -15,7 +28,7 @@ function page() {
           Back
         </Link>
       </div>
-      <h1 style={{margin:"20px"}}>Blog Archive</h1>
+      <h1 style={{ margin: "20px" }}>Blog Archive</h1>
       <div className={styles.archiveContainer}>
         {Object.values(Posts).map((item, index) => (
           <Link

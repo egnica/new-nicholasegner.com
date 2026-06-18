@@ -6,6 +6,8 @@ import Image from "next/image";
 import Particles from "../components/particlesBackground";
 import Footer from "../components/footerBlog";
 import Header from "../components/header";
+import JsonLd from "../components/JsonLd/JsonLd";
+import { getBlogHubSchema } from "../lib/schema";
 
 function blogMain() {
   const featuredPosts = Object.values(Posts).filter((post) => post.featured);
@@ -15,6 +17,7 @@ function blogMain() {
 
   return (
     <>
+      <JsonLd data={getBlogHubSchema(Posts)} />
       <div style={{ margin: "15px 0 0 15px" }}>
         <Link className={styles.navBtn} href={"/"}>
           Home
