@@ -211,11 +211,6 @@ export const projects = [
 
     links: [
       {
-        label: "View Demo",
-        url: "https://main.d283ike1beb7cu.amplifyapp.com/",
-        type: "demo",
-      },
-      {
         label: "Repository",
         url: "https://github.com/egnica/Dashboard-Clone",
         type: "repo",
@@ -263,14 +258,6 @@ export const projects = [
         sectionTitle: "Interactive Feature Matrix",
         description: "Compare up to 6 banks",
         caption: "Multiple bank comparison experience.",
-      },
-      {
-        type: "iframe",
-        src: "https://main.d283ike1beb7cu.amplifyapp.com/",
-        alt: "Digital Insights Hub",
-        sectionTitle: "Digital Insights Hub",
-        description: "Digital Insights Hub Tool",
-        caption: "Digital Insights Hub Tool",
       },
     ],
 
