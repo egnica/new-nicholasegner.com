@@ -473,7 +473,12 @@ export const projects = [
         "A personalized wedding guest experience combining custom branding, RSVP management, photography, and interactive details.",
     },
 
-    links: [],
+    links: [
+      {
+        label: "GitHub Repository",
+        url: "https://github.com/egnica/wedding-site",
+      },
+    ],
 
     caseStudy: {
       overview:
