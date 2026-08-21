@@ -24,8 +24,7 @@ export const opportunities = {
     note: {
       eyebrow: "Why I Created This",
       headline: "A video application with the content system built around it.",
-      body:
-        "This page is meant to show how I think about content production: combining the message, the video, the web experience, and the proof points into one clear digital experience.",
+      body: "This page is meant to show how I think about content production: combining the message, the video, the web experience, and the proof points into one clear digital experience.",
     },
 
     metadata: {
@@ -150,6 +149,189 @@ export const opportunities = {
         url: "https://open.spotify.com/user/1224553002?si=c3d54db378354cf5&nd=1&dlsi=ffb896dd3c424f82",
         startTime: 145,
         endTime: 270,
+      },
+    ],
+  },
+  "element-electronics-multimedia-producer": {
+    company: "Element Electronics",
+    role: "Multimedia Content Producer/Video Editor",
+
+    eyebrow: "Multimedia Content Producer/Video Editor Application",
+    headline: "Video, Motion & Digital Storytelling",
+    introduction:
+      "A custom application experience created for the Multimedia Content Producer/Video Editor role at the Element Electronics.",
+
+    videoUrl:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/+ElementElectronics.mp4",
+    posterUrl:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/Element+Electronics.webp",
+
+    actions: [
+      {
+        id: "resume",
+        title: "Resume",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/Multimedia_Content_Producerr.pdf",
+      },
+    ],
+
+    note: {
+      eyebrow: "Why I Created This",
+      headline: "A video application with the content system built around it.",
+      body: "This page is meant to show how I think about content production: combining the message, the video, the web experience, and the proof points into one clear digital experience.",
+    },
+
+    metadata: {
+      title:
+        "Nicholas Egner | Multimedia Content Producer/Video Editor Application",
+      description:
+        "A custom video application experience for the Multimedia Content Producer/Video Editor role at the Element Electronics, featuring video, SEO, storytelling, and digital content work.",
+      socialDescription:
+        "A custom video application experience built around video production, SEO, web strategy, and mission-driven storytelling.",
+      imageAlt:
+        "Nicholas Egner Multimedia Content Producer/Video Editor application video cover image",
+    },
+
+    cues: [
+      {
+        id: "01",
+        title: "About Nicholas",
+        url: "/about",
+        startTime: 1,
+        endTime: 17,
+      },
+      {
+        id: "02",
+        title: "My Story",
+        url: "/video-experience",
+        startTime: 1,
+        endTime: 17,
+      },
+      {
+        id: "03",
+        title: "My Blog",
+        url: "/blog",
+        startTime: 1,
+        endTime: 17,
+      },
+      {
+        id: "04",
+        title: "LinkedIn",
+        url: "https://www.linkedin.com/in/nicholas-egner/",
+        startTime: 1,
+        endTime: 17,
+      },
+      {
+        id: "05",
+        title: "Premiere Pro",
+        url: "https://nicholasegner.com/skills/premiere",
+        startTime: 19,
+        endTime: 28,
+      },
+      {
+        id: "06",
+        title: "After Effects",
+        url: "https://nicholasegner.com/skills/aftereffects",
+        startTime: 20,
+        endTime: 28,
+      },
+      {
+        id: "07",
+        title: "Photoshop",
+        url: "https://nicholasegner.com/skills/photoshop",
+        startTime: 22,
+        endTime: 28,
+      },
+      {
+        id: "08",
+        title: "Barlow Conference Video",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
+        startTime: 29,
+        endTime: 33,
+      },
+      {
+        id: "09",
+        title: "Barlow Podcasts",
+        url: "https://barlowresearch.com/resources/",
+        startTime: 30,
+        endTime: 33,
+      },
+      {
+        id: "10",
+        title: "Davis Defense Project",
+        url: "https://nicholasegner.com/projects?project=davis-defense",
+        startTime: 33,
+        endTime: 44,
+      },
+      {
+        id: "11",
+        title: "Nicholas Egner’s Demo",
+        url: "https://www.youtube.com/watch?v=7NM8T8zdUlU",
+        startTime: 44,
+        endTime: 62,
+      },
+      {
+        id: "12",
+        title: "Your Gardens Brand Story",
+        url: "https://nicholasegner.com/blog/your-gardens-by-design-video",
+        startTime: 48,
+        endTime: 62,
+      },
+      {
+        id: "13",
+        title: "YWCA Woman’s Triathlon",
+        url: "https://www.youtube.com/watch?v=RPxo_4BSKMg",
+        startTime: 48,
+        endTime: 62,
+      },
+      {
+        id: "14",
+        title: "Landscape Structures",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4",
+        startTime: 48,
+        endTime: 62,
+      },
+      {
+        id: "15",
+        title: "Whittier Documentary",
+        url: "https://www.youtube.com/watch?v=2L8Gy-qM9YQ",
+        startTime: 48,
+        endTime: 62,
+      },
+      {
+        id: "16",
+        title: "Video SEO Trifecta",
+        url: "https://nicholasegner.com/blog/video-seo-trifecta",
+        startTime: 61,
+        endTime: 74,
+      },
+
+      {
+        id: "17",
+        title: "Framer Motion",
+        url: "https://nicholasegner.com/skills/framermotion",
+        startTime: 61,
+        endTime: 74,
+      },
+      {
+        id: "18",
+        title: "Full Portfolio",
+        url: "https://nicholasegner.com/",
+        startTime: 73,
+        endTime: 82,
+      },
+      {
+        id: "19",
+        title: "Email Nicholas",
+        url: "mailto:nick@nicholasegner.com",
+        startTime: 73,
+        endTime: 82,
+      },
+      {
+        id: "20",
+        title: "LinkedIn",
+        url: "https://www.linkedin.com/in/nicholas-egner/",
+        startTime: 73,
+        endTime: 82,
       },
     ],
   },
