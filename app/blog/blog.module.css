@@ -771,3 +771,181 @@
     margin-inline: 0;
   }
 }
+
+
+/* ---------- Watch pages and richer content blocks ---------- */
+
+.watchPage .articleHeader {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.watchPage .articleHeroMedia {
+  border-color: rgba(118, 215, 255, 0.3);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.42),
+    0 0 72px rgba(42, 69, 249, 0.18);
+}
+
+.watchDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0;
+}
+
+.watchDetailsLabel {
+  margin: 0 0 0.25rem;
+  color: #bbaaff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.watchDetailsTitle {
+  margin: 0;
+  color: #f6f8ff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.watchDetailsTitle span {
+  color: #9fa9d8;
+  font-weight: 700;
+}
+
+.contentMediaFigure {
+  width: 100%;
+  margin: clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+.contentMediaFigure .hero {
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.mediaCaption {
+  width: min(1000px, 100%);
+  margin: 0.75rem auto 0;
+  color: #9fa9d8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contentVideoBlock {
+  width: 100%;
+  margin: clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+.contentVideoBlock video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  margin: auto;
+  border-radius: 14px;
+  background: #000;
+}
+
+.contentVideoBlock .videoLink {
+  margin-top: 0.75rem;
+}
+
+.quoteBlock,
+.calloutBlock,
+.embedBlock,
+.linkBlock {
+  width: min(1100px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quoteBlock {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  padding: 1.2rem 1.4rem;
+  color: #eef1ff;
+  border-left: 4px solid #bbaaff;
+  background: rgba(255, 255, 255, 0.045);
+  font-size: clamp(1.08rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.quoteBlock p,
+.calloutBlock p {
+  margin: 0;
+}
+
+.calloutBlock {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  padding: 1.2rem 1.4rem;
+  color: #e8edff;
+  border: 1px solid rgba(118, 215, 255, 0.28);
+  border-radius: 14px;
+  background: rgba(118, 215, 255, 0.07);
+  line-height: 1.7;
+}
+
+.embedBlock {
+  aspect-ratio: 16 / 9;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.embedBlock iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.linkBlock {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.linkBlock a {
+  color: #9fdfff;
+  font-weight: 800;
+}
+
+.codeFilename {
+  padding: 0.6rem 0.85rem;
+  color: #cfd6ff;
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: monospace;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 760px) {
+  .watchDetails {
+    display: block;
+  }
+
+  .watchDetails .videoLink {
+    margin: 0.8rem 0 0;
+  }
+
+  .quoteBlock,
+  .calloutBlock {
+    padding: 1rem;
+  }
+
+  .embedBlock {
+    width: 100%;
+  }
+
+  .contentVideoBlock video {
+    border-radius: 10px;
+  }
+}
