@@ -26,7 +26,7 @@ function absoluteUrl(value) {
 }
 
 function imageArray(...values) {
-  const images = values.map(absoluteUrl).filter(Boolean);
+  const images = [...new Set(values.map(absoluteUrl).filter(Boolean))];
   return images.length ? images : undefined;
 }
 
@@ -278,7 +278,16 @@ export function getContactPageSchema() {
 
 export function getBlogHubSchema(posts = []) {
   const pageUrl = `${SITE_URL}/blog`;
-  const postItems = toItemArray(posts);
+  const postItems = toItemArray(posts)
+    .filter(
+      (post) => post.live !== false && post.published !== false,
+    )
+    .sort((a, b) => {
+      const dateA = new Date(a.published_time || a.date || 0);
+      const dateB = new Date(b.published_time || b.date || 0);
+
+      return dateB - dateA;
+    });
 
   return createJsonLd([
     {
@@ -482,27 +491,15 @@ function getVideoEncodingFormat(video) {
 function getYouTubeId(url) {
   if (!url || typeof url !== "string") return undefined;
 
-  try {
-    const parsed = new URL(url);
+  const patterns = [
+    /youtu\.be\/([^?&#/]+)/i,
+    /youtube\.com\/watch\?(?:.*&)?v=([^&#]+)/i,
+    /youtube\.com\/(?:embed|shorts|live)\/([^?&#/]+)/i,
+  ];
 
-    if (parsed.hostname === "youtu.be") {
-      return parsed.pathname.split("/").filter(Boolean)[0];
-    }
-
-    if (parsed.hostname.includes("youtube.com")) {
-      if (parsed.pathname === "/watch") {
-        return parsed.searchParams.get("v") || undefined;
-      }
-
-      const parts = parsed.pathname.split("/").filter(Boolean);
-      const markerIndex = parts.findIndex((part) =>
-        ["embed", "shorts", "live"].includes(part),
-      );
-
-      if (markerIndex >= 0) return parts[markerIndex + 1];
-    }
-  } catch {
-    return undefined;
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match?.[1]) return match[1];
   }
 
   return undefined;
@@ -527,6 +524,7 @@ function buildClipObjects(video, pageUrl) {
     .filter(
       (clip) =>
         clip?.name &&
+        clip?.url &&
         Number.isFinite(Number(clip.startOffset)),
     )
     .map((clip) => {
@@ -540,9 +538,7 @@ function buildClipObjects(video, pageUrl) {
         name: clip.name,
         startOffset,
         endOffset,
-        url:
-          clip.url ||
-          `${pageUrl}?t=${startOffset}`,
+        url: clip.url,
       });
     });
 }
