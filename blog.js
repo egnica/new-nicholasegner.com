@@ -4,27 +4,15 @@
 function getYouTubeId(url) {
   if (!url || typeof url !== "string") return null;
 
-  try {
-    const parsed = new URL(url);
+  const patterns = [
+    /youtu\.be\/([^?&#/]+)/i,
+    /youtube\.com\/watch\?(?:.*&)?v=([^&#]+)/i,
+    /youtube\.com\/(?:embed|shorts|live)\/([^?&#/]+)/i,
+  ];
 
-    if (parsed.hostname === "youtu.be") {
-      return parsed.pathname.split("/").filter(Boolean)[0] || null;
-    }
-
-    if (parsed.hostname.includes("youtube.com")) {
-      if (parsed.pathname === "/watch") {
-        return parsed.searchParams.get("v");
-      }
-
-      const parts = parsed.pathname.split("/").filter(Boolean);
-      const markerIndex = parts.findIndex((part) =>
-        ["embed", "shorts", "live"].includes(part),
-      );
-
-      if (markerIndex >= 0) return parts[markerIndex + 1] || null;
-    }
-  } catch {
-    return null;
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match?.[1]) return match[1];
   }
 
   return null;
@@ -86,6 +74,22 @@ const embed = (config) => ({ type: "embed", ...config });
 const linkBlock = (config) => ({ type: "link", ...config });
 const block = (config) => ({ ...config });
 
+/*
+Authoring helpers:
+  paragraph(`text`)
+  heading(`Heading`, 2)
+  image({ src, alt, caption })
+  video({ src, poster, youtube })
+  code({ language, filename, code: `...` })
+  list(["item"], false)
+  quote(`text`)
+  callout(`text`)
+  embed({ src, title })
+
+Posts with primaryVideo are automatically treated as watch pages.
+Optional future video schema fields include clips (each clip must provide a real
+deep-link URL), seekTemplate, viewCount, regionsAllowed, and transcript.
+*/
 const posts = {
   "hello-world": definePost("hello-world", {
     "id": "001",
