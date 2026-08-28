@@ -1,51 +1,88 @@
 import { NextResponse } from "next/server";
 import blogData from "../../blog";
 
-const SITE_URL = "https://nicholasegner.com";
+const SITE_URL = "https://www.nicholasegner.com";
 
-// Converts "PT3M28S" -> 208 seconds
 function isoDurationToSeconds(iso) {
   if (!iso || typeof iso !== "string") return 0;
+
   const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
   if (!match) return 0;
-  const hours = parseInt(match[1] || "0", 10);
-  const mins = parseInt(match[2] || "0", 10);
-  const secs = parseInt(match[3] || "0", 10);
-  return hours * 3600 + mins * 60 + secs;
+
+  return (
+    Number(match[1] || 0) * 3600 +
+    Number(match[2] || 0) * 60 +
+    Number(match[3] || 0)
+  );
+}
+
+function xmlEscape(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function cdata(value = "") {
+  return String(value).replace(/\]\]>/g, "]]]]><![CDATA[>");
+}
+
+function videoContentUrl(video) {
+  return (
+    video?.contentUrl ||
+    video?.src?.mp4 ||
+    video?.src?.webm ||
+    undefined
+  );
 }
 
 export async function GET() {
-  // Grab only the post objects (values), not [key, value] pairs
-  const posts = Object.values(blogData);
-
-  const videos = posts.filter(
-    (post) => post?.published && post?.primaryVideo?.src?.mp4,
+  const videos = Object.values(blogData).filter(
+    (post) =>
+      post?.live !== false &&
+      post?.published !== false &&
+      post?.primaryVideo &&
+      videoContentUrl(post.primaryVideo) &&
+      post.primaryVideo.thumbnail,
   );
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  ${videos
-    .map((post) => {
-      const video = post.primaryVideo;
-      const durationSeconds = isoDurationToSeconds(video.duration);
+${videos
+  .map((post) => {
+    const video = post.primaryVideo;
+    const contentUrl = videoContentUrl(video);
+    const durationSeconds = isoDurationToSeconds(video.duration);
+    const playerUrl = video.embedUrl;
 
-      return `
+    return `
   <url>
-    <loc>${SITE_URL}/blog/${post.slug}</loc>
+    <loc>${xmlEscape(`${SITE_URL}/blog/${post.slug}`)}</loc>
     <video:video>
-      <video:thumbnail_loc>${video.thumbnail}</video:thumbnail_loc>
-      <video:title><![CDATA[${post.title}]]></video:title>
-      <video:description><![CDATA[${post.description || ""}]]></video:description>
-      <video:content_loc>${video.src.mp4}</video:content_loc>
+      <video:thumbnail_loc>${xmlEscape(video.thumbnail)}</video:thumbnail_loc>
+      <video:title><![CDATA[${cdata(video.title || post.title)}]]></video:title>
+      <video:description><![CDATA[${cdata(
+        video.videoDescription || video.description || post.description || "",
+      )}]]></video:description>
+      <video:content_loc>${xmlEscape(contentUrl)}</video:content_loc>
+      ${playerUrl ? `<video:player_loc allow_embed="yes">${xmlEscape(playerUrl)}</video:player_loc>` : ""}
       ${durationSeconds ? `<video:duration>${durationSeconds}</video:duration>` : ""}
-      <video:publication_date>${post.published_time}</video:publication_date>
-      ${video.familyFriendly ? "<video:family_friendly>yes</video:family_friendly>" : "<video:family_friendly>no</video:family_friendly>"}
+      <video:publication_date>${xmlEscape(
+        video.uploadDate || post.published_time || post.date,
+      )}</video:publication_date>
+      <video:uploader info="${SITE_URL}">Nicholas Egner</video:uploader>
+      <video:requires_subscription>no</video:requires_subscription>
+      ${typeof video.familyFriendly === "boolean"
+        ? `<video:family_friendly>${video.familyFriendly ? "yes" : "no"}</video:family_friendly>`
+        : ""}
     </video:video>
   </url>`;
-    })
-    .join("\n")}
+  })
+  .join("\n")}
 </urlset>`;
 
   return new NextResponse(xml, {
