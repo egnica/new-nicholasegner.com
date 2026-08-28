@@ -1,12 +1,16 @@
-import React from "react";
 import Posts from "../../../blog.json";
 import styles from "../blog.module.css";
-import Footer from "@/app/components/footerBlog";
+import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import Link from "next/link";
 import Image from "next/image";
 import Particles from "../../components/particlesBackground";
 import JsonLd from "../../components/JsonLd/JsonLd";
-import { getBlogArchiveSchema, SITE_URL, DEFAULT_IMAGE } from "../../lib/schema";
+import oldStyles from "../../page.module.css";
+import {
+  getBlogArchiveSchema,
+  SITE_URL,
+  DEFAULT_IMAGE,
+} from "../../lib/schema";
 
 export const metadata = {
   title: "Blog Archive | Nicholas Egner",
@@ -48,43 +52,77 @@ export const metadata = {
     images: [DEFAULT_IMAGE],
   },
 };
-function page() {
-  <JsonLd data={getBlogArchiveSchema(Posts)} />;
+
+export default function BlogArchive() {
+  const posts = Object.values(Posts)
+    .filter((post) => post.live !== false)
+    .sort(
+      (a, b) => new Date(b.published_time) - new Date(a.published_time),
+    );
 
   return (
-    <>
-      <Particles />
-      <div className={styles.backColor} />
-      <div style={{ margin: "15px 0 0 15px" }}>
-        <Link className={styles.navBtn} href={`./`}>
-          Back
+    <main className={styles.page}>
+      <JsonLd data={getBlogArchiveSchema(Posts)} />
+
+      <nav className={oldStyles.topPage}>
+        <Link href="/">
+          <Image
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+            width={60}
+            height={60}
+            alt="Nicholas Egner Logo"
+          />
         </Link>
-      </div>
-      <h1 style={{ margin: "20px" }}>Blog Archive</h1>
-      <div className={styles.archiveContainer}>
-        {Object.values(Posts).map((item, index) => (
+
+        <div className={oldStyles.headerNavLinks}>
+          <Link href="/">Home</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/about">About Nick</Link>
+        </div>
+      </nav>
+
+      <Particles />
+      <div className={styles.mainBackColor} />
+
+      <section className={styles.archiveHeader}>
+        <Link href="/blog" className={styles.backLink}>
+          ← Back to Blog
+        </Link>
+        <p className={styles.eyebrow}>Everything in one place</p>
+        <h1>Blog Archive</h1>
+        <p>
+          The complete collection of writing, videos, experiments, ideas, and
+          assorted rabbit holes.
+        </p>
+      </section>
+
+      <section className={styles.archiveGrid} aria-label="Blog archive">
+        {posts.map((post) => (
           <Link
-            href={`/blog/${item.slug}`}
-            className={styles.archivePost}
-            key={index}
+            href={`/blog/${post.slug}`}
+            className={styles.archiveCard}
+            key={post.slug}
           >
-            <Image
-              className={styles.archivePostImage}
-              src={item.hero_image}
-              width={300}
-              height={158}
-              alt={`${item.title} main image`}
-            />
-            <div className={styles.archivePostTextContain}>
-              <p className={styles.latestDate}>{item.date}</p>
-              <h2>{item.title}</h2>
+            <div className={styles.archiveImageWrap}>
+              <Image
+                className={styles.archivePostImage}
+                src={post.hero_image}
+                width={700}
+                height={368}
+                alt={`${post.title} main image`}
+              />
+            </div>
+
+            <div className={styles.archiveCardCopy}>
+              <p className={styles.cardDate}>{post.date}</p>
+              <h2>{post.title}</h2>
+              {post.description && <p>{post.description}</p>}
             </div>
           </Link>
         ))}
-      </div>
-      <Footer />
-    </>
+      </section>
+
+      <SiteFooter />
+    </main>
   );
 }
-
-export default page;
