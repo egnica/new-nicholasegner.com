@@ -1,4 +1,4 @@
-import Posts from "../../../blog.json";
+import Posts from "../../../blog";
 import styles from "../blog.module.css";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import Link from "next/link";
