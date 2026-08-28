@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import blogData from "../../blog.json";
+import blogData from "../../blog";
 
 const SITE_URL = "https://nicholasegner.com";
 
