@@ -4,8 +4,17 @@ import blogPosts from "../../../blog";
 
 export default function LatestBlogPost() {
   const latestPost = Object.values(blogPosts)
-    .filter((post) => post)
-    .sort((a, b) => b.id - a.id)[0];
+    .filter(
+      (post) =>
+        post &&
+        post.live !== false &&
+        post.published !== false,
+    )
+    .sort(
+      (a, b) =>
+        new Date(b.published_time || b.date) -
+        new Date(a.published_time || a.date),
+    )[0];
 
   if (!latestPost) return null;
 
