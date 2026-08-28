@@ -58,8 +58,51 @@ function definePost(slug, post) {
   };
 }
 
-const paragraph = (text) => ({ type: "paragraph", text });
-const heading = (text, level = 2) => ({ type: "heading", level, text });
+function normalizeMarkdownText(value) {
+  if (value === null || value === undefined) return "";
+
+  const lines = String(value).replace(/\r\n/g, "\n").split("\n");
+
+  while (lines.length && !lines[0].trim()) lines.shift();
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+
+  if (lines.length <= 1) return lines.join("");
+
+  const continuationLines = lines.slice(1).filter((line) => line.trim());
+
+  if (continuationLines.length) {
+    const indents = continuationLines.map(
+      (line) => line.match(/^\s*/)?.[0].length || 0,
+    );
+
+    const commonIndent = Math.min(...indents);
+
+    if (commonIndent > 0) {
+      for (let index = 1; index < lines.length; index += 1) {
+        if (!lines[index].trim()) {
+          lines[index] = "";
+          continue;
+        }
+
+        lines[index] = lines[index].slice(commonIndent);
+      }
+    }
+  }
+
+  return lines.join("\n");
+}
+
+const paragraph = (text) => ({
+  type: "paragraph",
+  text: normalizeMarkdownText(text),
+});
+
+const heading = (text, level = 2) => ({
+  type: "heading",
+  level,
+  text: normalizeMarkdownText(text),
+});
+
 const image = (config) => ({ type: "image", ...config });
 const video = (config) => ({ type: "video", ...config });
 const code = (config) => ({ type: "code", ...config });
@@ -68,8 +111,14 @@ const list = (items, ordered = false) => ({
   ordered,
   items,
 });
-const quote = (text) => ({ type: "quote", text });
-const callout = (text) => ({ type: "callout", text });
+const quote = (text) => ({
+  type: "quote",
+  text: normalizeMarkdownText(text),
+});
+const callout = (text) => ({
+  type: "callout",
+  text: normalizeMarkdownText(text),
+});
 const embed = (config) => ({ type: "embed", ...config });
 const linkBlock = (config) => ({ type: "link", ...config });
 const block = (config) => ({ ...config });
