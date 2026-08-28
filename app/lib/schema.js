@@ -408,8 +408,19 @@ function getCopyrightYear(dateValue) {
   return Number.isFinite(year) ? year : undefined;
 }
 
+function toIsoDate(value) {
+  if (!value) return undefined;
+
+  const parsed = new Date(value);
+
+  if (Number.isNaN(parsed.getTime())) return undefined;
+
+  return parsed.toISOString();
+}
+
 function getArticleSection(post) {
   const section =
+    post.schema?.articleSection ||
     post.articleSection ||
     post.category ||
     post.practiceArea ||
@@ -421,20 +432,35 @@ function getArticleSection(post) {
   return section;
 }
 
-function getAboutThing(post) {
+function getAboutEntities(post) {
+  if (Array.isArray(post.schema?.about) && post.schema.about.length) {
+    return post.schema.about;
+  }
+
   const section = getArticleSection(post);
 
   if (!section) return undefined;
 
-  return {
-    "@type": "Thing",
-    name: section,
-  };
+  return [
+    {
+      "@type": "Thing",
+      name: section,
+    },
+  ];
+}
+
+function getPostKeywords(post) {
+  const keywords = post.schema?.keywords || post.keywords || post.tags;
+
+  return Array.isArray(keywords) && keywords.length ? keywords : undefined;
 }
 
 function getVideoContentUrl(video) {
   return (
-    video?.contentUrl || video?.videoUrl || video?.src?.mp4 || video?.src?.webm
+    video?.contentUrl ||
+    video?.videoUrl ||
+    video?.src?.mp4 ||
+    video?.src?.webm
   );
 }
 
@@ -445,27 +471,139 @@ function getVideoEncodingFormat(video) {
 
   if (!contentUrl) return undefined;
 
-  if (contentUrl.includes(".mp4")) return "video/mp4";
-  if (contentUrl.includes(".webm")) return "video/webm";
+  if (/\.mp4(?:$|\?)/i.test(contentUrl)) return "video/mp4";
+  if (/\.webm(?:$|\?)/i.test(contentUrl)) return "video/webm";
+  if (/\.mov(?:$|\?)/i.test(contentUrl)) return "video/quicktime";
+  if (/\.m4v(?:$|\?)/i.test(contentUrl)) return "video/x-m4v";
 
   return undefined;
 }
 
-function buildVideoObject({ video, post, pageUrl, videoId, image }) {
+function getYouTubeId(url) {
+  if (!url || typeof url !== "string") return undefined;
+
+  try {
+    const parsed = new URL(url);
+
+    if (parsed.hostname === "youtu.be") {
+      return parsed.pathname.split("/").filter(Boolean)[0];
+    }
+
+    if (parsed.hostname.includes("youtube.com")) {
+      if (parsed.pathname === "/watch") {
+        return parsed.searchParams.get("v") || undefined;
+      }
+
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const markerIndex = parts.findIndex((part) =>
+        ["embed", "shorts", "live"].includes(part),
+      );
+
+      if (markerIndex >= 0) return parts[markerIndex + 1];
+    }
+  } catch {
+    return undefined;
+  }
+
+  return undefined;
+}
+
+function getVideoEmbedUrl(video) {
+  if (video?.embedUrl) return video.embedUrl;
+  if (video?.youtube?.embedUrl) return video.youtube.embedUrl;
+
+  const youtubeId =
+    video?.youtubeId || getYouTubeId(video?.youtube?.url);
+
+  return youtubeId
+    ? `https://www.youtube.com/embed/${youtubeId}`
+    : undefined;
+}
+
+function buildClipObjects(video, pageUrl) {
+  if (!Array.isArray(video?.clips) || !video.clips.length) return undefined;
+
+  return video.clips
+    .filter(
+      (clip) =>
+        clip?.name &&
+        Number.isFinite(Number(clip.startOffset)),
+    )
+    .map((clip) => {
+      const startOffset = Number(clip.startOffset);
+      const endOffset = Number.isFinite(Number(clip.endOffset))
+        ? Number(clip.endOffset)
+        : undefined;
+
+      return cleanSchema({
+        "@type": "Clip",
+        name: clip.name,
+        startOffset,
+        endOffset,
+        url:
+          clip.url ||
+          `${pageUrl}?t=${startOffset}`,
+      });
+    });
+}
+
+function buildSeekToAction(video, pageUrl) {
+  const target =
+    video?.seekToAction?.target ||
+    video?.seekTemplate ||
+    (video?.enableSeekToAction
+      ? `${pageUrl}?t={seek_to_second_number}`
+      : undefined);
+
+  if (!target) return undefined;
+
+  return {
+    "@type": "SeekToAction",
+    target,
+    "startOffset-input": "required name=seek_to_second_number",
+  };
+}
+
+function buildInteractionStatistic(video) {
+  const count =
+    video?.interactionStatistic?.userInteractionCount ??
+    video?.viewCount ??
+    video?.interactionCount;
+
+  if (!Number.isFinite(Number(count))) return undefined;
+
+  return {
+    "@type": "InteractionCounter",
+    interactionType: {
+      "@type": "WatchAction",
+    },
+    userInteractionCount: Number(count),
+  };
+}
+
+function buildVideoObject({
+  video,
+  post,
+  pageUrl,
+  videoId,
+  image,
+  isPrimary = true,
+}) {
   if (!video) return null;
 
   const contentUrl = getVideoContentUrl(video);
+  const embedUrl = getVideoEmbedUrl(video);
+  const youtubeUrl = video?.youtube?.url;
+  const uploadDate = toIsoDate(
+    video.uploadDate || post.published_time || post.date,
+  );
 
-  const embedUrl =
-    video.embedUrl ||
-    video?.youtube?.embedUrl ||
-    (video.youtubeId
-      ? `https://www.youtube.com/embed/${video.youtubeId}`
-      : undefined);
-
-  if (!contentUrl && !embedUrl && !video?.youtube?.url) {
+  if (!contentUrl && !embedUrl && !youtubeUrl) {
     return null;
   }
+
+  const clips = buildClipObjects(video, pageUrl);
+  const potentialAction = buildSeekToAction(video, pageUrl);
 
   return cleanSchema({
     "@type": "VideoObject",
@@ -473,11 +611,26 @@ function buildVideoObject({ video, post, pageUrl, videoId, image }) {
 
     name: video.title || post.title,
     description:
-      video.videoDescription || video.description || post.description,
+      video.videoDescription ||
+      video.description ||
+      post.description,
 
-    thumbnailUrl: imageArray(video.thumbnail, image, DEFAULT_IMAGE),
+    thumbnailUrl: imageArray(
+      video.thumbnail,
+      image,
+      post.meta_image,
+      post.hero_image,
+      DEFAULT_IMAGE,
+    ),
 
-    uploadDate: video.uploadDate || post.published_time,
+    uploadDate,
+    datePublished: uploadDate,
+    dateModified: toIsoDate(
+      video.modifiedDate ||
+        post.modified_time ||
+        post.published_time ||
+        post.date,
+    ),
     duration: video.duration,
 
     contentUrl,
@@ -485,7 +638,7 @@ function buildVideoObject({ video, post, pageUrl, videoId, image }) {
     encodingFormat: getVideoEncodingFormat(video),
 
     url: pageUrl,
-    inLanguage: "en-US",
+    inLanguage: video.inLanguage || "en-US",
 
     width: video.width,
     height: video.height,
@@ -500,19 +653,34 @@ function buildVideoObject({ video, post, pageUrl, videoId, image }) {
         ? video.familyFriendly
         : undefined,
 
-    sameAs: video.sameAs || video?.youtube?.url,
+    sameAs: video.sameAs || youtubeUrl,
 
-    keywords: Array.isArray(video.keywords)
-      ? video.keywords
-      : Array.isArray(post.keywords)
-        ? post.keywords
-        : undefined,
+    keywords:
+      Array.isArray(video.keywords) && video.keywords.length
+        ? video.keywords
+        : getPostKeywords(post),
 
     transcript: video.transcript || post.transcript,
 
-    mainEntityOfPage: {
-      "@id": `${pageUrl}#webpage`,
-    },
+    expires: video.expires,
+    regionsAllowed: video.regionsAllowed,
+    ineligibleRegion: video.ineligibleRegion,
+
+    interactionStatistic: buildInteractionStatistic(video),
+    hasPart: clips,
+    potentialAction,
+
+    mainEntityOfPage: isPrimary
+      ? {
+          "@id": `${pageUrl}#webpage`,
+        }
+      : undefined,
+
+    isPartOf: !isPrimary
+      ? {
+          "@id": `${pageUrl}#webpage`,
+        }
+      : undefined,
 
     author: personRef(),
     creator: personRef(),
@@ -520,9 +688,39 @@ function buildVideoObject({ video, post, pageUrl, videoId, image }) {
   });
 }
 
+function getWordCount(post) {
+  if (!Array.isArray(post.contentBlocks)) return undefined;
+
+  const text = post.contentBlocks
+    .filter((block) =>
+      ["paragraph", "text", "quote", "callout", "heading"].includes(
+        block.type,
+      ),
+    )
+    .map((block) => block.text || "")
+    .join(" ")
+    .replace(/\[[^\]]+\]\([^\)]+\)/g, " ")
+    .replace(/[`*_>#-]/g, " ")
+    .trim();
+
+  if (!text) return undefined;
+
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
 export function getBlogPostSchema({ post, slug }) {
   const pageUrl = `${SITE_URL}/blog/${slug}`;
   const image = post.meta_image || post.hero_image || DEFAULT_IMAGE;
+  const imageId = `${pageUrl}#primaryimage`;
+  const isWatchPage = Boolean(post.primaryVideo || post.isWatchPage);
+
+  const primaryImage = {
+    "@type": "ImageObject",
+    "@id": imageId,
+    url: image,
+    contentUrl: image,
+    caption: post.meta_image_alt || post.hero_image_alt || post.title,
+  };
 
   const primaryVideo = buildVideoObject({
     video: post.primaryVideo,
@@ -530,10 +728,15 @@ export function getBlogPostSchema({ post, slug }) {
     pageUrl,
     videoId: `${pageUrl}#primary-video`,
     image,
+    isPrimary: isWatchPage,
   });
 
   const blockVideos = Array.isArray(post.contentBlocks)
-    ? post.contentBlocks.filter((block) => block.type === "video" && block.src)
+    ? post.contentBlocks.filter(
+        (block) =>
+          block.type === "video" &&
+          (block.src || block.contentUrl || block.embedUrl),
+      )
     : [];
 
   const supportingVideos = blockVideos
@@ -544,6 +747,7 @@ export function getBlogPostSchema({ post, slug }) {
         pageUrl,
         videoId: `${pageUrl}#supporting-video-${index + 1}`,
         image,
+        isPrimary: false,
       }),
     )
     .filter(Boolean);
@@ -554,8 +758,14 @@ export function getBlogPostSchema({ post, slug }) {
       "@id": video["@id"],
     }));
 
-  const webPage = {
-    "@type": "WebPage",
+  const articleId = `${pageUrl}#blogposting`;
+  const mainEntityId =
+    isWatchPage && primaryVideo
+      ? primaryVideo["@id"]
+      : articleId;
+
+  const webPage = cleanSchema({
+    "@type": isWatchPage ? ["WebPage", "ItemPage"] : "WebPage",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: post.title,
@@ -565,79 +775,123 @@ export function getBlogPostSchema({ post, slug }) {
       "@id": schemaIds.website,
     },
 
+    about: isWatchPage && primaryVideo
+      ? {
+          "@id": primaryVideo["@id"],
+        }
+      : getAboutEntities(post),
+
     mainEntity: {
-      "@id": `${pageUrl}#blogposting`,
+      "@id": mainEntityId,
     },
+
+    hasPart:
+      isWatchPage
+        ? [
+            {
+              "@id": articleId,
+            },
+            ...supportingVideos.map((video) => ({
+              "@id": video["@id"],
+            })),
+          ]
+        : mediaRefs.length
+          ? mediaRefs
+          : undefined,
+
+    video:
+      primaryVideo
+        ? {
+            "@id": primaryVideo["@id"],
+          }
+        : undefined,
 
     breadcrumb: {
       "@id": `${pageUrl}#breadcrumb`,
     },
 
     primaryImageOfPage: {
-      "@type": "ImageObject",
-      "@id": `${pageUrl}#primaryimage`,
-      url: image,
+      "@id": imageId,
     },
 
-    datePublished: post.published_time,
-    dateModified: post.modified_time || post.published_time,
+    datePublished: toIsoDate(post.published_time || post.date),
+    dateModified: toIsoDate(
+      post.modified_time || post.published_time || post.date,
+    ),
 
     author: personRef(),
     creator: personRef(),
 
     inLanguage: "en-US",
-  };
+  });
 
-  const blogPosting = {
+  const blogPosting = cleanSchema({
     "@type": "BlogPosting",
-    "@id": `${pageUrl}#blogposting`,
+    "@id": articleId,
 
     url: pageUrl,
 
-    mainEntityOfPage: {
-      "@id": `${pageUrl}#webpage`,
-    },
+    mainEntityOfPage: !isWatchPage
+      ? {
+          "@id": `${pageUrl}#webpage`,
+        }
+      : undefined,
+
+    isPartOf: isWatchPage
+      ? {
+          "@id": `${pageUrl}#webpage`,
+        }
+      : {
+          "@id": schemaIds.website,
+        },
 
     headline: post.title,
     description: post.description,
 
-    image: imageArray(image),
-    thumbnailUrl: imageArray(image),
+    image: {
+      "@id": imageId,
+    },
+    thumbnailUrl: image,
 
-    datePublished: post.published_time,
-    dateModified: post.modified_time || post.published_time,
+    datePublished: toIsoDate(post.published_time || post.date),
+    dateModified: toIsoDate(
+      post.modified_time || post.published_time || post.date,
+    ),
 
     articleSection: getArticleSection(post),
-    about: getAboutThing(post),
+    about:
+      isWatchPage && primaryVideo
+        ? [
+            {
+              "@id": primaryVideo["@id"],
+            },
+            ...(getAboutEntities(post) || []),
+          ]
+        : getAboutEntities(post),
 
     author: personRef(),
     creator: personRef(),
     publisher: personRef(),
 
-    copyrightYear: getCopyrightYear(post.published_time),
+    copyrightYear: getCopyrightYear(
+      post.published_time || post.date,
+    ),
     copyrightHolder: personRef(),
 
     isAccessibleForFree: true,
 
-    isPartOf: {
-      "@id": schemaIds.website,
-    },
+    keywords: getPostKeywords(post),
+    wordCount: getWordCount(post),
 
-    keywords: Array.isArray(post.keywords) ? post.keywords : undefined,
+    video:
+      primaryVideo
+        ? {
+            "@id": primaryVideo["@id"],
+          }
+        : undefined,
 
-    // Blog-friendly:
-    // The article is still the main entity.
-    // The primary video supports the article.
-    video: primaryVideo
-      ? {
-          "@id": primaryVideo["@id"],
-        }
-      : undefined,
-
-    // All video/media objects associated with the article.
     associatedMedia: mediaRefs.length ? mediaRefs : undefined,
 
-    // Supporting videos specifically embedded in the article body.
     hasPart: supportingVideos.length
       ? supportingVideos.map((video) => ({
           "@id": video["@id"],
@@ -645,7 +899,7 @@ export function getBlogPostSchema({ post, slug }) {
       : undefined,
 
     inLanguage: "en-US",
-  };
+  });
 
   const breadcrumbs = getBreadcrumbSchema([
     {
@@ -665,8 +919,9 @@ export function getBlogPostSchema({ post, slug }) {
   return createJsonLd(
     [
       webPage,
-      blogPosting,
+      primaryImage,
       primaryVideo,
+      blogPosting,
       ...supportingVideos,
       breadcrumbs,
     ].filter(Boolean),
