@@ -1,4 +1,4 @@
-import Posts from "../../blog.json";
+import Posts from "../../blog";
 import Link from "next/link";
 import styles from "./blog.module.css";
 import Image from "next/image";
