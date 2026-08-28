@@ -4,7 +4,7 @@ const SITE_URL = "https://www.nicholasegner.com";
 
 // If your posts live in a local JSON file, import it.
 // Adjust the path to match your project.
-import postsData from "../blog.json";
+import postsData from "../blog";
 import techAreas from "../stack.json";
 import { projects } from "./lib/projects";
 
