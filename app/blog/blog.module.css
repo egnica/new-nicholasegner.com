@@ -172,7 +172,8 @@
   min-width: 0;
 }
 
-.latestDate {
+.latestDate,
+.cardDate {
   margin: 0 0 0.65rem;
   color: #bbaaff;
   font-size: 0.72rem;
