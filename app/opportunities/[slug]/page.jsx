@@ -12,6 +12,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const opportunity = getOpportunityBySlug(slug);
 
+  
   if (!opportunity) {
     return {
       title: "Opportunity Not Found | Nicholas Egner",
