@@ -1,10 +1,9 @@
-import React from "react";
 import styles from "../../blog/blog.module.css";
 import { createHighlighter } from "shiki";
 
 export default async function Code({ block }) {
   const code = block.code ?? "";
-  const lang = block.lang ?? "javascript";
+  const lang = block.language ?? block.lang ?? "javascript";
 
   const highlighter = await createHighlighter({
     themes: ["github-dark"],
@@ -17,9 +16,11 @@ export default async function Code({ block }) {
   });
 
   return (
-    <div
-      className={styles.codeBlock}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className={styles.codeBlock}>
+      {block.filename && (
+        <div className={styles.codeFilename}>{block.filename}</div>
+      )}
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
   );
 }
