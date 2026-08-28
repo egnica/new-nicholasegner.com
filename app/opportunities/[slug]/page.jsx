@@ -25,8 +25,7 @@ export async function generateMetadata({ params }) {
   const pageUrl = `${SITE_URL}/opportunities/${slug}`;
   const metadata = opportunity.metadata ?? {};
   const title =
-    metadata.title ??
-    `Nicholas Egner | ${opportunity.role} Application`;
+    metadata.title ?? `Nicholas Egner | ${opportunity.role} Application`;
   const description =
     metadata.description ??
     `A custom application experience for the ${opportunity.role} role at ${opportunity.company}.`;
