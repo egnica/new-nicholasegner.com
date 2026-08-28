@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import ContentBlock from "@/app/components/contentBlock";
 import styles from "../blog.module.css";
 import Particles from "../../components/particlesBackground";
@@ -6,10 +7,48 @@ import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import Link from "next/link";
 import oldStyles from "../../page.module.css";
-import { getBlogPostSchema } from "@/app/lib/schema";
-
+import {
+  getBlogPostSchema,
+  SITE_URL,
+  DEFAULT_IMAGE,
+} from "@/app/lib/schema";
 import Posts from "../../../blog";
-import { SITE_URL, DEFAULT_IMAGE } from "@/app/lib/schema";
+
+function videoContentUrl(video) {
+  return (
+    video?.contentUrl ||
+    video?.src?.mp4 ||
+    video?.src?.webm ||
+    undefined
+  );
+}
+
+function videoMimeType(video) {
+  const url = videoContentUrl(video);
+
+  if (!url) return undefined;
+  if (/\.mp4(?:$|\?)/i.test(url)) return "video/mp4";
+  if (/\.webm(?:$|\?)/i.test(url)) return "video/webm";
+
+  return undefined;
+}
+
+function formatDuration(duration) {
+  if (!duration) return null;
+
+  const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (!match) return null;
+
+  const hours = Number(match[1] || 0);
+  const minutes = Number(match[2] || 0);
+  const seconds = Number(match[3] || 0);
+
+  if (hours) {
+    return `${hours}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  }
+
+  return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -26,7 +65,6 @@ export async function generateMetadata({ params }) {
   }
 
   const url = `${SITE_URL}/blog/${slug}`;
-
   const title = post.meta_title || post.title;
   const description =
     post.meta_description ||
@@ -43,8 +81,10 @@ export async function generateMetadata({ params }) {
 
   const publishedTime = post.published_time || post.date;
   const modifiedTime = post.modified_time || publishedTime;
+  const isLive = post.live !== false && post.published !== false;
 
-  const isLive = post.live !== false;
+  const videoUrl = videoContentUrl(post.primaryVideo);
+  const videoType = videoMimeType(post.primaryVideo);
 
   return {
     title: `${title} | Nicholas Egner`,
@@ -78,6 +118,14 @@ export async function generateMetadata({ params }) {
             },
           ]
         : [],
+      videos: videoUrl
+        ? [
+            {
+              url: videoUrl,
+              type: videoType,
+            },
+          ]
+        : undefined,
     },
 
     twitter: {
@@ -90,13 +138,72 @@ export async function generateMetadata({ params }) {
   };
 }
 
+function PrimaryVideo({ post }) {
+  const video = post.primaryVideo;
+  if (!video) return null;
+
+  const sources =
+    typeof video.src === "string"
+      ? { mp4: video.src }
+      : video.src || {};
+
+  const mp4 = sources.mp4 || (video.contentUrl?.includes(".mp4") ? video.contentUrl : null);
+  const webm = sources.webm || (video.contentUrl?.includes(".webm") ? video.contentUrl : null);
+
+  if (!mp4 && !webm) return null;
+
+  const duration = formatDuration(video.duration);
+
+  return (
+    <>
+      <div className={styles.articleHeroMedia}>
+        <video
+          controls
+          preload="metadata"
+          playsInline
+          poster={video.thumbnail}
+          aria-label={`Video: ${video.title || post.title}`}
+          className={styles.heroVideo}
+        >
+          {webm && <source src={webm} type="video/webm" />}
+          {mp4 && <source src={mp4} type="video/mp4" />}
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div className={styles.watchDetails}>
+        <div>
+          <p className={styles.watchDetailsLabel}>Featured video</p>
+          <p className={styles.watchDetailsTitle}>
+            {video.title || post.title}
+            {duration ? <span> · {duration}</span> : null}
+          </p>
+        </div>
+
+        {video.youtube?.url && (
+          <a
+            className={styles.videoLink}
+            href={video.youtube.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {video.youtube.label || "Watch on YouTube"}
+          </a>
+        )}
+      </div>
+    </>
+  );
+}
+
 export default async function PostPage({ params }) {
   const { slug } = await params;
   const post = Posts[slug];
 
-  if (!post) {
-    return <h1>Post not found</h1>;
+  if (!post || post.live === false || post.published === false) {
+    notFound();
   }
+
+  const isWatchPage = Boolean(post.primaryVideo || post.isWatchPage);
 
   return (
     <main className={styles.page}>
@@ -122,60 +229,38 @@ export default async function PostPage({ params }) {
       <Particles />
       <div className={styles.mainBackColor} />
 
-      <article className={styles.articleShell}>
+      <article
+        className={`${styles.articleShell} ${isWatchPage ? styles.watchPage : ""}`}
+      >
         <Link href="/blog" className={styles.backLink}>
           ← Back to Blog
         </Link>
 
         <header className={styles.articleHeader}>
-          <p className={styles.eyebrow}>Blog / {post.date}</p>
+          <p className={styles.eyebrow}>
+            {isWatchPage ? "Watch / Video" : "Blog"} / {post.date}
+          </p>
+
           <h1>{post.title}</h1>
+
           {post.description && (
             <p className={styles.articleLead}>{post.description}</p>
           )}
         </header>
 
         {post.primaryVideo ? (
-          <div className={styles.articleHeroMedia}>
-            <video
-              controls
-              preload="metadata"
-              playsInline
-              poster={post.primaryVideo.thumbnail}
-              aria-label={`Video: ${post.primaryVideo.title || post.title}`}
-              className={styles.heroVideo}
-            >
-              {post.primaryVideo.src.webm && (
-                <source src={post.primaryVideo.src.webm} type="video/webm" />
-              )}
-              {post.primaryVideo.src.mp4 && (
-                <source src={post.primaryVideo.src.mp4} type="video/mp4" />
-              )}
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <PrimaryVideo post={post} />
         ) : (
           <div className={`${styles.hero} ${styles.articleHeroMedia}`}>
             <Image
               src={post.hero_image}
               fill
-              sizes="(max-width: 1000px) 100vw, 1200px"
+              sizes="(max-width: 1000px) 100vw, 1440px"
               priority
-              style={{ objectFit: "cover" }}
-              alt={`main image for ${post.title}`}
+              style={{ objectFit: "contain" }}
+              alt={post.hero_image_alt || `main image for ${post.title}`}
             />
           </div>
-        )}
-
-        {post.primaryVideo?.youtube?.url && (
-          <a
-            className={styles.videoLink}
-            href={post.primaryVideo.youtube.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {post.primaryVideo.youtube.label}
-          </a>
         )}
 
         <div className={styles.postContainer}>
