@@ -949,3 +949,85 @@
     border-radius: 10px;
   }
 }
+
+
+/* ---------- Article overflow protection ---------- */
+
+.articleShell,
+.articleHeader,
+.articleHeroMedia,
+.postContainer,
+.textBlock,
+.contentMediaFigure,
+.contentVideoBlock,
+.quoteBlock,
+.calloutBlock,
+.embedBlock,
+.linkBlock {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.postContainer {
+  overflow: hidden;
+}
+
+.textBlock,
+.textBlock p,
+.textBlock li,
+.postContainer p,
+.postContainer li {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.textBlock pre {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.textBlock code {
+  max-width: 100%;
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+}
+
+.codeBlock {
+  width: 100%;
+  max-width: 100%;
+}
+
+.codeBlock pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.contentVideoBlock,
+.contentVideoBlock video,
+.contentMediaFigure,
+.contentMediaFigure img {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .postContainer {
+    overflow: hidden;
+  }
+
+  .textBlock,
+  .postContainer > h1,
+  .postContainer > h2,
+  .postContainer > h3,
+  .postContainer > h4,
+  .postContainer > h5,
+  .postContainer > ul,
+  .postContainer > ol {
+    width: 100%;
+    max-width: 100%;
+  }
+}
