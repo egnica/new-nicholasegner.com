@@ -1,15 +1,15 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
-function List({ block }) {
+
+export default function List({ block }) {
+  const Tag = block.ordered ? "ol" : "ul";
+
   return (
-    <ul>
-      {block.items.map((item, index) => (
+    <Tag>
+      {(block.items || []).map((item, index) => (
         <li key={index}>
           <ReactMarkdown>{item}</ReactMarkdown>
         </li>
       ))}
-    </ul>
+    </Tag>
   );
 }
-
-export default List;
