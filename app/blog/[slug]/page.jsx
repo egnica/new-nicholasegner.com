@@ -1,12 +1,11 @@
-//BLOG SLUG -
-
 import Image from "next/image";
 import ContentBlock from "@/app/components/contentBlock";
 import styles from "../blog.module.css";
 import Particles from "../../components/particlesBackground";
-import Footer from "@/app/components/footerBlog";
-import BackButton from "../../components/backButton";
+import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import JsonLd from "../../components/JsonLd/JsonLd";
+import Link from "next/link";
+import oldStyles from "../../page.module.css";
 import { getBlogPostSchema } from "@/app/lib/schema";
 
 import Posts from "../../../blog.json";
@@ -92,7 +91,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = Posts[slug];
 
   if (!post) {
@@ -100,48 +99,67 @@ export default async function PostPage({ params }) {
   }
 
   return (
-    <>
+    <main className={styles.page}>
       <JsonLd data={getBlogPostSchema({ post, slug })} />
 
-      <div style={{ margin: "15px 0 0 15px" }}>
-        <BackButton />
-      </div>
-      <br />
-      {post.primaryVideo && (
-        <div className={styles.hero}>
-          <video
-            controls
-            preload="metadata"
-            playsInline
-            poster={post.primaryVideo.thumbnail}
-            aria-label={`Video: ${post.primaryVideo.title || post.title}`}
-            className={styles.heroVideo}
-          >
-            {post.primaryVideo.src.webm && (
-              <source src={post.primaryVideo.src.webm} type="video/webm" />
-            )}
-            {post.primaryVideo.src.mp4 && (
-              <source src={post.primaryVideo.src.mp4} type="video/mp4" />
-            )}
-            Your browser does not support the video tag.
-          </video>
+      <nav className={oldStyles.topPage}>
+        <Link href="/">
+          <Image
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+            width={60}
+            height={60}
+            alt="Nicholas Egner Logo"
+          />
+        </Link>
+
+        <div className={oldStyles.headerNavLinks}>
+          <Link href="/">Home</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/about">About Nick</Link>
         </div>
-      )}
+      </nav>
 
-      <div className={styles.postContainer}>
-        <div className={styles.backColor} />
-        <Particles />
-        <h1>{post.title}</h1>
-        <p>
-          <em>{post.date}</em>
-        </p>
+      <Particles />
+      <div className={styles.mainBackColor} />
 
-        {!post.primaryVideo && (
-          <div className={styles.hero}>
+      <article className={styles.articleShell}>
+        <Link href="/blog" className={styles.backLink}>
+          ← Back to Blog
+        </Link>
+
+        <header className={styles.articleHeader}>
+          <p className={styles.eyebrow}>Blog / {post.date}</p>
+          <h1>{post.title}</h1>
+          {post.description && (
+            <p className={styles.articleLead}>{post.description}</p>
+          )}
+        </header>
+
+        {post.primaryVideo ? (
+          <div className={styles.articleHeroMedia}>
+            <video
+              controls
+              preload="metadata"
+              playsInline
+              poster={post.primaryVideo.thumbnail}
+              aria-label={`Video: ${post.primaryVideo.title || post.title}`}
+              className={styles.heroVideo}
+            >
+              {post.primaryVideo.src.webm && (
+                <source src={post.primaryVideo.src.webm} type="video/webm" />
+              )}
+              {post.primaryVideo.src.mp4 && (
+                <source src={post.primaryVideo.src.mp4} type="video/mp4" />
+              )}
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <div className={`${styles.hero} ${styles.articleHeroMedia}`}>
             <Image
               src={post.hero_image}
               fill
-              sizes="100vw"
+              sizes="(max-width: 1000px) 100vw, 1200px"
               priority
               style={{ objectFit: "cover" }}
               alt={`main image for ${post.title}`}
@@ -150,21 +168,31 @@ export default async function PostPage({ params }) {
         )}
 
         {post.primaryVideo?.youtube.url && (
-          <div style={{ display: "grid" }}>
-            <br />
-            <a
-              style={{ textAlign: "center" }}
-              href={post.primaryVideo.youtube.url}
-            >
-              {post.primaryVideo.youtube.label}
-            </a>
-            <br />
-          </div>
+          <a
+            className={styles.videoLink}
+            href={post.primaryVideo.youtube.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {post.primaryVideo.youtube.label}
+          </a>
         )}
-        <ContentBlock content={post.contentBlocks} />
-      </div>
 
-      <Footer />
-    </>
+        <div className={styles.postContainer}>
+          <ContentBlock content={post.contentBlocks} />
+        </div>
+
+        <div className={styles.articleFooter}>
+          <Link href="/blog" className={styles.primaryCta}>
+            More from the blog
+          </Link>
+          <Link href="/blog/archive" className={styles.secondaryLink}>
+            Browse full archive
+          </Link>
+        </div>
+      </article>
+
+      <SiteFooter />
+    </main>
   );
 }
