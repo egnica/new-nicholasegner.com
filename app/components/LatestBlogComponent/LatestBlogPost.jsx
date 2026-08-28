@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./LatestBlogPost.module.css";
-import blogPosts from "../../../blog.json";
+import blogPosts from "../../../blog";
 
 export default function LatestBlogPost() {
   const latestPost = Object.values(blogPosts)
