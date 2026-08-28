@@ -8,7 +8,7 @@ import Link from "next/link";
 import oldStyles from "../../page.module.css";
 import { getBlogPostSchema } from "@/app/lib/schema";
 
-import Posts from "../../../blog.json";
+import Posts from "../../../blog";
 import { SITE_URL, DEFAULT_IMAGE } from "@/app/lib/schema";
 
 export async function generateMetadata({ params }) {
