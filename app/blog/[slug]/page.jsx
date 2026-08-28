@@ -167,7 +167,7 @@ export default async function PostPage({ params }) {
           </div>
         )}
 
-        {post.primaryVideo?.youtube.url && (
+        {post.primaryVideo?.youtube?.url && (
           <a
             className={styles.videoLink}
             href={post.primaryVideo.youtube.url}
