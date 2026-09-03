@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import { Inter, Manrope } from "next/font/google";
 import Script from "next/script"; // Optimization for Next.js Script handling
 import "./globals.css";
 import JsonLd from "./components/JsonLd/JsonLd";
 import { getGlobalSchema } from "./lib/schema";
+import RouteHistoryTracker from "./components/RouteHistoryTracker/RouteHistoryTracker";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -111,6 +113,10 @@ export default function RootLayout({ children }) {
         </Script>
 
         <JsonLd data={getGlobalSchema()} />
+
+        <Suspense fallback={null}>
+          <RouteHistoryTracker />
+        </Suspense>
 
         <div className="siteFrame">
           <div className="siteContent">{children}</div>
