@@ -7,7 +7,7 @@ import JsonLd from "../components/JsonLd/JsonLd";
 import SkillsGrid from "./SkillsGrid";
 import styles from "./skills.module.css";
 import oldStyles from "../page.module.css";
-import stackData from "../../stack.json";
+import { skillGroups } from "../lib/techStack";
 import { SITE_URL } from "../lib/schema";
 
 const pageUrl = `${SITE_URL}/skills`;
@@ -61,7 +61,7 @@ function namespaceSvgIds(svg, slug) {
     );
 }
 
-const skills = stackData.stack.flatMap((group) =>
+const skills = skillGroups.flatMap((group) =>
   group.technologies.map((tech) => ({
     ...tech,
     category: group.category,
@@ -69,7 +69,7 @@ const skills = stackData.stack.flatMap((group) =>
   })),
 );
 
-const categories = stackData.stack.map((group) => ({
+const categories = skillGroups.map((group) => ({
   name: group.category,
   count: group.technologies.length,
 }));
