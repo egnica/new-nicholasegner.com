@@ -79,14 +79,22 @@ export default function VideoHubClient({ items, assets }) {
   );
 
   const webExperiences = useMemo(
-    () => items.filter((item) => item.type === "webpage"),
+    () =>
+      items.filter(
+        (item) =>
+          item.type === "webpage" &&
+          !["External Video", "Social Video"].includes(item.category),
+      ),
     [items],
   );
 
   const moreVideos = useMemo(
     () =>
       items.filter(
-        (item) => item.type === "video" && item.mainStage !== true,
+        (item) =>
+          (item.type === "video" && item.mainStage !== true) ||
+          (item.type === "webpage" &&
+            ["External Video", "Social Video"].includes(item.category)),
       ),
     [items],
   );
@@ -414,13 +422,34 @@ export default function VideoHubClient({ items, assets }) {
                   <p className={styles.stageCategory}>{item.category}</p>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  {item.slug && (
+                  {item.slug ? (
                     <Link
                       href={`/video/${item.slug}`}
                       className={styles.textLink}
                     >
                       View project details <span aria-hidden="true">→</span>
                     </Link>
+                  ) : (
+                    <ExternalOrInternalLink
+                      href={item.url}
+                      className={styles.textLink}
+                    >
+                      Watch example <span aria-hidden="true">→</span>
+                    </ExternalOrInternalLink>
+                  )}
+
+                  {item.relatedPages?.length > 0 && (
+                    <div className={styles.relatedLinks}>
+                      {item.relatedPages.map((page) => (
+                        <ExternalOrInternalLink
+                          key={page.url}
+                          href={page.url}
+                          className={styles.relatedLink}
+                        >
+                          {page.label}
+                        </ExternalOrInternalLink>
+                      ))}
+                    </div>
                   )}
                 </div>
               </article>
