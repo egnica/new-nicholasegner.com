@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Particles from "../../components/particlesBackground";
 import SiteFooter from "../../components/SiteFooter/SiteFooter";
+import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import oldStyles from "../../page.module.css";
 import styles from "./video-detail.module.css";
@@ -121,23 +122,7 @@ export default async function VideoDetailPage({ params }) {
       <main className={styles.page}>
         <Particles />
         <div className={styles.mainBackColor} />
-
-        <nav className={oldStyles.topPage}>
-          <Link href="/" aria-label="Nicholas Egner home">
-            <Image
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-              width={60}
-              height={60}
-              alt="Nicholas Egner Logo"
-            />
-          </Link>
-
-          <div className={oldStyles.headerNavLinks}>
-            <Link href="/video">Video</Link>
-            <Link href="/projects">Projects</Link>
-            <Link href="/about">About Nick</Link>
-          </div>
-        </nav>
+        <SiteHeader />
 
         <article className={styles.detail}>
           <header className={styles.header}>
