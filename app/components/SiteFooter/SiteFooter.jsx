@@ -5,12 +5,14 @@ import Image from "next/image";
 const mainLinks = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Video", href: "/video" },
   { label: "Skills", href: "/skills" },
   { label: "Blog", href: "/blog" },
 ];
 
 const proofLinks = [
   { label: "Project Hub", href: "/projects" },
+  { label: "Video Work", href: "/video" },
   { label: "Video Experience", href: "/video-experience" },
   { label: "Blog Archive", href: "/blog/archive" },
   { label: "Photos", href: "/photos" },
