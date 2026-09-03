@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
@@ -10,6 +11,8 @@ import stackData from "../../stack.json";
 import { SITE_URL } from "../lib/schema";
 
 const pageUrl = `${SITE_URL}/skills`;
+const heroImage =
+  "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/skills-hero.webp";
 
 export const metadata = {
   title: "Skills & Capabilities | Nicholas Egner",
@@ -24,12 +27,19 @@ export const metadata = {
     title: "Skills & Capabilities | Nicholas Egner",
     description:
       "A visual library of the development, visibility, deployment, video, and creative tools represented across Nicholas Egner's portfolio.",
+    images: [
+      {
+        url: heroImage,
+        alt: "Skills and capabilities represented across Nicholas Egner's digital portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Skills & Capabilities | Nicholas Egner",
     description:
       "Explore the tools and capabilities Nicholas Egner uses across development, SEO, video, and digital systems.",
+    images: [heroImage],
   },
 };
 
@@ -100,19 +110,29 @@ export default function SkillsPage() {
 
         <main className={styles.main}>
           <header className={styles.hero}>
-            <div>
-              <p className={styles.eyebrow}>Skills &amp; Capabilities</p>
-              <h1>Tools I use to build the work.</h1>
+            <div className={styles.heroMedia} aria-hidden="true">
+              <img src={heroImage} alt="" />
             </div>
 
-            <div className={styles.heroCopy}>
-              <p>
+            <div className={styles.heroContent}>
+              <p className={styles.eyebrow}>Skills &amp; Capabilities</p>
+              <h1>Tools I use to build the work.</h1>
+              <p className={styles.heroLead}>
                 <strong>{skills.length} tools and capabilities</strong> across
                 development, backend systems, deployment, search visibility,
                 video, design, and digital workflows. Browse the full library or
                 narrow it by discipline, then open any skill to see how I use it
                 in practice.
               </p>
+            </div>
+
+            <div className={styles.heroLogoWrap} aria-hidden="true">
+              <Image
+                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+                width={760}
+                height={760}
+                alt=""
+              />
             </div>
           </header>
 
