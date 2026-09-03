@@ -6,7 +6,6 @@ import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import VideoHubClient from "./VideoHubClient";
-import VideoCapabilityFilters from "./VideoCapabilityFilters";
 import styles from "./video.module.css";
 import oldStyles from "../page.module.css";
 import { videoWork, videoHubAssets, videoCapabilities } from "../lib/videoWork";
@@ -82,9 +81,6 @@ export default function VideoPage() {
               and search-focused video built for businesses and organizations.
             </p>
 
-            <Suspense fallback={null}>
-              <VideoCapabilityFilters capabilities={videoCapabilities} />
-            </Suspense>
           </div>
 
           <div className={styles.heroLogoWrap} aria-hidden="true">
