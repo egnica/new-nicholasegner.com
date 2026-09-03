@@ -468,6 +468,7 @@ function getVideoContentUrl(video) {
   return (
     video?.contentUrl ||
     video?.videoUrl ||
+    (video?.type === "video" ? video?.url : undefined) ||
     video?.src?.mp4 ||
     video?.src?.webm
   );
@@ -613,6 +614,7 @@ function buildVideoObject({
 
     thumbnailUrl: imageArray(
       video.thumbnail,
+      video.poster,
       image,
       post.meta_image,
       post.hero_image,
@@ -929,10 +931,12 @@ export function getBlogPostSchema({ post, slug }) {
 /* -------------------------------------------------------------------------- */
 
 export function getVideosHubSchema(items = []) {
-  const pageUrl = `${SITE_URL}/videos`;
+  const pageUrl = `${SITE_URL}/video`;
 
-  const videoItems = toItemArray(items).filter(
-    (item) => item.primaryVideo || item.video || item.type === "video",
+  const videoItems = (Array.isArray(items) ? items : toItemArray(items)).filter(
+    (item) =>
+      (item.type === "video" && item.slug) ||
+      (item.type === "webpage" && item.url),
   );
 
   return createJsonLd([
@@ -955,7 +959,7 @@ export function getVideosHubSchema(items = []) {
       mainEntity: {
         "@type": "ItemList",
         "@id": `${pageUrl}#video-list`,
-        name: "Nicholas Egner Videos",
+        name: "Nicholas Egner Video Work",
         itemListElement: videoItems.map((item, index) => {
           const video = item.primaryVideo || item.video || item;
 
@@ -963,7 +967,10 @@ export function getVideosHubSchema(items = []) {
             "@type": "ListItem",
             position: index + 1,
             name: video.title || item.title,
-            url: `${SITE_URL}/videos/${item.slug}`,
+            url:
+              item.type === "video" && item.slug
+                ? `${SITE_URL}/video/${item.slug}`
+                : absoluteUrl(item.url),
           };
         }),
       },
@@ -975,7 +982,7 @@ export function getVideosHubSchema(items = []) {
         url: SITE_URL,
       },
       {
-        name: "Videos",
+        name: "Video",
         url: pageUrl,
       },
     ]),
@@ -991,9 +998,10 @@ export function getVideoPageSchema({ item, post, video, slug }) {
   const videoSource = video || source.primaryVideo || source.video || source;
 
   const resolvedSlug = slug || source.slug || videoSource.slug;
-  const pageUrl = `${SITE_URL}/videos/${resolvedSlug}`;
+  const pageUrl = `${SITE_URL}/video/${resolvedSlug}`;
   const image =
     videoSource.thumbnail ||
+    videoSource.poster ||
     source.meta_image ||
     source.hero_image ||
     DEFAULT_IMAGE;
@@ -1047,8 +1055,8 @@ export function getVideoPageSchema({ item, post, video, slug }) {
       url: SITE_URL,
     },
     {
-      name: "Videos",
-      url: `${SITE_URL}/videos`,
+      name: "Video",
+      url: `${SITE_URL}/video`,
     },
     {
       name: videoSource.title || source.title,
