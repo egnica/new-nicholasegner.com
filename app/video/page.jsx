@@ -5,9 +5,10 @@ import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import VideoHubClient from "./VideoHubClient";
+import VideoCapabilityFilters from "./VideoCapabilityFilters";
 import styles from "./video.module.css";
 import oldStyles from "../page.module.css";
-import { videoWork, videoHubAssets } from "../lib/videoWork";
+import { videoWork, videoHubAssets, videoCapabilities } from "../lib/videoWork";
 import {
   SITE_URL,
   getVideosHubSchema,
@@ -80,13 +81,7 @@ export default function VideoPage() {
               and search-focused video built for businesses and organizations.
             </p>
 
-            <div className={styles.heroTags} aria-label="Video capabilities">
-              <span>Production</span>
-              <span>Editing</span>
-              <span>Motion</span>
-              <span>Video SEO</span>
-              <span>Interactive Experiences</span>
-            </div>
+            <VideoCapabilityFilters capabilities={videoCapabilities} />
           </div>
 
           <div className={styles.heroLogoWrap} aria-hidden="true">
@@ -99,7 +94,11 @@ export default function VideoPage() {
           </div>
         </header>
 
-        <VideoHubClient items={videoWork} assets={videoHubAssets} />
+        <VideoHubClient
+          items={videoWork}
+          assets={videoHubAssets}
+          capabilities={videoCapabilities}
+        />
 
         <SiteFooter />
       </main>
