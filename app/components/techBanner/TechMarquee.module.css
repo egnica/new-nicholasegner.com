@@ -112,7 +112,7 @@
   line-height: 1.2;
   letter-spacing: 0.035em;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   background: rgba(8, 7, 24, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 9px;
