@@ -92,11 +92,11 @@
 
 .heroLogoWrap {
   position: absolute;
-  top: -14%;
-  right: -10%;
+  top: 50%;
+  right: -8%;
   z-index: 2;
   display: block;
-  width: min(55vw, 780px);
+  width: min(62vw, 980px);
   height: auto;
   opacity: 0.065;
   pointer-events: none;
@@ -831,10 +831,10 @@
   }
 
   .heroLogoWrap {
-    top: auto;
-    right: -20%;
-    bottom: -5%;
-    width: min(88vw, 520px);
+    top: 68%;
+    right: -24%;
+    bottom: auto;
+    width: min(96vw, 620px);
   }
 
   .stageLayout {
@@ -931,9 +931,10 @@
   }
 
   .heroLogoWrap {
-    right: -28%;
-    bottom: -2%;
-    width: 96vw;
+    top: 72%;
+    right: -34%;
+    bottom: auto;
+    width: 110vw;
   }
 
   .featuredSection,
@@ -1013,12 +1014,12 @@
 @keyframes videoLogoSettle {
   from {
     opacity: 0;
-    transform: translate(30px, -22px) rotate(28deg) scale(1.15);
+    transform: translate(30px, -54%) rotate(28deg) scale(1.15);
   }
 
   to {
     opacity: 0.065;
-    transform: translate(0, 0) rotate(18deg) scale(1);
+    transform: translate(0, -50%) rotate(18deg) scale(1);
   }
 }
 
@@ -1031,7 +1032,7 @@
 
   .heroLogoWrap {
     opacity: 0.065;
-    transform: rotate(18deg);
+    transform: translateY(-50%) rotate(18deg);
   }
 
   .videoNavButton,
