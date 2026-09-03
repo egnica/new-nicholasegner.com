@@ -67,7 +67,7 @@ export default function VideoPage() {
         <div className={styles.mainBackColor} />
         <SiteHeader />
 
-        <header className={styles.hero}>
+        <header className={`${styles.hero} fullBleedHero`}>
           <div className={styles.heroMedia} aria-hidden="true">
             <img src={videoHubAssets.hero} alt="" />
           </div>
