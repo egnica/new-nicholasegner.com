@@ -1023,6 +1023,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .heroMedia,
+  .heroLogoWrap,
+  .heroCopy {
+    animation: none;
+  }
+
+  .heroLogoWrap {
+    opacity: 0.065;
+    transform: rotate(18deg);
+  }
+
   .videoNavButton,
   .navThumb,
   .playButton,
