@@ -31,7 +31,9 @@ export default function SiteHeader() {
         <nav className={styles.nav} aria-label="Primary navigation">
           {links.map((link) => {
             const active =
-              pathname === link.href || pathname?.startsWith(`${link.href}/`);
+              pathname === link.href ||
+              pathname?.startsWith(`${link.href}/`) ||
+              (link.href === "/video" && pathname === "/video-experience");
 
             return (
               <Link
