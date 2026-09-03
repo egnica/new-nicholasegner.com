@@ -46,30 +46,34 @@ export default function SiteFooter() {
           </p>
         </div>
 
-        <nav className={styles.linkColumn} aria-label="Main navigation">
-          <h2>Site</h2>
-          {mainLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className={styles.linkGrid}>
+          <nav className={styles.linkColumn} aria-label="Main navigation">
+            <h2>Site</h2>
+            {mainLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-        <nav className={styles.linkColumn} aria-label="Work and proof">
-          <h2>Work</h2>
-          {proofLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className={styles.linkColumn} aria-label="Work and proof">
+            <h2>Work</h2>
+            {proofLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         <div className={styles.ctaBlock}>
-          <h2>Have a project in mind?</h2>
-          <p>
-            I help turn websites, video, and Google visibility into a clearer
-            digital presence.
-          </p>
+          <div className={styles.ctaCopy}>
+            <h2>Have a project in mind?</h2>
+            <p>
+              I help turn websites, video, and Google visibility into a clearer
+              digital presence.
+            </p>
+          </div>
 
           <a className={styles.ctaButton} href="mailto:nick@nicholasegner.com">
             Email Me
