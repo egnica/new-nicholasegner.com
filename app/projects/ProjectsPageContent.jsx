@@ -9,6 +9,7 @@ import { getTech } from "../lib/techStack";
 import Image from "next/image";
 import oldStyles from "../page.module.css";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 
 function ProjectMedia({ media }) {
   if (!media?.src) return null;
@@ -301,22 +302,7 @@ export default function ProjectsPageContent({ projects }) {
 
   return (
     <main className={styles.page}>
-      <nav className={oldStyles.topPage}>
-        <Link href="/">
-          <Image
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={60}
-            height={60}
-            alt="Nicholas Egner Logo"
-          />
-        </Link>
-
-        <div className={oldStyles.headerNavLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/about">About Nick</Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <Particles />
       <div className={styles.mainBackColor} />
