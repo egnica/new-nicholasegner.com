@@ -25,7 +25,7 @@ export default function VideoCapabilityFilters({ capabilities = [] }) {
 
     window.setTimeout(() => {
       document
-        .getElementById("video-work-results")
+        .getElementById("capability-explorer")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 60);
   }
