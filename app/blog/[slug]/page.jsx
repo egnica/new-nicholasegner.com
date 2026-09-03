@@ -4,6 +4,7 @@ import ContentBlock from "@/app/components/contentBlock";
 import styles from "../blog.module.css";
 import Particles from "../../components/particlesBackground";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
+import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import Link from "next/link";
 import oldStyles from "../../page.module.css";
@@ -208,23 +209,7 @@ export default async function PostPage({ params }) {
   return (
     <main className={styles.page}>
       <JsonLd data={getBlogPostSchema({ post, slug })} />
-
-      <nav className={oldStyles.topPage}>
-        <Link href="/">
-          <Image
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={60}
-            height={60}
-            alt="Nicholas Egner Logo"
-          />
-        </Link>
-
-        <div className={oldStyles.headerNavLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/about">About Nick</Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <Particles />
       <div className={styles.mainBackColor} />
