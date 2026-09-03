@@ -4,6 +4,7 @@ import styles from "./blog.module.css";
 import Image from "next/image";
 import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import oldStyles from "../page.module.css";
 import { SITE_URL, DEFAULT_IMAGE, getBlogHubSchema } from "../lib/schema";
@@ -66,23 +67,7 @@ export default function BlogMain() {
   return (
     <main className={styles.page}>
       <JsonLd data={getBlogHubSchema(Posts)} />
-
-      <nav className={oldStyles.topPage}>
-        <Link href="/">
-          <Image
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={60}
-            height={60}
-            alt="Nicholas Egner Logo"
-          />
-        </Link>
-
-        <div className={oldStyles.headerNavLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/about">About Nick</Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <Particles />
       <div className={styles.mainBackColor} />
