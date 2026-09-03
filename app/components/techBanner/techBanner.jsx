@@ -19,6 +19,7 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   const copyWidthRef = useRef(0);
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
+  const itemInteractionRef = useRef(false);
 
   const icons = useMemo(() => {
     if (!Array.isArray(techIcons)) return [];
@@ -107,6 +108,11 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
     if (!wrapperRef.current) return;
     if (event.pointerType === "touch") return;
 
+    if (itemInteractionRef.current) {
+      targetSpeedRef.current = 0;
+      return;
+    }
+
     const rect = wrapperRef.current.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const percentage = x / rect.width;
@@ -139,6 +145,17 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   }
 
   function handleBlur() {
+    itemInteractionRef.current = false;
+    targetSpeedRef.current = DEFAULT_SPEED;
+  }
+
+  function handleItemEnter() {
+    itemInteractionRef.current = true;
+    targetSpeedRef.current = 0;
+  }
+
+  function handleItemLeave() {
+    itemInteractionRef.current = false;
     targetSpeedRef.current = DEFAULT_SPEED;
   }
 
@@ -168,7 +185,15 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
                 className={styles.techLink}
                 tabIndex={copyIndex > 0 ? -1 : 0}
                 aria-label={`View ${icon.name} skill page`}
+                onPointerEnter={handleItemEnter}
+                onPointerLeave={handleItemLeave}
+                onFocus={handleItemEnter}
+                onBlur={handleItemLeave}
               >
+                <span className={styles.techLabel} aria-hidden="true">
+                  {icon.name}
+                </span>
+
                 <div
                   className={styles.techIcon}
                   dangerouslySetInnerHTML={{ __html: icon.svg }}
