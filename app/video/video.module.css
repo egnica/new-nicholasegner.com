@@ -93,7 +93,7 @@
 .heroLogoWrap {
   position: absolute;
   top: 50%;
-  right: -8%;
+  right: -17%;
   z-index: 2;
   display: block;
   width: min(62vw, 980px);
