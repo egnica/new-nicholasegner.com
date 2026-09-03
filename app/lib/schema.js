@@ -944,9 +944,9 @@ export function getVideosHubSchema(items = []) {
       "@type": "CollectionPage",
       "@id": `${pageUrl}#collectionpage`,
       url: pageUrl,
-      name: "Videos",
+      name: "Video Work",
       description:
-        "Video explainers, walkthroughs, and digital strategy content from Nicholas Egner.",
+        "Video production, editing, documentary storytelling, corporate event video, interactive video, and video SEO work from Nicholas Egner.",
       isPartOf: {
         "@id": schemaIds.website,
       },
