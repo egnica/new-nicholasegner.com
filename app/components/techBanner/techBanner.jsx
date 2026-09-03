@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./TechMarquee.module.css";
 
@@ -20,6 +20,7 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
   const itemInteractionRef = useRef(false);
+  const [hoverLabel, setHoverLabel] = useState(null);
 
   const icons = useMemo(() => {
     if (!Array.isArray(techIcons)) return [];
@@ -137,6 +138,8 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   }
 
   function handlePointerLeave() {
+    itemInteractionRef.current = false;
+    setHoverLabel(null);
     targetSpeedRef.current = DEFAULT_SPEED;
   }
 
@@ -146,16 +149,30 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
 
   function handleBlur() {
     itemInteractionRef.current = false;
+    setHoverLabel(null);
     targetSpeedRef.current = DEFAULT_SPEED;
   }
 
-  function handleItemEnter() {
+  function handleItemEnter(event, name) {
     itemInteractionRef.current = true;
     targetSpeedRef.current = 0;
+
+    if (!wrapperRef.current) return;
+
+    const wrapperRect = wrapperRef.current.getBoundingClientRect();
+    const itemRect = event.currentTarget.getBoundingClientRect();
+    const itemCenter = itemRect.left - wrapperRect.left + itemRect.width / 2;
+    const safeX = Math.min(
+      Math.max(itemCenter, 105),
+      Math.max(105, wrapperRect.width - 105),
+    );
+
+    setHoverLabel({ name, x: safeX });
   }
 
   function handleItemLeave() {
     itemInteractionRef.current = false;
+    setHoverLabel(null);
     targetSpeedRef.current = DEFAULT_SPEED;
   }
 
@@ -170,38 +187,46 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
-      <div ref={trackRef} className={styles.marqueeTrack}>
-        {[0, 1, 2].map((copyIndex) => (
-          <div
-            key={copyIndex}
-            ref={copyIndex === 0 ? groupRef : null}
-            className={styles.marqueeGroup}
-            aria-hidden={copyIndex > 0}
-          >
-            {icons.map((icon, iconIndex) => (
-              <Link
-                key={`${copyIndex}-${icon.name}-${iconIndex}`}
-                href={icon.href}
-                className={styles.techLink}
-                tabIndex={copyIndex > 0 ? -1 : 0}
-                aria-label={`View ${icon.name} skill page`}
-                onPointerEnter={handleItemEnter}
-                onPointerLeave={handleItemLeave}
-                onFocus={handleItemEnter}
-                onBlur={handleItemLeave}
-              >
-                <span className={styles.techLabel} aria-hidden="true">
-                  {icon.name}
-                </span>
+      {hoverLabel && (
+        <span
+          className={styles.techLabel}
+          style={{ left: `${hoverLabel.x}px` }}
+          aria-hidden="true"
+        >
+          {hoverLabel.name}
+        </span>
+      )}
 
-                <div
-                  className={styles.techIcon}
-                  dangerouslySetInnerHTML={{ __html: icon.svg }}
-                />
-              </Link>
-            ))}
-          </div>
-        ))}
+      <div className={styles.marqueeViewport}>
+        <div ref={trackRef} className={styles.marqueeTrack}>
+          {[0, 1, 2].map((copyIndex) => (
+            <div
+              key={copyIndex}
+              ref={copyIndex === 0 ? groupRef : null}
+              className={styles.marqueeGroup}
+              aria-hidden={copyIndex > 0}
+            >
+              {icons.map((icon, iconIndex) => (
+                <Link
+                  key={`${copyIndex}-${icon.name}-${iconIndex}`}
+                  href={icon.href}
+                  className={styles.techLink}
+                  tabIndex={copyIndex > 0 ? -1 : 0}
+                  aria-label={`View ${icon.name} skill page`}
+                  onPointerEnter={(event) => handleItemEnter(event, icon.name)}
+                  onPointerLeave={handleItemLeave}
+                  onFocus={(event) => handleItemEnter(event, icon.name)}
+                  onBlur={handleItemLeave}
+                >
+                  <div
+                    className={styles.techIcon}
+                    dangerouslySetInnerHTML={{ __html: icon.svg }}
+                  />
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
