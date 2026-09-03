@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 1rem 0;
+  padding: 3rem 0 1rem;
   cursor: ew-resize;
   user-select: none;
 
@@ -60,6 +60,7 @@
 }
 
 .techLink {
+  position: relative;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
@@ -95,6 +96,57 @@
   outline-offset: 4px;
 }
 
+
+
+.techLabel {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.7rem);
+  z-index: 3;
+  width: max-content;
+  max-width: 190px;
+  padding: 0.48rem 0.68rem;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.035em;
+  text-align: center;
+  white-space: nowrap;
+  background: rgba(8, 7, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px) scale(0.97);
+  transform-origin: 50% 100%;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.techLabel::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  background: rgba(8, 7, 24, 0.88);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  transform: translate(-50%, -4px) rotate(45deg);
+}
+
+.techLink:hover .techLabel,
+.techLink:focus-visible .techLabel {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
 .techIcon {
   display: grid;
   place-items: center;
@@ -111,7 +163,11 @@
 @media (max-width: 700px) {
   .marquee {
     cursor: default;
-    padding: 0.75rem 0;
+    padding: 1rem 0 0.75rem;
+  }
+
+  .techLabel {
+    display: none;
   }
 
   .techLink {
@@ -130,7 +186,8 @@
     transform: none !important;
   }
 
-  .techLink {
+  .techLink,
+  .techLabel {
     transition: none;
   }
 }
