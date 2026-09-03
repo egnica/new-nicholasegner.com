@@ -38,57 +38,74 @@ function Stack({ stackSelect, onStackChange }) {
           className={styles.skillsBtnContain}
         >
           <Wrapper
-            title={"FRONTEND"}
+            title={"FRONTEND & INTERACTION"}
             btnText={"Explore Frontend"}
             clickFun={() => clickHandler("Front End")}
           >
             <p>
-              <strong>Where form meets function.</strong> <br /> I specialize in
-              building fast, accessible, and responsive interfaces that look
-              great and perform even better. Using modern tools like React,
-              Next.js, Framer Motion, and CSS Modules. Clean code meets
-              thoughtful design.
+              <strong>Where form meets function.</strong>
+              <br />
+              I build responsive, accessible interfaces with React, Next.js,
+              modern JavaScript, CSS, motion, and performance in mind. The goal
+              is an experience that feels polished while staying clear and
+              usable.
             </p>
           </Wrapper>
+
           <Wrapper
-            title={"BACKEND & DATABASE"}
+            title={"BACKEND, DATA & AUTOMATION"}
             btnText={"Explore Backend"}
             clickFun={() => clickHandler("Back End")}
           >
             <p>
-              <strong>
-                This is where structure, speed, and security come together.
-              </strong>
-              <br />I design and build backend systems that power real
-              applications. From API routing and database modeling to
-              authentication and server-side logic. Whether it’s MongoDB,
-              Supabase, or AWS, I’m focused on performance and reliability.
+              <strong>Systems that do more than display content.</strong>
+              <br />
+              I work with databases, authentication, APIs, email workflows, and
+              application logic to build tools that support real business
+              processes and evolving data.
             </p>
           </Wrapper>
+
           <Wrapper
             title={"DEVOPS & HOSTING"}
             btnText={"View Deployment Tools"}
             clickFun={() => clickHandler("DevOps & Hosting")}
           >
             <p>
-              <strong>From localhost to live site.</strong>
-              <br />I don’t just build I deploy, monitor, and optimize. I’ve
-              worked with platforms like AWS Amplify, Amazon S3, Route 53 and
-              Supabase to get projects live, stable, and ready for real users.
+              <strong>From repository to live application.</strong>
+              <br />
+              I deploy and maintain projects using AWS services, DNS, media
+              storage, GitHub workflows, environment configuration, and the
+              infrastructure needed to keep web projects available and
+              maintainable.
             </p>
           </Wrapper>
+
           <Wrapper
-            title={"DESIGN & VISUALS"}
-            btnText={"View Visual Tools"}
+            title={"SEARCH & DIGITAL VISIBILITY"}
+            btnText={"Explore Visibility"}
+            clickFun={() => clickHandler("Search & Digital Visibility")}
+          >
+            <p>
+              <strong>Building the site is only part of the job.</strong>
+              <br />
+              I work with technical SEO, structured data, local search, Google
+              Business Profile, and video publishing so useful content is
+              easier for people and search engines to find and understand.
+            </p>
+          </Wrapper>
+
+          <Wrapper
+            title={"VIDEO, DESIGN & MOTION"}
+            btnText={"View Creative Tools"}
             clickFun={() => clickHandler("Creative / Design")}
           >
             <p>
-              <strong>I started as a creative and that still shows.</strong>
+              <strong>My development work is grounded in a creative background.</strong>
               <br />
-              Before diving into code, I spent years editing video, designing
-              graphics, and building brands. That creative muscle still shapes
-              how I design interfaces, communicate ideas, and tell better
-              stories.
+              I use video editing, motion graphics, image design, vector work,
+              and web animation to communicate ideas clearly and give digital
+              experiences a stronger visual identity.
             </p>
           </Wrapper>
         </motion.div>
