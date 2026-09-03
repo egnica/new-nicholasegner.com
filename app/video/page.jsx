@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import VideoHubClient from "./VideoHubClient";
 import styles from "./video.module.css";
@@ -63,23 +64,7 @@ export default function VideoPage() {
       <main className={styles.page}>
         <Particles />
         <div className={styles.mainBackColor} />
-
-        <nav className={oldStyles.topPage}>
-          <Link href="/" aria-label="Nicholas Egner home">
-            <Image
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-              width={60}
-              height={60}
-              alt="Nicholas Egner Logo"
-            />
-          </Link>
-
-          <div className={oldStyles.headerNavLinks}>
-            <Link href="/blog">Blog</Link>
-            <Link href="/about">About Nick</Link>
-            <Link href="/projects">Projects</Link>
-          </div>
-        </nav>
+        <SiteHeader />
 
         <header className={styles.hero}>
           <div className={styles.heroCopy}>
