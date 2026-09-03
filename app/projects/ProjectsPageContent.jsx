@@ -330,7 +330,7 @@ export default function ProjectsPageContent({ projects }) {
 
         <div className={styles.projectStage}>
           {selectedProject ? (
-            <ProjectContent project={selectedProject} />
+            <ProjectContent key={selectedProject.slug} project={selectedProject} />
           ) : (
             <ProjectsOverview />
           )}
