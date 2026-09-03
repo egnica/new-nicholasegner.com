@@ -1016,8 +1016,8 @@ export function getVideoPageSchema({ item, post, video, slug }) {
 
   const relatedBlogUrl = source.blogPath
     ? absoluteUrl(source.blogPath)
-    : source.title
-      ? `${SITE_URL}/blog/${resolvedSlug}`
+    : source.relatedPages?.[0]?.url
+      ? absoluteUrl(source.relatedPages[0].url)
       : undefined;
 
   const webPage = {
