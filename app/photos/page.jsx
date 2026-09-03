@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import Link from "next/link";
 import Particles from "../components/particlesBackground";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 
 function Photos() {
   const photoObject = [
@@ -101,9 +102,7 @@ function Photos() {
       <JsonLd items={photoObject} />
       <div className={styles.mainBackColor}></div>
       <Particles />
-      <Link href={"../about"}>
-        <h2 className={styles.skillsBtn}>Back</h2>
-      </Link>
+      <SiteHeader />
       <h1 style={{ color: "white" }}>Photos of Nicholas Egner</h1>
       <p style={{ color: "white" }}>
         A collection of portraits, candid moments, and behind-the-scenes shots
