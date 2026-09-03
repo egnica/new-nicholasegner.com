@@ -67,6 +67,10 @@ export default function VideoPage() {
         <SiteHeader />
 
         <header className={styles.hero}>
+          <div className={styles.heroMedia} aria-hidden="true">
+            <img src={videoHubAssets.hero} alt="" />
+          </div>
+
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Production · Editing · Digital Experiences</p>
             <h1>Video Work</h1>
