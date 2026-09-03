@@ -9,6 +9,7 @@ import Header from "../components/header";
 import ContState from "../components/textContState";
 import Link from "next/link";
 import Particles from "../components/particlesBackground";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 import lottie from "lottie-web";
 
 function Skills() {
@@ -53,15 +54,7 @@ function Skills() {
     <>
       <Particles />
       <div className={styles.mainBackColor}></div>
-
-      <Header />
-      <Link
-        style={{ marginLeft: "20px" }}
-        className={styles.skillsBtn}
-        href={"../"}
-      >
-        Home
-      </Link>
+      <SiteHeader />
       <div className={styles.cont}>
         <Projects />
         <div
