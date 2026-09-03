@@ -68,13 +68,12 @@ export default function VideoPage() {
 
         <header className={styles.hero}>
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>Video Work</p>
-            <h1>Video built to be watched, understood, and useful.</h1>
+            <p className={styles.eyebrow}>Production · Editing · Digital Experiences</p>
+            <h1>Video Work</h1>
             <p className={styles.heroLead}>
-              I produce and edit video for businesses, organizations, events,
-              websites, and digital campaigns. My work spans brand storytelling,
-              documentary editing, corporate event video, motion graphics,
-              interactive video experiences, and search-focused video content.
+              Video production, editing, documentary storytelling, corporate
+              event content, motion graphics, interactive video experiences,
+              and search-focused video built for businesses and organizations.
             </p>
 
             <div className={styles.heroTags} aria-label="Video capabilities">
@@ -86,10 +85,12 @@ export default function VideoPage() {
             </div>
           </div>
 
-          <div className={styles.heroImageWrap}>
-            <img
-              src={videoHubAssets.hero}
-              alt="Video editing workspace representing Nicholas Egner's post-production work"
+          <div className={styles.heroLogoWrap} aria-hidden="true">
+            <Image
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+              width={520}
+              height={520}
+              alt=""
             />
           </div>
         </header>
