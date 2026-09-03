@@ -137,9 +137,9 @@ function ProjectContent({ project }) {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{project.eyebrow}</p>
 
-          <h2 style={{ fontSize: "3rem" }} id={`${project.slug}-title`}>
+          <h1 style={{ fontSize: "3rem" }} id={`${project.slug}-title`}>
             {project.title}
-          </h2>
+          </h1>
 
           <p className={styles.lead}>{project.summary}</p>
         </div>
