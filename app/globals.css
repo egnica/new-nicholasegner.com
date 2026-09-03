@@ -39,6 +39,19 @@ body {
   flex-shrink: 0;
 }
 
+/* Shared full-bleed hero treatment used by top-level portfolio sections. */
+.fullBleedHero {
+  position: relative;
+  left: 50%;
+  width: 100vw !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
