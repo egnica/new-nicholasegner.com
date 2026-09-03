@@ -150,10 +150,18 @@ export default function VideoHubClient({ items, assets }) {
   }
 
   function scrollNav(direction) {
-    navViewportRef.current?.scrollBy({
-      top: direction * 180,
-      behavior: "smooth",
-    });
+    const viewport = navViewportRef.current;
+    if (!viewport) return;
+
+    const isHorizontal =
+      viewport.scrollWidth > viewport.clientWidth &&
+      viewport.scrollHeight <= viewport.clientHeight + 12;
+
+    viewport.scrollBy(
+      isHorizontal
+        ? { left: direction * 220, behavior: "smooth" }
+        : { top: direction * 180, behavior: "smooth" },
+    );
   }
 
   function selectVideo(item) {
