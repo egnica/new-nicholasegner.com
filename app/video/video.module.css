@@ -25,6 +25,7 @@
 }
 
 .featuredSection,
+.capabilityExplorerSection,
 .productionSection,
 .beyondSection,
 .moreSection,
@@ -304,6 +305,49 @@
 .moreSection,
 .ctaSection {
   padding-block: clamp(5rem, 9vw, 9rem);
+}
+
+.capabilityExplorerSection {
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.capabilityExplorerSection .heroTags {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+}
+
+.capabilityResults {
+  margin-top: 2rem;
+}
+
+.capabilityResultHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+.capabilityResultHeader h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.capabilityResultHeader > div:first-child > p:last-child {
+  max-width: 68ch;
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.67);
+  line-height: 1.65;
+}
+
+.capabilityResultHeader .filterToolbar {
+  margin: 0;
+  justify-self: stretch;
 }
 
 .filterResultsSection {
@@ -956,7 +1000,14 @@
 }
 
 @media (max-width: 820px) {
+  .capabilityResultHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+
   .featuredSection,
+  .capabilityExplorerSection,
   .productionSection,
   .beyondSection,
   .moreSection,
@@ -1087,6 +1138,19 @@
 }
 
 @media (max-width: 540px) {
+  .capabilityExplorerSection {
+    padding-block: 4rem;
+  }
+
+  .capabilityExplorerSection .heroTags {
+    gap: 0.5rem;
+  }
+
+  .capabilityButton {
+    padding: 0.5rem 0.72rem;
+  }
+
+
   .hero h1 {
     font-size: clamp(3.15rem, 16vw, 5rem);
   }
