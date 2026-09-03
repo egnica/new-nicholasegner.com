@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Particles from "../components/particlesBackground";
@@ -81,7 +82,9 @@ export default function VideoPage() {
               and search-focused video built for businesses and organizations.
             </p>
 
-            <VideoCapabilityFilters capabilities={videoCapabilities} />
+            <Suspense fallback={null}>
+              <VideoCapabilityFilters capabilities={videoCapabilities} />
+            </Suspense>
           </div>
 
           <div className={styles.heroLogoWrap} aria-hidden="true">
@@ -94,11 +97,13 @@ export default function VideoPage() {
           </div>
         </header>
 
-        <VideoHubClient
-          items={videoWork}
-          assets={videoHubAssets}
-          capabilities={videoCapabilities}
-        />
+        <Suspense fallback={null}>
+          <VideoHubClient
+            items={videoWork}
+            assets={videoHubAssets}
+            capabilities={videoCapabilities}
+          />
+        </Suspense>
 
         <SiteFooter />
       </main>
