@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ParticlesBackground from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 
 function AboutMe() {
   const [currentTime, setCurrentTime] = useState(0);
@@ -71,9 +72,7 @@ function AboutMe() {
       <ParticlesBackground />
 
       {/* <p style={{ color: "white" }}>{currentTime}</p> */}
-      <Link href={"../"} className={styles.skillsBtn} style={{ margin: "2%" }}>
-        Home
-      </Link>
+      <SiteHeader />
       <div className={styles.centerGroup}>
         <div className={styles.mainBtnContVid}>
           {["intro", "background", "present", "future", "wrap"].map((key) => (
