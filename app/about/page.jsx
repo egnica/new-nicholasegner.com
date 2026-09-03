@@ -6,6 +6,7 @@ import Link from "next/link";
 import Dots from "../components/particlesBackground";
 
 import SiteFooter from "../components/SiteFooter/SiteFooter";
+import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import { getProfilePageSchema } from "../lib/schema";
 
@@ -62,26 +63,7 @@ function About() {
       <JsonLd data={getProfilePageSchema()} />
 
       <Dots />
-      <nav className={styles.topPage}>
-        <a
-          href="/about"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-        >
-          <Image
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={60}
-            height={60}
-            alt="Nicholas Egner Logo"
-          />
-        </a>
-        <div className={styles.headerNavLinks}>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/blog"}>Blog</Link>
-          <Link href={"/about"}>About Nick</Link>
-          <Link href={"/projects"}>Projects</Link>
-        </div>
-      </nav>
+      <SiteHeader />
       <div className={styles.aboutButtons}>
         {Object.values(btnObject).map((item, index) => (
           <a
