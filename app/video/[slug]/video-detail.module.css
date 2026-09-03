@@ -1,0 +1,347 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(35, 93, 155, 0.18), transparent 34%),
+    #07101d;
+}
+
+.mainBackColor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 11, 20, 0.14), rgba(4, 11, 20, 0.74));
+}
+
+.page > *:not(.mainBackColor) {
+  position: relative;
+  z-index: 1;
+}
+
+.detail {
+  width: min(1380px, calc(100% - clamp(2rem, 7vw, 8rem)));
+  margin-inline: auto;
+}
+
+.header {
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.headerCopy {
+  max-width: 980px;
+}
+
+.backLink,
+.allLink {
+  display: inline-flex;
+  color: rgba(255, 255, 255, 0.64);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.backLink {
+  margin-bottom: 2.5rem;
+}
+
+.backLink:hover,
+.backLink:focus-visible,
+.allLink:hover,
+.allLink:focus-visible {
+  color: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.header h1,
+.storyHeading h2,
+.capabilitySection h2,
+.relatedSection h2,
+.moreHeader h2 {
+  margin: 0;
+  letter-spacing: -0.06em;
+  color: #fff;
+}
+
+.header h1 {
+  max-width: 1050px;
+  font-size: clamp(3.5rem, 7vw, 7.2rem);
+  line-height: 0.88;
+}
+
+.lead {
+  max-width: 860px;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.skillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+}
+
+.skill {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.skill:hover,
+.skill:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(106, 171, 255, 0.58);
+  background: rgba(63, 129, 214, 0.16);
+}
+
+.videoWrap {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.6rem;
+  background: #02070d;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.34);
+}
+
+.videoWrap video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.storyGrid,
+.capabilitySection,
+.relatedSection,
+.moreSection {
+  padding-block: clamp(4.5rem, 8vw, 8rem);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.storyHeading h2,
+.capabilitySection h2,
+.relatedSection h2,
+.moreHeader h2 {
+  font-size: clamp(2.35rem, 4.5vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.storyCopy {
+  max-width: 780px;
+}
+
+.storyCopy p,
+.capabilitySection > div:first-child > p:last-child {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.storyCopy p + p {
+  margin-top: 1.4rem;
+}
+
+.capabilitySection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.capabilitySection > div:first-child {
+  max-width: 820px;
+}
+
+.capabilitySection > div:first-child > p:last-child {
+  margin-top: 1.25rem;
+}
+
+.capabilitySection .skillRow {
+  justify-content: flex-end;
+  max-width: 420px;
+}
+
+.relatedSection {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.relatedLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.relatedLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.82rem 1rem;
+  border: 1px solid rgba(109, 174, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(46, 111, 194, 0.12);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.moreSection {
+  margin-bottom: 2rem;
+}
+
+.moreHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.25rem;
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.videoCard {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.035);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.videoCard:hover,
+.videoCard:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(106, 171, 255, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.videoCard img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.videoCard div {
+  padding: 1rem;
+}
+
+.videoCard span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.videoCard strong {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.12;
+}
+
+@media (max-width: 820px) {
+  .detail {
+    width: min(100% - 2rem, 1380px);
+  }
+
+  .storyGrid,
+  .capabilitySection {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilitySection {
+    align-items: start;
+  }
+
+  .capabilitySection .skillRow {
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .moreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .moreHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .header {
+    padding-top: 3rem;
+  }
+
+  .header h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .videoWrap {
+    border-radius: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill,
+  .videoCard {
+    transition: none;
+  }
+
+  .skill:hover,
+  .skill:focus-visible,
+  .videoCard:hover,
+  .videoCard:focus-visible {
+    transform: none;
+  }
+}
