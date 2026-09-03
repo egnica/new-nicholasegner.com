@@ -1,70 +1,140 @@
-"use client";
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "../page.module.css";
-import Stack from "./skillscomps/stack";
-import Projects from "./skillscomps/projects";
-import Header from "../components/header";
-import ContState from "../components/textContState";
 import Link from "next/link";
 import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
-import lottie from "lottie-web";
+import SiteFooter from "../components/SiteFooter/SiteFooter";
+import JsonLd from "../components/JsonLd/JsonLd";
+import SkillsGrid from "./SkillsGrid";
+import styles from "./skills.module.css";
+import oldStyles from "../page.module.css";
+import stackData from "../../stack.json";
+import { SITE_URL } from "../lib/schema";
 
-function Skills() {
-  const [revealSkill, setRevealSkill] = useState("");
-  const [stack, setStack] = useState("");
-  const animRef = useRef(null);
-  const [heroFrames, setHeroFrames] = useState(false);
+const pageUrl = `${SITE_URL}/skills`;
 
-  useEffect(() => {
-    if (!animRef.current) return;
-    const anim = lottie.loadAnimation({
-      container: animRef.current,
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      path: "/projects-animation.json",
-      rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
-    });
+export const metadata = {
+  title: "Skills & Capabilities | Nicholas Egner",
+  description:
+    "Explore the development, backend, deployment, SEO, video, design, and digital workflow tools Nicholas Egner uses across websites, applications, content systems, and client projects.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: pageUrl,
+    title: "Skills & Capabilities | Nicholas Egner",
+    description:
+      "A visual library of the development, visibility, deployment, video, and creative tools represented across Nicholas Egner's portfolio.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Skills & Capabilities | Nicholas Egner",
+    description:
+      "Explore the tools and capabilities Nicholas Egner uses across development, SEO, video, and digital systems.",
+  },
+};
 
-    const onDone = () => setHeroFrames(true);
-    anim.addEventListener("complete", onDone);
+function namespaceSvgIds(svg, slug) {
+  if (!svg) return "";
 
-    return () => {
-      anim.removeEventListener("complete", onDone);
-      anim.destroy();
-    };
-  }, []);
+  const prefix = `skill-${slug}-`;
 
-  const handleStackChange = (value) => {
-    setStack(value);
-  };
+  return svg
+    .replace(
+      /\bid=(["'])([^"']+)\1/g,
+      (_, quote, id) => `id=${quote}${prefix}${id}${quote}`,
+    )
+    .replace(/url\(#([^)]+)\)/g, (_, id) => `url(#${prefix}${id})`)
+    .replace(
+      /(href|xlink:href)=(["'])#([^"']+)\2/g,
+      (_, attribute, quote, id) =>
+        `${attribute}=${quote}#${prefix}${id}${quote}`,
+    );
+}
 
-  const backBtn = () => {
-    if (stack) {
-      setStack("");
-    } else {
-      setRevealSkill("");
-    }
-  };
+const skills = stackData.stack.flatMap((group) =>
+  group.technologies.map((tech) => ({
+    ...tech,
+    category: group.category,
+    image: namespaceSvgIds(tech.image, tech.slug),
+  })),
+);
 
+const categories = stackData.stack.map((group) => ({
+  name: group.category,
+  count: group.technologies.length,
+}));
+
+const skillsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Skills & Capabilities | Nicholas Egner",
+      description:
+        "A visual library of development, backend, deployment, search visibility, video, and creative capabilities represented across Nicholas Egner's portfolio.",
+      inLanguage: "en-US",
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: skills.map((skill, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: skill.name,
+          url: `${SITE_URL}/skills/${skill.slug}`,
+        })),
+      },
+    },
+  ],
+};
+
+export default function SkillsPage() {
   return (
     <>
-      <Particles />
-      <div className={styles.mainBackColor}></div>
-      <SiteHeader />
-      <div className={styles.cont}>
-        <Projects />
-        <div
-          ref={animRef}
-          className={styles.lottieBackground}
-          style={{ zIndex: "-1" }}
-        />
+      <JsonLd data={skillsSchema} />
+
+      <div className={styles.page}>
+        <Particles />
+        <div className={oldStyles.mainBackColor} />
+        <SiteHeader />
+
+        <main className={styles.main}>
+          <header className={styles.hero}>
+            <div>
+              <p className={styles.eyebrow}>Skills &amp; Capabilities</p>
+              <h1>Tools I use to build the work.</h1>
+            </div>
+
+            <div className={styles.heroCopy}>
+              <p>
+                <strong>{skills.length} tools and capabilities</strong> across
+                development, backend systems, deployment, search visibility,
+                video, design, and digital workflows. Browse the full library or
+                narrow it by discipline, then open any skill to see how I use it
+                in practice.
+              </p>
+            </div>
+          </header>
+
+          <section className={styles.explorer} aria-label="Skills explorer">
+            <SkillsGrid skills={skills} categories={categories} />
+          </section>
+
+          <div className={styles.footerNote}>
+            <p>
+              These skill pages connect back to the projects and video work
+              where each capability is actually used, so the stack stays tied
+              to real examples rather than a list of software names.
+            </p>
+
+            <Link href="/projects">
+              Explore projects <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </main>
+
+        <SiteFooter />
       </div>
     </>
   );
 }
-
-export default Skills;
