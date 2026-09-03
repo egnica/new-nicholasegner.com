@@ -112,7 +112,7 @@ export default function About() {
         <div className={styles.mainBackColor} />
         <SiteHeader />
 
-        <section className={styles.hero}>
+        <section className={`${styles.hero} fullBleedHero`}>
           <div className={styles.heroMedia} aria-hidden="true">
             <img
               src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-profile.jpg"
