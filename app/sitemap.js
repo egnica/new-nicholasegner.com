@@ -7,6 +7,7 @@ const SITE_URL = "https://www.nicholasegner.com";
 import postsData from "../blog";
 import techAreas from "../stack.json";
 import { projects } from "./lib/projects";
+import { videoWork } from "./lib/videoWork";
 
 export default function sitemap() {
   // Generate a single date instance for the build time to use on static routes
@@ -22,6 +23,12 @@ export default function sitemap() {
     },
     {
       url: `${SITE_URL}/about`,
+      lastModified: currentDate,
+      priority: 0.8,
+      changeFrequency: "monthly",
+    },
+    {
+      url: `${SITE_URL}/video`,
       lastModified: currentDate,
       priority: 0.8,
       changeFrequency: "monthly",
@@ -102,5 +109,21 @@ export default function sitemap() {
       priority: 0.7,
     }));
 
-  return [...staticRoutes, ...blogRoutes, ...mapItems, ...projectRoutes];
+  // --- Video portfolio routes ---
+  const videoRoutes = videoWork
+    .filter((item) => item?.type === "video" && item?.slug)
+    .map((item) => ({
+      url: `${SITE_URL}/video/${item.slug}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    }));
+
+  return [
+    ...staticRoutes,
+    ...blogRoutes,
+    ...mapItems,
+    ...projectRoutes,
+    ...videoRoutes,
+  ];
 }
