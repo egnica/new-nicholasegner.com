@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
 import { getTech } from "../lib/techStack";
 
@@ -69,7 +70,50 @@ function ExternalOrInternalLink({ href, className, children }) {
   );
 }
 
-export default function VideoHubClient({ items, assets }) {
+function FilteredWorkCard({ item, fallbackPoster }) {
+  const detailHref = item.slug ? `/video/${item.slug}` : item.url;
+  const actionLabel = item.slug
+    ? "View project details"
+    : item.type === "video"
+      ? "Watch example"
+      : "Explore experience";
+
+  return (
+    <article className={styles.filterCard}>
+      <div className={styles.filterMedia}>
+        <PosterImage
+          item={item}
+          fallbackPoster={fallbackPoster}
+          className={styles.filterImage}
+        />
+      </div>
+
+      <div className={styles.filterCopy}>
+        <p className={styles.stageCategory}>{item.category}</p>
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+
+        <SkillLinks skills={item.skills} />
+
+        <ExternalOrInternalLink href={detailHref} className={styles.textLink}>
+          {actionLabel} <span aria-hidden="true">→</span>
+        </ExternalOrInternalLink>
+      </div>
+    </article>
+  );
+}
+
+export default function VideoHubClient({ items, assets, capabilities = [] }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const activeFocus = searchParams.get("focus");
+  const activeCapability = capabilities.find(
+    (capability) => capability.slug === activeFocus,
+  );
+  const filteredItems = activeCapability
+    ? items.filter((item) => item.capabilities?.includes(activeCapability.slug))
+    : [];
   const mainStageVideos = useMemo(
     () =>
       items.filter(
@@ -177,11 +221,58 @@ export default function VideoHubClient({ items, assets }) {
     setPlaying(false);
   }
 
+  function clearCapabilityFilter() {
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete("focus");
+
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, {
+      scroll: false,
+    });
+  }
+
+  if (activeCapability) {
+    return (
+      <section id="video-work-results" className={styles.filterResultsSection}>
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Filtered Video Work</p>
+          <h2>{activeCapability.label}</h2>
+          <p>{activeCapability.description}</p>
+        </div>
+
+        <div className={styles.filterToolbar}>
+          <span>
+            {filteredItems.length}{" "}
+            {filteredItems.length === 1 ? "example" : "examples"}
+          </span>
+
+          <button
+            type="button"
+            className={styles.clearFilterButton}
+            onClick={clearCapabilityFilter}
+          >
+            Show all video work
+          </button>
+        </div>
+
+        <div className={styles.filterGrid}>
+          {filteredItems.map((item) => (
+            <FilteredWorkCard
+              key={item.title}
+              item={item}
+              fallbackPoster={assets.fallbackPoster}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   if (!selected) return null;
 
   return (
     <>
-      <section className={styles.featuredSection}>
+      <section id="video-work-results" className={styles.featuredSection}>
         <div className={styles.sectionHeader}>
           <p className={styles.eyebrow}>Featured Video</p>
           <h2>Choose a piece. Watch it here.</h2>
