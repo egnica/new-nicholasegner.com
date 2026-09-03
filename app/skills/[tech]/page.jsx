@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Particles from "../../components/particlesBackground";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
+import SiteHeader from "../../components/SiteHeader/SiteHeader";
 
 function TechPage() {
   const params = useParams();
@@ -21,10 +22,7 @@ function TechPage() {
 
   return (
     <div>
-      <Header />
-      <Link style={{ margin: "2%" }} className={styles.skillsBtn} href={"/"}>
-        Home
-      </Link>
+      <SiteHeader />
       <div className={styles.mainBackColor}></div>
 
       <div className={styles.objectCont}>
