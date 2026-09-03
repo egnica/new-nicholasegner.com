@@ -295,11 +295,10 @@ export default async function TechPage({ params }) {
         <SiteHeader />
 
         <main className={styles.skillMain}>
-          <SkillBackButton />
-
           <article>
-            <header className={styles.hero}>
+            <header className={`${styles.hero} fullBleedHero`}>
               <div className={styles.heroCopy}>
+                <SkillBackButton />
                 <p className={styles.eyebrow}>{techData.category}</p>
                 <h1>{techData.name}</h1>
                 <p className={styles.heroLead}>{getHeroLead(techData.text)}</p>
