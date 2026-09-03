@@ -108,8 +108,8 @@ export default function SkillsPage() {
         <div className={oldStyles.mainBackColor} />
         <SiteHeader />
 
-        <main className={styles.main}>
-          <header className={styles.hero}>
+        <main className={styles.main} style={{ paddingTop: 0 }}>
+          <header className={`${styles.hero} fullBleedHero`}>
             <div className={styles.heroMedia} aria-hidden="true">
               <img src={heroImage} alt="" />
             </div>
