@@ -5,7 +5,7 @@ import Image from "next/image";
 const mainLinks = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "Video", href: "/video" },
+  { label: "Video Work", href: "/video" },
   { label: "Skills", href: "/skills" },
   { label: "Blog", href: "/blog" },
 ];
