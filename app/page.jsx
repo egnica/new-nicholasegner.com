@@ -12,6 +12,7 @@ import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
 import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
+import SiteHeader from "./components/SiteHeader/SiteHeader";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 import LazyMount from "./components/LazyMount";
 import JsonLd from "./components/JsonLd/JsonLd";
@@ -86,26 +87,7 @@ export default function Home() {
       <div className={styles.mainBackColor}></div>
       <ParticlesBackground />
       <main className={styles.page}>
-        <nav className={styles.topPage}>
-          <motion.a
-            href="/about"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <Image
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-              width={60}
-              height={60}
-              alt="Nicholas Egner Logo"
-            />
-          </motion.a>
-          <div className={styles.headerNavLinks}>
-            <Link href={"/blog"}>Blog</Link>
-            <Link href={"/about"}>About Nick</Link>
-            <Link href={"/projects"}>Projects</Link>
-            <Link href={"/video"}>Video</Link>
-          </div>
-        </nav>
+        <SiteHeader />
 
         <motion.section className={styles.nameCont}>
           <div ref={animRef} className={styles.lottieBackground} />
