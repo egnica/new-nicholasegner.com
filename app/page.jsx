@@ -103,6 +103,7 @@ export default function Home() {
             <Link href={"/blog"}>Blog</Link>
             <Link href={"/about"}>About Nick</Link>
             <Link href={"/projects"}>Projects</Link>
+            <Link href={"/video"}>Video</Link>
           </div>
         </nav>
 
