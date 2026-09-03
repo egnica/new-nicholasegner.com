@@ -19,7 +19,6 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   const copyWidthRef = useRef(0);
   const rafRef = useRef(null);
   const lastTimeRef = useRef(null);
-  const itemInteractionRef = useRef(false);
   const [hoverLabel, setHoverLabel] = useState(null);
 
   const icons = useMemo(() => {
@@ -109,11 +108,6 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
     if (!wrapperRef.current) return;
     if (event.pointerType === "touch") return;
 
-    if (itemInteractionRef.current) {
-      targetSpeedRef.current = 0;
-      return;
-    }
-
     const rect = wrapperRef.current.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const percentage = x / rect.width;
@@ -138,7 +132,6 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   }
 
   function handlePointerLeave() {
-    itemInteractionRef.current = false;
     setHoverLabel(null);
     targetSpeedRef.current = DEFAULT_SPEED;
   }
@@ -148,22 +141,22 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   }
 
   function handleBlur() {
-    itemInteractionRef.current = false;
     setHoverLabel(null);
     targetSpeedRef.current = DEFAULT_SPEED;
   }
 
   function handleItemEnter(event, name) {
-    itemInteractionRef.current = true;
-    targetSpeedRef.current = 0;
-
     if (!wrapperRef.current) return;
 
     const wrapperRect = wrapperRef.current.getBoundingClientRect();
     const itemRect = event.currentTarget.getBoundingClientRect();
     const itemCenter = itemRect.left - wrapperRect.left + itemRect.width / 2;
+    const pointerX =
+      typeof event.clientX === "number" && event.clientX > 0
+        ? event.clientX - wrapperRect.left
+        : itemCenter;
     const safeX = Math.min(
-      Math.max(itemCenter, 105),
+      Math.max(pointerX, 105),
       Math.max(105, wrapperRect.width - 105),
     );
 
@@ -171,9 +164,7 @@ export default function TechMarquee({ techIcons = [], className = "" }) {
   }
 
   function handleItemLeave() {
-    itemInteractionRef.current = false;
     setHoverLabel(null);
-    targetSpeedRef.current = DEFAULT_SPEED;
   }
 
   if (!icons.length) return null;
