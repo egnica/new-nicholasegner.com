@@ -9,6 +9,9 @@ import JsonLd from "../components/JsonLd/JsonLd";
 import oldStyles from "../page.module.css";
 import { SITE_URL, DEFAULT_IMAGE, getBlogHubSchema } from "../lib/schema";
 
+const BLOG_HERO =
+  "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/blog-hero.webp";
+
 export const metadata = {
   title: "Blog | Nicholas Egner",
   description:
@@ -32,7 +35,7 @@ export const metadata = {
     siteName: "Nicholas Egner",
     images: [
       {
-        url: DEFAULT_IMAGE,
+        url: BLOG_HERO,
         width: 1200,
         height: 630,
         alt: "Nicholas Egner Blog",
@@ -46,7 +49,7 @@ export const metadata = {
     description:
       "Writing, videos, and notes from Nicholas Egner on web development, SEO, video, creative work, digital systems, and the process behind building things online.",
     creator: "@NicholasEgner",
-    images: [DEFAULT_IMAGE],
+    images: [BLOG_HERO],
   },
 };
 
@@ -72,13 +75,28 @@ export default function BlogMain() {
       <Particles />
       <div className={styles.mainBackColor} />
 
-      <section className={styles.pageHeader}>
-        <p className={styles.eyebrow}>Notes / Videos / Ideas</p>
-        <h1>Blog</h1>
-        <p>
-          Notes, videos, experiments, and whatever else I am thinking about,
-          from websites and SEO to movies, habits, creative work, and life.
-        </p>
+      <section className={styles.blogHero} aria-labelledby="blog-hero-title">
+        <div className={styles.blogHeroMedia} aria-hidden="true">
+          <img src={BLOG_HERO} alt="" />
+        </div>
+
+        <div className={styles.blogHeroLogo} aria-hidden="true">
+          <Image
+            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+            width={760}
+            height={760}
+            alt=""
+          />
+        </div>
+
+        <div className={styles.blogHeroCopy}>
+          <p className={styles.eyebrow}>Notes / Videos / Ideas</p>
+          <h1 id="blog-hero-title">Blog</h1>
+          <p>
+            Writing about web development, SEO, video, digital systems,
+            creative work, experiments, and what I am learning while building.
+          </p>
+        </div>
       </section>
 
       <section className={styles.postsContainer} aria-label="Blog highlights">
