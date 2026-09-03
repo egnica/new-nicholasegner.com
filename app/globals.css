@@ -52,6 +52,11 @@ body {
   box-shadow: none !important;
 }
 
+/* Skill detail pages use the same nav-to-hero rhythm as top-level sections. */
+main:has(> article > .fullBleedHero) {
+  padding-top: 0 !important;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
