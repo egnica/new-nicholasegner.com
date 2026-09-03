@@ -1,0 +1,181 @@
+export const videoWork = [
+  {
+    title: "Your Gardens By Design",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/your-gardens.mp4",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
+    slug: "your-gardens-by-design",
+    category: "Brand Storytelling",
+    mainStage: true,
+    description:
+      "A brand video built around personality, place, and the real client experience behind a local garden design business.",
+    details: [
+      "The piece focuses on the people and environment behind Your Gardens By Design rather than treating the business like a generic service.",
+      "It is a useful example of how interview-led storytelling and thoughtful editing can make a small business feel more human, credible, and memorable online.",
+    ],
+    skills: ["premiere", "aftereffects", "photoshop"],
+    relatedPages: [
+      {
+        label: "Read the project article",
+        url: "/blog/your-gardens-by-design-video",
+      },
+    ],
+    duration: "PT2M23S",
+  },
+  {
+    title: "Whittier Neighborhood Documentary",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/whittier.mp4",
+    poster: null,
+    slug: "whittier-neighborhood-documentary",
+    category: "Documentary Storytelling",
+    mainStage: true,
+    description:
+      "A community-focused documentary piece showing a more editorial approach to interview structure, pacing, and neighborhood storytelling.",
+    details: [
+      "This project represents the documentary side of my video work: shaping interviews, observational footage, and environmental details into a coherent story.",
+      "The emphasis is on pacing and context rather than promotional language, giving the subject room to carry the piece.",
+    ],
+    skills: ["premiere"],
+    relatedPages: [],
+  },
+  {
+    title: "YWCA Women's Triathlon",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/YWCA-+Womans-Triathlon.mp4",
+    poster: null,
+    slug: "ywca-womens-triathlon",
+    category: "Event Video",
+    mainStage: true,
+    description:
+      "Event storytelling that turns the energy, people, and atmosphere of a live experience into an edited piece that can keep working after the event.",
+    details: [
+      "The edit is included as an example of event-focused video work where momentum, visual variety, and human moments need to work together.",
+      "Event video can extend the value of a live experience through websites, social channels, follow-up communication, and future promotion.",
+    ],
+    skills: ["premiere"],
+    relatedPages: [],
+  },
+  {
+    title: "Landscape Structures",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4",
+    poster: null,
+    slug: "landscape-structures",
+    category: "Branded Collaboration",
+    mainStage: true,
+    description:
+      "A branded collaboration that demonstrates concise visual storytelling, professional pacing, and a polished edit for an organizational audience.",
+    details: [
+      "This piece sits between promotional and corporate storytelling, where the edit needs to support the brand without overwhelming the subject.",
+      "It is part of a broader body of work spanning branded collaborations, event communication, documentary storytelling, and motion-based content.",
+    ],
+    skills: ["premiere", "aftereffects"],
+    relatedPages: [],
+  },
+  {
+    title: "Barlow Research Conference 2024",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
+    slug: "barlow-research-conference-2024",
+    category: "Corporate & Conference Video",
+    mainStage: true,
+    description:
+      "Conference video designed to turn a live professional event into an ongoing branded storytelling asset.",
+    details: [
+      "Conference and panel content can continue working after the event through recap videos, social sharing, internal communication, and thought-leadership content.",
+      "This work reflects my approach to narrative pacing, branded motion graphics, and clear messaging for professional audiences.",
+    ],
+    skills: ["premiere", "aftereffects"],
+    relatedPages: [],
+  },
+  {
+    title: "Barlow Conference Edit",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
+    slug: "barlow-conference-edit",
+    category: "Corporate & Conference Video",
+    mainStage: false,
+    description:
+      "A second conference edit showing how live-event footage can be shaped into concise branded communication for a professional audience.",
+    details: [
+      "The piece is part of a larger conference-content workflow rather than a one-off video.",
+      "That broader approach is useful when an organization wants to turn one live event into multiple reusable digital assets.",
+    ],
+    skills: ["premiere", "aftereffects"],
+    relatedPages: [],
+  },
+  {
+    title: "Interactive Video Experience",
+    type: "webpage",
+    url: "/video-experience",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
+    slug: null,
+    category: "Interactive Video",
+    mainStage: false,
+    description:
+      "A custom web experience where buttons, links, and supporting content appear in sync with the video's timeline.",
+    details: [],
+    skills: ["premiere", "react", "framermotion"],
+    relatedPages: [],
+  },
+  {
+    title: "Davis Defense Video Hub",
+    type: "webpage",
+    url: "https://www.davisdefenselawyers.com/video",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/andrewDavis/Videos-davis/thumbnail/video-library.webp",
+    slug: null,
+    category: "Video SEO & Publishing",
+    mainStage: false,
+    description:
+      "A video publishing system combining production, dedicated watch pages, structured data, internal linking, and search-focused presentation.",
+    details: [],
+    skills: ["premiere", "nextjs"],
+    relatedPages: [
+      {
+        label: "View the Davis Defense case study",
+        url: "/projects/davis-defense",
+      },
+      {
+        label: "Read the Video SEO Trifecta article",
+        url: "/blog/video-seo-trifecta",
+      },
+    ],
+  },
+  {
+    title: "Video SEO Trifecta",
+    type: "webpage",
+    url: "/blog/video-seo-trifecta",
+    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+    slug: null,
+    category: "Video SEO Strategy",
+    mainStage: false,
+    description:
+      "A deeper look at how video, YouTube, watch pages, metadata, and supporting website content can work together for search visibility.",
+    details: [],
+    skills: ["premiere", "nextjs"],
+    relatedPages: [],
+  },
+];
+
+export const videoHubAssets = {
+  hero: "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/video-edit.webp",
+  production:
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/camera-dlsr-rig.webp",
+  studio:
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/green-screen.webp",
+  fallbackPoster:
+    "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-examples.webp",
+};
+
+export function getVideoWork(slug) {
+  return videoWork.find((item) => item.slug === slug);
+}
+
+export function getMainStageVideos() {
+  return videoWork.filter(
+    (item) => item.type === "video" && item.mainStage === true,
+  );
+}
