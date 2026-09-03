@@ -108,6 +108,57 @@ export const videoWork = [
     relatedPages: [],
   },
   {
+    title: "Past Work Video Reel",
+    type: "webpage",
+    url: "https://www.youtube.com/watch?v=7NM8T8zdUlU",
+    poster: null,
+    slug: null,
+    category: "External Video",
+    mainStage: false,
+    description:
+      "A broader reel sampling earlier video work across storytelling, branded content, event coverage, and editing.",
+    details: [],
+    skills: ["premiere", "aftereffects"],
+    relatedPages: [],
+  },
+  {
+    title: "Additional Video Example",
+    type: "webpage",
+    url: "https://www.youtube.com/watch?v=nf5OKwHhA90",
+    poster: null,
+    slug: null,
+    category: "External Video",
+    mainStage: false,
+    description:
+      "An additional example from earlier video work, included as part of the broader editing and production portfolio.",
+    details: [],
+    skills: ["premiere"],
+    relatedPages: [],
+  },
+  {
+    title: "Let Us Clean Social Content",
+    type: "webpage",
+    url: "https://www.facebook.com/share/r/1GFJkvd1zh/",
+    poster: null,
+    slug: null,
+    category: "Social Video",
+    mainStage: false,
+    description:
+      "Short-form social content created to give a local service business more useful, human video assets for social channels.",
+    details: [],
+    skills: ["premiere"],
+    relatedPages: [
+      {
+        label: "Watch social clip 2",
+        url: "https://www.facebook.com/share/r/1E8YJJkg98/",
+      },
+      {
+        label: "Watch social clip 3",
+        url: "https://www.facebook.com/share/r/1Cu1edzEyd/",
+      },
+    ],
+  },
+  {
     title: "Interactive Video Experience",
     type: "webpage",
     url: "/video-experience",
