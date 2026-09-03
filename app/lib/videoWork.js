@@ -109,17 +109,25 @@ export const videoWork = [
   },
   {
     title: "Past Work Video Reel",
-    type: "webpage",
-    url: "https://www.youtube.com/watch?v=7NM8T8zdUlU",
+    type: "video",
+    url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/demo.mp4",
     poster: null,
-    slug: null,
-    category: "External Video",
-    mainStage: false,
+    slug: "past-work-video-reel",
+    category: "Video Reel",
+    mainStage: true,
     description:
       "A broader reel sampling earlier video work across storytelling, branded content, event coverage, and editing.",
-    details: [],
+    details: [
+      "This reel brings together a wider range of earlier production and post-production work in one place.",
+      "It is useful as a quick overview of editing range before moving into the more focused project examples across the rest of the video portfolio.",
+    ],
     skills: ["premiere", "aftereffects"],
-    relatedPages: [],
+    relatedPages: [
+      {
+        label: "Watch the YouTube version",
+        url: "https://www.youtube.com/watch?v=7NM8T8zdUlU",
+      },
+    ],
   },
   {
     title: "Additional Video Example",
