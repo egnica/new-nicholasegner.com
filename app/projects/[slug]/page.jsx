@@ -7,6 +7,7 @@ import Particles from "../../components/particlesBackground";
 import { projects } from "../../lib/projects";
 import { getTech } from "../../lib/techStack";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
+import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import { getProjectPageSchema } from "../../lib/schema";
 
@@ -205,23 +206,7 @@ export default async function ProjectCaseStudyPage({ params }) {
   return (
     <main className={styles.page}>
       <JsonLd data={getProjectPageSchema(project)} />
-      <nav className={oldStyles.topPage}>
-        <Link href="/">
-          <Image
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-            width={60}
-            height={60}
-            alt="Nicholas Egner Logo"
-          />
-        </Link>
-
-        <div className={oldStyles.headerNavLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/about">About Nick</Link>
-          <Link href={"/projects"}>Projects</Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <Particles />
       <div className={styles.mainBackColor} />
