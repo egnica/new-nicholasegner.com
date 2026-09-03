@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
+import VideoCapabilityFilters from "./VideoCapabilityFilters";
 import { getTech } from "../lib/techStack";
 
 const DEAD_ZONE = 0.34;
@@ -231,43 +232,6 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
     });
   }
 
-  if (activeCapability) {
-    return (
-      <section id="video-work-results" className={styles.filterResultsSection}>
-        <div className={styles.sectionHeader}>
-          <p className={styles.eyebrow}>Filtered Video Work</p>
-          <h2>{activeCapability.label}</h2>
-          <p>{activeCapability.description}</p>
-        </div>
-
-        <div className={styles.filterToolbar}>
-          <span>
-            {filteredItems.length}{" "}
-            {filteredItems.length === 1 ? "example" : "examples"}
-          </span>
-
-          <button
-            type="button"
-            className={styles.clearFilterButton}
-            onClick={clearCapabilityFilter}
-          >
-            Show all video work
-          </button>
-        </div>
-
-        <div className={styles.filterGrid}>
-          {filteredItems.map((item) => (
-            <FilteredWorkCard
-              key={item.title}
-              item={item}
-              fallbackPoster={assets.fallbackPoster}
-            />
-          ))}
-        </div>
-      </section>
-    );
-  }
-
   if (!selected) return null;
 
   return (
@@ -400,6 +364,63 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
             </div>
           </article>
         </div>
+      </section>
+
+      <section
+        id="capability-explorer"
+        className={styles.capabilityExplorerSection}
+        aria-labelledby="capability-explorer-title"
+      >
+        <div className={styles.sectionHeader}>
+          <p className={styles.eyebrow}>Explore by Capability</p>
+          <h2 id="capability-explorer-title">
+            Find the kind of video work you want to see.
+          </h2>
+          <p>
+            Filter the portfolio by production, editing, motion, video SEO, or
+            interactive experiences. The featured player above stays intact
+            while this section surfaces related examples.
+          </p>
+        </div>
+
+        <VideoCapabilityFilters capabilities={capabilities} />
+
+        {activeCapability && (
+          <div className={styles.capabilityResults}>
+            <div className={styles.capabilityResultHeader}>
+              <div>
+                <p className={styles.eyebrow}>Showing</p>
+                <h3>{activeCapability.label}</h3>
+                <p>{activeCapability.description}</p>
+              </div>
+
+              <div className={styles.filterToolbar}>
+                <span>
+                  {filteredItems.length}{" "}
+                  {filteredItems.length === 1 ? "example" : "examples"}
+                </span>
+
+                <button
+                  type="button"
+                  className={styles.clearFilterButton}
+                  onClick={clearCapabilityFilter}
+                >
+                  Clear filter
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.filterGrid}>
+              {filteredItems.map((item) => (
+                <FilteredWorkCard
+                  key={item.title}
+                  item={item}
+                  fallbackPoster={assets.fallbackPoster}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className={styles.productionSection}>
