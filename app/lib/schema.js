@@ -1303,3 +1303,54 @@ export function getVideoExperienceSchema() {
 
   return createJsonLd([webPage, experience, breadcrumbs]);
 }
+
+
+/* -------------------------------------------------------------------------- */
+/* SKILL PAGE                                                                 */
+/* -------------------------------------------------------------------------- */
+
+export function getSkillPageSchema({ tech }) {
+  if (!tech?.slug) return undefined;
+
+  const pageUrl = `${SITE_URL}/skills/${tech.slug}`;
+  const breadcrumb = getBreadcrumbSchema([
+    {
+      name: "Home",
+      url: SITE_URL,
+    },
+    {
+      name: "Skills",
+      url: `${SITE_URL}/skills`,
+    },
+    {
+      name: tech.name,
+      url: pageUrl,
+    },
+  ]);
+
+  return createJsonLd([
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: `${tech.name} | Skills | Nicholas Egner`,
+      description: tech.text,
+      inLanguage: "en-US",
+      isPartOf: {
+        "@id": schemaIds.website,
+      },
+      about: {
+        "@type": "Thing",
+        name: tech.name,
+        description: tech.text,
+      },
+      author: {
+        "@id": schemaIds.person,
+      },
+      breadcrumb: {
+        "@id": `${pageUrl}#breadcrumb`,
+      },
+    },
+    breadcrumb,
+  ]);
+}
