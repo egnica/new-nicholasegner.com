@@ -178,10 +178,11 @@
   border-radius: 24px;
   background: linear-gradient(
     90deg,
-    rgba(5, 7, 16, 0) 24%,
-    rgba(5, 7, 16, 0.2) 52%,
-    rgba(5, 7, 16, 0.72) 82%,
-    rgba(5, 7, 16, 0.95) 100%
+    rgba(5, 7, 16, 0) 18%,
+    rgba(5, 7, 16, 0.18) 42%,
+    rgba(5, 7, 16, 0.48) 66%,
+    rgba(5, 7, 16, 0.78) 84%,
+    rgba(5, 7, 16, 0.88) 100%
   );
   pointer-events: none;
 }
