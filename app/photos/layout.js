@@ -2,10 +2,10 @@ export const metadata = {
   title: "Photos of Nicholas Egner (Official Gallery)",
   description:
     "Downloadable headshots, portraits, and work images of Minneapolis-based developer Nicholas Egner.",
-  alternates: { canonical: "https://nicholasegner.com/photos" },
+  alternates: { canonical: "https://www.nicholasegner.com/photos" },
   openGraph: {
     type: "website",
-    url: "https://nicholasegner.com/photos",
+    url: "https://www.nicholasegner.com/photos",
     title: "Photos of Nicholas Egner",
     description: "Official photo gallery and press images of Nicholas Egner.",
     images: [

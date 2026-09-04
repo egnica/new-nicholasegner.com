@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import styles from "../page.module.css";
-import Link from "next/link";
 import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
+
+const SITE_URL = "https://www.nicholasegner.com";
+const PERSON_ID = `${SITE_URL}/#person`;
 
 function Photos() {
   const photoObject = [
@@ -44,7 +45,6 @@ function Photos() {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-backtothefuture.png",
       alt: "Picture of Nicholas Egner - Back to the Future",
     },
-
     {
       url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/fiverr-devices.png",
       alt: "Picture of Nicholas Egner - Modern Responsive Website",
@@ -57,34 +57,24 @@ function Photos() {
       "@graph": [
         {
           "@type": ["CollectionPage", "WebPage"],
-          "@id": "https://nicholasegner.com/photos",
-          url: "https://nicholasegner.com/photos",
+          "@id": `${SITE_URL}/photos#webpage`,
+          url: `${SITE_URL}/photos`,
           name: "Photos of Nicholas Egner",
           description:
             "Official photo gallery and press images of Nicholas Egner.",
-          about: { "@id": "https://nicholasegner.com/#nicholas-egner" },
+          about: { "@id": PERSON_ID },
+          isPartOf: { "@id": `${SITE_URL}/#website` },
         },
-        {
-          "@type": "Person",
-          "@id": "https://nicholasegner.com/#nicholas-egner",
-          name: "Nicholas Egner",
-          url: "https://nicholasegner.com/",
-          sameAs: [
-            "https://www.linkedin.com/in/nicholas-egner",
-            "https://latestartdev.com",
-          ],
-        },
-        // map each image as an ImageObject
         ...items.map((img, i) => ({
           "@type": "ImageObject",
-          "@id": `https://nicholasegner.com/photos#img${i + 1}`,
+          "@id": `${SITE_URL}/photos#img${i + 1}`,
           name: img.alt,
           caption: img.alt,
           contentUrl: img.url,
           thumbnailUrl: img.url,
-          creator: { "@id": "https://nicholasegner.com/#nicholas-egner" },
+          creator: { "@id": PERSON_ID },
           copyrightNotice: "© Nicholas Egner",
-          representativeOfPage: i === 0, // first image as lead
+          representativeOfPage: i === 0,
         })),
       ],
     };
@@ -110,7 +100,7 @@ function Photos() {
       </p>
 
       <div className={styles.photoGrid}>
-        {Object.values(photoObject).map((item, index) => (
+        {photoObject.map((item, index) => (
           <div key={index}>
             <img src={item.url} alt={item.alt} />
             <p>{item.alt}</p>
