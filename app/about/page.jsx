@@ -4,6 +4,7 @@ import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
+import AboutSocialLinks from "./AboutSocialLinks";
 import styles from "./about.module.css";
 import {
   DEFAULT_IMAGE,
@@ -79,41 +80,6 @@ const capabilities = [
   },
 ];
 
-const professionalLinks = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/nicholas-egner/",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/egnica",
-  },
-  {
-    label: "Resume",
-    href: "https://drive.google.com/file/d/1rXOuyytJnn_lx3pYp6YXZvbIHRBPzszm/view?usp=sharing",
-  },
-  {
-    label: "Google Business",
-    href: "https://www.google.com/maps/place/Nicholas+Egner+-+Web+Development/@44.9693245,-93.1667435,12z/data=!3m1!4b1!4m6!3m5!1s0x33594afad20e52d:0x2abec985a953e126!8m2!3d44.9693245!4d-93.1667435!16s%2Fg%2F11m6kbgwyb",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@NickEgnerVideo",
-  },
-  {
-    label: "My Blog",
-    href: "https://nicholasegner.com/blog",
-  },
-  {
-    label: "Spotify",
-    href: "https://open.spotify.com/user/1224553002?si=c3d54db378354cf5&nd=1&dlsi=ffb896dd3c424f82",
-  },
-  {
-    label: "X / Twitter",
-    href: "https://x.com/NicholasEgner",
-  },
-];
-
 export default function About() {
   return (
     <>
@@ -163,38 +129,7 @@ export default function About() {
           </div>
         </section>
 
-        <nav
-          aria-label="Nicholas Egner around the web"
-          style={{
-            width: "100%",
-            overflowX: "auto",
-            borderBottom: "1px solid rgba(255,255,255,0.09)",
-            background: "rgba(255,255,255,0.025)",
-          }}
-        >
-          <div
-            className={styles.professionalLinks}
-            style={{
-              width: "max-content",
-              minWidth: "100%",
-              flexWrap: "nowrap",
-              justifyContent: "center",
-              padding: "1rem clamp(1rem, 4vw, 4rem)",
-            }}
-          >
-            {professionalLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ flex: "0 0 auto" }}
-              >
-                {item.label} <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </div>
-        </nav>
+        <AboutSocialLinks />
 
         <section className={styles.introSection}>
           <div className={styles.sectionLabel}>
