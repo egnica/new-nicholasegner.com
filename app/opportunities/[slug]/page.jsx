@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import OpportunityPageClient from "./OpportunityPageClient";
 import { getOpportunityBySlug, opportunities } from "./opportunities";
 
-const SITE_URL = "https://nicholasegner.com";
+const SITE_URL = "https://www.nicholasegner.com";
 
 export function generateStaticParams() {
   return Object.keys(opportunities).map((slug) => ({ slug }));
@@ -12,7 +12,6 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const opportunity = getOpportunityBySlug(slug);
 
-  
   if (!opportunity) {
     return {
       title: "Opportunity Not Found | Nicholas Egner",
