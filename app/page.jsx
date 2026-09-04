@@ -185,38 +185,43 @@ export default function Home() {
           <TechMarquee techIcons={techIcons} />
         </section>
 
-        <section className={styles.belowHero}>
-          <img
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp"
-            alt="Nicholas Egner web development and digital content workspace"
-          />
-          <div className={styles.belowHeroText}>
-            <h2>
-              I’m&nbsp;
-              <Link href="/about" className={styles.name}>
-                Nicholas Egner
+        <section
+          className={styles.belowHero}
+          aria-labelledby="home-positioning-title"
+        >
+          <div className={styles.belowHeroInner}>
+            <div className={styles.belowHeroMedia}>
+              <img
+                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp"
+                alt="Web development, SEO, design, and video editing workspace"
+                width="576"
+                height="675"
+              />
+              <span
+                className={styles.belowHeroGradient}
+                aria-hidden="true"
+              />
+            </div>
+
+            <div className={styles.belowHeroText}>
+              <p className={styles.belowHeroEyebrow}>
+                Developer <span aria-hidden="true">•</span> Strategist{" "}
+                <span aria-hidden="true">•</span> Producer
+              </p>
+              <h2 id="home-positioning-title">
+                One person connecting the technical and creative sides of your
+                digital presence.
+              </h2>
+              <p>
+                I’m Nicholas Egner, a Minneapolis web developer and digital
+                strategist. I combine custom web development, search strategy,
+                video, content, and automation to help businesses replace
+                disconnected digital pieces with a system that works together.
+              </p>
+              <Link href="/about" className={styles.belowHeroLink}>
+                See how I work <span aria-hidden="true">→</span>
               </Link>
-            </h2>
-            <br />
-            <p>
-              I’m a Minneapolis web developer and digital strategist who helps
-              businesses connect the technical and creative pieces of their
-              digital presence.
-            </p>
-            <br />
-            <p>
-              My work combines custom web development, SEO, video, content, and
-              automation into connected digital systems. That can mean building
-              the website, creating the content and video around it, improving
-              how search engines understand it, or developing a custom tool that
-              makes the business easier to operate.
-            </p>
-            <br />
-            <p>
-              I work best with businesses that need more than a brochure
-              website and want one person who can understand the goal, connect
-              the pieces, and build the working solution.
-            </p>
+            </div>
           </div>
         </section>
 
