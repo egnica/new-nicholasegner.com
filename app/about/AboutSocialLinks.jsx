@@ -28,7 +28,7 @@ const socialLinks = [
   },
   {
     label: "My Blog",
-    href: "https://nicholasegner.com/blog",
+    href: "https://www.nicholasegner.com/blog",
     icon: "blog",
   },
   {
