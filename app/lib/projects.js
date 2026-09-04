@@ -150,10 +150,10 @@ export const projects = [
   {
     title: "Let Us Clean MN",
     slug: "let-us-clean-mn",
-    eyebrow: "Local SEO & Google Business Foundation",
+    eyebrow: "Local Visibility & Client Communication System",
 
     summary:
-      "A local SEO foundation project for a Minnesota cleaning service that started with no web presence or Google Business Profile. I created the business’s online foundation and helped them begin using Google ratings and reviews as trust signals for local search.",
+      "A connected digital and operations project for a Minnesota cleaning service, combining a new web presence, local SEO, Google Business Profile support, reviews, short-form video, and a custom Google Calendar-to-Quo SMS automation system for client communication.",
 
     role: [
       "Web presence creation",
@@ -162,6 +162,11 @@ export const projects = [
       "Service positioning",
       "Review and rating strategy",
       "Metadata and search context",
+      "Google Calendar integration",
+      "MongoDB job synchronization",
+      "Quo SMS automation",
+      "Automated day-before, day-of and completion messaging",
+      "Automation state and error-handling design",
       "Short-form video editing",
       "Reels content support",
       "Social content support",
@@ -169,13 +174,13 @@ export const projects = [
 
     preview: {
       problem:
-        "The business had no real web presence or Google Business Profile, which made it harder for potential local customers to find, verify, and trust the service.",
+        "The business needed both a stronger public presence and a more reliable way to manage recurring client communication around scheduled cleanings. Appointments lived in Google Calendar, while reminders and follow-up texts required repetitive manual work.",
 
       approach:
-        "I created the business’s web presence, set up the Google Business Profile, structured the service information for local search, and helped establish a review strategy so ratings could support visibility and trust.",
+        "I created the business’s web and local-search foundation, then built a Next.js automation app that syncs Google Calendar events into MongoDB on a 15-minute cadence. Events with a Phone: field in the calendar description are eligible for automation, while other events can still sync without triggering messages. Quo powers the SMS workflow for day-before, day-of, and completion messages. The system tracks send state, cancellations, disabled records, and a rolling seven-day active window so calendar changes can be reflected without blindly sending texts.",
 
       result:
-        "The business now has a clearer local search foundation, a Google presence, and a growing review/rating strategy that can help improve credibility and support local SEO over time.",
+        "The project connected visibility work with operations. The business gained a clearer website and Google presence while also getting a custom communication workflow designed to reduce repetitive reminder texting and keep scheduled client messages tied to the calendar. The automation work reached implementation before the broader project was paused as the business situation changed.",
     },
 
     capabilities: [
@@ -183,6 +188,11 @@ export const projects = [
         title: "Web Presence From Scratch",
         summary:
           "Created the business’s initial online presence so potential customers could find, understand, and contact the cleaning service.",
+      },
+      {
+        title: "Calendar-Driven SMS Automation",
+        summary:
+          "Built a Next.js workflow connecting Google Calendar, MongoDB, and Quo. Upcoming appointments sync on a 15-minute cadence, a Phone: field in the calendar description gates SMS automation, and message state supports day-before, day-of, and completion communication with cancellation and outage safeguards.",
       },
       {
         title: "Google Business Profile Setup",
@@ -201,14 +211,24 @@ export const projects = [
       },
     ],
 
-    stack: ["googlebusiness", "premiere", "aftereffects", "photoshop", "seo"],
+    stack: [
+      "nextjs",
+      "react",
+      "mongodb",
+      "amplify",
+      "googlebusiness",
+      "premiere",
+      "aftereffects",
+      "photoshop",
+      "seo",
+    ],
 
     heroMedia: {
       type: "video",
       src: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website_projects_page/LUC_loop.mp4",
-      alt: "Let Us Clean MN web presence, Google Business Profile, and social video preview",
+      alt: "Let Us Clean MN web presence, Google Business Profile, social video, and client communication system preview",
       caption:
-        "A local SEO foundation built from scratch for a Minnesota cleaning service.",
+        "A connected local visibility and client communication system combining web, Google Business, video, and appointment-driven SMS automation.",
     },
 
     links: [
@@ -231,15 +251,22 @@ export const projects = [
 
     caseStudy: {
       overview:
-        "Let Us Clean MN started with no meaningful web presence or Google Business Profile. The project focused on creating the business’s local search foundation from the ground up, including an online presence, Google Business setup, service positioning, review and rating strategy, and short-form video support for social content.",
+        "Let Us Clean MN grew from a local-search foundation into a broader digital operations project. I created the business’s web presence, set up its Google Business Profile, supported review and rating strategy, edited short-form video, and built a custom client communication system that used Google Calendar as the scheduling source, MongoDB as the job-state layer, and Quo for automated SMS. The automation was designed around the way the business already scheduled cleanings, so client communication could follow calendar changes instead of creating a second scheduling system.",
 
       highlights: [
         "Created the business’s initial web presence",
         "Set up the Google Business Profile from scratch",
         "Structured the business information around local cleaning service searches",
+        "Built a Next.js automation application for scheduled client communication",
+        "Connected Google Calendar scheduling to a MongoDB job database",
+        "Synced upcoming calendar events on a 15-minute cadence with a seven-day forward automation window",
+        "Used a Phone: field in calendar event descriptions to determine which appointments were eligible for automated messaging",
+        "Integrated Quo for day-before, day-of, and completion SMS workflows",
+        "Tracked per-job automation state so messages would not be sent more than once",
+        "Designed handling for cancelled and completed jobs, disabled out-of-window records, late-created appointments, and temporary Google Calendar outages",
         "Helped establish a Google review and rating strategy to support trust and local visibility",
         "Edited short-form video content for Reels and social media use",
-        "Connected web presence, Google visibility, reviews, and social content into a local marketing foundation",
+        "Connected web presence, Google visibility, reviews, social content, scheduling, and client communication into one broader business system",
       ],
     },
 
@@ -276,7 +303,7 @@ export const projects = [
     seo: {
       title: "Let Us Clean MN Project | Nicholas Egner",
       description:
-        "A local SEO foundation project for Let Us Clean MN, including web presence creation, Google Business Profile setup, review strategy, and short-form video editing for social content.",
+        "A connected local visibility and operations project for Let Us Clean MN, including web development, Google Business Profile setup, local SEO, Google Calendar scheduling, MongoDB job sync, Quo SMS automation, reviews, and short-form video.",
     },
   },
   {
