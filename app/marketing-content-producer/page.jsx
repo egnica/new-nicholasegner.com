@@ -17,7 +17,7 @@ export const metadata = {
     title: "Nicholas Egner | Marketing Content Producer Application",
     description:
       "A custom video application experience built around video production, SEO, web strategy, and mission-driven storytelling.",
-    url: "https://nicholasegner.com/marketing-content-producer",
+    url: "https://www.nicholasegner.com/marketing-content-producer",
     siteName: "Nicholas Egner",
     type: "website",
     images: [
