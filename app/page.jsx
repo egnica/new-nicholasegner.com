@@ -17,7 +17,32 @@ import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 import LazyMount from "./components/LazyMount";
 import JsonLd from "./components/JsonLd/JsonLd";
 import HomeIdentitySections from "./components/HomeIdentitySections/HomeIdentitySections";
-import { getHomePageSchema } from "./lib/schema";
+
+const homePageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.nicholasegner.com/#webpage",
+      url: "https://www.nicholasegner.com",
+      name: "Nicholas Egner | Minneapolis Web Developer & Digital Strategist",
+      description:
+        "Nicholas Egner is a Minneapolis web developer and digital strategist who combines custom web development, SEO, video, content, and automation to build connected digital systems for businesses.",
+      isPartOf: {
+        "@id": "https://www.nicholasegner.com/#website",
+      },
+      about: {
+        "@id": "https://www.nicholasegner.com/#person",
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        "@id": "https://www.nicholasegner.com/#primaryimage",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
+      },
+      inLanguage: "en-US",
+    },
+  ],
+};
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -84,7 +109,7 @@ export default function Home() {
 
   return (
     <>
-      <JsonLd data={getHomePageSchema()} />
+      <JsonLd data={homePageSchema} />
       <div className={styles.mainBackColor}></div>
       <ParticlesBackground />
       <main className={styles.page}>
