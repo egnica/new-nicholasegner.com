@@ -16,6 +16,7 @@ import SiteHeader from "./components/SiteHeader/SiteHeader";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 import LazyMount from "./components/LazyMount";
 import JsonLd from "./components/JsonLd/JsonLd";
+import HomeIdentitySections from "./components/HomeIdentitySections/HomeIdentitySections";
 import { getHomePageSchema } from "./lib/schema";
 
 export default function Home() {
@@ -173,33 +174,29 @@ export default function Home() {
             </h2>
             <br />
             <p>
-              I build websites and content systems that help businesses get
-              found, gain digital credibility, and turn attention into
-              opportunity.
+              I’m a Minneapolis web developer and digital strategist who helps
+              businesses connect the technical and creative pieces of their
+              digital presence.
             </p>
             <br />
             <p>
-              I work with businesses that need more than a basic website. I help
-              shape the full digital experience:
-              <br />
-              <br />
-              <strong style={{ fontSize: "1.4rem" }} className={styles.name}>
-                the site, the message, the content, the SEO structure, the
-                video, and the trust signals{" "}
-              </strong>
-              <br />
-              <br />
-              that make people feel confident reaching out.
+              My work combines custom web development, SEO, video, content, and
+              automation into connected digital systems. That can mean building
+              the website, creating the content and video around it, improving
+              how search engines understand it, or developing a custom tool that
+              makes the business easier to operate.
             </p>
             <br />
             <p>
-              Whether you need a new website, stronger service pages, video
-              content, social-ready assets, or a clearer online presence, I
-              bring the technical and creative pieces together into one focused
-              system.
+              I work best with businesses that need more than a brochure
+              website and want one person who can understand the goal, connect
+              the pieces, and build the working solution.
             </p>
           </div>
         </section>
+
+        <HomeIdentitySections />
+
         <LazyMount>
           <FeaturedProjectCards minHeight={700} />
         </LazyMount>
