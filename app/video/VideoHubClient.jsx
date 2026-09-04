@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
@@ -115,6 +116,7 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
   const filteredItems = activeCapability
     ? items.filter((item) => item.capabilities?.includes(activeCapability.slug))
     : [];
+  const reduceMotion = useReducedMotion();
   const mainStageVideos = useMemo(
     () =>
       items.filter(
@@ -374,42 +376,76 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
 
         <VideoCapabilityFilters capabilities={capabilities} />
 
-        {activeCapability && (
-          <div className={styles.capabilityResults}>
-            <div className={styles.capabilityResultHeader}>
-              <div>
-                <p className={styles.eyebrow}>Showing</p>
-                <h3>{activeCapability.label}</h3>
-                <p>{activeCapability.description}</p>
+        <AnimatePresence initial={false} mode="wait">
+          {activeCapability && (
+            <motion.div
+              key={activeCapability.slug}
+              initial={reduceMotion ? false : { height: 0, opacity: 0 }}
+              animate={{
+                height: "auto",
+                opacity: 1,
+                transition: reduceMotion
+                  ? { duration: 0 }
+                  : {
+                      height: {
+                        duration: 0.48,
+                        ease: [0.22, 1, 0.36, 1],
+                      },
+                      opacity: { duration: 0.24, ease: "easeOut" },
+                    },
+              }}
+              exit={{
+                height: 0,
+                opacity: 0,
+                transition: reduceMotion
+                  ? { duration: 0 }
+                  : {
+                      height: {
+                        duration: 0.34,
+                        ease: [0.4, 0, 1, 1],
+                      },
+                      opacity: { duration: 0.16, ease: "easeIn" },
+                    },
+              }}
+              style={{ overflow: "hidden" }}
+            >
+              <div className={styles.capabilityResults}>
+                <div className={styles.capabilityResultHeader}>
+                  <div>
+                    <p className={styles.eyebrow}>Showing</p>
+                    <h3>{activeCapability.label}</h3>
+                    <p>{activeCapability.description}</p>
+                  </div>
+
+                  <div className={styles.filterToolbar}>
+                    <span>
+                      {filteredItems.length}{" "}
+                      {filteredItems.length === 1 ? "example" : "examples"}
+                    </span>
+
+                    <button
+                      type="button"
+                      className={styles.clearFilterButton}
+                      onClick={clearCapabilityFilter}
+                    >
+                      Clear filter
+                    </button>
+                  </div>
+                </div>
+
+                <div className={styles.filterGrid}>
+                  {filteredItems.map((item) => (
+                    <FilteredWorkCard
+                      key={item.title}
+                      item={item}
+                      fallbackPoster={assets.fallbackPoster}
+                    />
+                  ))}
+                </div>
               </div>
-
-              <div className={styles.filterToolbar}>
-                <span>
-                  {filteredItems.length}{" "}
-                  {filteredItems.length === 1 ? "example" : "examples"}
-                </span>
-
-                <button
-                  type="button"
-                  className={styles.clearFilterButton}
-                  onClick={clearCapabilityFilter}
-                >
-                  Clear filter
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.filterGrid}>
-              {filteredItems.map((item) => (
-                <FilteredWorkCard
-                  key={item.title}
-                  item={item}
-                  fallbackPoster={assets.fallbackPoster}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       <section className={styles.productionSection}>
