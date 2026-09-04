@@ -46,10 +46,11 @@ export const videoWork = [
     title: "Your Gardens By Design",
     type: "video",
     url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/your-gardens.mp4",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video/thumbnails/yourGardens-Thumb.png",
     slug: "your-gardens-by-design",
     category: "Brand Storytelling",
-    capabilities: ["production", "editing", "motion"],
+    capabilities: ["production", "editing"],
     mainStage: true,
     description:
       "A brand video built around personality, place, and the real client experience behind a local garden design business.",
@@ -73,7 +74,7 @@ export const videoWork = [
     poster: null,
     slug: "whittier-neighborhood-documentary",
     category: "Documentary Storytelling",
-    capabilities: ["production", "editing"],
+    capabilities: ["production", "editing", "motion"],
     mainStage: true,
     description:
       "A community-focused documentary piece showing a more editorial approach to interview structure, pacing, and neighborhood storytelling.",
@@ -109,7 +110,7 @@ export const videoWork = [
     poster: null,
     slug: "landscape-structures",
     category: "Branded Collaboration",
-    capabilities: ["production", "editing", "motion"],
+    capabilities: ["production", "editing"],
     mainStage: true,
     description:
       "A branded collaboration that demonstrates concise visual storytelling, professional pacing, and a polished edit for an organizational audience.",
@@ -124,10 +125,11 @@ export const videoWork = [
     title: "Barlow Research Conference 2024",
     type: "video",
     url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/bbc.mp4",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
     slug: "barlow-research-conference-2024",
     category: "Corporate & Conference Video",
-    capabilities: ["production", "editing", "motion"],
+    capabilities: ["production", "editing"],
     mainStage: true,
     description:
       "Conference video designed to turn a live professional event into an ongoing branded storytelling asset.",
@@ -142,7 +144,8 @@ export const videoWork = [
     title: "Barlow Conference Edit",
     type: "video",
     url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/BBC_2024-2.mp4",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/projects/BBC-2024.webp",
     slug: "barlow-conference-edit",
     category: "Corporate & Conference Video",
     capabilities: ["editing", "motion"],
@@ -222,7 +225,8 @@ export const videoWork = [
     title: "Interactive Video Experience",
     type: "webpage",
     url: "/video-experience",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp",
     slug: null,
     category: "Interactive Video",
     capabilities: ["editing", "motion", "interactive"],
@@ -237,7 +241,8 @@ export const videoWork = [
     title: "Davis Defense Video Hub",
     type: "webpage",
     url: "https://www.davisdefenselawyers.com/video",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/andrewDavis/Videos-davis/thumbnail/video-library.webp",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/andrewDavis/Videos-davis/thumbnail/video-library.webp",
     slug: null,
     category: "Video SEO & Publishing",
     capabilities: ["editing", "video-seo", "interactive"],
@@ -261,7 +266,8 @@ export const videoWork = [
     title: "Video SEO Trifecta",
     type: "webpage",
     url: "/blog/video-seo-trifecta",
-    poster: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
+    poster:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/images/video_seo_thumbnail.png",
     slug: null,
     category: "Video SEO Strategy",
     capabilities: ["video-seo"],
