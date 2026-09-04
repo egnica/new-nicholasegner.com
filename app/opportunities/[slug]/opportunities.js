@@ -334,6 +334,143 @@ export const opportunities = {
       },
     ],
   },
+  "manufacturers-alliance-marketing-content-specialist": {
+    company: "Manufacturers Alliance",
+    role: "Marketing & Content Specialist",
+
+    eyebrow: "Marketing & Content Specialist Application",
+    headline: "Content, Video & Digital Strategy",
+    introduction:
+      "A short introduction for the Marketing & Content Specialist role at Manufacturers Alliance, with relevant work and capabilities linked alongside the video.",
+
+    videoUrl: "REPLACE_VIDEO_URL",
+    posterUrl: "REPLACE_POSTER_URL",
+
+    actions: [
+      {
+        id: "resume",
+        title: "Resume",
+        url: "REPLACE_RESUME_URL",
+      },
+    ],
+
+    note: {
+      eyebrow: "Why I Created This",
+      headline: "A short introduction with the work behind it.",
+      body: "As I mention different parts of my background, the links alongside the video provide a direct path to the related projects, video work, and skills represented across my portfolio.",
+    },
+
+    metadata: {
+      title: "Nicholas Egner | Marketing & Content Specialist Application",
+      description:
+        "A custom application experience for the Marketing & Content Specialist role at Manufacturers Alliance, featuring digital content, video, web, SEO, podcasts, webinars, and hands-on marketing execution.",
+      socialDescription:
+        "A short application introduction connecting Nicholas Egner's content, video, web, SEO, and digital strategy work to the Marketing & Content Specialist role at Manufacturers Alliance.",
+      imageAlt:
+        "Nicholas Egner Marketing and Content Specialist application video cover image",
+    },
+
+    cues: [
+      {
+        id: "01",
+        title: "About Nicholas",
+        url: "/about",
+        startTime: 1,
+        endTime: 12,
+      },
+      {
+        id: "02",
+        title: "Skills & Capabilities",
+        url: "/skills",
+        startTime: 7,
+        endTime: 19,
+      },
+      {
+        id: "03",
+        title: "Video Work",
+        url: "/video",
+        startTime: 7,
+        endTime: 19,
+      },
+      {
+        id: "04",
+        title: "Selected Projects",
+        url: "/projects",
+        startTime: 7,
+        endTime: 19,
+      },
+      {
+        id: "05",
+        title: "Barlow Research Conference 2024",
+        url: "/video/barlow-research-conference-2024",
+        startTime: 17,
+        endTime: 30,
+      },
+      {
+        id: "06",
+        title: "Premiere Pro",
+        url: "/skills/premiere",
+        startTime: 18,
+        endTime: 30,
+      },
+      {
+        id: "07",
+        title: "After Effects",
+        url: "/skills/aftereffects",
+        startTime: 18,
+        endTime: 30,
+      },
+      {
+        id: "08",
+        title: "Barlow Podcasts",
+        url: "https://barlowresearch.com/resources/",
+        startTime: 18,
+        endTime: 30,
+      },
+      {
+        id: "09",
+        title: "Davis Defense Case Study",
+        url: "/projects/davis-defense",
+        startTime: 28,
+        endTime: 43,
+      },
+      {
+        id: "10",
+        title: "Video SEO Work",
+        url: "/video?focus=video-seo",
+        startTime: 29,
+        endTime: 43,
+      },
+      {
+        id: "11",
+        title: "Next.js",
+        url: "/skills/nextjs",
+        startTime: 29,
+        endTime: 43,
+      },
+      {
+        id: "12",
+        title: "SEO",
+        url: "/skills/seo",
+        startTime: 29,
+        endTime: 43,
+      },
+      {
+        id: "13",
+        title: "Full Portfolio",
+        url: "/",
+        startTime: 41,
+        endTime: 60,
+      },
+      {
+        id: "14",
+        title: "LinkedIn",
+        url: "https://www.linkedin.com/in/nicholas-egner/",
+        startTime: 41,
+        endTime: 60,
+      },
+    ],
+  },
 };
 
 export function getOpportunityBySlug(slug) {
