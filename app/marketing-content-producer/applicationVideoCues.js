@@ -13,15 +13,13 @@ export const applicationVideoCues = [
     startTime: 1.5,
     endTime: 68,
   },
-
   {
     id: "99",
     title: "My Blog",
-    url: "/https://nicholasegner.com/blog",
+    url: "/blog",
     startTime: 2,
     endTime: 68,
   },
-
   {
     id: "03",
     title: "Davis Defense Video Hub",
@@ -29,11 +27,10 @@ export const applicationVideoCues = [
     startTime: 67.5,
     endTime: 96,
   },
-
   {
     id: "04",
     title: "Davis Case Study",
-    url: "https://nicholasegner.com/projects?project=davis-defense",
+    url: "https://www.nicholasegner.com/projects/davis-defense",
     startTime: 68,
     endTime: 96.5,
   },
@@ -47,7 +44,7 @@ export const applicationVideoCues = [
   {
     id: "06",
     title: "Video SEO Trifecta",
-    url: "https://nicholasegner.com/blog/video-seo-trifecta",
+    url: "https://www.nicholasegner.com/blog/video-seo-trifecta",
     startTime: 108,
     endTime: 121,
   },
@@ -61,7 +58,7 @@ export const applicationVideoCues = [
   {
     id: "08",
     title: "Landscape Structures",
-    url: "https://nicholasegner.com",
+    url: "https://www.nicholasegner.com",
     startTime: 120,
     endTime: 145,
   },
@@ -75,7 +72,7 @@ export const applicationVideoCues = [
   {
     id: "10",
     title: "Your Gardens By Design",
-    url: "https://nicholasegner.com/blog/your-gardens-by-design-video",
+    url: "https://www.nicholasegner.com/blog/your-gardens-by-design-video",
     startTime: 120,
     endTime: 145,
   },
