@@ -1,12 +1,8 @@
 "use client";
-import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import stackData from "../stack.json";
 import Reviews from "../reviews.json";
-import lottie from "lottie-web";
 import ParticlesBackground from "./components/particlesBackground";
 import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
@@ -16,44 +12,10 @@ import SiteHeader from "./components/SiteHeader/SiteHeader";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
 import LazyMount from "./components/LazyMount";
 import JsonLd from "./components/JsonLd/JsonLd";
+import HomeHero from "./components/HomeHero/HomeHero";
 import { getHomePageSchema } from "./lib/schema";
 
 export default function Home() {
-  const [index, setIndex] = useState(0);
-  const animRef = useRef(null);
-  const [heroFrames, setHeroFrames] = useState(false);
-
-  useEffect(() => {
-    if (!animRef.current) return;
-    const anim = lottie.loadAnimation({
-      container: animRef.current,
-      renderer: "svg",
-      loop: false,
-      autoplay: true,
-      path: "/nicholas-egner-animation.json",
-      name: "heroAnimation",
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-        // preserveAspectRatio: "xMidYMid meet",
-        progressiveLoad: true,
-        hideOnTransparent: true,
-      },
-    });
-    lottie.resize("heroAnimation");
-    // console.log(anim);
-    anim.setSpeed(1.2); // Change speed
-    anim.addEventListener("DOMLoaded", () => {
-      anim.addEventListener("complete", () => {
-        setHeroFrames(true);
-      });
-    });
-
-    return () => {
-      anim.removeEventListener("complete"); // cleanup
-      anim.destroy();
-    };
-  }, []);
-
   const techIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
       name: tech.name,
@@ -61,25 +23,6 @@ export default function Home() {
       href: `/skills/${tech.slug}`,
     })),
   );
-
-  const skillsArray = [
-    "Web Developer",
-    "App Developer",
-    "Content Creator",
-    "Video Producer",
-    "Video Editor",
-    "SEO Specialist",
-    "Digital Experiences",
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % skillsArray.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const name = "Nicholas Egner";
 
   return (
     <>
@@ -89,71 +32,7 @@ export default function Home() {
       <main className={styles.page}>
         <SiteHeader />
 
-        <motion.section className={styles.nameCont}>
-          <div ref={animRef} className={styles.lottieBackground} />
-
-          <div className={styles.heroTextContain}>
-            {heroFrames && (
-              <motion.h1
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 10 }}
-                transition={{ duration: 0.6 }}
-                className={styles.nameTitle}
-              >
-                {name}
-              </motion.h1>
-            )}
-
-            {heroFrames && (
-              <motion.div
-                style={{ margin: "auto" }}
-                initial={{ opacity: 0, scale: 3, y: -100 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ scale: 1.1, cursor: "pointer" }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Link href={"./about"}>
-                  <Image
-                    className={styles.logoMain}
-                    src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-                    width={160}
-                    height={160}
-                    alt="Nicholas Egner Logo"
-                  />
-                </Link>
-              </motion.div>
-            )}
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              className={styles.btnTitleContain}
-            >
-              <Link href={"./video-experience"}>
-                <div className={styles.mainBtn}>ABOUT ME</div>
-              </Link>
-              <Link href={"./projects"}>
-                <div className={styles.mainBtn}>PROJECTS</div>
-              </Link>
-            </motion.div>
-            {heroFrames && (
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={skillsArray[index]}
-                  className={styles.skillTitle}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {skillsArray[index]}
-                </motion.h1>
-              </AnimatePresence>
-            )}
-          </div>
-        </motion.section>
+        <HomeHero />
 
         <section className={styles.bottomBuffer}>
           <TechMarquee techIcons={techIcons} />
