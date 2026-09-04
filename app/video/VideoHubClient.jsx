@@ -133,17 +133,6 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
     [items],
   );
 
-  const moreVideos = useMemo(
-    () =>
-      items.filter(
-        (item) =>
-          (item.type === "video" && item.mainStage !== true) ||
-          (item.type === "webpage" &&
-            ["External Video", "Social Video"].includes(item.category)),
-      ),
-    [items],
-  );
-
   const [selectedTitle, setSelectedTitle] = useState(
     mainStageVideos[0]?.title || "",
   );
@@ -514,61 +503,6 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
           ))}
         </div>
       </section>
-
-      {moreVideos.length > 0 && (
-        <section className={styles.moreSection}>
-          <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>More Video Work</p>
-            <h2>Additional edits and supporting pieces.</h2>
-          </div>
-
-          <div className={styles.moreGrid}>
-            {moreVideos.map((item) => (
-              <article key={item.title} className={styles.moreCard}>
-                <PosterImage
-                  item={item}
-                  fallbackPoster={assets.fallbackPoster}
-                  className={styles.moreImage}
-                />
-                <div className={styles.moreCopy}>
-                  <p className={styles.stageCategory}>{item.category}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  {item.slug ? (
-                    <Link
-                      href={`/video/${item.slug}`}
-                      className={styles.textLink}
-                    >
-                      View project details <span aria-hidden="true">→</span>
-                    </Link>
-                  ) : (
-                    <ExternalOrInternalLink
-                      href={item.url}
-                      className={styles.textLink}
-                    >
-                      Watch example <span aria-hidden="true">→</span>
-                    </ExternalOrInternalLink>
-                  )}
-
-                  {item.relatedPages?.length > 0 && (
-                    <div className={styles.relatedLinks}>
-                      {item.relatedPages.map((page) => (
-                        <ExternalOrInternalLink
-                          key={page.url}
-                          href={page.url}
-                          className={styles.relatedLink}
-                        >
-                          {page.label}
-                        </ExternalOrInternalLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
 
       <section className={styles.studioSection}>
         <div className={styles.studioCopy}>
