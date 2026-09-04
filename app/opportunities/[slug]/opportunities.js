@@ -69,7 +69,7 @@ export const opportunities = {
       {
         id: "04",
         title: "Davis Case Study",
-        url: "https://nicholasegner.com/projects?project=davis-defense",
+        url: "https://www.nicholasegner.com/projects/davis-defense",
         startTime: 68,
         endTime: 96.5,
       },
@@ -83,7 +83,7 @@ export const opportunities = {
       {
         id: "06",
         title: "Video SEO Trifecta",
-        url: "https://nicholasegner.com/blog/video-seo-trifecta",
+        url: "https://www.nicholasegner.com/blog/video-seo-trifecta",
         startTime: 108,
         endTime: 121,
       },
@@ -97,7 +97,7 @@ export const opportunities = {
       {
         id: "08",
         title: "Landscape Structures",
-        url: "https://nicholasegner.com",
+        url: "https://www.nicholasegner.com",
         startTime: 120,
         endTime: 145,
       },
@@ -111,7 +111,7 @@ export const opportunities = {
       {
         id: "10",
         title: "Your Gardens By Design",
-        url: "https://nicholasegner.com/blog/your-gardens-by-design-video",
+        url: "https://www.nicholasegner.com/blog/your-gardens-by-design-video",
         startTime: 120,
         endTime: 145,
       },
@@ -223,21 +223,21 @@ export const opportunities = {
       {
         id: "05",
         title: "Premiere Pro",
-        url: "https://nicholasegner.com/skills/premiere",
+        url: "https://www.nicholasegner.com/skills/premiere",
         startTime: 19,
         endTime: 28,
       },
       {
         id: "06",
         title: "After Effects",
-        url: "https://nicholasegner.com/skills/aftereffects",
+        url: "https://www.nicholasegner.com/skills/aftereffects",
         startTime: 20,
         endTime: 28,
       },
       {
         id: "07",
         title: "Photoshop",
-        url: "https://nicholasegner.com/skills/photoshop",
+        url: "https://www.nicholasegner.com/skills/photoshop",
         startTime: 22,
         endTime: 28,
       },
@@ -258,7 +258,7 @@ export const opportunities = {
       {
         id: "10",
         title: "Davis Defense Project",
-        url: "https://nicholasegner.com/projects?project=davis-defense",
+        url: "https://www.nicholasegner.com/projects/davis-defense",
         startTime: 33,
         endTime: 44,
       },
@@ -272,7 +272,7 @@ export const opportunities = {
       {
         id: "12",
         title: "Your Gardens Brand Story",
-        url: "https://nicholasegner.com/blog/your-gardens-by-design-video",
+        url: "https://www.nicholasegner.com/blog/your-gardens-by-design-video",
         startTime: 48,
         endTime: 62,
       },
@@ -300,22 +300,21 @@ export const opportunities = {
       {
         id: "16",
         title: "Video SEO Trifecta",
-        url: "https://nicholasegner.com/blog/video-seo-trifecta",
+        url: "https://www.nicholasegner.com/blog/video-seo-trifecta",
         startTime: 61,
         endTime: 74,
       },
-
       {
         id: "17",
         title: "Framer Motion",
-        url: "https://nicholasegner.com/skills/framermotion",
+        url: "https://www.nicholasegner.com/skills/framermotion",
         startTime: 61,
         endTime: 74,
       },
       {
         id: "18",
         title: "Full Portfolio",
-        url: "https://nicholasegner.com/",
+        url: "https://www.nicholasegner.com/",
         startTime: 73,
         endTime: 82,
       },
