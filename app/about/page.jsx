@@ -100,6 +100,18 @@ const professionalLinks = [
     label: "YouTube",
     href: "https://www.youtube.com/@NickEgnerVideo",
   },
+  {
+    label: "My Blog",
+    href: "https://nicholasegner.com/blog",
+  },
+  {
+    label: "Spotify",
+    href: "https://open.spotify.com/user/1224553002?si=c3d54db378354cf5&nd=1&dlsi=ffb896dd3c424f82",
+  },
+  {
+    label: "X / Twitter",
+    href: "https://x.com/NicholasEgner",
+  },
 ];
 
 export default function About() {
@@ -150,6 +162,39 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <nav
+          aria-label="Nicholas Egner around the web"
+          style={{
+            width: "100%",
+            overflowX: "auto",
+            borderBottom: "1px solid rgba(255,255,255,0.09)",
+            background: "rgba(255,255,255,0.025)",
+          }}
+        >
+          <div
+            className={styles.professionalLinks}
+            style={{
+              width: "max-content",
+              minWidth: "100%",
+              flexWrap: "nowrap",
+              justifyContent: "center",
+              padding: "1rem clamp(1rem, 4vw, 4rem)",
+            }}
+          >
+            {professionalLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ flex: "0 0 auto" }}
+              >
+                {item.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </nav>
 
         <section className={styles.introSection}>
           <div className={styles.sectionLabel}>
@@ -281,26 +326,6 @@ export default function About() {
               <strong>SEO, web, video & what I am learning</strong>
               <b aria-hidden="true">→</b>
             </Link>
-          </div>
-        </section>
-
-        <section className={styles.connectSection}>
-          <div>
-            <p className={styles.eyebrow}>Elsewhere</p>
-            <h2>Find me around the web.</h2>
-          </div>
-
-          <div className={styles.professionalLinks}>
-            {professionalLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.label} <span aria-hidden="true">↗</span>
-              </a>
-            ))}
           </div>
         </section>
 
