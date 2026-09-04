@@ -1,114 +1,140 @@
-"use client";
-import React from "react";
-import styles from "../page.module.css";
+import Link from "next/link";
 import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
+import SiteFooter from "../components/SiteFooter/SiteFooter";
+import { photoAssets, primaryPhoto } from "../lib/photoAssets";
+import styles from "./photos.module.css";
 
 const SITE_URL = "https://www.nicholasegner.com";
 const PERSON_ID = `${SITE_URL}/#person`;
 
-function Photos() {
-  const photoObject = [
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-portfolio.jpg",
-      alt: "Nicholas Egner - Digital Creator",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-profile.jpg",
-      alt: "Nicholas Egner - Digital Creator",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/fiverr-cover-1.png",
-      alt: "Picture of Nicholas Egner - Modern Business Website",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-outline.webp",
-      alt: "Nicholas Egner - Fun Color image",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner.jpg",
-      alt: "Portrait of Nicholas Egner - Minneapolis Web Developer",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
-      alt: "Nicholas Egner - Digital portfolio",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg",
-      alt: "Nicholas Egner - Logo",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-vikings.jpg",
-      alt: "Picture of Nicholas Egner - Minnesota Vikings",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/nicholas-egner-backtothefuture.png",
-      alt: "Picture of Nicholas Egner - Back to the Future",
-    },
-    {
-      url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/fiverr-devices.png",
-      alt: "Picture of Nicholas Egner - Modern Responsive Website",
-    },
-  ];
+function PhotoJsonLd() {
+  const pageUrl = `${SITE_URL}/photos`;
 
-  function JsonLd({ items }) {
-    const data = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": ["CollectionPage", "WebPage"],
-          "@id": `${SITE_URL}/photos#webpage`,
-          url: `${SITE_URL}/photos`,
-          name: "Photos of Nicholas Egner",
-          description:
-            "Official photo gallery and press images of Nicholas Egner.",
-          about: { "@id": PERSON_ID },
-          isPartOf: { "@id": `${SITE_URL}/#website` },
+  const imageObjects = photoAssets.map((image, index) => ({
+    "@type": "ImageObject",
+    "@id": `${pageUrl}#image-${index + 1}`,
+    name: image.title,
+    description: image.caption,
+    caption: image.caption,
+    contentUrl: image.url,
+    thumbnailUrl: image.url,
+    about: { "@id": PERSON_ID },
+    creator: { "@id": PERSON_ID },
+    creditText: "Nicholas Egner",
+    copyrightNotice: "© Nicholas Egner",
+    representativeOfPage: index === 0,
+  }));
+
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["CollectionPage", "WebPage"],
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Photos of Nicholas Egner",
+        description:
+          "Official image gallery for Nicholas Egner, a Minneapolis web developer and digital strategist working across web development, SEO, video, content, and digital systems.",
+        about: { "@id": PERSON_ID },
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        primaryImageOfPage: { "@id": `${pageUrl}#image-1` },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: imageObjects.map((image, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: { "@id": image["@id"] },
+          })),
         },
-        ...items.map((img, i) => ({
-          "@type": "ImageObject",
-          "@id": `${SITE_URL}/photos#img${i + 1}`,
-          name: img.alt,
-          caption: img.alt,
-          contentUrl: img.url,
-          thumbnailUrl: img.url,
-          creator: { "@id": PERSON_ID },
-          copyrightNotice: "© Nicholas Egner",
-          representativeOfPage: i === 0,
-        })),
-      ],
-    };
-
-    return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-      />
-    );
-  }
+      },
+      ...imageObjects,
+    ],
+  };
 
   return (
-    <div className={styles.photosPage}>
-      <JsonLd items={photoObject} />
-      <div className={styles.mainBackColor}></div>
-      <Particles />
-      <SiteHeader />
-      <h1 style={{ color: "white" }}>Photos of Nicholas Egner</h1>
-      <p style={{ color: "white" }}>
-        A collection of portraits, candid moments, and behind-the-scenes shots
-        from my work in web development, video production, and creative content.
-      </p>
-
-      <div className={styles.photoGrid}>
-        {photoObject.map((item, index) => (
-          <div key={index}>
-            <img src={item.url} alt={item.alt} />
-            <p>{item.alt}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   );
 }
 
-export default Photos;
+export default function Photos() {
+  return (
+    <div className={styles.page}>
+      <PhotoJsonLd />
+      <div className={styles.mainBackColor} />
+      <Particles />
+      <SiteHeader />
+
+      <main className={styles.main}>
+        <header className={styles.hero}>
+          <div>
+            <p className={styles.eyebrow}>Official Image Gallery</p>
+            <h1>Photos of Nicholas Egner</h1>
+            <p className={styles.heroLead}>
+              Portraits, profile images, creative photos, and portfolio visuals
+              associated with Nicholas Egner, a Minneapolis web developer and
+              digital strategist working across web development, SEO, video,
+              content, and digital systems.
+            </p>
+          </div>
+
+          <div className={styles.heroNote}>
+            <strong>About this gallery</strong>
+            This page keeps public images of Nicholas Egner in one crawlable
+            location with descriptive captions and structured image metadata so
+            search engines can better understand the person and context connected
+            to each image.
+          </div>
+        </header>
+
+        <section className={styles.grid} aria-label="Nicholas Egner image gallery">
+          {photoAssets.map((item, index) => (
+            <figure key={item.url} className={styles.figure}>
+              <img
+                src={item.url}
+                alt={item.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
+              />
+              <figcaption className={styles.caption}>
+                <span className={styles.category}>{item.category}</span>
+                <strong>{item.title}</strong>
+                <p>{item.caption}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </section>
+
+        <section className={styles.identityBlock} aria-labelledby="photo-identity-title">
+          <div>
+            <p className={styles.eyebrow}>Nicholas Egner</p>
+            <h2 id="photo-identity-title">Web Developer &amp; Digital Strategist</h2>
+          </div>
+
+          <div className={styles.identityCopy}>
+            <p>
+              Nicholas Egner is a Minneapolis web developer and digital
+              strategist who combines custom web development, SEO, video,
+              content, and automation to build connected digital systems for
+              businesses.
+            </p>
+            <p>
+              These images support the broader Nicholas Egner profile across
+              nicholasegner.com, including the About page, project case studies,
+              video portfolio, skills library, and writing.
+            </p>
+            <Link href="/about">
+              Read about Nicholas Egner <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </div>
+  );
+}
