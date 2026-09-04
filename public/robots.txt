@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.nicholasegner.com/sitemap.xml
+Sitemap: https://www.nicholasegner.com/image-sitemap.xml

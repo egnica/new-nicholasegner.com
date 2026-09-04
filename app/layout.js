@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Inter, Manrope } from "next/font/google";
-import Script from "next/script"; // Optimization for Next.js Script handling
+import Script from "next/script";
 import "./globals.css";
 import JsonLd from "./components/JsonLd/JsonLd";
 import { getGlobalSchema } from "./lib/schema";
@@ -17,32 +17,34 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title:
-    "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
+  title: "Nicholas Egner | Minneapolis Web Developer & Digital Strategist",
   description:
-    "Portfolio of Nicholas Egner — Minneapolis-based web developer, content creator, and SEO strategist. Explore interactive projects, videos, and digital experiences.",
+    "Nicholas Egner is a Minneapolis web developer and digital strategist who combines custom web development, SEO, video, content, and automation to build connected digital systems for businesses.",
   robots: {
     index: true,
     follow: true,
   },
   keywords: [
     "Nicholas Egner",
-    "web developer",
-    "Minneapolis",
-    "SEO specialist",
-    "content creator",
-    "portfolio",
-    "video producer",
-    "digital experiences",
+    "Minneapolis web developer",
+    "Minneapolis digital strategist",
+    "custom website development Minneapolis",
+    "web developer for small business Minneapolis",
+    "technical SEO and structured data",
+    "video SEO for business websites",
+    "business video production Minneapolis",
+    "custom web applications for business",
+    "workflow automation for small business",
+    "digital content systems",
+    "connected digital systems",
   ],
 
-  // 🌟 Set metadataBase to match Google's indexed version
   metadataBase: new URL("https://www.nicholasegner.com"),
 
   openGraph: {
-    title: "Nicholas Egner | Web Developer & SEO Specialist",
+    title: "Nicholas Egner | Web Developer & Digital Strategist",
     description:
-      "Explore the portfolio of Nicholas Egner, a Minneapolis-based developer and digital creator.",
+      "Web development, SEO, video, content, and automation brought together into connected digital systems for businesses.",
     url: "https://www.nicholasegner.com",
     siteName: "Nicholas Egner",
     images: [
@@ -50,7 +52,7 @@ export const metadata = {
         url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
         width: 1200,
         height: 630,
-        alt: "Nicholas Egner Portfolio",
+        alt: "Nicholas Egner, Minneapolis web developer and digital strategist",
       },
     ],
     locale: "en_US",
@@ -58,9 +60,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nicholas Egner | Minneapolis Web Developer",
+    title: "Nicholas Egner | Minneapolis Web Developer & Digital Strategist",
     description:
-      "Portfolio of Nicholas Egner — developer, content creator, and SEO expert based in Minneapolis.",
+      "I combine web development, SEO, video, content, and automation to build connected digital systems for businesses.",
     creator: "@NicholasEgner",
     images: [
       "https://nciholasegner.s3.us-east-2.amazonaws.com/images/digital-portfolio.jpg",
@@ -75,6 +77,7 @@ export const metadata = {
   creator: "Nicholas Egner",
   publisher: "Nicholas Egner",
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
