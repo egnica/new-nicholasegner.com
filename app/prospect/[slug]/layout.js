@@ -1,6 +1,6 @@
 import Posts from "../../../prospect.json";
 
-const SITE_URL = "https://nicholasegner.com";
+const SITE_URL = "https://www.nicholasegner.com";
 
 function plainText(html = "", max = 200) {
   const text = html
@@ -11,21 +11,21 @@ function plainText(html = "", max = 200) {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const foundPost = Posts.find((item) => item.slug === slug);
 
   if (!foundPost) {
     return {
-      title: "Post Not Found",
-      description: "This post could not be found.",
+      title: "Prospect Not Found",
+      description: "This prospect page could not be found.",
       robots: { index: false, follow: false },
     };
   }
 
   const title = `${foundPost.company} - ${foundPost.personName}`;
   const description = plainText(foundPost.mainBody);
-  const url = `${SITE_URL}/posts/${foundPost.slug}`;
-  const image = foundPost.linkImage; // Prefer JPG/PNG for social previews
+  const url = `${SITE_URL}/prospect/${foundPost.slug}`;
+  const image = foundPost.linkImage;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -33,23 +33,25 @@ export async function generateMetadata({ params }) {
     description,
     authors: [{ name: "Nicholas Egner" }],
     alternates: { canonical: url },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: false },
     viewport: "width=device-width, initial-scale=1",
 
     openGraph: {
-      type: "article",
+      type: "website",
       url,
       title,
       description,
-      siteName: "nicholasegner.com",
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      siteName: "Nicholas Egner",
+      images: image
+        ? [
+            {
+              url: image,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ]
+        : [],
     },
 
     twitter: {
@@ -58,13 +60,7 @@ export async function generateMetadata({ params }) {
       creator: "@NicholasEgner",
       title,
       description,
-      images: [image],
-    },
-
-    // Any truly custom tags go in `other`
-    other: {
-      "og:image:width": "1200",
-      "og:image:height": "630",
+      images: image ? [image] : [],
     },
   };
 }
