@@ -1,0 +1,159 @@
+.socialStrip {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  overflow: visible;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.socialInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-width: 100%;
+  gap: clamp(0.55rem, 1.25vw, 0.9rem);
+  padding: 1.05rem clamp(1rem, 4vw, 4rem);
+}
+
+.socialLink {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  color: rgba(231, 230, 246, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.085);
+  border-color: rgba(189, 189, 248, 0.42);
+  transform: translateY(-2px);
+}
+
+.socialLink:focus-visible {
+  outline: 2px solid rgba(118, 215, 255, 0.9);
+  outline-offset: 4px;
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+}
+
+.iconWrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.socialLink::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 11px);
+  z-index: 12;
+  width: max-content;
+  max-width: 190px;
+  padding: 0.48rem 0.68rem;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.035em;
+  text-align: center;
+  white-space: nowrap;
+  background: rgba(8, 7, 24, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 5px) scale(0.97);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.socialLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 7px);
+  z-index: 11;
+  width: 7px;
+  height: 7px;
+  background: rgba(8, 7, 24, 0.94);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) rotate(45deg);
+  transition: opacity 160ms ease;
+}
+
+.socialLink:hover::before,
+.socialLink:focus-visible::before {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.socialLink:hover::after,
+.socialLink:focus-visible::after {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .socialStrip {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .socialInner {
+    justify-content: flex-start;
+    min-width: max-content;
+    padding-inline: 1rem;
+  }
+
+  .socialLink {
+    width: 44px;
+    height: 44px;
+  }
+
+  .socialLink::before,
+  .socialLink::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink,
+  .socialLink::before,
+  .socialLink::after {
+    transition: none;
+  }
+
+  .socialLink:hover,
+  .socialLink:focus-visible {
+    transform: none;
+  }
+}
