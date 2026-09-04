@@ -23,7 +23,7 @@ const socialLinks = [
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/@NickEgnerVideo",
+    href: "https://www.youtube.com/@NicholasEgner",
     icon: "youtube",
   },
   {
