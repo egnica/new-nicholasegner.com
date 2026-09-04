@@ -1,65 +1,65 @@
 .reviewSection {
-  width: 100%;
-  padding: clamp(4rem, 2vw, 7rem) clamp(1rem, 4vw, 4rem);
+  width: min(1440px, calc(100% - clamp(2rem, 7vw, 8rem)));
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 9rem) 0;
 }
 
 .header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
-  gap: 2rem;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .kicker {
   margin: 0 0 0.85rem;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  color: #bbaaff;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
 }
 
 .header h2 {
-  max-width: 760px;
+  max-width: 850px;
   margin: 0;
-  font-size: 3.5rem;
-  line-height: 0.92;
-  letter-spacing: -0.075em;
   color: #fff;
+  font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+  line-height: 0.93;
+  letter-spacing: -0.062em;
 }
 
 .googleBlock {
   display: grid;
   justify-items: end;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 .googleImage {
-  width: 220px;
-  height: auto;
   display: block;
-  margin: auto;
+  width: 205px;
+  height: auto;
 }
 
 .reviewActions {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.7rem;
+  gap: 0.65rem;
 }
 
 .actionButton,
 .actionButtonSecondary {
+  min-height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 1rem;
+  padding: 0 0.95rem;
   border-radius: 999px;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.085em;
   text-transform: uppercase;
   text-decoration: none;
   transition:
@@ -69,15 +69,15 @@
 }
 
 .actionButton {
-  color: #000;
-  background: #fff;
-  border: 1px solid #fff;
+  color: #09091d;
+  background: #f6f8ff;
+  border: 1px solid #f6f8ff;
 }
 
 .actionButtonSecondary {
   color: rgba(255, 255, 255, 0.84);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .actionButton:hover,
@@ -90,105 +90,91 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(0.85rem, 2vw, 1.6rem);
 }
 
 .reviewGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.4rem);
-  animation: reviewsFade 350ms ease both;
+  animation: reviewsFade 300ms ease both;
 }
 
 .reviewCard {
   min-height: 230px;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  padding: clamp(1.15rem, 2vw, 1.6rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 1.35rem;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.13),
-    rgba(255, 255, 255, 0.045)
-  );
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  gap: 1.15rem;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: clamp(18px, 2vw, 26px);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2);
   transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    background 220ms ease;
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
 }
 
 .reviewCard:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.24);
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.16),
-    rgba(255, 255, 255, 0.06)
-  );
+  transform: translateY(-3px);
+  border-color: rgba(142, 225, 255, 0.2);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .reviewTop {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.85rem;
 }
 
 .reviewerImage {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   flex: 0 0 auto;
   border-radius: 999px;
   object-fit: cover;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .reviewTop h3 {
   margin: 0;
+  color: #fff;
   font-size: 1rem;
   line-height: 1.1;
   letter-spacing: -0.025em;
-  color: #fff;
 }
 
 .stars {
   display: flex;
   gap: 0.1rem;
-  margin-top: 0.35rem;
-  font-size: 0.95rem;
+  margin-top: 0.3rem;
+  color: #8edfff;
+  font-size: 0.9rem;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.82);
 }
 
 .reviewText {
   margin: 0;
   display: -webkit-box;
   overflow: hidden;
-  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.74);
+  color: rgba(239, 246, 255, 0.7);
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 
 .navButton {
-  width: clamp(46px, 5vw, 68px);
-  height: clamp(46px, 5vw, 68px);
+  width: clamp(44px, 4.5vw, 60px);
+  height: clamp(44px, 4.5vw, 60px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.86);
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
   transition:
     transform 180ms ease,
@@ -199,25 +185,25 @@
 .navButton span {
   display: block;
   margin-top: -0.08em;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 0.7;
 }
 
 .navButton:hover {
-  transform: scale(1.06);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.04);
+  border-color: rgba(142, 225, 255, 0.24);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .navButton:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.28);
+  outline: 2px solid rgba(142, 225, 255, 0.5);
   outline-offset: 4px;
 }
 
 .pageDots {
   display: flex;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   margin-top: 1.5rem;
 }
 
@@ -227,21 +213,20 @@
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
 .dotActive {
-  width: 24px;
-  background: rgba(255, 255, 255, 0.78);
+  width: 22px;
+  background: #8edfff;
 }
 
 @keyframes reviewsFade {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -260,20 +245,6 @@
 
   .reviewActions {
     justify-content: flex-start;
-    margin: auto;
-  }
-
-  .wallShell {
-    grid-template-columns: 1fr;
-  }
-
-  .reviewGrid {
-    order: 1;
-  }
-
-  .navButtonLeft,
-  .navButtonRight {
-    order: 2;
   }
 
   .wallShell {
@@ -283,13 +254,24 @@
   }
 
   .reviewGrid {
+    order: 1;
     width: 100%;
+  }
+
+  .navButtonLeft,
+  .navButtonRight {
+    order: 2;
   }
 }
 
 @media (max-width: 640px) {
   .reviewSection {
-    padding-inline: 1rem;
+    width: min(100% - 2rem, 1440px);
+    padding-block: 4.5rem;
+  }
+
+  .header h2 {
+    font-size: clamp(2.7rem, 12vw, 4.35rem);
   }
 
   .reviewGrid {
@@ -305,7 +287,7 @@
   }
 
   .googleImage {
-    width: 190px;
+    width: 185px;
   }
 }
 

@@ -23,9 +23,7 @@ export default function LatestBlogPost() {
       <div className={styles.sectionIntro}>
         <p className={styles.eyebrow}>Latest Thinking</p>
 
-        <h2>
-          A place for recent writing, videos, experiments, and reflections.
-        </h2>
+        <h2>A place for recent writing, videos, experiments, and reflections.</h2>
 
         <p>
           Posts range from web projects and video work to life habits, local
@@ -64,6 +62,8 @@ export default function LatestBlogPost() {
               src={latestPost.hero_image}
               alt={latestPost.title}
               className={styles.postImage}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         )}

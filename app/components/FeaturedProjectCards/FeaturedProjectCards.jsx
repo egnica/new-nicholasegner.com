@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./FeaturedProjectCards.module.css";
 import { projects } from "../../lib/projects";
+import LazyProjectVideo from "./LazyProjectVideo";
 
 function getProjectEyebrow(project) {
   return (
@@ -26,18 +27,7 @@ function ProjectCardMedia({ media, title }) {
   if (!media?.src) return null;
 
   if (media.type === "video") {
-    return (
-      <video
-        className={styles.cardVideo}
-        src={media.src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-      />
-    );
+    return <LazyProjectVideo src={media.src} className={styles.cardVideo} />;
   }
 
   if (media.type === "image") {
@@ -47,6 +37,7 @@ function ProjectCardMedia({ media, title }) {
         src={media.src}
         alt={media.alt || `${title} preview`}
         loading="lazy"
+        decoding="async"
       />
     );
   }
@@ -64,9 +55,7 @@ export default function FeaturedProjectCards() {
       <div className={styles.sectionHeader}>
         <p className={styles.kicker}>Selected Work</p>
 
-        <h2>
-          Examples of work built to be found, understood, and trusted.
-        </h2>
+        <h2>Examples of work built to be found, understood, and trusted.</h2>
 
         <p className={styles.intro}>
           A few recent projects across websites, content systems, video

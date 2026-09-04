@@ -1,59 +1,28 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import lottie from "lottie-web";
+import HomeHeroVisual from "./HomeHeroVisual";
 import styles from "./HomeHero.module.css";
 
+const HERO_IMAGE =
+  "https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp";
+
 export default function HomeHero() {
-  const animationRef = useRef(null);
-
-  useEffect(() => {
-    if (!animationRef.current) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    const animation = lottie.loadAnimation({
-      container: animationRef.current,
-      renderer: "svg",
-      loop: false,
-      autoplay: !prefersReducedMotion,
-      path: "/nicholas-egner-animation.json",
-      name: "homeHeroAnimation",
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-        progressiveLoad: true,
-        hideOnTransparent: true,
-      },
-    });
-
-    animation.setSpeed(1.2);
-
-    if (prefersReducedMotion) {
-      animation.addEventListener("DOMLoaded", () => {
-        animation.goToAndStop(animation.totalFrames - 1, true);
-      });
-    }
-
-    return () => animation.destroy();
-  }, []);
-
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
-      <div className={styles.background} aria-hidden="true" />
-      <div className={styles.glow} aria-hidden="true" />
+      <div className={styles.heroMedia} aria-hidden="true">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.heroImage}
+        />
+      </div>
+      <div className={styles.heroOverlay} aria-hidden="true" />
 
       <div className={styles.inner}>
-        <motion.div
-          className={styles.copy}
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-        >
+        <div className={styles.copy}>
           <p className={styles.eyebrow}>Nicholas Egner · Digital Systems</p>
 
           <h1 id="home-hero-title" className={styles.title}>
@@ -81,33 +50,9 @@ export default function HomeHero() {
             <span>SEO</span>
             <span>Content Systems</span>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className={styles.visual}
-          initial={{ opacity: 0, scale: 0.96, x: 18 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.08, ease: "easeOut" }}
-          aria-hidden="true"
-        >
-          <div ref={animationRef} className={styles.lottie} />
-
-          <div className={styles.logoHalo}>
-            <Image
-              className={styles.logo}
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
-              width={230}
-              height={230}
-              alt=""
-              priority
-            />
-          </div>
-
-          <div className={`${styles.orbitDot} ${styles.dotOne}`} />
-          <div className={`${styles.orbitDot} ${styles.dotTwo}`} />
-          <div className={`${styles.orbitDot} ${styles.dotThree}`} />
-          <div className={`${styles.orbitDot} ${styles.dotFour}`} />
-        </motion.div>
+        <HomeHeroVisual />
       </div>
     </section>
   );

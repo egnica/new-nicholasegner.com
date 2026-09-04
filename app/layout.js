@@ -75,6 +75,7 @@ export const metadata = {
   creator: "Nicholas Egner",
   publisher: "Nicholas Egner",
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -87,13 +88,6 @@ export default function RootLayout({ children }) {
         <link
           rel="dns-prefetch"
           href="https://nciholasegner.s3.us-east-2.amazonaws.com"
-        />
-
-        <link
-          rel="preload"
-          as="image"
-          href="https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp"
-          fetchPriority="high"
         />
       </head>
 

@@ -1,142 +1,141 @@
 .latestWriting {
-  padding: clamp(4rem, 4vw, 7rem) clamp(1rem, 4vw, 4rem);
+  width: min(1440px, calc(100% - clamp(2rem, 7vw, 8rem)));
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 9rem) 0;
 }
 
 .sectionIntro {
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 920px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .eyebrow {
   margin: 0 0 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  color: #bbaaff;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.58);
 }
 
 .sectionIntro h2 {
   margin: 0;
-
-  font-size: 3.5rem;
-  line-height: 0.95;
-  letter-spacing: -0.06em;
   color: #fff;
+  font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+  line-height: 0.93;
+  letter-spacing: -0.062em;
 }
 
-.sectionIntro p {
-  margin: 1rem 0 0;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.68);
+.sectionIntro > p:last-child {
+  max-width: 720px;
+  margin: 1.15rem 0 0;
+  color: rgba(231, 235, 252, 0.68);
+  font-size: clamp(1rem, 1.3vw, 1.14rem);
+  line-height: 1.65;
 }
 
 .latestPostCard {
   display: grid;
-
-  margin: auto;
-  width: min(1120px, calc(100% - 2rem));
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.75fr);
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: stretch;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 1.35rem;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.13),
-    rgba(255, 255, 255, 0.045)
-  );
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  overflow: hidden;
+  grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
 }
 
 .postContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-block: clamp(1rem, 2vw, 2rem);
 }
 
 .postMeta {
   margin: 0 0 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  color: #8edfff;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.48);
 }
 
 .postContent h3 {
-  margin: 0;
   max-width: 780px;
-  font-size: clamp(1.65rem, 3vw, 3rem);
-  line-height: 1;
-  letter-spacing: -0.045em;
+  margin: 0;
   color: #fff;
+  font-size: clamp(2rem, 3.8vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.052em;
 }
 
 .postContent > p {
   max-width: 680px;
   margin: 1rem 0 0;
+  color: rgba(231, 235, 252, 0.68);
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.67);
 }
 
 .keywordRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.45rem;
   margin-top: 1.2rem;
 }
 
 .keywordRow span {
   padding: 0.4rem 0.65rem;
-
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.72rem;
 }
 
 .postActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.7rem;
   margin-top: 1.6rem;
 }
 
 .postActions a {
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
   padding: 0 1rem;
   border-radius: 999px;
-  background: #fff;
-  color: #050505;
-  font-size: 0.9rem;
-  font-weight: 800;
+  color: #09091d;
+  background: #f6f8ff;
+  border: 1px solid #f6f8ff;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
 .postActions .secondaryLink {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
   color: #fff;
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .postImageWrap {
-  margin: auto;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(16px, 2vw, 24px);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .postImage {
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.03);
 }
 
 @media (max-width: 820px) {
@@ -146,5 +145,20 @@
 
   .postImageWrap {
     order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .latestWriting {
+    width: min(100% - 2rem, 1440px);
+    padding-block: 4.5rem;
+  }
+
+  .sectionIntro h2 {
+    font-size: clamp(2.7rem, 12vw, 4.35rem);
+  }
+
+  .latestPostCard {
+    padding-inline: 0;
   }
 }

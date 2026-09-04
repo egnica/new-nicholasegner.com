@@ -1,91 +1,144 @@
-"use client";
-import styles from "./page.module.css";
+import Image from "next/image";
 import Link from "next/link";
+import styles from "./home.module.css";
 import stackData from "../stack.json";
 import Reviews from "../reviews.json";
-import ParticlesBackground from "./components/particlesBackground";
 import TechMarquee from "./components/techBanner/techBanner";
 import FeaturedProjectCards from "./components/FeaturedProjectCards/FeaturedProjectCards";
 import GoogleReviewWall from "./components/GoogleReview/GoogleReviewWall";
 import SiteFooter from "./components/SiteFooter/SiteFooter";
 import SiteHeader from "./components/SiteHeader/SiteHeader";
 import LatestBlogPost from "./components/LatestBlogComponent/LatestBlogPost";
-import LazyMount from "./components/LazyMount";
 import JsonLd from "./components/JsonLd/JsonLd";
 import HomeHero from "./components/HomeHero/HomeHero";
 import { getHomePageSchema } from "./lib/schema";
 
+const featuredTechSlugs = [
+  "nextjs",
+  "react",
+  "javascript",
+  "css",
+  "mongodb",
+  "amplify",
+  "amazons3",
+  "premiere",
+  "aftereffects",
+  "lottie",
+];
+
+const capabilityCards = [
+  {
+    number: "01",
+    title: "Custom web systems",
+    text: "Fast, flexible websites and web applications built around the way the business actually works, not around the limits of a theme or plugin stack.",
+  },
+  {
+    number: "02",
+    title: "Content and video",
+    text: "Video, written content, watch pages, social assets, and publishing systems designed to turn expertise into useful material people can actually find and use.",
+  },
+  {
+    number: "03",
+    title: "Search and trust",
+    text: "Technical SEO, structured data, service-page architecture, reviews, and other credibility signals that help people understand the business and feel confident taking the next step.",
+  },
+];
+
 export default function Home() {
-  const techIcons = stackData.stack.flatMap((category) =>
+  const allTechIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
       name: tech.name,
+      slug: tech.slug,
       svg: tech.image,
       href: `/skills/${tech.slug}`,
     })),
   );
 
+  const preferredTechIcons = featuredTechSlugs
+    .map((slug) => allTechIcons.find((tech) => tech.slug === slug))
+    .filter(Boolean);
+
+  const techIcons =
+    preferredTechIcons.length >= 8
+      ? preferredTechIcons
+      : allTechIcons.slice(0, 10);
+
   return (
     <>
       <JsonLd data={getHomePageSchema()} />
-      <div className={styles.mainBackColor}></div>
-      <ParticlesBackground />
+      <div className={styles.siteBackground} aria-hidden="true" />
+
       <main className={styles.page}>
         <SiteHeader />
-
         <HomeHero />
 
-        <section className={styles.bottomBuffer}>
-          <TechMarquee techIcons={techIcons} />
-        </section>
-
-        <section className={styles.belowHero}>
-          <img
-            src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp"
-            alt="Nicholas Egner web development and digital content workspace"
-          />
-          <div className={styles.belowHeroText}>
-            <h2>
-              I’m&nbsp;
-              <Link href="/about" className={styles.name}>
-                Nicholas Egner
-              </Link>
-            </h2>
-            <br />
-            <p>
-              I build websites and content systems that help businesses get
-              found, gain digital credibility, and turn attention into
-              opportunity.
-            </p>
-            <br />
-            <p>
-              I work with businesses that need more than a basic website. I help
-              shape the full digital experience:
-              <br />
-              <br />
-              <strong style={{ fontSize: "1.4rem" }} className={styles.name}>
-                the site, the message, the content, the SEO structure, the
-                video, and the trust signals{" "}
-              </strong>
-              <br />
-              <br />
-              that make people feel confident reaching out.
-            </p>
-            <br />
-            <p>
-              Whether you need a new website, stronger service pages, video
-              content, social-ready assets, or a clearer online presence, I
-              bring the technical and creative pieces together into one focused
-              system.
-            </p>
+        <section className={styles.techBand} aria-label="Selected tools and platforms">
+          <div className={styles.techBandInner}>
+            <p className={styles.techBandLabel}>Selected tools &amp; platforms</p>
+            <TechMarquee techIcons={techIcons} />
           </div>
         </section>
-        <LazyMount>
-          <FeaturedProjectCards minHeight={700} />
-        </LazyMount>
 
-        <GoogleReviewWall reviews={Reviews} />
+        <section className={styles.systemSection} aria-labelledby="home-system-title">
+          <div className={styles.systemIntro}>
+            <div className={styles.systemCopy}>
+              <p className={styles.eyebrow}>What I Build</p>
+              <h2 id="home-system-title">One connected digital presence.</h2>
+              <p className={styles.lead}>
+                Most businesses do not need another disconnected website, video,
+                or SEO tactic. They need the pieces to work together.
+              </p>
+              <p>
+                I design and build custom digital systems that connect the site,
+                message, content, video, search structure, and trust signals
+                around a clear business goal. The result is easier to manage,
+                easier to explain, and easier for the right people to find.
+              </p>
 
-        <LatestBlogPost />
+              <Link href="/about" className={styles.textLink}>
+                More about how I work <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+
+            <div className={styles.systemMedia}>
+              <Image
+                src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/below-hero.webp"
+                alt="Nicholas Egner working across web development, video, and digital content"
+                width={1100}
+                height={760}
+                sizes="(max-width: 900px) 100vw, 48vw"
+              />
+              <div className={styles.mediaCaption}>
+                <span>Development</span>
+                <span>Content</span>
+                <span>Visibility</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.capabilityGrid}>
+            {capabilityCards.map((card) => (
+              <article key={card.number} className={styles.capabilityCard}>
+                <span className={styles.capabilityNumber}>{card.number}</span>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className={styles.proofSection}>
+          <FeaturedProjectCards />
+        </div>
+
+        <div className={styles.trustSection}>
+          <GoogleReviewWall reviews={Reviews} />
+        </div>
+
+        <div className={styles.writingSection}>
+          <LatestBlogPost />
+        </div>
+
         <SiteFooter />
       </main>
     </>
