@@ -218,6 +218,12 @@ export default function Home() {
                 video, content, and automation to help businesses replace
                 disconnected digital pieces with a system that works together.
               </p>
+              <p>
+                That work can include building a custom website, strengthening
+                technical SEO and local search visibility, producing video and
+                supporting content, or developing a business tool that makes
+                day-to-day operations easier.
+              </p>
               <Link href="/about" className={styles.belowHeroLink}>
                 See how I work <span aria-hidden="true">→</span>
               </Link>
