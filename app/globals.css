@@ -57,6 +57,41 @@ main:has(> article > .fullBleedHero) {
   padding-top: 0 !important;
 }
 
+/* Blog and Projects keep their content inside padded page shells. Their footers
+   should still sit flush with the viewport like the rest of the site. */
+main:has(#blog-hero-title) > footer,
+main:has(> section[aria-label="Selected work"]) > footer {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+main:has(#blog-hero-title) > footer {
+  margin-bottom: -4rem;
+}
+
+main:has(> section[aria-label="Selected work"]) > footer {
+  margin-bottom: -5rem;
+}
+
+main:has(> section[aria-label="Selected work"]) > br:last-of-type {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  main:has(#blog-hero-title) > footer {
+    margin-bottom: -3.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  main:has(> section[aria-label="Selected work"]) > footer {
+    margin-bottom: -3.5rem;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
