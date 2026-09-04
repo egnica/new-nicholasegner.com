@@ -2,7 +2,7 @@ import Link from "next/link";
 import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
-import { photoAssets, primaryPhoto } from "../lib/photoAssets";
+import { photoAssets } from "../lib/photoAssets";
 import styles from "./photos.module.css";
 
 const SITE_URL = "https://www.nicholasegner.com";
@@ -83,10 +83,8 @@ export default function Photos() {
 
           <div className={styles.heroNote}>
             <strong>About this gallery</strong>
-            This page keeps public images of Nicholas Egner in one crawlable
-            location with descriptive captions and structured image metadata so
-            search engines can better understand the person and context connected
-            to each image.
+            A central collection of public images and visual assets connected to
+            Nicholas Egner, his professional work, and his personal portfolio.
           </div>
         </header>
 
