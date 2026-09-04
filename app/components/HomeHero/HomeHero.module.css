@@ -1,0 +1,402 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(640px, calc(100svh - 82px), 860px);
+  display: grid;
+  align-items: center;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(90deg, rgba(4, 6, 20, 0.94) 0%, rgba(5, 8, 28, 0.88) 42%, rgba(7, 10, 34, 0.56) 72%, rgba(7, 8, 26, 0.78) 100%),
+    url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp") center / cover no-repeat;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 18, 0.12), rgba(5, 6, 18, 0.38)),
+    radial-gradient(circle at 78% 48%, rgba(94, 198, 255, 0.12), transparent 36%);
+}
+
+.glow {
+  position: absolute;
+  z-index: -2;
+  width: min(50vw, 720px);
+  aspect-ratio: 1;
+  right: -8vw;
+  top: 46%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(118, 215, 255, 0.16) 0%, rgba(133, 107, 255, 0.1) 38%, transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.inner {
+  width: min(1560px, calc(100% - clamp(2rem, 8vw, 8rem)));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.copy {
+  position: relative;
+  z-index: 3;
+  max-width: 790px;
+}
+
+.eyebrow {
+  margin: 0 0 1.2rem;
+  color: #8edfff;
+  font-size: clamp(0.72rem, 1vw, 0.86rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  max-width: 900px;
+  font-size: clamp(3.3rem, 6.4vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+  text-shadow: 0 8px 36px rgba(0, 0, 0, 0.32);
+}
+
+.intro {
+  max-width: 720px;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  color: rgba(239, 246, 255, 0.78);
+  font-size: clamp(1.06rem, 1.5vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.35rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primaryAction {
+  color: #06111c;
+  background: linear-gradient(135deg, #8ee1ff, #bbaaff);
+  box-shadow: 0 12px 30px rgba(100, 189, 255, 0.18);
+}
+
+.secondaryAction {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible,
+.secondaryAction:hover,
+.secondaryAction:focus-visible {
+  transform: translateY(-2px);
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  box-shadow: 0 16px 34px rgba(100, 189, 255, 0.28);
+}
+
+.secondaryAction:hover,
+.secondaryAction:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 1.7rem;
+  color: rgba(239, 246, 255, 0.56);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.capabilities span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.capabilities span:not(:last-child)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-left: 0.35rem;
+  border-radius: 50%;
+  background: #76d7ff;
+  opacity: 0.55;
+}
+
+.visual {
+  position: relative;
+  z-index: 2;
+  min-height: clamp(460px, 48vw, 660px);
+  width: min(100%, 690px);
+  justify-self: end;
+  display: grid;
+  place-items: center;
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  inset: 8% -8% 8% 10%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 42% 58% 48% 52% / 56% 46% 54% 44%;
+  background: linear-gradient(135deg, rgba(118, 215, 255, 0.055), rgba(187, 170, 255, 0.025));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transform: rotate(-4deg);
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 76%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(142, 225, 255, 0.12);
+  box-shadow:
+    0 0 70px rgba(94, 198, 255, 0.07),
+    inset 0 0 70px rgba(187, 170, 255, 0.04);
+}
+
+.lottie {
+  position: absolute;
+  inset: 3% -20% 0 -10%;
+  z-index: 0;
+  opacity: 0.52;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, #000 28%, rgba(0, 0, 0, 0.88) 52%, transparent 82%);
+  -webkit-mask-image: radial-gradient(circle at center, #000 28%, rgba(0, 0, 0, 0.88) 52%, transparent 82%);
+}
+
+.lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.logoHalo {
+  position: relative;
+  z-index: 2;
+  width: clamp(190px, 20vw, 280px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8, 12, 38, 0.86) 0%, rgba(9, 11, 31, 0.58) 54%, rgba(9, 11, 31, 0.08) 72%, transparent 78%);
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.38));
+}
+
+.logo {
+  width: 78%;
+  height: auto;
+}
+
+.orbitDot {
+  position: absolute;
+  z-index: 3;
+  width: clamp(12px, 1.5vw, 20px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #76d7ff;
+  box-shadow: 0 0 24px rgba(118, 215, 255, 0.48);
+}
+
+.dotOne {
+  top: 16%;
+  right: 16%;
+}
+
+.dotTwo {
+  top: 31%;
+  right: 5%;
+  width: clamp(9px, 1vw, 14px);
+  background: #bbaaff;
+}
+
+.dotThree {
+  bottom: 21%;
+  right: 19%;
+  width: clamp(15px, 1.8vw, 24px);
+}
+
+.dotFour {
+  bottom: 13%;
+  left: 21%;
+  width: clamp(8px, 0.9vw, 12px);
+  background: #bbaaff;
+}
+
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.8fr);
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(3.1rem, 6.6vw, 5.4rem);
+  }
+
+  .visual {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 820px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .inner {
+    width: min(100% - 2rem, 760px);
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 4rem 0 3.25rem;
+  }
+
+  .copy {
+    max-width: 720px;
+  }
+
+  .title {
+    max-width: 720px;
+    font-size: clamp(3rem, 11vw, 5.2rem);
+  }
+
+  .visual {
+    width: 100%;
+    max-width: 620px;
+    min-height: 390px;
+    justify-self: center;
+    margin-top: -0.75rem;
+  }
+
+  .lottie {
+    inset: 0 -12% -2%;
+  }
+
+  .logoHalo {
+    width: clamp(175px, 35vw, 235px);
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    width: min(100% - 1.35rem, 520px);
+    padding: 3.2rem 0 2.25rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .title {
+    font-size: clamp(2.75rem, 13.4vw, 4.35rem);
+    line-height: 0.96;
+  }
+
+  .intro {
+    margin-top: 1.3rem;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    min-height: 48px;
+    padding: 0.8rem 0.75rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.055em;
+  }
+
+  .capabilities {
+    gap: 0.55rem 0.7rem;
+    margin-top: 1.25rem;
+    font-size: 0.67rem;
+  }
+
+  .capabilities span:not(:last-child)::after {
+    margin-left: 0.1rem;
+  }
+
+  .visual {
+    min-height: 315px;
+    margin-top: -0.5rem;
+  }
+
+  .visual::before {
+    inset: 7% 2%;
+  }
+
+  .lottie {
+    inset: -4% -24% -4%;
+  }
+
+  .dotOne {
+    right: 12%;
+  }
+
+  .dotTwo {
+    right: 2%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .secondaryAction {
+    transition: none;
+  }
+}
