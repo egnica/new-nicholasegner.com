@@ -73,6 +73,7 @@ main:has(#blog-hero-title) > footer {
 }
 
 main:has(> section[aria-label="Selected work"]) > footer {
+  margin-top: clamp(3rem, 5vw, 5rem);
   margin-bottom: -5rem;
 }
 
@@ -88,6 +89,7 @@ main:has(> section[aria-label="Selected work"]) > br:last-of-type {
 
 @media (max-width: 640px) {
   main:has(> section[aria-label="Selected work"]) > footer {
+    margin-top: 3rem;
     margin-bottom: -3.5rem;
   }
 }
