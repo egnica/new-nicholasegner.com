@@ -1,37 +1,34 @@
 .featuredProjects {
-  width: min(1440px, calc(100% - clamp(2rem, 7vw, 8rem)));
-  margin: 0 auto;
-  padding: clamp(5rem, 9vw, 9rem) 0;
+  width: 100%;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
 }
 
 .sectionHeader {
-  max-width: 920px;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .kicker {
   margin: 0 0 0.85rem;
-  color: #bbaaff;
-  font-size: 0.74rem;
-  font-weight: 850;
-  letter-spacing: 0.15em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .sectionHeader h2 {
   margin: 0;
+  font-size: 3.5rem;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
   color: #fff;
-  font-size: clamp(2.8rem, 5.4vw, 5.4rem);
-  line-height: 0.93;
-  letter-spacing: -0.062em;
 }
 
 .intro {
-  max-width: 680px;
   margin: 1.25rem 0 0;
-  color: rgba(231, 235, 252, 0.68);
-  font-size: clamp(1rem, 1.3vw, 1.14rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .grid {
@@ -41,20 +38,24 @@
 }
 
 .card {
-  min-height: 300px;
+  min-height: 285px;
   perspective: 1100px;
   color: inherit;
   text-decoration: none;
   outline: none;
 }
-
+.cardVideo {
+  width: 90%;
+  border-radius: 10px;
+  margin: auto;
+}
 .cardInner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 285px;
   transform-style: preserve-3d;
-  transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card:hover .cardInner,
@@ -69,11 +70,19 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  padding: clamp(1.1rem, 2vw, 1.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: clamp(18px, 2vw, 26px);
-  background: rgba(255, 255, 255, 0.035);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.35rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(255, 255, 255, 0.045)
+  );
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   backface-visibility: hidden;
 }
 
@@ -83,10 +92,11 @@
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    circle at 18% 8%,
-    rgba(118, 215, 255, 0.1),
-    transparent 34%
+    circle at top left,
+    rgba(255, 255, 255, 0.18),
+    transparent 36%
   );
+  opacity: 0.75;
 }
 
 .cardFront,
@@ -96,94 +106,68 @@
 
 .cardBack {
   transform: rotateY(180deg);
-  background:
-    radial-gradient(circle at 84% 18%, rgba(187, 170, 255, 0.08), transparent 32%),
-    rgba(13, 13, 34, 0.96);
-}
-
-.cardVideo,
-.cardImage {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cardVideo {
-  object-position: center;
-}
-
-.mediaOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    180deg,
-    rgba(7, 7, 19, 0.16) 0%,
-    rgba(7, 7, 19, 0.3) 45%,
-    rgba(7, 7, 19, 0.9) 100%
-  );
-}
-
-.frontContent {
-  position: relative;
-  z-index: 1;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .eyebrow {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  color: rgba(239, 246, 255, 0.68);
-  font-size: 0.62rem;
-  font-weight: 850;
+  font-size: 0.6rem;
+  font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .cardFront h3 {
-  margin: 0 0 0.85rem;
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
   color: #fff;
-  font-size: clamp(1.45rem, 2vw, 1.9rem);
-  line-height: 0.98;
-  letter-spacing: -0.045em;
 }
 
-.hint,
-.cardBack span {
+.hint {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
-  width: fit-content;
-  color: rgba(239, 246, 255, 0.6);
-  font-size: 0.7rem;
-  font-weight: 850;
+  font-size: 0.76rem;
+  font-weight: 750;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .cardBack p {
   position: relative;
   z-index: 1;
   margin: 0;
-  color: rgba(239, 246, 255, 0.8);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .cardBack span {
   position: relative;
   z-index: 1;
-  color: #8edfff;
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .card:focus-visible .cardFace {
-  border-color: rgba(142, 225, 255, 0.46);
+  border-color: rgba(255, 255, 255, 0.42);
   box-shadow:
-    0 22px 60px rgba(0, 0, 0, 0.3),
-    0 0 0 3px rgba(142, 225, 255, 0.12);
+    0 24px 70px rgba(0, 0, 0, 0.32),
+    0 0 0 3px rgba(255, 255, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 @media (max-width: 1100px) {
@@ -193,20 +177,24 @@
 
   .card,
   .cardInner {
-    min-height: 280px;
+    min-height: 255px;
+  }
+  .cardVideo {
+    width: 90%;
+
+    margin: auto;
   }
 }
 
 @media (max-width: 640px) {
   .featuredProjects {
-    width: min(100% - 2rem, 1440px);
-    padding-block: 4.5rem;
+    padding-inline: 1rem;
   }
+  .cardVideo {
+    width: 90%;
 
-  .sectionHeader h2 {
-    font-size: clamp(2.7rem, 12vw, 4.35rem);
+    margin: auto;
   }
-
   .grid {
     grid-template-columns: 1fr;
   }
@@ -233,7 +221,7 @@
   }
 
   .cardFront {
-    min-height: 230px;
+    min-height: 185px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -262,6 +250,7 @@
 
   .cardInner {
     display: grid;
+    gap: 0;
   }
 
   .cardFace {
