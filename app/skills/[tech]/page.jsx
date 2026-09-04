@@ -247,7 +247,7 @@ export default async function TechPage({ params }) {
       type: "Project",
       title: project.title,
       description: project.summary,
-      href: `/projects?project=${project.slug}`,
+      href: `/projects/${project.slug}`,
       media: project.heroMedia?.src
         ? {
             type: project.heroMedia.type,
