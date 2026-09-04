@@ -147,11 +147,12 @@
 
 .belowHeroInner {
   display: grid;
-  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(360px, 0.86fr) minmax(0, 1.14fr);
   align-items: center;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 5vw, 5rem);
+  padding: 0 clamp(1.25rem, 2.5vw, 2.5rem) 0
+    clamp(1.25rem, 5vw, 5rem);
 }
 
 .belowHeroMedia {
@@ -191,7 +192,8 @@
   position: relative;
   z-index: 1;
   margin-left: clamp(-8rem, -8vw, -5rem);
-  padding: clamp(2rem, 4vw, 4rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(0.75rem, 1.5vw, 1.5rem)
+    clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem);
   text-align: left;
 }
 
@@ -209,7 +211,7 @@
 }
 
 .belowHeroText h2 {
-  max-width: 760px;
+  max-width: 880px;
   margin: 0;
   color: #fff;
   font-size: clamp(2.25rem, 4.5vw, 4.5rem);
@@ -220,7 +222,7 @@
 }
 
 .belowHeroText > p:not(.belowHeroEyebrow) {
-  max-width: 650px;
+  max-width: 740px;
   margin: 1.35rem 0 0;
   color: rgba(237, 241, 255, 0.8);
   font-size: clamp(1rem, 1.35vw, 1.16rem);
