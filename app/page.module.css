@@ -189,7 +189,6 @@
 .belowHeroText {
   position: relative;
   z-index: 1;
-  max-width: 720px;
   margin-left: clamp(-8rem, -8vw, -5rem);
   padding: clamp(2rem, 4vw, 4rem);
   text-align: left;
