@@ -1,13 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./projects.module.css";
 
 import Particles from "../components/particlesBackground";
 import { getTech } from "../lib/techStack";
-import Image from "next/image";
-import oldStyles from "../page.module.css";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 
@@ -40,7 +35,7 @@ function ProjectMedia({ media }) {
   );
 }
 
-function ProjectIndex({ projects, selectedProject, onSelectProject }) {
+function ProjectIndex({ projects, selectedProject }) {
   return (
     <aside className={styles.projectIndex} aria-label="Project selector">
       <p className={styles.indexLabel}>Explore Projects</p>
@@ -48,16 +43,17 @@ function ProjectIndex({ projects, selectedProject, onSelectProject }) {
       <div className={styles.projectIndexList}>
         {projects.map((project) => {
           const isActive = selectedProject?.slug === project.slug;
+          const href = isActive ? "/projects" : `/projects?project=${project.slug}`;
 
           return (
-            <button
-              type="button"
+            <Link
               key={project.slug}
+              href={href}
               className={`${styles.indexButton} ${
                 isActive ? styles.activeIndexButton : ""
               }`}
-              aria-pressed={isActive}
-              onClick={() => onSelectProject(project.slug)}
+              aria-current={isActive ? "true" : undefined}
+              scroll={false}
             >
               <span className={styles.indexButtonCopy}>
                 <span className={styles.indexEyebrow}>{project.eyebrow}</span>
@@ -67,7 +63,7 @@ function ProjectIndex({ projects, selectedProject, onSelectProject }) {
               <span className={styles.indexAction} aria-hidden="true">
                 {isActive ? "×" : "→"}
               </span>
-            </button>
+            </Link>
           );
         })}
       </div>
@@ -130,24 +126,16 @@ function ProjectContent({ project }) {
   const hasMeta = hasStack || hasLinks;
 
   return (
-    <article
-      className={styles.projectDetail}
-      aria-labelledby={`${project.slug}-title`}
-    >
+    <article className={styles.projectDetail} aria-labelledby={`${project.slug}-title`}>
       <section className={styles.projectHero}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{project.eyebrow}</p>
-
-          <h1 id={`${project.slug}-title`}>
-            {project.title}
-          </h1>
-
+          <h1 id={`${project.slug}-title`}>{project.title}</h1>
           <p className={styles.lead}>{project.summary}</p>
         </div>
 
         <div className={styles.heroMediaWrap}>
           <ProjectMedia media={project.heroMedia} />
-
           {project.heroMedia?.caption && (
             <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
           )}
@@ -157,25 +145,17 @@ function ProjectContent({ project }) {
       <section className={styles.storySection} aria-label="Project overview">
         {project.preview?.problem && (
           <div className={styles.storyItem}>
-            <span>01</span>
-            <h3>Problem</h3>
-            <p>{project.preview.problem}</p>
+            <span>01</span><h3>Problem</h3><p>{project.preview.problem}</p>
           </div>
         )}
-
         {project.preview?.approach && (
           <div className={styles.storyItem}>
-            <span>02</span>
-            <h3>Approach</h3>
-            <p>{project.preview.approach}</p>
+            <span>02</span><h3>Approach</h3><p>{project.preview.approach}</p>
           </div>
         )}
-
         {project.preview?.result && (
           <div className={styles.storyItem}>
-            <span>03</span>
-            <h3>Result</h3>
-            <p>{project.preview.result}</p>
+            <span>03</span><h3>Result</h3><p>{project.preview.result}</p>
           </div>
         )}
       </section>
@@ -186,12 +166,10 @@ function ProjectContent({ project }) {
             <p className={styles.eyebrow}>Capabilities</p>
             <h2>What this project included</h2>
           </div>
-
           <div className={styles.capabilityGrid}>
             {project.capabilities.map((capability) => (
               <article key={capability.title} className={styles.capabilityItem}>
-                <h3>{capability.title}</h3>
-                <p>{capability.summary}</p>
+                <h3>{capability.title}</h3><p>{capability.summary}</p>
               </article>
             ))}
           </div>
@@ -204,40 +182,18 @@ function ProjectContent({ project }) {
             {hasStack && (
               <div className={styles.metaGroup}>
                 <h3>Stack</h3>
-
                 <div className={styles.stackBadges}>
                   {project.stack.map((slug) => {
                     const tech = getTech(slug);
-
-                    if (!tech) {
-                      return (
-                        <span key={slug} className={styles.stackBadge}>
-                          {slug}
-                        </span>
-                      );
-                    }
-
+                    if (!tech) return <span key={slug} className={styles.stackBadge}>{slug}</span>;
                     const isInlineSvg = tech.image?.trim().startsWith("<svg");
-
                     return (
-                      <Link
-                        key={tech.slug}
-                        href={`/skills/${tech.slug}`}
-                        className={styles.stackBadge}
-                        title={tech.name}
-                      >
+                      <Link key={tech.slug} href={`/skills/${tech.slug}`} className={styles.stackBadge} title={tech.name}>
                         {tech.image && (
                           <span className={styles.stackIcon} aria-hidden="true">
-                            {isInlineSvg ? (
-                              <span
-                                dangerouslySetInnerHTML={{ __html: tech.image }}
-                              />
-                            ) : (
-                              <img src={tech.image} alt="" />
-                            )}
+                            {isInlineSvg ? <span dangerouslySetInnerHTML={{ __html: tech.image }} /> : <img src={tech.image} alt="" />}
                           </span>
                         )}
-
                         <span>{tech.name}</span>
                       </Link>
                     );
@@ -249,16 +205,9 @@ function ProjectContent({ project }) {
             {hasLinks && (
               <div className={styles.metaGroup}>
                 <h3>Links</h3>
-
                 <div className={styles.linkRow}>
                   {project.links.map((link) => (
-                    <a
-                      key={`${link.label}-${link.url}`}
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.projectLink}
-                    >
+                    <a key={`${link.label}-${link.url}`} href={link.url} target="_blank" rel="noreferrer" className={styles.projectLink}>
                       {link.label}
                     </a>
                   ))}
@@ -269,7 +218,6 @@ function ProjectContent({ project }) {
         )}
 
         <br />
-
         <Link href={`/projects/${project.slug}`} className={styles.primaryCta}>
           View full case study
         </Link>
@@ -278,48 +226,17 @@ function ProjectContent({ project }) {
   );
 }
 
-export default function ProjectsPageContent({ projects }) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const selectedSlug = searchParams.get("project");
-  const selectedProject =
-    projects.find((project) => project.slug === selectedSlug) || null;
-
-  function handleSelectProject(slug) {
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (selectedProject?.slug === slug) {
-      params.delete("project");
-    } else {
-      params.set("project", slug);
-    }
-
-    const query = params.toString();
-    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
-  }
-
+export default function ProjectsPageContent({ projects, selectedProject }) {
   return (
     <main className={styles.page}>
       <SiteHeader />
-
       <Particles />
       <div className={styles.mainBackColor} />
 
       <section className={styles.workLayout} aria-label="Selected work">
-        <ProjectIndex
-          projects={projects}
-          selectedProject={selectedProject}
-          onSelectProject={handleSelectProject}
-        />
-
+        <ProjectIndex projects={projects} selectedProject={selectedProject} />
         <div className={styles.projectStage}>
-          {selectedProject ? (
-            <ProjectContent key={selectedProject.slug} project={selectedProject} />
-          ) : (
-            <ProjectsOverview />
-          )}
+          {selectedProject ? <ProjectContent project={selectedProject} /> : <ProjectsOverview />}
         </div>
       </section>
 
