@@ -13,19 +13,6 @@ import JsonLd from "./components/JsonLd/JsonLd";
 import HomeHero from "./components/HomeHero/HomeHero";
 import { getHomePageSchema } from "./lib/schema";
 
-const featuredTechSlugs = [
-  "nextjs",
-  "react",
-  "javascript",
-  "css",
-  "mongodb",
-  "amplify",
-  "amazons3",
-  "premiere",
-  "aftereffects",
-  "lottie",
-];
-
 const capabilityCards = [
   {
     number: "01",
@@ -45,23 +32,13 @@ const capabilityCards = [
 ];
 
 export default function Home() {
-  const allTechIcons = stackData.stack.flatMap((category) =>
+  const techIcons = stackData.stack.flatMap((category) =>
     category.technologies.map((tech) => ({
       name: tech.name,
-      slug: tech.slug,
       svg: tech.image,
       href: `/skills/${tech.slug}`,
     })),
   );
-
-  const preferredTechIcons = featuredTechSlugs
-    .map((slug) => allTechIcons.find((tech) => tech.slug === slug))
-    .filter(Boolean);
-
-  const techIcons =
-    preferredTechIcons.length >= 8
-      ? preferredTechIcons
-      : allTechIcons.slice(0, 10);
 
   return (
     <>
@@ -72,9 +49,9 @@ export default function Home() {
         <SiteHeader />
         <HomeHero />
 
-        <section className={styles.techBand} aria-label="Selected tools and platforms">
+        <section className={styles.techBand} aria-label="Tools and platforms">
           <div className={styles.techBandInner}>
-            <p className={styles.techBandLabel}>Selected tools &amp; platforms</p>
+            <p className={styles.techBandLabel}>Tools &amp; platforms</p>
             <TechMarquee techIcons={techIcons} />
           </div>
         </section>
