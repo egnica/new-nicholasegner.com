@@ -1,3 +1,5 @@
+import { title } from "motion/react-client";
+
 export const opportunities = {
   "hazelden-marketing-content-producer": {
     company: "Hazelden Betty Ford Foundation",
@@ -486,7 +488,7 @@ export const opportunities = {
         startTime: 38,
         endTime: 46,
       },
-        {
+      {
         id: "16",
         title: "My Blog",
         url: "/blog",
@@ -504,10 +506,23 @@ export const opportunities = {
     introduction:
       "A short introduction for the Multimedia Producer role at Walker Art Center, with relevant video, production, and digital work linked alongside the video.",
 
-    videoUrl: null,
-    posterUrl: null,
+    videoUrl:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/walker-interview-2.mp4",
+    posterUrl:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/walker-thumb.webp",
 
-    actions: [],
+    actions: [
+      {
+        id: "resume",
+        title: "Resume",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/NICHOLAS+EGNER+-+Walker+Art+Center.pdf",
+      },
+      {
+        id: "cover",
+        title: "Cover Letter",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/interview_page/Walker+Art+Center+Hiring+Team.pdf",
+      },
+    ],
 
     note: {
       eyebrow: "Walker Art Center",
@@ -545,62 +560,76 @@ export const opportunities = {
         title: "Skills & Capabilities",
         url: "/skills",
         startTime: 8.3,
-        endTime: 15,
+        endTime: 18,
       },
       {
         id: "04",
         title: "Video Work",
         url: "/video",
         startTime: 8.4,
-        endTime: 15,
+        endTime: 18,
       },
       {
         id: "05",
         title: "Selected Projects",
         url: "/projects",
         startTime: 8.5,
-        endTime: 15,
+        endTime: 18,
       },
       {
         id: "06",
         title: "Barlow Research Conference 2024",
         url: "/video/barlow-research-conference-2024",
-        startTime: 15.2,
-        endTime: 25,
+        startTime: 18.5,
+        endTime: 27,
       },
       {
         id: "07",
         title: "Barlow Podcasts",
         url: "https://barlowresearch.com/resources/",
-        startTime: 15.5,
-        endTime: 25,
+        startTime: 19,
+        endTime: 27,
       },
       {
         id: "08",
         title: "Premiere Pro",
         url: "/skills/premiere",
-        startTime: 15.8,
-        endTime: 25,
+        startTime: 19.5,
+        endTime: 27,
       },
       {
         id: "09",
         title: "After Effects",
         url: "/skills/aftereffects",
-        startTime: 16,
-        endTime: 25,
+        startTime: 20,
+        endTime: 27,
       },
       {
         id: "10",
         title: "Davis Defense Case Study",
         url: "/projects/davis-defense",
-        startTime: 25.2,
+        startTime: 27,
+        endTime: 42,
+      },
+      {
+        id: "10.5",
+        title: "Your Gardens By Design",
+        url: "/video/your-gardens-by-design",
+        startTime: 27,
         endTime: 42,
       },
       {
         id: "11",
         title: "Video SEO Work",
         url: "/video?focus=video-seo",
-        startTime: 27,
+        startTime: 27.5,
+        endTime: 42,
+      },
+      {
+        id: "11.5",
+        title: "Video SEO Trifecta",
+        url: "/blog/video-seo-trifecta",
+        startTime: 27.5,
         endTime: 42,
       },
       {
@@ -629,21 +658,21 @@ export const opportunities = {
         title: "Full Video Portfolio",
         url: "/video",
         startTime: 42.5,
-        endTime: 56,
+        endTime: 65,
       },
       {
         id: "16",
         title: "LinkedIn",
         url: "https://www.linkedin.com/in/nicholas-egner/",
         startTime: 43,
-        endTime: 56,
+        endTime: 65,
       },
       {
         id: "17",
         title: "My Blog",
         url: "/blog",
         startTime: 43.5,
-        endTime: 56,
+        endTime: 65,
       },
     ],
   },
