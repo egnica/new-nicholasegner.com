@@ -495,6 +495,158 @@ export const opportunities = {
       },
     ],
   },
+  "walker-art-center-multimedia-producer": {
+    company: "Walker Art Center",
+    role: "Multimedia Producer",
+
+    eyebrow: "Multimedia Producer Application",
+    headline: "Storytelling, Production & Digital Experience",
+    introduction:
+      "A short introduction for the Multimedia Producer role at Walker Art Center, with relevant video, production, and digital work linked alongside the video.",
+
+    videoUrl: null,
+    posterUrl: null,
+
+    actions: [],
+
+    note: {
+      eyebrow: "Walker Art Center",
+      headline: "A short introduction with the work behind it.",
+      body: "As I mention different parts of my background, the links alongside the video provide a direct path to related production, editing, digital storytelling, and selected portfolio work.",
+    },
+
+    metadata: {
+      title: "Nicholas Egner | Multimedia Producer Application",
+      description:
+        "A custom application experience for the Multimedia Producer role at Walker Art Center, featuring video production, editing, motion graphics, digital storytelling, and web-based content work.",
+      socialDescription:
+        "A short application introduction connecting Nicholas Egner's video production, editing, storytelling, and digital experience work to the Multimedia Producer role at Walker Art Center.",
+      imageAlt:
+        "Nicholas Egner Multimedia Producer application video cover image",
+    },
+
+    cues: [
+      {
+        id: "01",
+        title: "About Nicholas",
+        url: "/about",
+        startTime: 1,
+        endTime: 8,
+      },
+      {
+        id: "02",
+        title: "My Story",
+        url: "/video-experience",
+        startTime: 1.2,
+        endTime: 8.2,
+      },
+      {
+        id: "03",
+        title: "Skills & Capabilities",
+        url: "/skills",
+        startTime: 8.3,
+        endTime: 15,
+      },
+      {
+        id: "04",
+        title: "Video Work",
+        url: "/video",
+        startTime: 8.4,
+        endTime: 15,
+      },
+      {
+        id: "05",
+        title: "Selected Projects",
+        url: "/projects",
+        startTime: 8.5,
+        endTime: 15,
+      },
+      {
+        id: "06",
+        title: "Barlow Research Conference 2024",
+        url: "/video/barlow-research-conference-2024",
+        startTime: 15.2,
+        endTime: 25,
+      },
+      {
+        id: "07",
+        title: "Barlow Podcasts",
+        url: "https://barlowresearch.com/resources/",
+        startTime: 15.5,
+        endTime: 25,
+      },
+      {
+        id: "08",
+        title: "Premiere Pro",
+        url: "/skills/premiere",
+        startTime: 15.8,
+        endTime: 25,
+      },
+      {
+        id: "09",
+        title: "After Effects",
+        url: "/skills/aftereffects",
+        startTime: 16,
+        endTime: 25,
+      },
+      {
+        id: "10",
+        title: "Davis Defense Case Study",
+        url: "/projects/davis-defense",
+        startTime: 25.2,
+        endTime: 42,
+      },
+      {
+        id: "11",
+        title: "Video SEO Work",
+        url: "/video?focus=video-seo",
+        startTime: 27,
+        endTime: 42,
+      },
+      {
+        id: "12",
+        title: "Whittier Documentary",
+        url: "https://www.youtube.com/watch?v=2L8Gy-qM9YQ",
+        startTime: 33,
+        endTime: 47,
+      },
+      {
+        id: "13",
+        title: "YWCA Woman’s Triathlon",
+        url: "https://www.youtube.com/watch?v=RPxo_4BSKMg",
+        startTime: 33.5,
+        endTime: 47,
+      },
+      {
+        id: "14",
+        title: "Landscape Structures",
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4",
+        startTime: 34,
+        endTime: 47,
+      },
+      {
+        id: "15",
+        title: "Full Video Portfolio",
+        url: "/video",
+        startTime: 42.5,
+        endTime: 56,
+      },
+      {
+        id: "16",
+        title: "LinkedIn",
+        url: "https://www.linkedin.com/in/nicholas-egner/",
+        startTime: 43,
+        endTime: 56,
+      },
+      {
+        id: "17",
+        title: "My Blog",
+        url: "/blog",
+        startTime: 43.5,
+        endTime: 56,
+      },
+    ],
+  },
 };
 
 export function getOpportunityBySlug(slug) {
