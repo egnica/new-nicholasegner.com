@@ -8,6 +8,7 @@ const mainLinks = [
   { label: "Video Work", href: "/video" },
   { label: "Skills", href: "/skills" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const proofLinks = [
@@ -75,9 +76,9 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          <a className={styles.ctaButton} href="mailto:nick@nicholasegner.com">
-            Email Me
-          </a>
+          <Link className={styles.ctaButton} href="/contact">
+            Start a Conversation
+          </Link>
         </div>
       </div>
       <div className={styles.svgContain}>
