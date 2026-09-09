@@ -11,6 +11,7 @@ const links = [
   { label: "Projects", href: "/projects" },
   { label: "Video Work", href: "/video" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function SiteHeader() {
