@@ -66,23 +66,22 @@
 }
 
 .focusList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
   margin-top: 2rem;
+  color: rgba(241, 244, 255, 0.7);
+  font-size: 0.78rem;
+  font-weight: 760;
+  line-height: 2;
+  letter-spacing: 0.01em;
 }
 
 .focusList span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 0.55rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(241, 244, 255, 0.72);
-  font-size: 0.76rem;
-  font-weight: 720;
+  display: inline;
+}
+
+.focusList span:not(:last-child)::after {
+  content: " • ";
+  margin-inline: 0.45rem;
+  color: rgba(118, 215, 255, 0.62);
 }
 
 .directContact {
@@ -143,5 +142,10 @@
 
   .lead {
     font-size: 1.02rem;
+  }
+
+  .focusList {
+    font-size: 0.74rem;
+    line-height: 2.1;
   }
 }
