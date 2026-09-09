@@ -28,6 +28,12 @@ export default function sitemap() {
       changeFrequency: "monthly",
     },
     {
+      url: `${SITE_URL}/contact`,
+      lastModified: currentDate,
+      priority: 0.8,
+      changeFrequency: "monthly",
+    },
+    {
       url: `${SITE_URL}/video`,
       lastModified: currentDate,
       priority: 0.8,
