@@ -1002,25 +1002,25 @@
 }
 
 .caseRoleList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  display: block;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .caseRoleList li {
-  padding: 0.42rem 0.66rem;
-  color: rgba(244, 247, 255, 0.86);
-  font-size: 0.74rem;
-  font-weight: 700;
-  line-height: 1.2;
-  background: rgba(255, 255, 255, 0.065);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 999px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  display: inline;
+  color: rgba(235, 239, 255, 0.76);
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.caseRoleList li:not(:last-child)::after {
+  content: "·";
+  display: inline-block;
+  margin: 0 0.52rem;
+  color: rgba(187, 170, 255, 0.58);
 }
 
 .caseHeroMediaWrap {
@@ -1352,13 +1352,13 @@
     margin-top: 1.25rem;
   }
 
-  .caseRoleList {
-    gap: 0.4rem;
+  .caseRoleList li {
+    font-size: 0.76rem;
+    line-height: 1.8;
   }
 
-  .caseRoleList li {
-    padding: 0.38rem 0.58rem;
-    font-size: 0.7rem;
+  .caseRoleList li:not(:last-child)::after {
+    margin-inline: 0.4rem;
   }
 
   .caseHeroMediaWrap {
