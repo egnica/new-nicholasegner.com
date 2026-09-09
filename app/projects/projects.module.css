@@ -872,13 +872,16 @@
 
 .backLink {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: inline-flex;
   width: fit-content;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
   color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
   text-decoration: none;
-  letter-spacing: 0.04em;
+  text-transform: uppercase;
   transition:
     color 180ms ease,
     transform 180ms ease;
@@ -897,102 +900,173 @@
 }
 
 .caseHero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(320px, 1.25fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  min-height: clamp(620px, 72vh, 800px);
   margin-bottom: clamp(2.5rem, 7vw, 6rem);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #080718;
+}
+
+.caseHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 7, 24, 0.99) 0%,
+      rgba(8, 7, 24, 0.96) 34%,
+      rgba(8, 7, 24, 0.78) 52%,
+      rgba(8, 7, 24, 0.3) 73%,
+      rgba(8, 7, 24, 0.1) 100%
+    ),
+    linear-gradient(180deg, rgba(8, 7, 24, 0.08), rgba(8, 7, 24, 0.42));
 }
 
 .caseHeroCopy {
-  min-height: clamp(520px, 70vh, 760px);
+  position: relative;
+  z-index: 3;
   display: flex;
+  width: min(63%, 880px);
+  min-height: clamp(620px, 72vh, 800px);
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.02)
-  );
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  padding: clamp(2.25rem, 5vw, 5.5rem);
+  animation: projectsCopyRise 700ms ease-out both;
 }
 
 .caseHeroCopy h1 {
-  max-width: 11ch;
+  max-width: 10ch;
   margin: 0;
-  font-size: 3rem;
-  line-height: 0.88;
-  letter-spacing: -0.08em;
-  max-width: 100%;
+  color: #fff;
+  font-size: clamp(3.4rem, 6.5vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  text-shadow: 2px 3px 18px rgba(0, 0, 0, 0.48);
 }
 
 .caseLead {
   max-width: 58ch;
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
-  line-height: 1.55;
+  margin: clamp(1.15rem, 2vw, 1.6rem) 0 0;
+  color: #eef2ff;
+  font-size: clamp(1.02rem, 1.45vw, 1.28rem);
+  line-height: 1.58;
 }
 
 .caseDescription {
   max-width: 62ch;
-  margin: 1rem 0 0;
-  color: rgba(255, 255, 255, 0.66);
-  line-height: 1.7;
+  margin: 0.85rem 0 0;
+  color: rgba(224, 229, 252, 0.76);
+  font-size: 0.96rem;
+  line-height: 1.62;
 }
 
 .caseQuickMeta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 820px;
+  margin-top: clamp(1.35rem, 2.5vw, 2rem);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-.caseQuickMeta div {
+.caseMetaItem {
   min-width: 120px;
-  padding: 0.85rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.055);
+  padding-right: 1rem;
 }
 
-.caseQuickMeta span {
+.caseMetaLabel {
   display: block;
-  margin-bottom: 0.25rem;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.72rem;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.68rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
 }
 
-.caseQuickMeta strong {
+.caseMetaItem strong {
   color: #fff;
   font-size: 0.95rem;
 }
 
+.caseRoleMeta {
+  width: 100%;
+}
+
+.caseRoleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.caseRoleList li {
+  padding: 0.42rem 0.66rem;
+  color: rgba(244, 247, 255, 0.86);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 .caseHeroMediaWrap {
-  min-height: clamp(420px, 70vh, 760px);
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 0;
+  width: 70%;
+  height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  background: #05050d;
+  animation: projectsImageSettle 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 .caseMedia {
   display: block;
-
   min-height: 320px;
   object-fit: cover;
   background: #050505;
 }
 
 .caseHeroMedia {
-  min-height: clamp(420px, 70vh, 760px);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+  transform: scale(1.015);
+}
+
+.caseHeroMediaWrap .mediaCaption {
+  position: absolute;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  max-width: min(68%, 580px);
+  margin: 0;
+  padding: 0.65rem 0.82rem;
+  color: rgba(244, 247, 255, 0.88);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: right;
+  background: rgba(5, 5, 15, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .caseStoryGrid {
@@ -1190,15 +1264,34 @@
   line-height: 1.25;
 }
 
-@media (max-width: 980px) {
-  .caseHero {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 1100px) and (min-width: 761px) {
   .caseHeroCopy {
-    min-height: auto;
+    width: 70%;
+    padding: clamp(2rem, 4vw, 3.5rem);
   }
 
+  .caseHeroCopy h1 {
+    font-size: clamp(3rem, 6.4vw, 5.25rem);
+  }
+
+  .caseHeroMediaWrap {
+    width: 68%;
+  }
+
+  .caseHero::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 7, 24, 0.99) 0%,
+        rgba(8, 7, 24, 0.96) 42%,
+        rgba(8, 7, 24, 0.72) 62%,
+        rgba(8, 7, 24, 0.18) 100%
+      ),
+      linear-gradient(180deg, rgba(8, 7, 24, 0.06), rgba(8, 7, 24, 0.42));
+  }
+}
+
+@media (max-width: 980px) {
   .caseHeroCopy h1 {
     max-width: 100%;
   }
@@ -1219,22 +1312,90 @@
   }
 }
 
+@media (max-width: 760px) {
+  .caseHero {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .caseHero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 7, 24, 0.99) 0%,
+      rgba(8, 7, 24, 0.96) 52%,
+      rgba(8, 7, 24, 0.7) 72%,
+      rgba(8, 7, 24, 0.18) 100%
+    );
+  }
+
+  .caseHeroCopy {
+    order: 1;
+    width: 100%;
+    min-height: 0;
+    padding: 2.25rem 1rem 1.75rem;
+  }
+
+  .caseHeroCopy h1 {
+    font-size: clamp(2.75rem, 13vw, 4.4rem);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+  }
+
+  .caseLead {
+    margin-top: 1rem;
+    font-size: 0.98rem;
+    line-height: 1.52;
+  }
+
+  .caseQuickMeta {
+    margin-top: 1.25rem;
+  }
+
+  .caseRoleList {
+    gap: 0.4rem;
+  }
+
+  .caseRoleList li {
+    padding: 0.38rem 0.58rem;
+    font-size: 0.7rem;
+  }
+
+  .caseHeroMediaWrap {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .caseHeroMedia {
+    width: 100%;
+    height: 100%;
+  }
+
+  .caseHeroMediaWrap .mediaCaption {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+    font-size: 0.72rem;
+  }
+}
+
 @media (max-width: 640px) {
   .caseStudyPage {
     width: min(100% - 1rem, 1440px);
-    padding-top: 6rem;
   }
 
-  .caseHeroCopy,
   .caseTextSection,
   .caseMetaBlock,
   .caseStoryCard {
     padding: 1.15rem;
   }
 
-  .caseHeroMediaWrap,
-  .caseHeroMedia {
-    min-height: 340px;
+  .caseHeroCopy {
+    padding: 2rem 1rem 1.5rem;
   }
 
   .caseStoryCard {
@@ -1243,6 +1404,13 @@
 
   .caseStoryCard span {
     margin-bottom: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseHeroCopy,
+  .caseHeroMediaWrap {
+    animation: none;
   }
 }
 .iframeShell {
@@ -1283,7 +1451,6 @@
   display: inline-flex;
   width: fit-content;
 }
-
 
 /* ---------- Projects Hub Refresh ---------- */
 
@@ -1329,8 +1496,11 @@
   padding: 0.95rem 0.9rem 0.95rem 1rem;
   color: #e8ecff;
   text-align: left;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.025)
+  );
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 16px;
   box-shadow:
@@ -1392,8 +1562,11 @@
 
 .indexButton:hover {
   color: #fff;
-  background:
-    linear-gradient(135deg, rgba(118, 215, 255, 0.12), rgba(187, 170, 255, 0.07));
+  background: linear-gradient(
+    135deg,
+    rgba(118, 215, 255, 0.12),
+    rgba(187, 170, 255, 0.07)
+  );
   border-color: rgba(118, 215, 255, 0.42);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -1414,8 +1587,11 @@
 
 .activeIndexButton {
   color: #fff;
-  background:
-    linear-gradient(135deg, rgba(118, 215, 255, 0.18), rgba(187, 170, 255, 0.11));
+  background: linear-gradient(
+    135deg,
+    rgba(118, 215, 255, 0.18),
+    rgba(187, 170, 255, 0.11)
+  );
   border-color: rgba(118, 215, 255, 0.68);
   box-shadow:
     inset 3px 0 0 #76d7ff,
@@ -1482,11 +1658,7 @@
       rgba(8, 7, 24, 0.24) 72%,
       rgba(8, 7, 24, 0.1) 100%
     ),
-    linear-gradient(
-      180deg,
-      rgba(8, 7, 24, 0.08),
-      rgba(8, 7, 24, 0.34)
-    );
+    linear-gradient(180deg, rgba(8, 7, 24, 0.08), rgba(8, 7, 24, 0.34));
 }
 
 .overviewMedia {
@@ -1685,14 +1857,13 @@
   }
 
   .overviewHero::after {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(8, 7, 24, 0.99) 0%,
-        rgba(8, 7, 24, 0.96) 45%,
-        rgba(8, 7, 24, 0.69) 64%,
-        rgba(8, 7, 24, 0.2) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      rgba(8, 7, 24, 0.99) 0%,
+      rgba(8, 7, 24, 0.96) 45%,
+      rgba(8, 7, 24, 0.69) 64%,
+      rgba(8, 7, 24, 0.2) 100%
+    );
   }
 
   .overviewMedia {
@@ -1767,7 +1938,6 @@
     transition: none;
   }
 }
-
 
 /* ---------- Selected Project Hero Refresh ---------- */
 
@@ -1916,11 +2086,7 @@
         rgba(8, 7, 24, 0.7) 62%,
         rgba(8, 7, 24, 0.18) 100%
       ),
-      linear-gradient(
-        180deg,
-        rgba(8, 7, 24, 0.04),
-        rgba(8, 7, 24, 0.42)
-      );
+      linear-gradient(180deg, rgba(8, 7, 24, 0.04), rgba(8, 7, 24, 0.42));
   }
 }
 

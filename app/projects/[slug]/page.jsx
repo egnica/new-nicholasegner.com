@@ -212,12 +212,20 @@ export default async function ProjectCaseStudyPage({ params }) {
       <div className={styles.mainBackColor} />
 
       <article className={styles.caseStudyPage}>
-        <Link href="/projects" className={styles.backLink}>
-          ← Back to projects
-        </Link>
+        <header className={`${styles.caseHero} fullBleedHero`}>
+          <div className={styles.caseHeroMediaWrap}>
+            <ProjectMedia media={project.heroMedia} variant="hero" />
 
-        <header className={styles.caseHero}>
+            {project.heroMedia?.caption && (
+              <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
+            )}
+          </div>
+
           <div className={styles.caseHeroCopy}>
+            <Link href="/projects" className={styles.backLink}>
+              ← Back to projects
+            </Link>
+
             <p className={styles.eyebrow}>{project.eyebrow}</p>
 
             <h1>{project.title}</h1>
@@ -230,34 +238,33 @@ export default async function ProjectCaseStudyPage({ params }) {
 
             <div className={styles.caseQuickMeta}>
               {project.role && (
-                <div>
-                  <span>Role</span>
-                  <strong>{project.role}</strong>
+                <div className={styles.caseRoleMeta}>
+                  <span className={styles.caseMetaLabel}>Role</span>
+                  <ul className={styles.caseRoleList}>
+                    {(Array.isArray(project.role)
+                      ? project.role
+                      : [project.role]
+                    ).map((role) => (
+                      <li key={role}>{role}</li>
+                    ))}
+                  </ul>
                 </div>
               )}
 
               {project.year && (
-                <div>
-                  <span>Year</span>
+                <div className={styles.caseMetaItem}>
+                  <span className={styles.caseMetaLabel}>Year</span>
                   <strong>{project.year}</strong>
                 </div>
               )}
 
               {project.client && (
-                <div>
-                  <span>Client</span>
+                <div className={styles.caseMetaItem}>
+                  <span className={styles.caseMetaLabel}>Client</span>
                   <strong>{project.client}</strong>
                 </div>
               )}
             </div>
-          </div>
-
-          <div className={styles.caseHeroMediaWrap}>
-            <ProjectMedia media={project.heroMedia} variant="hero" />
-
-            {project.heroMedia?.caption && (
-              <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
-            )}
           </div>
         </header>
 
