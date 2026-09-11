@@ -21,6 +21,41 @@ const additionalBackEndSkills = [
   },
 ];
 
+const additionalVisibilitySkills = [
+  {
+    name: "Google Analytics",
+    slug: "google-analytics",
+    text: "I use Google Analytics to understand how people arrive at a website, which pages and content they engage with, and how behavior changes over time. I use that data to support reporting, diagnose traffic patterns, evaluate campaigns, and make more informed decisions about content and site improvements.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#FFF4E5'/><rect x='24' y='54' width='12' height='20' rx='6' fill='#F9AB00'/><rect x='42' y='37' width='12' height='37' rx='6' fill='#E37400'/><rect x='60' y='20' width='12' height='54' rx='6' fill='#E37400'/><circle cx='30' cy='30' r='7' fill='#F9AB00'/></svg>",
+    projects: [],
+  },
+  {
+    name: "Google Search Console",
+    slug: "search-console",
+    text: "I use Google Search Console to monitor how websites appear in Google Search, review queries and page performance, inspect indexing, identify technical issues, and understand where search visibility is improving or slipping. It is one of the main tools I use to connect SEO decisions with real search data.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#4285F4'/><rect x='20' y='29' width='56' height='42' rx='8' fill='#fff'/><path d='M33 29v-7h30v7' fill='none' stroke='#fff' stroke-width='6' stroke-linecap='round'/><circle cx='45' cy='49' r='10' fill='none' stroke='#4285F4' stroke-width='5'/><path d='m52 56 10 10' stroke='#4285F4' stroke-width='5' stroke-linecap='round'/></svg>",
+    projects: [],
+  },
+  {
+    name: "Meta Analytics",
+    slug: "meta-analytics",
+    text: "I use Meta's analytics and business tools to review reach, engagement, audience response, content performance, and campaign activity across Facebook and Instagram. I use those signals to understand what content is connecting, compare performance over time, and guide future publishing and promotion decisions.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#0866FF'/><path d='M23 59c7-18 13-28 20-28 6 0 10 8 15 17 4 8 7 13 11 13 4 0 7-5 7-12 0-12-5-20-13-20-8 0-14 8-20 20-6 12-10 19-15 19-3 0-5-3-5-9Z' fill='none' stroke='#fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M31 68h34' stroke='#8DC3FF' stroke-width='5' stroke-linecap='round'/></svg>",
+    projects: [],
+  },
+  {
+    name: "YouTube Analytics",
+    slug: "youtube-analytics",
+    text: "I use YouTube Analytics to evaluate video performance through views, watch time, audience retention, traffic sources, engagement, and subscriber behavior. I use that information to understand where viewers stay or leave, which topics are earning attention, and how video content can be improved for search and ongoing audience growth.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#FF0000'/><path d='M31 30h34c8 0 13 5 13 13v10c0 8-5 13-13 13H31c-8 0-13-5-13-13V43c0-8 5-13 13-13Z' fill='#fff'/><path d='m43 40 15 8-15 8V40Z' fill='#FF0000'/><path d='M30 74h9V63h-9v11Zm14 0h9V59h-9v15Zm14 0h9V54h-9v20Z' fill='#FFD1D1'/></svg>",
+    projects: [],
+  },
+];
+
 const websitePlatformSkills = [
   {
     name: "WordPress",
@@ -48,14 +83,23 @@ const websitePlatformSkills = [
   },
 ];
 
-const baseSkillGroups = stackData.stack.map((group) =>
-  group.category === "Back End"
-    ? {
-        ...group,
-        technologies: [...group.technologies, ...additionalBackEndSkills],
-      }
-    : group,
-);
+const baseSkillGroups = stackData.stack.map((group) => {
+  if (group.category === "Back End") {
+    return {
+      ...group,
+      technologies: [...group.technologies, ...additionalBackEndSkills],
+    };
+  }
+
+  if (group.category === "Search & Digital Visibility") {
+    return {
+      ...group,
+      technologies: [...group.technologies, ...additionalVisibilitySkills],
+    };
+  }
+
+  return group;
+});
 
 export const skillGroups = [
   ...baseSkillGroups,
