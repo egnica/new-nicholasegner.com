@@ -21,7 +21,34 @@ const additionalBackEndSkills = [
   },
 ];
 
-export const skillGroups = stackData.stack.map((group) =>
+const websitePlatformSkills = [
+  {
+    name: "WordPress",
+    slug: "wordpress",
+    text: "I use WordPress for content-driven websites, existing-site support, page and theme customization, plugin configuration, maintenance, and SEO-focused updates. I am comfortable working within established WordPress builds and adapting them to improve content, presentation, and day-to-day usability.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#21759B'/><circle cx='48' cy='48' r='29' fill='none' stroke='#fff' stroke-width='5'/><path d='M27 34h13M56 34h12M33 34l11 34M62 34 52 68M42 34l10 34M68 34c3 7 2 15-2 23' fill='none' stroke='#fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+    projects: [],
+  },
+  {
+    name: "Shopify",
+    slug: "shopify",
+    text: "I have hands-on experience working with Shopify storefronts, including products, content, theme settings, layout adjustments, and site presentation. I can work within an existing Shopify setup to make practical front-end and content changes while staying within the platform's ecommerce structure.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#95BF47'/><path d='M31 30h34l5 43H26l5-43Z' fill='#fff'/><path d='M38 32c1-10 5-16 11-16 5 0 9 5 10 16' fill='none' stroke='#fff' stroke-width='5' stroke-linecap='round'/><path d='M57 42c-3-2-6-3-9-3-5 0-8 2-8 6 0 8 17 5 17 16 0 7-6 11-14 11-4 0-8-1-11-3' fill='none' stroke='#5E8E3E' stroke-width='6' stroke-linecap='round'/></svg>",
+    projects: [],
+  },
+  {
+    name: "Wix",
+    slug: "wix",
+    text: "I have hands-on experience working in Wix to build and adjust pages, manage site content, refine layouts, and make responsive presentation changes. It is a useful platform when a project needs an approachable visual editing workflow and straightforward ongoing content management.",
+    image:
+      "<svg width='500' height='500' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='90' height='90' rx='22' fill='#111'/><path d='M18 34l8 29 8-20 8 20 8-29M57 34v29M65 34l13 29M78 34 65 63' fill='none' stroke='#fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>",
+    projects: [],
+  },
+];
+
+const baseSkillGroups = stackData.stack.map((group) =>
   group.category === "Back End"
     ? {
         ...group,
@@ -29,6 +56,14 @@ export const skillGroups = stackData.stack.map((group) =>
       }
     : group,
 );
+
+export const skillGroups = [
+  ...baseSkillGroups,
+  {
+    category: "CMS & Website Platforms",
+    technologies: websitePlatformSkills,
+  },
+];
 
 export const allTech = skillGroups.flatMap((group) =>
   group.technologies.map((tech) => ({
