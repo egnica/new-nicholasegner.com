@@ -682,9 +682,10 @@ export const opportunities = {
     eyebrow: "Website & Social Media Manager Application",
     headline: "Web, Social, SEO & Digital Content",
     introduction:
-      "A short introduction for the Website & Social Media Manager role at Schneiderman's Furniture, with relevant website, analytics, SEO, social, and video work linked alongside the video.",
+      "An introduction for the Website & Social Media Manager role at Schneiderman's Furniture, with relevant website, analytics, SEO, social, and video work linked alongside the video.",
 
-    videoUrl: null,
+    videoUrl:
+      "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/Schneiderman_2.mp4",
     posterUrl:
       "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/Schneiderman_thumb.webp",
 
@@ -723,14 +724,21 @@ export const opportunities = {
         title: "About Nicholas",
         url: "/about",
         startTime: 0.3,
-        endTime: 10.9,
+        endTime: 28,
+      },
+      {
+        id: "01.5",
+        title: "My Story",
+        url: "/video-experience",
+        startTime: 0.3,
+        endTime: 28,
       },
       {
         id: "02",
         title: "Selected Projects",
         url: "/projects",
-        startTime: 25.9,
-        endTime: 29.8,
+        startTime: 20.9,
+        endTime: 30,
       },
       {
         id: "03",
@@ -764,43 +772,43 @@ export const opportunities = {
         id: "07",
         title: "SEO",
         url: "/skills/seo",
-        startTime: 36.5,
-        endTime: 39.5,
+        startTime: 34,
+        endTime: 50,
       },
       {
         id: "08",
         title: "Video SEO Trifecta",
         url: "/blog/video-seo-trifecta",
         startTime: 36.8,
-        endTime: 39.8,
+        endTime: 50,
       },
       {
         id: "09",
         title: "Google Analytics",
         url: "/skills/google-analytics",
         startTime: 38.3,
-        endTime: 41.7,
+        endTime: 50,
       },
       {
         id: "10",
         title: "Search Console",
         url: "/skills/search-console",
         startTime: 38.6,
-        endTime: 41.9,
+        endTime: 50,
       },
       {
         id: "11",
         title: "Meta Analytics",
         url: "/skills/meta-analytics",
         startTime: 39.1,
-        endTime: 42.4,
+        endTime: 50,
       },
       {
         id: "12",
         title: "YouTube Analytics",
         url: "/skills/youtube-analytics",
         startTime: 39.4,
-        endTime: 42.4,
+        endTime: 50,
       },
       {
         id: "13",
@@ -821,22 +829,9 @@ export const opportunities = {
         title: "Full Video Portfolio",
         url: "/video",
         startTime: 42.5,
-        endTime: 49.7,
+        endTime: 58,
       },
-      {
-        id: "16",
-        title: "Davis Defense Case Study",
-        url: "/projects/davis-defense",
-        startTime: 45.4,
-        endTime: 49.7,
-      },
-      {
-        id: "17",
-        title: "Let Us Clean MN Case Study",
-        url: "/projects/let-us-clean-mn",
-        startTime: 45.7,
-        endTime: 49.7,
-      },
+
       {
         id: "18",
         title: "Full Portfolio",
