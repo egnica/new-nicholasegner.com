@@ -102,6 +102,23 @@ function getUsageCards(tech) {
         text: "Authentication, validation, errors, external services, and edge cases matter just as much as the happy path when a system supports real business activity.",
       },
     ],
+    "CMS & Website Platforms": [
+      {
+        label: "Build",
+        title: "Platform-based websites",
+        text: `I use ${name} when a project benefits from an established website platform, visual editing tools, and a content workflow that can be managed without a fully custom application stack.`,
+      },
+      {
+        label: "Adapt",
+        title: "Layouts, themes and content",
+        text: "I am comfortable working inside an existing platform setup to adjust page structure, presentation, content, responsive behavior, and the settings that shape the visitor experience.",
+      },
+      {
+        label: "Maintain",
+        title: "Practical ongoing updates",
+        text: "Platform work often continues after launch. I focus on making updates understandable and maintainable so content, products, pages, and site presentation can evolve without unnecessary friction.",
+      },
+    ],
     "DevOps & Hosting": [
       {
         label: "Deploy",
