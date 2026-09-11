@@ -9,6 +9,7 @@ import styles from "./SiteHeader.module.css";
 const links = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Skills", href: "/skills" },
   { label: "Video Work", href: "/video" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
