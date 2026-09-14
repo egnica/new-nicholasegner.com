@@ -1,4 +1,4 @@
-import Posts from "../../../blog";
+import { getBlogData } from "../../lib/contentApi";
 import styles from "../blog.module.css";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
@@ -54,7 +54,9 @@ export const metadata = {
   },
 };
 
-export default function BlogArchive() {
+export default async function BlogArchive() {
+  const Posts = await getBlogData();
+
   const posts = Object.values(Posts)
     .filter((post) => post.live !== false)
     .sort(

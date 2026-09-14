@@ -1,4 +1,4 @@
-import Posts from "../../blog";
+import { getBlogData } from "../lib/contentApi";
 import Link from "next/link";
 import styles from "./blog.module.css";
 import Image from "next/image";
@@ -53,7 +53,9 @@ export const metadata = {
   },
 };
 
-export default function BlogMain() {
+export default async function BlogMain() {
+  const Posts = await getBlogData();
+
   const sortedPosts = Object.values(Posts)
     .filter((post) => post.live !== false)
     .sort(

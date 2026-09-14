@@ -13,7 +13,7 @@ import {
   SITE_URL,
   DEFAULT_IMAGE,
 } from "@/app/lib/schema";
-import Posts from "../../../blog";
+import { getBlogData } from "../../lib/contentApi";
 
 function videoContentUrl(video) {
   return (
@@ -53,6 +53,7 @@ function formatDuration(duration) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+  const Posts = await getBlogData();
   const post = Posts[slug];
 
   if (!post) {
@@ -198,6 +199,7 @@ function PrimaryVideo({ post }) {
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
+  const Posts = await getBlogData();
   const post = Posts[slug];
 
   if (!post || post.live === false || post.published === false) {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import blogData from "../../blog";
+import { getBlogData } from "../lib/contentApi";
 
 const SITE_URL = "https://www.nicholasegner.com";
 
@@ -39,6 +39,8 @@ function videoContentUrl(video) {
 }
 
 export async function GET() {
+  const blogData = await getBlogData();
+
   const videos = Object.values(blogData).filter(
     (post) =>
       post?.live !== false &&
