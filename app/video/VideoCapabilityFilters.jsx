@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
 
-export default function VideoCapabilityFilters({ capabilities = [] }) {
+export default function VideoCapabilityFilters({ capabilities = {} }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -32,7 +32,7 @@ export default function VideoCapabilityFilters({ capabilities = [] }) {
 
   return (
     <div className={styles.heroTags} aria-label="Filter video work by capability">
-      {capabilities.map((capability) => {
+      {Object.values(capabilities).map((capability) => {
         const isActive = active === capability.slug;
 
         return (

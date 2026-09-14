@@ -107,16 +107,16 @@ function FilteredWorkCard({ item, fallbackPoster, technologies }) {
 export default function VideoHubClient({
   items,
   assets,
-  capabilities = [],
+  capabilities = {},
   technologies = {},
 }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const activeFocus = searchParams.get("focus");
-  const activeCapability = capabilities.find(
-    (capability) => capability.slug === activeFocus,
-  );
+  const activeCapability = activeFocus
+    ? capabilities[activeFocus]
+    : null;
   const filteredItems = activeCapability
     ? items.filter((item) => item.capabilities?.includes(activeCapability.slug))
     : [];

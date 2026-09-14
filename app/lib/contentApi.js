@@ -69,20 +69,12 @@ export async function getSkillGroups() {
 }
 
 export async function getVideoWorkData() {
-  const data = await requestContent(
+  return requestContent(
     "/api/video-work?site=nicholasegner",
-    (response) =>
-      isRecord(response) &&
-      (Array.isArray(response.capabilities) ||
-        isRecord(response.capabilities)) &&
-      Array.isArray(response.items) &&
-      isRecord(response.assets),
+    (data) =>
+      isRecord(data) &&
+      isRecord(data.capabilities) &&
+      Array.isArray(data.items) &&
+      isRecord(data.assets),
   );
-
-  return {
-    ...data,
-    capabilities: Array.isArray(data.capabilities)
-      ? data.capabilities
-      : Object.values(data.capabilities),
-  };
 }
