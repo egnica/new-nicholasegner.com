@@ -7,12 +7,17 @@ import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import SiteFooter from "../../components/SiteFooter/SiteFooter";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import SkillBackButton from "./SkillBackButton";
-import { allTech, getTech } from "../../lib/techStack";
-import { projects } from "../../lib/projects";
-import { videoWork } from "../../lib/videoWork";
+import {
+  getProjects,
+  getTechStackData,
+  getTechnologies,
+  getVideoWorkData,
+} from "../../lib/contentApi";
 import { DEFAULT_IMAGE, SITE_URL, getSkillPageSchema } from "../../lib/schema";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const allTech = await getTechnologies();
+
   return allTech.map((tech) => ({
     tech: tech.slug,
   }));
@@ -20,7 +25,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { tech } = await params;
-  const techData = getTech(tech);
+  const { technologies } = await getTechStackData();
+  const techData = technologies[tech];
 
   if (!techData) {
     return {
@@ -175,7 +181,7 @@ function getUsageCards(tech) {
   return cardsByCategory[tech.category] || [];
 }
 
-function getRelatedSkills(currentTech) {
+function getRelatedSkills(currentTech, allTech, projects, videoWork) {
   const projectMatches = projects.filter((project) =>
     project.stack?.includes(currentTech.slug),
   );
@@ -251,12 +257,22 @@ function RelatedWorkCard({ item }) {
 
 export default async function TechPage({ params }) {
   const { tech } = await params;
-  const techData = getTech(tech);
+  const [
+    { technologies },
+    projects,
+    { items: videoWork },
+  ] = await Promise.all([
+    getTechStackData(),
+    getProjects(),
+    getVideoWorkData(),
+  ]);
+  const allTech = Object.values(technologies);
+  const techData = technologies[tech];
 
   if (!techData) notFound();
 
   const usageCards = getUsageCards(techData);
-  const relatedSkills = getRelatedSkills(techData);
+  const relatedSkills = getRelatedSkills(techData, allTech, projects, videoWork);
 
   const relatedProjects = projects
     .filter((project) => project.stack?.includes(techData.slug))

@@ -8,17 +8,17 @@ import JsonLd from "../../components/JsonLd/JsonLd";
 import oldStyles from "../../page.module.css";
 import styles from "./video-detail.module.css";
 import {
-  getVideoWork,
-  videoWork,
-  videoHubAssets,
-} from "../../lib/videoWork";
-import { getTech } from "../../lib/techStack";
+  getTechStackData,
+  getVideoWorkData,
+} from "../../lib/contentApi";
 import {
   SITE_URL,
   getVideoPageSchema,
 } from "../../lib/schema";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { items: videoWork } = await getVideoWorkData();
+
   return videoWork
     .filter((item) => item.type === "video" && item.slug)
     .map((item) => ({ slug: item.slug }));
@@ -26,7 +26,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = getVideoWork(slug);
+  const { items: videoWork, assets: videoHubAssets } =
+    await getVideoWorkData();
+  const item = videoWork.find((candidate) => candidate.slug === slug);
 
   if (!item) return {};
 
@@ -66,11 +68,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-function SkillLinks({ skills = [] }) {
+function SkillLinks({ skills = [], technologies = {} }) {
   return (
     <div className={styles.skillRow}>
       {skills.map((slug) => {
-        const tech = getTech(slug);
+        const tech = technologies[slug];
 
         return (
           <Link key={slug} href={`/skills/${slug}`} className={styles.skill}>
@@ -102,7 +104,14 @@ function RelatedLink({ page }) {
 
 export default async function VideoDetailPage({ params }) {
   const { slug } = await params;
-  const item = getVideoWork(slug);
+  const [
+    { items: videoWork, assets: videoHubAssets },
+    { technologies },
+  ] = await Promise.all([
+    getVideoWorkData(),
+    getTechStackData(),
+  ]);
+  const item = videoWork.find((candidate) => candidate.slug === slug);
 
   if (!item || item.type !== "video") notFound();
 
@@ -133,7 +142,7 @@ export default async function VideoDetailPage({ params }) {
               <p className={styles.eyebrow}>{item.category}</p>
               <h1>{item.title}</h1>
               <p className={styles.lead}>{item.description}</p>
-              <SkillLinks skills={item.skills} />
+              <SkillLinks skills={item.skills} technologies={technologies} />
             </div>
           </header>
 
@@ -173,7 +182,7 @@ export default async function VideoDetailPage({ params }) {
                 content work.
               </p>
             </div>
-            <SkillLinks skills={item.skills} />
+            <SkillLinks skills={item.skills} technologies={technologies} />
           </section>
 
           {item.relatedPages?.length > 0 && (

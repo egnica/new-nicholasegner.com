@@ -1,5 +1,5 @@
 import ProjectsPageContent from "./ProjectsPageContent";
-import { projects } from "../lib/projects";
+import { getProjects, getTechStackData } from "../lib/contentApi";
 import JsonLd from "../components/JsonLd/JsonLd";
 import { getProjectsHubSchema } from "../lib/schema";
 
@@ -27,7 +27,11 @@ export const metadata = {
 };
 
 export default async function ProjectsPage({ searchParams }) {
-  const resolvedSearchParams = await searchParams;
+  const [resolvedSearchParams, projects, { technologies }] = await Promise.all([
+    searchParams,
+    getProjects(),
+    getTechStackData(),
+  ]);
   const selectedSlug = Array.isArray(resolvedSearchParams?.project)
     ? resolvedSearchParams.project[0]
     : resolvedSearchParams?.project;
@@ -40,6 +44,7 @@ export default async function ProjectsPage({ searchParams }) {
       <ProjectsPageContent
         projects={projects}
         selectedProject={selectedProject}
+        technologies={technologies}
       />
     </>
   );

@@ -4,22 +4,23 @@ import { notFound } from "next/navigation";
 import styles from "../projects.module.css";
 import oldStyles from "../../page.module.css";
 import Particles from "../../components/particlesBackground";
-import { projects } from "../../lib/projects";
-import { getTech } from "../../lib/techStack";
+import { getProjects, getTechStackData } from "../../lib/contentApi";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import { getProjectPageSchema } from "../../lib/schema";
 
-function getProject(slug) {
+function getProject(projects, slug) {
   return projects.find((project) => project.slug === slug);
 }
 
-function getProjectIndex(slug) {
+function getProjectIndex(projects, slug) {
   return projects.findIndex((project) => project.slug === slug);
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const projects = await getProjects();
+
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -27,7 +28,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const projects = await getProjects();
+  const project = getProject(projects, slug);
 
   if (!project) {
     return {
@@ -116,7 +118,7 @@ function StoryBlock({ number, title, children }) {
   );
 }
 
-function StackBadges({ stack }) {
+function StackBadges({ stack, technologies }) {
   if (!stack?.length) return null;
 
   return (
@@ -125,7 +127,7 @@ function StackBadges({ stack }) {
 
       <div className={styles.stackBadges}>
         {stack.map((slug) => {
-          const tech = getTech(slug);
+          const tech = technologies[slug];
 
           if (!tech) {
             return (
@@ -189,13 +191,17 @@ function ProjectLinks({ links }) {
 
 export default async function ProjectCaseStudyPage({ params }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const [projects, { technologies }] = await Promise.all([
+    getProjects(),
+    getTechStackData(),
+  ]);
+  const project = getProject(projects, slug);
 
   if (!project) {
     notFound();
   }
 
-  const currentIndex = getProjectIndex(slug);
+  const currentIndex = getProjectIndex(projects, slug);
   const previousProject =
     projects[(currentIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(currentIndex + 1) % projects.length];
@@ -358,7 +364,7 @@ export default async function ProjectCaseStudyPage({ params }) {
         )}
 
         <section className={styles.caseMetaGrid}>
-          <StackBadges stack={project.stack} />
+          <StackBadges stack={project.stack} technologies={technologies} />
           <ProjectLinks links={project.links} />
         </section>
 

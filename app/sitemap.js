@@ -2,14 +2,26 @@
 
 const SITE_URL = "https://www.nicholasegner.com";
 
-// If your posts live in a local JSON file, import it.
-// Adjust the path to match your project.
-import postsData from "../blog";
-import techAreas from "../stack.json";
-import { projects } from "./lib/projects";
-import { videoWork } from "./lib/videoWork";
+import {
+  getBlogData,
+  getProjects,
+  getTechStackData,
+  getVideoWorkData,
+} from "./lib/contentApi";
 
-export default function sitemap() {
+export default async function sitemap() {
+  const [
+    postsData,
+    projects,
+    { technologies },
+    { items: videoWork },
+  ] = await Promise.all([
+    getBlogData(),
+    getProjects(),
+    getTechStackData(),
+    getVideoWorkData(),
+  ]);
+
   // Generate a single date instance for the build time to use on static routes
   const currentDate = new Date();
 
@@ -92,7 +104,7 @@ export default function sitemap() {
     }));
 
   // --- Tech Routes ---
-  const techData = techAreas.stack.flatMap((item) => item.technologies);
+  const techData = Object.values(technologies);
   const mapItems = techData.map(({ slug }) => ({
     url: `${SITE_URL}/skills/${slug}`,
     lastModified: currentDate, // Added lastModified here

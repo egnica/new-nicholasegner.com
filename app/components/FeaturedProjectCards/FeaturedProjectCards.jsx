@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./FeaturedProjectCards.module.css";
-import { projects } from "../../lib/projects";
 
 function getProjectEyebrow(project) {
   return (
@@ -54,7 +53,7 @@ function ProjectCardMedia({ media, title }) {
   return null;
 }
 
-export default function FeaturedProjectCards() {
+export default function FeaturedProjectCards({ projects = [] }) {
   const featuredProjects = projects
     .filter((project) => project.featured !== false)
     .slice(0, 4);

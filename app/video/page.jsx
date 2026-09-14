@@ -8,7 +8,7 @@ import JsonLd from "../components/JsonLd/JsonLd";
 import VideoHubClient from "./VideoHubClient";
 import styles from "./video.module.css";
 import oldStyles from "../page.module.css";
-import { videoWork, videoHubAssets, videoCapabilities } from "../lib/videoWork";
+import { getTechStackData, getVideoWorkData } from "../lib/contentApi";
 import {
   SITE_URL,
   getVideosHubSchema,
@@ -41,7 +41,7 @@ export const metadata = {
     siteName: "Nicholas Egner",
     images: [
       {
-        url: videoHubAssets.hero,
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/video-edit.webp",
         width: 1200,
         height: 630,
         alt: "Nicholas Egner video editing and production portfolio",
@@ -53,11 +53,23 @@ export const metadata = {
     title: "Video Work | Nicholas Egner",
     description:
       "Video production, editing, storytelling, interactive video, and video SEO work.",
-    images: [videoHubAssets.hero],
+    images: ["https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/video-edit.webp"],
   },
 };
 
-export default function VideoPage() {
+export default async function VideoPage() {
+  const [
+    {
+      items: videoWork,
+      assets: videoHubAssets,
+      capabilities: videoCapabilities,
+    },
+    { technologies },
+  ] = await Promise.all([
+    getVideoWorkData(),
+    getTechStackData(),
+  ]);
+
   return (
     <>
       <JsonLd data={getVideosHubSchema(videoWork)} />
@@ -98,6 +110,7 @@ export default function VideoPage() {
             items={videoWork}
             assets={videoHubAssets}
             capabilities={videoCapabilities}
+            technologies={technologies}
           />
         </Suspense>
 

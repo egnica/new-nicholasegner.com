@@ -1,27 +1,33 @@
 "use client";
 import styles from "../../page.module.css";
 import React, { useState, useEffect } from "react";
-import StackJson from "../../../stack.json";
 import Wrapper from "../../components/textContState";
 import BtnWrap from "../../components/selectStateBtn";
 import { motion, AnimatePresence } from "framer-motion";
 
-function Stack({ stackSelect, onStackChange }) {
+function Stack({
+  skillGroups = [],
+  stackSelect: controlledStackSelect,
+  onStackChange,
+}) {
+  const [internalStackSelect, setInternalStackSelect] = useState("");
   const [selectedObject, setSelectedObject] = useState("");
+  const stackSelect = controlledStackSelect ?? internalStackSelect;
+  const changeStack = onStackChange ?? setInternalStackSelect;
 
   useEffect(() => {
     setSelectedObject(""); // Clear selected object when stack changes
   }, [stackSelect]);
 
   const clickHandler = (item) => {
-    onStackChange(stackSelect === item ? "" : item);
+    changeStack(stackSelect === item ? "" : item);
   };
 
   const clickSingleObject = (item) => {
     setSelectedObject((prev) => (prev.name === item.name ? "" : item));
   };
 
-  const stackObject = Object.values(StackJson.stack).find(
+  const stackObject = skillGroups.find(
     (item) => stackSelect === item.category
   );
 

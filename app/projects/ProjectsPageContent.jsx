@@ -2,7 +2,6 @@ import Link from "next/link";
 import styles from "./projects.module.css";
 
 import Particles from "../components/particlesBackground";
-import { getTech } from "../lib/techStack";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 
@@ -120,7 +119,7 @@ function ProjectsOverview() {
   );
 }
 
-function ProjectContent({ project }) {
+function ProjectContent({ project, technologies }) {
   const hasStack = project.stack?.length > 0;
   const hasLinks = project.links?.length > 0;
   const hasMeta = hasStack || hasLinks;
@@ -184,7 +183,7 @@ function ProjectContent({ project }) {
                 <h3>Stack</h3>
                 <div className={styles.stackBadges}>
                   {project.stack.map((slug) => {
-                    const tech = getTech(slug);
+                    const tech = technologies[slug];
                     if (!tech) return <span key={slug} className={styles.stackBadge}>{slug}</span>;
                     const isInlineSvg = tech.image?.trim().startsWith("<svg");
                     return (
@@ -226,7 +225,11 @@ function ProjectContent({ project }) {
   );
 }
 
-export default function ProjectsPageContent({ projects, selectedProject }) {
+export default function ProjectsPageContent({
+  projects,
+  selectedProject,
+  technologies = {},
+}) {
   return (
     <main className={styles.page}>
       <SiteHeader />
@@ -236,7 +239,7 @@ export default function ProjectsPageContent({ projects, selectedProject }) {
       <section className={styles.workLayout} aria-label="Selected work">
         <ProjectIndex projects={projects} selectedProject={selectedProject} />
         <div className={styles.projectStage}>
-          {selectedProject ? <ProjectContent project={selectedProject} /> : <ProjectsOverview />}
+          {selectedProject ? <ProjectContent project={selectedProject} technologies={technologies} /> : <ProjectsOverview />}
         </div>
       </section>
 

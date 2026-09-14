@@ -7,7 +7,7 @@ import JsonLd from "../components/JsonLd/JsonLd";
 import SkillsGrid from "./SkillsGrid";
 import styles from "./skills.module.css";
 import oldStyles from "../page.module.css";
-import { skillGroups } from "../lib/techStack";
+import { getSkillGroups } from "../lib/contentApi";
 import { SITE_URL } from "../lib/schema";
 
 const pageUrl = `${SITE_URL}/skills`;
@@ -61,45 +61,47 @@ function namespaceSvgIds(svg, slug) {
     );
 }
 
-const skills = skillGroups.flatMap((group) =>
-  group.technologies.map((tech) => ({
-    ...tech,
-    category: group.category,
-    image: namespaceSvgIds(tech.image, tech.slug),
-  })),
-);
+export default async function SkillsPage() {
+  const skillGroups = await getSkillGroups();
 
-const categories = skillGroups.map((group) => ({
-  name: group.category,
-  count: group.technologies.length,
-}));
-
-const skillsSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "CollectionPage",
-      "@id": `${pageUrl}#webpage`,
-      url: pageUrl,
-      name: "Skills & Capabilities | Nicholas Egner",
-      description:
-        "A visual library of development, backend, deployment, search visibility, video, and creative capabilities represented across Nicholas Egner's portfolio.",
-      inLanguage: "en-US",
-      mainEntity: {
-        "@type": "ItemList",
-        itemListElement: skills.map((skill, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: skill.name,
-          url: `${SITE_URL}/skills/${skill.slug}`,
-        })),
+  const skills = skillGroups.flatMap((group) =>
+    group.technologies.map((tech) => ({
+      ...tech,
+      category: group.category,
+      image: namespaceSvgIds(tech.image, tech.slug),
+    })),
+  );
+  
+  const categories = skillGroups.map((group) => ({
+    name: group.category,
+    count: group.technologies.length,
+  }));
+  
+    const skillsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Skills & Capabilities | Nicholas Egner",
+        description:
+          "A visual library of development, backend, deployment, search visibility, video, and creative capabilities represented across Nicholas Egner's portfolio.",
+        inLanguage: "en-US",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: skills.map((skill, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: skill.name,
+            url: `${SITE_URL}/skills/${skill.slug}`,
+          })),
+        },
       },
-    },
-  ],
-};
-
-export default function SkillsPage() {
-  return (
+    ],
+  };
+  
+    return (
     <>
       <JsonLd data={skillsSchema} />
 

@@ -1,21 +1,7 @@
 import Link from "next/link";
 import styles from "./LatestBlogPost.module.css";
-import blogPosts from "../../../blog";
 
-export default function LatestBlogPost() {
-  const latestPost = Object.values(blogPosts)
-    .filter(
-      (post) =>
-        post &&
-        post.live !== false &&
-        post.published !== false,
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.published_time || b.date) -
-        new Date(a.published_time || a.date),
-    )[0];
-
+export default function LatestBlogPost({ latestPost }) {
   if (!latestPost) return null;
 
   return (

@@ -6,18 +6,17 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
 import VideoCapabilityFilters from "./VideoCapabilityFilters";
-import { getTech } from "../lib/techStack";
 
 const DEAD_ZONE = 0.34;
 const MAX_SCROLL_SPEED = 3.4;
 
-function SkillLinks({ skills = [] }) {
+function SkillLinks({ skills = [], technologies = {} }) {
   if (!skills.length) return null;
 
   return (
     <div className={styles.skillRow}>
       {skills.map((slug) => {
-        const tech = getTech(slug);
+        const tech = technologies[slug];
 
         return (
           <Link
@@ -72,7 +71,7 @@ function ExternalOrInternalLink({ href, className, children }) {
   );
 }
 
-function FilteredWorkCard({ item, fallbackPoster }) {
+function FilteredWorkCard({ item, fallbackPoster, technologies }) {
   const detailHref = item.slug ? `/video/${item.slug}` : item.url;
   const actionLabel = item.slug
     ? "View project details"
@@ -95,7 +94,7 @@ function FilteredWorkCard({ item, fallbackPoster }) {
         <h3>{item.title}</h3>
         <p>{item.description}</p>
 
-        <SkillLinks skills={item.skills} />
+        <SkillLinks skills={item.skills} technologies={technologies} />
 
         <ExternalOrInternalLink href={detailHref} className={styles.textLink}>
           {actionLabel} <span aria-hidden="true">→</span>
@@ -105,7 +104,12 @@ function FilteredWorkCard({ item, fallbackPoster }) {
   );
 }
 
-export default function VideoHubClient({ items, assets, capabilities = [] }) {
+export default function VideoHubClient({
+  items,
+  assets,
+  capabilities = [],
+  technologies = {},
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -342,7 +346,7 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
                 <p>{selected.description}</p>
               </div>
 
-              <SkillLinks skills={selected.skills} />
+              <SkillLinks skills={selected.skills} technologies={technologies} />
 
               {selected.slug && (
                 <Link
@@ -439,6 +443,7 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
                       key={item.title}
                       item={item}
                       fallbackPoster={assets.fallbackPoster}
+                      technologies={technologies}
                     />
                   ))}
                 </div>
@@ -476,7 +481,7 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
             content surrounding it.
           </p>
 
-          <SkillLinks skills={["premiere", "aftereffects", "photoshop"]} />
+          <SkillLinks skills={["premiere", "aftereffects", "photoshop"]} technologies={technologies} />
         </div>
       </section>
 
@@ -507,7 +512,7 @@ export default function VideoHubClient({ items, assets, capabilities = [] }) {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
 
-                <SkillLinks skills={item.skills} />
+                <SkillLinks skills={item.skills} technologies={technologies} />
 
                 <ExternalOrInternalLink
                   href={item.url}

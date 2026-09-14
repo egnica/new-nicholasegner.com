@@ -1,14 +1,8 @@
-import React from "react";
 import Stack from "../skillscomps/stack";
+import { getSkillGroups } from "../../lib/contentApi";
 
-function page() {
-  return (
-    <div>
+export default async function StackPage() {
+  const skillGroups = await getSkillGroups();
 
-    
-      <Stack />
-    </div>
-  );
+  return <Stack skillGroups={skillGroups} />;
 }
-
-export default page;
