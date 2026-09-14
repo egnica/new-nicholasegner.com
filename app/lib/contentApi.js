@@ -11,50 +11,32 @@ function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-async function requestContent(path, validate, fallback) {
-  try {
-    const response = await fetch(`${CONTENT_API_BASE_URL}${path}`, {
-      next: { revalidate: CONTENT_REVALIDATE_SECONDS },
-    });
+async function requestContent(path, validate) {
+  const response = await fetch(`${CONTENT_API_BASE_URL}${path}`, {
+    next: { revalidate: CONTENT_REVALIDATE_SECONDS },
+  });
 
-    if (!response.ok) {
-      throw new Error(`${response.status} ${response.statusText}`);
-    }
-
-    const data = await response.json();
-
-    if (!validate(data)) {
-      throw new Error("Unexpected response shape");
-    }
-
-    return data;
-  } catch (error) {
-    console.error(
-      `Content Hub request failed for ${path}; using the local fallback.`,
-      error,
+  if (!response.ok) {
+    throw new Error(
+      `Content Hub request failed for ${path}: ${response.status} ${response.statusText}`,
     );
-
-    return fallback();
   }
+
+  const data = await response.json();
+
+  if (!validate(data)) {
+    throw new Error(`Content Hub returned an unexpected response for ${path}`);
+  }
+
+  return data;
 }
 
 export async function getBlogData() {
-  return requestContent(
-    "/api/blog?site=nicholasegner",
-    isRecord,
-    async () => (await import("../../blog")).default,
-  );
+  return requestContent("/api/blog?site=nicholasegner", isRecord);
 }
 
 export async function getProjectsData() {
-  return requestContent(
-    "/api/projects?site=nicholasegner",
-    isRecord,
-    async () => {
-      const { projects } = await import("./projects");
-      return Object.fromEntries(projects.map((project) => [project.slug, project]));
-    },
-  );
+  return requestContent("/api/projects?site=nicholasegner", isRecord);
 }
 
 export async function getProjects() {
@@ -68,16 +50,6 @@ export async function getTechStackData() {
       isRecord(data) &&
       Array.isArray(data.categoryOrder) &&
       isRecord(data.technologies),
-    async () => {
-      const { allTech, skillGroups } = await import("./techStack");
-
-      return {
-        categoryOrder: skillGroups.map((group) => group.category),
-        technologies: Object.fromEntries(
-          allTech.map((technology) => [technology.slug, technology]),
-        ),
-      };
-    },
   );
 }
 
@@ -104,18 +76,5 @@ export async function getVideoWorkData() {
       Array.isArray(data.capabilities) &&
       Array.isArray(data.items) &&
       isRecord(data.assets),
-    async () => {
-      const {
-        videoCapabilities,
-        videoWork,
-        videoHubAssets,
-      } = await import("./videoWork");
-
-      return {
-        capabilities: videoCapabilities,
-        items: videoWork,
-        assets: videoHubAssets,
-      };
-    },
   );
 }
