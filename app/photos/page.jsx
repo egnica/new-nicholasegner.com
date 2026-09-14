@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import { photoAssets } from "../lib/photoAssets";
@@ -65,7 +64,6 @@ export default function Photos() {
     <div className={styles.page}>
       <PhotoJsonLd />
       <div className={styles.mainBackColor} />
-      <Particles />
       <SiteHeader />
 
       <main className={styles.main}>

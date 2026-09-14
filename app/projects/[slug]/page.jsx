@@ -1,9 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import styles from "../projects.module.css";
-import oldStyles from "../../page.module.css";
-import Particles from "../../components/particlesBackground";
 import { getProjects, getTechStackData } from "../../lib/contentApi";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
@@ -213,8 +210,6 @@ export default async function ProjectCaseStudyPage({ params }) {
     <main className={styles.page}>
       <JsonLd data={getProjectPageSchema(project)} />
       <SiteHeader />
-
-      <Particles />
       <div className={styles.mainBackColor} />
 
       <article className={styles.caseStudyPage}>

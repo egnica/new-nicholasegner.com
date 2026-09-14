@@ -2,12 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import ContentBlock from "@/app/components/contentBlock";
 import styles from "../blog.module.css";
-import Particles from "../../components/particlesBackground";
 import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
 import Link from "next/link";
-import oldStyles from "../../page.module.css";
 import {
   getBlogPostSchema,
   SITE_URL,
@@ -212,8 +210,6 @@ export default async function PostPage({ params }) {
     <main className={styles.page}>
       <JsonLd data={getBlogPostSchema({ post, slug })} />
       <SiteHeader />
-
-      <Particles />
       <div className={styles.mainBackColor} />
 
       <article

@@ -350,13 +350,6 @@
   justify-self: stretch;
 }
 
-.filterResultsSection {
-  width: min(100% - 4rem, 1500px);
-  margin: 0 auto;
-  scroll-margin-top: 2rem;
-  padding-block: clamp(5rem, 9vw, 9rem);
-}
-
 .filterToolbar {
   display: flex;
   align-items: center;
@@ -904,27 +897,6 @@
   text-underline-offset: 0.22rem;
 }
 
-.moreGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.moreCard {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.moreImage {
-  aspect-ratio: 16 / 9;
-}
-
-.moreCopy h3 {
-  font-size: 1.6rem;
-}
-
 .studioSection {
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
 }
@@ -1004,7 +976,6 @@
     grid-template-columns: 1fr;
     align-items: start;
   }
-
 
   .featuredSection,
   .capabilityExplorerSection,
@@ -1149,7 +1120,6 @@
   .capabilityButton {
     padding: 0.5rem 0.72rem;
   }
-
 
   .hero h1 {
     font-size: clamp(3.15rem, 16vw, 5rem);

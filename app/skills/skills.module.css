@@ -335,25 +335,6 @@
   letter-spacing: -0.035em;
 }
 
-.skillPreview {
-  display: -webkit-box;
-  max-height: 0;
-  margin: 0;
-  overflow: hidden;
-  color: rgba(226, 231, 250, 0.68);
-  font-size: 0.84rem;
-  line-height: 1.55;
-  opacity: 0;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  transform: translateY(8px);
-  transition:
-    max-height 240ms ease,
-    margin 240ms ease,
-    opacity 200ms ease,
-    transform 240ms ease;
-}
-
 .skillCard:hover .skillPreview,
 .skillCard:focus-visible .skillPreview {
   max-height: 5.5rem;
@@ -566,12 +547,7 @@
     transform: none;
   }
 
-  .skillPreview {
-    max-height: 5.5rem;
-    margin-top: 0.55rem;
-    opacity: 1;
-    transform: none;
-  }
+  
 
   .footerNote {
     align-items: flex-start;

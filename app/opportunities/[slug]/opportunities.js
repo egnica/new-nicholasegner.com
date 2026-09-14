@@ -1,5 +1,3 @@
-import { title } from "motion/react-client";
-
 export const opportunities = {
   "hazelden-marketing-content-producer": {
     company: "Hazelden Betty Ford Foundation",

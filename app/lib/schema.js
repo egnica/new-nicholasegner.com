@@ -175,9 +175,9 @@ export function getHomePageSchema() {
       "@type": "WebPage",
       "@id": schemaIds.homepage,
       url: pageUrl,
-      name: "Nicholas Egner | Minneapolis Web Developer, SEO Specialist & Digital Content Creator",
+      name: "Nicholas Egner | Minneapolis Web Developer & Digital Strategist",
       description:
-        "Portfolio of Nicholas Egner, a Minneapolis-based web developer, content creator, and SEO strategist.",
+        "Nicholas Egner is a Minneapolis web developer and digital strategist who combines custom web development, SEO, video, content, and automation to build connected digital systems for businesses.",
       isPartOf: {
         "@id": schemaIds.website,
       },

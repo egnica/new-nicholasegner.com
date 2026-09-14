@@ -1,10 +1,10 @@
 :root {
   --font-sans: var(--font-inter);
-  --font-alt: var(--font-manrope);
+  --font-alt: var(--font-inter);
 }
 
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 
 html,

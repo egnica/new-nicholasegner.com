@@ -1,14 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Intro from "./video-comps/Intro";
 import Past from "./video-comps/Past";
 import Present from "./video-comps/Present";
 import Future from "./video-comps/Future";
 import Wrap from "./video-comps/Wrap";
 import styles from "../page.module.css";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+import { motion } from "motion/react";
 import ParticlesBackground from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";

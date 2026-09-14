@@ -219,8 +219,6 @@
   }
 }
 
-
-
 .pageHeader,
 .archiveHeader {
   max-width: 1560px;
@@ -963,7 +961,6 @@
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .blogHeroMedia,
   .blogHeroLogo,
@@ -1154,7 +1151,6 @@
   }
 }
 
-
 /* ---------- Article overflow protection ---------- */
 
 .articleShell,
@@ -1235,7 +1231,6 @@
     max-width: 100%;
   }
 }
-
 
 /* ---------- Blog text hierarchy ---------- */
 

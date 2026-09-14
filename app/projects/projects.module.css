@@ -44,29 +44,6 @@
   line-height: 1.55;
 }
 
-/* ---------- Page Header ---------- */
-
-.pageHeader {
-  margin: 0 auto;
-  padding: 2% 0;
-}
-
-.pageHeader h1 {
-  margin: 0;
-  color: #f6f8ff;
-  font-size: clamp(3.25rem, 8vw, 6.75rem);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
-  text-shadow: 2px 2px 2px #000;
-}
-
-.pageHeader p:last-child {
-  margin: 1.1rem 0 0;
-  color: #e6eaf9;
-  font-size: clamp(1.08rem, 2vw, 1.42rem);
-  line-height: 1.5;
-}
-
 /* ---------- Main Layout ---------- */
 
 .workLayout {
@@ -464,22 +441,11 @@
     padding: 0 1rem 3.5rem;
   }
 
-  .pageHeader {
-    padding: 2.5rem 0 1.5rem;
-  }
+  
 
-  .pageHeader h1 {
-    font-size: clamp(2.65rem, 16vw, 4rem);
-    line-height: 0.92;
-    letter-spacing: -0.045em;
-  }
+  
 
-  .pageHeader p:last-child {
-    max-width: 100%;
-    margin-top: 0.9rem;
-    font-size: 1rem;
-    line-height: 1.48;
-  }
+  
 
   .eyebrow {
     margin-bottom: 0.5rem;
@@ -703,20 +669,11 @@
     overflow-x: hidden;
   }
 
-  .pageHeader {
-    padding: 2.5rem 0 1.5rem;
-  }
+  
 
-  .pageHeader h1 {
-    font-size: clamp(2.6rem, 14vw, 3.8rem);
-    line-height: 0.94;
-    letter-spacing: -0.045em;
-  }
+  
 
-  .pageHeader p:last-child {
-    font-size: 0.98rem;
-    line-height: 1.45;
-  }
+  
 
   .workLayout {
     display: block;
@@ -1427,11 +1384,6 @@
   border: 0;
   display: block;
 }
-.mediaBlock {
-  width: 100%;
-  display: grid;
-  gap: 0.85rem;
-}
 
 .iframeShell {
   width: 100%;
@@ -1445,11 +1397,6 @@
   height: 100%;
   border: 0;
   display: block;
-}
-
-.mediaLink {
-  display: inline-flex;
-  width: fit-content;
 }
 
 /* ---------- Projects Hub Refresh ---------- */

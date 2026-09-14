@@ -1,7 +1,6 @@
 import Link from "next/link";
 import ContactForm from "../components/ContactForm/ContactForm";
 import JsonLd from "../components/JsonLd/JsonLd";
-import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import { SITE_URL, getContactPageSchema } from "../lib/schema";
@@ -39,7 +38,6 @@ export default function ContactPage() {
       <JsonLd data={getContactPageSchema()} />
 
       <main className={styles.page}>
-        <Particles />
         <div className={styles.mainBackColor} />
         <SiteHeader />
 

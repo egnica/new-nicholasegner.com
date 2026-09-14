@@ -92,9 +92,7 @@ export default function FeaturedProjectCards({ projects = [] }) {
                     title={project.title}
                   />
 
-                  <div className={styles.mediaOverlay} />
-
-                  <div className={styles.frontContent}>
+                  <div>
                     <p className={styles.eyebrow}>{eyebrow}</p>
 
                     <div>

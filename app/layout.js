@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Inter, Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import JsonLd from "./components/JsonLd/JsonLd";
@@ -11,10 +11,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Nicholas Egner | Minneapolis Web Developer & Digital Strategist",
@@ -86,21 +82,9 @@ export default function RootLayout({ children }) {
           rel="preconnect"
           href="https://nciholasegner.s3.us-east-2.amazonaws.com"
         />
-
-        <link
-          rel="dns-prefetch"
-          href="https://nciholasegner.s3.us-east-2.amazonaws.com"
-        />
-
-        <link
-          rel="preload"
-          as="image"
-          href="https://nciholasegner.s3.us-east-2.amazonaws.com/images/computer-back.webp"
-          fetchPriority="high"
-        />
       </head>
 
-      <body className={`${inter.variable} ${manrope.variable}`}>
+      <body className={inter.variable}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDZJLKR85X"
           strategy="lazyOnload"

@@ -1,8 +1,6 @@
-import React from "react";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "../page.module.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 function Carousel({ prospectArray }) {
   const ArrayLength = prospectArray.length;

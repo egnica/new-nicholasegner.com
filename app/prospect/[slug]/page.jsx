@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import newProspect from "../../../prospect.json";
 import ProspectCarousel from "../../components/prospectCarousel";
 import styles from "../../page.module.css";

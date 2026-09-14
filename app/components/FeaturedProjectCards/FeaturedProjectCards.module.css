@@ -44,7 +44,8 @@
   text-decoration: none;
   outline: none;
 }
-.cardVideo {
+.cardVideo,
+.cardImage {
   width: 90%;
   border-radius: 10px;
   margin: auto;
@@ -179,7 +180,8 @@
   .cardInner {
     min-height: 255px;
   }
-  .cardVideo {
+  .cardVideo,
+.cardImage {
     width: 90%;
 
     margin: auto;
@@ -190,7 +192,8 @@
   .featuredProjects {
     padding-inline: 1rem;
   }
-  .cardVideo {
+  .cardVideo,
+.cardImage {
     width: 90%;
 
     margin: auto;

@@ -1,7 +1,5 @@
-import React from "react";
 import styles from "../../page.module.css";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, color } from "framer-motion";
 import AnimateTitle from "@/app/components/animateTitle";
 import AnimateBtn from "@/app/components/animateBtn";
 import Link from "next/link";

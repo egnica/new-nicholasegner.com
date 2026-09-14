@@ -1,7 +1,15 @@
-# nicholasegner.com - Portfolio
+# nicholasegner.com
 
-nicholasegner.com is my personal portfolio and digital playground. Welcome! You're actually on it right now. It's a space to showcase my work, test ideas, and experiment with tools that reflect where I’m growing as both a developer and creative.
+Nicholas Egner’s personal portfolio, case-study library, video portfolio, and digital playground.
 
-Built with performance and SEO in mind, the site is powered by Next.js, animated with Framer Motion, and hosted on AWS Amplify. It features a custom CMS structure for managing content, uses MongoDB for backend support, and is designed to let the work shine.
+## Architecture
 
-Every decision, from route structure to image optimization, reflects a hands-on, iterative approach to modern web development. The site grows alongside me.
+- Next.js App Router
+- Content supplied by the shared [Egner Content Hub](https://github.com/egnica/egner-content-hub)
+- Framer Motion and Lottie for focused interactive experiences
+- AWS Amplify hosting and deployment
+- Amazon S3 for media assets
+
+The public portfolio routes are server-rendered where possible. Client components are limited to interactions such as navigation state, carousels, filters, animation, and video playback.
+
+Set `CONTENT_API_BASE_URL` to override the production content-hub URL. Amplify writes configured server environment variables to `.env.production` during the build.

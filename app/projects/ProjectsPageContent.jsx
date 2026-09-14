@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./projects.module.css";
 
-import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 
@@ -233,7 +232,6 @@ export default function ProjectsPageContent({
   return (
     <main className={styles.page}>
       <SiteHeader />
-      <Particles />
       <div className={styles.mainBackColor} />
 
       <section className={styles.workLayout} aria-label="Selected work">

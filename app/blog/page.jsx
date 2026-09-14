@@ -2,12 +2,10 @@ import { getBlogData } from "../lib/contentApi";
 import Link from "next/link";
 import styles from "./blog.module.css";
 import Image from "next/image";
-import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
-import oldStyles from "../page.module.css";
-import { SITE_URL, DEFAULT_IMAGE, getBlogHubSchema } from "../lib/schema";
+import { SITE_URL, getBlogHubSchema } from "../lib/schema";
 
 const BLOG_HERO =
   "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/blog-hero.webp";
@@ -73,8 +71,6 @@ export default async function BlogMain() {
     <main className={styles.page}>
       <JsonLd data={getBlogHubSchema(Posts)} />
       <SiteHeader />
-
-      <Particles />
       <div className={styles.mainBackColor} />
 
       <section className={styles.blogHero} aria-labelledby="blog-hero-title">

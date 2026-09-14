@@ -1,11 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import Particles from "../../components/particlesBackground";
 import SiteFooter from "../../components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import JsonLd from "../../components/JsonLd/JsonLd";
-import oldStyles from "../../page.module.css";
 import styles from "./video-detail.module.css";
 import {
   getTechStackData,
@@ -129,7 +126,6 @@ export default async function VideoDetailPage({ params }) {
       <JsonLd data={getVideoPageSchema({ item, slug: item.slug })} />
 
       <main className={styles.page}>
-        <Particles />
         <div className={styles.mainBackColor} />
         <SiteHeader />
 

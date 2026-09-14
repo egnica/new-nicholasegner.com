@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
@@ -86,7 +85,6 @@ export default function About() {
       <JsonLd data={getProfilePageSchema()} />
 
       <main className={styles.page}>
-        <Particles />
         <div className={styles.mainBackColor} />
         <SiteHeader />
 

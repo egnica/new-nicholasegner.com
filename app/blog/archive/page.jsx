@@ -4,9 +4,7 @@ import SiteFooter from "@/app/components/SiteFooter/SiteFooter";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import Link from "next/link";
 import Image from "next/image";
-import Particles from "../../components/particlesBackground";
 import JsonLd from "../../components/JsonLd/JsonLd";
-import oldStyles from "../../page.module.css";
 import {
   getBlogArchiveSchema,
   SITE_URL,
@@ -67,8 +65,6 @@ export default async function BlogArchive() {
     <main className={styles.page}>
       <JsonLd data={getBlogArchiveSchema(Posts)} />
       <SiteHeader />
-
-      <Particles />
       <div className={styles.mainBackColor} />
 
       <section className={styles.archiveHeader}>

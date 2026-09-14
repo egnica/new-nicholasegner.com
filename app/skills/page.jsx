@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Particles from "../components/particlesBackground";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import JsonLd from "../components/JsonLd/JsonLd";
@@ -106,7 +105,6 @@ export default async function SkillsPage() {
       <JsonLd data={skillsSchema} />
 
       <div className={styles.page}>
-        <Particles />
         <div className={oldStyles.mainBackColor} />
         <SiteHeader />
 

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./skill.module.css";
 import oldStyles from "../../page.module.css";
-import Particles from "../../components/particlesBackground";
 import SiteHeader from "../../components/SiteHeader/SiteHeader";
 import SiteFooter from "../../components/SiteFooter/SiteFooter";
 import JsonLd from "../../components/JsonLd/JsonLd";
@@ -323,7 +322,6 @@ export default async function TechPage({ params }) {
       <JsonLd data={getSkillPageSchema({ tech: techData })} />
 
       <div className={styles.page}>
-        <Particles />
         <div className={oldStyles.mainBackColor} />
         <SiteHeader />
 

@@ -68,7 +68,7 @@ export default function SiteFooter() {
         </div>
 
         <div className={styles.ctaBlock}>
-          <div className={styles.ctaCopy}>
+          <div>
             <h2>Have a project in mind?</h2>
             <p>
               I help turn websites, video, and Google visibility into a clearer

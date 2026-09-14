@@ -5,7 +5,7 @@ const CONTENT_API_BASE_URL = (
   "https://main.d37c76h1ruhsqz.amplifyapp.com"
 ).replace(/\/$/, "");
 
-export const CONTENT_REVALIDATE_SECONDS = 60;
+export const CONTENT_REVALIDATE_SECONDS = 300;
 
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);

@@ -1,9 +1,7 @@
-import React from "react";
 import styles from "../../page.module.css";
 import { useState, useEffect, useRef } from "react";
 import AnimateTitle from "@/app/components/animateTitle";
 import AnimateBtn from "@/app/components/animateBtn";
-import Link from "next/link";
 
 function Future({ timeStamp, fromClick }) {
   const videoRef = useRef(null);

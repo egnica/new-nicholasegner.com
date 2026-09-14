@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../page.module.css";
 import { useState, useEffect, useRef } from "react";
 import AnimateTitle from "@/app/components/animateTitle";

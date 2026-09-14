@@ -1,13 +1,10 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
 import JsonLd from "../components/JsonLd/JsonLd";
 import VideoHubClient from "./VideoHubClient";
 import styles from "./video.module.css";
-import oldStyles from "../page.module.css";
 import { getTechStackData, getVideoWorkData } from "../lib/contentApi";
 import {
   SITE_URL,
@@ -75,7 +72,6 @@ export default async function VideoPage() {
       <JsonLd data={getVideosHubSchema(videoWork)} />
 
       <main className={styles.page}>
-        <Particles />
         <div className={styles.mainBackColor} />
         <SiteHeader />
 
