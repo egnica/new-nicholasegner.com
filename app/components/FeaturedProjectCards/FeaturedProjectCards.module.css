@@ -50,6 +50,13 @@
   border-radius: 10px;
   margin: auto;
 }
+
+.cardVideo {
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.2);
+}
 .cardInner {
   position: relative;
   width: 100%;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./FeaturedProjectCards.module.css";
+import LazyProjectVideo from "./LazyProjectVideo";
 
 function getProjectEyebrow(project) {
   return (
@@ -26,15 +27,9 @@ function ProjectCardMedia({ media, title }) {
 
   if (media.type === "video") {
     return (
-      <video
+      <LazyProjectVideo
         className={styles.cardVideo}
         src={media.src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
       />
     );
   }
