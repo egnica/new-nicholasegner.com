@@ -81,7 +81,7 @@ export default function HomeIdentitySections() {
         1,
         Math.max(0, (viewportHeight - rect.top) / (viewportHeight + rect.height))
       );
-      const offset = (progress - 0.5) * 64;
+      const offset = (progress - 0.5) * 160;
       grid.style.setProperty("--parallax-y", `${offset.toFixed(2)}px`);
     };
 
