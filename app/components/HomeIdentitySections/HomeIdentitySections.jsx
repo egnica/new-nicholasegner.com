@@ -89,16 +89,26 @@ export default function HomeIdentitySections() {
       </section>
 
       <section className={styles.questionSection} aria-labelledby="business-questions-title">
-        <div className={styles.questionHeading}>
-          <p className={styles.eyebrow}>Common Business Questions</p>
-          <h2 id="business-questions-title">
-            The work usually starts with a problem, not a piece of software.
-          </h2>
-          <p>
-            These are the kinds of questions that often lead to the websites,
-            content systems, video workflows, search improvements, and custom
-            applications I build.
-          </p>
+        <div className={styles.questionFeature}>
+          <div className={styles.questionHeading}>
+            <p className={styles.eyebrow}>Common Business Questions</p>
+            <h2 id="business-questions-title">
+              The work usually starts with a problem, not a piece of software.
+            </h2>
+            <p>
+              These are the kinds of questions that often lead to the websites,
+              content systems, video workflows, search improvements, and custom
+              applications I build.
+            </p>
+          </div>
+
+          <div className={styles.questionMedia}>
+            <img
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/light-bulb.webp"
+              alt="Glowing light bulb representing ideas, strategy, and problem solving"
+            />
+            <span className={styles.questionMediaGradient} aria-hidden="true" />
+          </div>
         </div>
 
         <div className={styles.questionList}>
