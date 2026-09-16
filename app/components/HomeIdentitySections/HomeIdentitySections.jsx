@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./HomeIdentitySections.module.css";
 
@@ -59,50 +56,6 @@ const questions = [
 ];
 
 export default function HomeIdentitySections() {
-  const capabilityGridRef = useRef(null);
-
-  useEffect(() => {
-    const grid = capabilityGridRef.current;
-    if (!grid) return undefined;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches) {
-      grid.style.setProperty("--parallax-y", "0px");
-      return undefined;
-    }
-
-    let animationFrame = null;
-
-    const updateParallax = () => {
-      animationFrame = null;
-      const rect = grid.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || 1;
-      const progress = Math.min(
-        1,
-        Math.max(0, (viewportHeight - rect.top) / (viewportHeight + rect.height))
-      );
-      const offset = (progress - 0.5) * 160;
-      grid.style.setProperty("--parallax-y", `${offset.toFixed(2)}px`);
-    };
-
-    const requestUpdate = () => {
-      if (animationFrame !== null) return;
-      animationFrame = window.requestAnimationFrame(updateParallax);
-    };
-
-    updateParallax();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-
-    return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      if (animationFrame !== null) {
-        window.cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, []);
-
   return (
     <div className={styles.wrapper}>
       <section className={styles.capabilitySection} aria-labelledby="connected-capabilities-title">
@@ -119,7 +72,7 @@ export default function HomeIdentitySections() {
           </p>
         </div>
 
-        <div ref={capabilityGridRef} className={styles.capabilityGrid}>
+        <div className={styles.capabilityGrid}>
           {capabilities.map((item) => (
             <article key={item.eyebrow} className={styles.card}>
               <div className={styles.cardGlass}>
