@@ -10,6 +10,10 @@
   padding: clamp(4rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
 }
 
+.capabilitySection {
+  min-height: 100vh;
+}
+
 .sectionIntro,
 .questionHeading {
   max-width: 900px;
@@ -45,11 +49,9 @@
 }
 
 .capabilityGrid {
-  --window-gap: 1rem;
-  --parallax-y: 0px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--window-gap);
+  gap: 1rem;
 }
 
 .card {
@@ -61,39 +63,15 @@
   background-image:
     linear-gradient(180deg, rgba(3, 8, 14, 0.06), rgba(3, 8, 14, 0.22)),
     url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/background-four-square.webp");
-  background-repeat: no-repeat;
-  background-size:
-    100% 100%,
-    calc(200% + var(--window-gap)) calc(230% + var(--window-gap));
+  background-attachment: scroll, fixed;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, cover;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.035),
     inset 0 12px 30px rgba(0, 0, 0, 0.42),
     0 22px 55px rgba(0, 0, 0, 0.18);
   isolation: isolate;
-}
-
-.card:nth-child(1) {
-  background-position:
-    center,
-    left calc(12% + var(--parallax-y));
-}
-
-.card:nth-child(2) {
-  background-position:
-    center,
-    right calc(12% + var(--parallax-y));
-}
-
-.card:nth-child(3) {
-  background-position:
-    center,
-    left calc(88% + var(--parallax-y));
-}
-
-.card:nth-child(4) {
-  background-position:
-    center,
-    right calc(88% + var(--parallax-y));
 }
 
 .card::before {
@@ -198,12 +176,9 @@
 
   .card {
     min-height: 360px;
-    background-size:
-      100% 100%,
-      auto 145%;
-    background-position:
-      center,
-      center calc(50% + var(--parallax-y));
+    background-attachment: scroll, scroll;
+    background-position: center, center;
+    background-size: 100% 100%, cover;
   }
 
   .cardGlass {
@@ -227,7 +202,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .capabilityGrid {
-    --parallax-y: 0px;
+  .card {
+    background-attachment: scroll, scroll;
   }
 }
