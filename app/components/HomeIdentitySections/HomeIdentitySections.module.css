@@ -54,17 +54,17 @@
 
 .card {
   position: relative;
-  min-height: clamp(360px, 36vw, 500px);
+  min-height: clamp(300px, 30vw, 410px);
   overflow: hidden;
   border: 1px solid rgba(129, 224, 255, 0.16);
   border-radius: 22px;
   background-image:
-    linear-gradient(180deg, rgba(3, 8, 14, 0.08), rgba(3, 8, 14, 0.28)),
+    linear-gradient(180deg, rgba(3, 8, 14, 0.06), rgba(3, 8, 14, 0.22)),
     url("https://nciholasegner.s3.us-east-2.amazonaws.com/images/background-four-square.webp");
   background-repeat: no-repeat;
   background-size:
     100% 100%,
-    calc(200% + var(--window-gap)) calc(200% + var(--window-gap));
+    calc(200% + var(--window-gap)) calc(230% + var(--window-gap));
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.035),
     inset 0 12px 30px rgba(0, 0, 0, 0.42),
@@ -75,25 +75,25 @@
 .card:nth-child(1) {
   background-position:
     center,
-    left calc(0% + var(--parallax-y));
+    left calc(12% + var(--parallax-y));
 }
 
 .card:nth-child(2) {
   background-position:
     center,
-    right calc(0% + var(--parallax-y));
+    right calc(12% + var(--parallax-y));
 }
 
 .card:nth-child(3) {
   background-position:
     center,
-    left calc(100% + var(--parallax-y));
+    left calc(88% + var(--parallax-y));
 }
 
 .card:nth-child(4) {
   background-position:
     center,
-    right calc(100% + var(--parallax-y));
+    right calc(88% + var(--parallax-y));
 }
 
 .card::before {
@@ -109,21 +109,27 @@
 
 .cardGlass {
   position: absolute;
-  inset: clamp(0.9rem, 1.8vw, 1.35rem);
+  top: 50%;
+  left: 50%;
   z-index: 1;
+  width: min(78%, 560px);
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  padding: clamp(1.35rem, 2.3vw, 2rem);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.1rem, 1.8vw, 1.55rem);
+  text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  background: rgba(5, 12, 20, 0.52);
+  background: rgba(5, 12, 20, 0.46);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.08),
-    inset 0 -16px 28px rgba(0, 0, 0, 0.2),
-    inset 0 0 28px rgba(0, 0, 0, 0.12),
+    inset 0 -14px 26px rgba(0, 0, 0, 0.2),
+    inset 0 0 24px rgba(0, 0, 0, 0.12),
     0 14px 34px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(16px) saturate(118%);
-  -webkit-backdrop-filter: blur(16px) saturate(118%);
+  backdrop-filter: blur(14px) saturate(118%);
+  -webkit-backdrop-filter: blur(14px) saturate(118%);
 }
 
 .cardGlass::before {
@@ -141,25 +147,24 @@
 .questionItem h3 {
   margin: 0;
   color: #fff;
-  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-size: clamp(1.25rem, 1.7vw, 1.7rem);
   line-height: 1.18;
   letter-spacing: -0.025em;
 }
 
 .cardGlass > p:not(.cardEyebrow),
 .questionItem p {
-  margin: 1rem 0 0;
+  margin: 0.85rem 0 0;
   color: rgba(237, 241, 255, 0.78);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.58;
 }
 
 .card a {
   position: relative;
   z-index: 2;
   width: fit-content;
-  margin-top: auto;
-  padding-top: 1.5rem;
+  margin-top: 1.15rem;
   color: #76d7ff;
   font-weight: 700;
 }
@@ -192,13 +197,17 @@
   }
 
   .card {
-    min-height: 420px;
+    min-height: 360px;
     background-size:
       100% 100%,
-      cover;
+      auto 145%;
     background-position:
       center,
       center calc(50% + var(--parallax-y));
+  }
+
+  .cardGlass {
+    width: min(86%, 520px);
   }
 
   .questionList {
@@ -208,12 +217,12 @@
 
 @media (max-width: 560px) {
   .card {
-    min-height: 460px;
+    min-height: 390px;
   }
 
   .cardGlass {
-    inset: 0.75rem;
-    padding: 1.25rem;
+    width: 88%;
+    padding: 1.1rem;
   }
 }
 
