@@ -126,8 +126,8 @@ export default async function Home() {
           </div>
         </section>
 
-        <HomeIdentitySections />
         <FeaturedProjectCards projects={featuredProjects} />
+        <HomeIdentitySections />
         <GoogleReviewWall reviews={Reviews} />
         <LatestBlogPost latestPost={latestPost} />
         <SiteFooter />
