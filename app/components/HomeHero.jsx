@@ -95,7 +95,7 @@ export default function HomeHero() {
         </motion.div>
 
         <AnimatePresence mode="wait" initial={false}>
-          <motion.p
+          <motion.h1
             key={SKILLS[skillIndex]}
             className={styles.skillTitle}
             initial={{ opacity: 0, x: 10 }}
@@ -104,7 +104,7 @@ export default function HomeHero() {
             transition={{ duration: 0.4 }}
           >
             {SKILLS[skillIndex]}
-          </motion.p>
+          </motion.h1>
         </AnimatePresence>
       </div>
     </motion.section>
