@@ -233,7 +233,11 @@ We would work together to identify the main recovery situations H2W serves and b
 
 Each podcast episode could have its own page on the H2W website with the episode, a short description, transcript, and an invitation to take the recovery quiz.
 
-That gives the podcast a job beyond simply being content: it can help interested listeners take the next step with H2W.
+Each episode can also be presented as **Sponsored by Happy Healthy Wealthy**. During the episode, we can include a short mid-roll H2W message explaining what you do and inviting listeners to take the free two-minute Recovery Quiz to see where they are in their recovery journey.
+
+**Podcast → H2W Message → Recovery Quiz → Personalized Result → Follow-Up**
+
+That gives the podcast a job beyond simply being content. Instead of hoping someone visits H2W after hearing the episode, interested listeners get a specific and useful next step.
 
 ## Social Content With a Purpose
 
