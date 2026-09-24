@@ -98,11 +98,11 @@ export default async function ProspectPage({ params }) {
               </span>
               <span className={styles.heroCtaArrow} aria-hidden="true">→</span>
             </Link>
-            <Link className={styles.heroCta} href="tel:+16309656187">
+            <Link className={styles.heroCta} href="tel:+19524795786">
               <span className={styles.heroCtaIcon} aria-hidden="true">☎</span>
               <span>
                 <strong>Call Nick</strong>
-                <small>(630) 965-6187</small>
+                <small>(952) 479-5786</small>
               </span>
               <span className={styles.heroCtaArrow} aria-hidden="true">→</span>
             </Link>
@@ -146,7 +146,7 @@ export default async function ProspectPage({ params }) {
             </p>
             <div className={styles.actions}>
               <Link href="mailto:nick@nicholasegner.com">Email me <span aria-hidden="true">→</span></Link>
-              <Link href="tel:+16309656187">Call me <span aria-hidden="true">→</span></Link>
+              <Link href="tel:+19524795786">Call me <span aria-hidden="true">→</span></Link>
             </div>
           </div>
 
