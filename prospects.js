@@ -207,137 +207,79 @@ Here’s a small selection of past work that captures my range — from event st
     personName: "Dr. Moe Sarah Smith",
     body: `Moe,
 
-I wanted to put the ideas we've been discussing into one place and zoom out from the individual pieces. The opportunity I see for Happy Healthy Wealthy is not just a new website, a podcast, an email campaign, or more social content. It is connecting those pieces into one clear path that helps the right people discover H2W, get something useful from it, and take a meaningful next step.
+I've been thinking about how the podcast, website, social content, and H2W Fit Call could work together instead of feeling like separate pieces.
 
-The first version does not need to be enormous. I think the strongest place to start is with one understandable and measurable customer journey, learn from how people actually use it, and expand from there.
+The idea is to create one clear path that helps someone discover Happy Healthy Wealthy, get something useful right away, and decide whether they want to start a conversation with you.
 
-## One Clear H2W Journey
+## A Simple Path From Content to Conversation
 
-The core funnel could be:
+**Podcast or Social Content → H2W Recovery Quiz → Useful Result → Helpful Follow-Up → Optional Fit Call**
 
-**Podcast / Social Content → H2W Website → 2-Minute Recovery Check-In → Personalized Result → Email Follow-Up → Complimentary H2W Fit Call**
+Someone does not have to be ready to schedule a call the first time they discover H2W. We give them an easier first step.
 
-The podcast and social content create awareness. The website gives that attention somewhere useful to go. The Recovery Check-In gives visitors a reason to engage rather than simply browse, and the follow-up system keeps the conversation going after they leave the site.
+## A Short Recovery Quiz Built Into the Website
 
-The goal is to move from anonymous traffic to people who have actively told H2W, in their own way, what they need help with.
+I would build a short, interactive quiz directly into the H2W website.
 
-## The H2W Recovery Check-In
+It would take about two minutes. Someone answers a handful of questions about where they are in their recovery journey and receives a useful result based on their answers.
 
-I think a short Recovery Check-In could become the centerpiece of the first version of the funnel.
+At the end, they can enter their name and email to receive their result and helpful follow-up information.
 
-Rather than immediately asking someone to book a call, the website could invite them to complete a useful assessment that takes roughly two minutes. They answer a focused set of questions first, then provide their name and email to receive their result.
+**Take Quiz → Get Result → Receive Results by Email → Optional H2W Fit Call**
 
-The experience could look something like:
+We would work together to identify the main recovery situations H2W serves and build the questions and results around those.
 
-**Answer a few questions → Receive a useful recovery result → Get the result by email → Optionally schedule an H2W Fit Call**
+## The Podcast Helps People Find the Next Step
 
-The result should provide genuine value on its own. It can also naturally introduce H2W and explain why a Fit Call might be helpful without making the assessment feel like a disguised sales form.
+Each podcast episode could have its own page on the H2W website with the episode, a short description, transcript, and an invitation to take the recovery quiz.
 
-One thing I would want to work through with you is identifying approximately **4–6 primary recovery situations** that H2W is especially well positioned to help. Those categories could give us enough information to make the assessment and future communication feel relevant without building a completely separate funnel for every type of person.
+That gives the podcast a job beyond simply being content: it can help interested listeners take the next step with H2W.
 
-## The Podcast Becomes a Content Engine
+## Social Content With a Purpose
 
-I see the podcast as much more than something that gets uploaded to a podcast platform.
+Rather than simply chopping every podcast into random clips, we can identify the strongest ideas from each conversation.
 
-Ideally, episodes would be produced as both video and audio. Each episode could then have its own page on the H2W website with the episode, description, chapters, transcript, and a clear path into the Recovery Check-In.
+You could record a short introduction or reflection around the best moments, giving the clips context and making them feel like intentional H2W content.
 
-That gives every episode a permanent home that can also support search, sharing, and future content.
+Those posts can lead people back to the podcast, website, or recovery quiz.
 
-The podcast itself can naturally mention the Recovery Check-In, giving listeners a specific next step when something in an episode resonates with them.
+## Helpful Follow-Up
 
-## Social Content Without Just Chopping Up the Podcast
+After someone takes the quiz, they can receive a short series of helpful emails explaining their result, sharing useful information, and occasionally introducing the complimentary H2W Fit Call.
 
-I do not think the social strategy should simply be to cut every podcast into arbitrary short clips.
+If someone books a call, the system can stop or change those follow-up emails automatically.
 
-A better workflow would be to use each conversation as a source of ideas.
+## A Private Dashboard for H2W
 
-After recording, we identify the **2–3 moments, stories, or ideas that actually mattered**. We can also transcribe the episode and use AI to help surface other strong moments worth considering.
+I would also build a small private dashboard so you can see what is happening.
 
-For the best ones, you could record a short introduction, reaction, or additional thought directly to camera. We then combine that with the relevant podcast moment when it adds value.
+You could see who has taken the quiz, what kind of help they may be looking for, whether they received the follow-up emails, and whether they booked a Fit Call.
 
-So instead of:
-
-**Podcast → Random Clip**
-
-the process becomes:
-
-**Podcast → Strong Idea → Your Reflection / Introduction → Relevant Clip → Purpose-Built Social Content**
-
-A quick debrief after recording could become part of the production process: What were the most important things you said? Was there a moment someone should hear even if they never listen to the full episode? Is there something you want to explain differently or expand on?
-
-That keeps you involved in deciding what deserves emphasis and should make the resulting content feel much more intentional.
-
-## What Happens After Someone Raises Their Hand
-
-Once someone completes the Recovery Check-In, the system can continue the conversation automatically without making the communication feel impersonal.
-
-They would immediately receive their result by email along with useful context and an invitation to schedule a complimentary H2W Fit Call.
-
-If they do not book, we could follow with approximately **3–4 helpful emails** over the following days or weeks. These should primarily educate, reassure, and provide value, with the Fit Call remaining available as a natural next step.
-
-If someone books, the nurture sequence should know that and stop or change accordingly. If someone finishes the sequence without booking, they can transition into H2W's ongoing email/newsletter audience rather than simply disappearing.
-
-## A Small Dashboard So You Can See What Is Happening
-
-Behind the scenes, I would build a private H2W dashboard so you can actually see how the funnel is performing.
-
-The first version does not need to become a giant CRM. It should answer practical questions:
-
-- Who is completing the Recovery Check-In?
-- What recovery categories are people falling into?
-- What results are they receiving?
-- Which emails have been sent?
-- Are people engaging with those emails?
-- Who has scheduled a Fit Call?
-- Where is each person currently in the process?
-- What needs to happen next?
-
-That gives us visibility into whether the system is actually creating conversations rather than guessing from website traffic alone.
+The goal is to make the customer journey visible instead of having to guess whether the marketing is working.
 
 ## How I Would Build It
 
-The customer-facing experience would be built into the **H2W Next.js website**, hosted through **AWS Amplify**. Podcast episode pages, the Recovery Check-In, results, and the surrounding website experience can all live within that same system.
+I would build the website and interactive recovery quiz in **Next.js** and host it through **AWS Amplify**.
 
-Behind it, **MongoDB** would maintain each lead's current state: their contact information, assessment answers and result, recovery category, where they came from, email activity, Fit Call status, and where they currently sit in the funnel.
+Behind the scenes, **MongoDB** would securely keep track of leads and quiz results. **Resend** would handle the result and follow-up emails. AWS automation would make sure those emails go out at the right time, and we can connect Moe's booking system so follow-up changes when someone schedules a Fit Call.
 
-**Resend** would handle the immediate assessment email and nurture emails. Its webhooks can report delivery and engagement events back to the application so the dashboard has a clearer picture of what is happening.
+The private H2W dashboard would bring that information together in one place.
 
-For timed follow-up, the initial architecture could use **AWS EventBridge Scheduler + AWS Lambda**. MongoDB remains the source of truth, EventBridge handles when a follow-up should occur, and Lambda checks the lead's current state before asking Resend to send anything. That means, for example, we can avoid sending another Fit Call email to someone who has already booked.
+**Quo / SMS can be added later** for things like appointment reminders. It does not need to complicate the first version.
 
-The **booking integration is still TBD** until I know what scheduling system you currently use. The important part is that the booking platform needs to confirm an actual appointment so the funnel can respond appropriately.
+The first goal is straightforward: **build one clear, measurable path from discovering H2W to starting a real conversation with Moe.**
 
-**Quo / SMS does not need to be part of V1.** It could later add appointment reminders or appropriate follow-up texts once the core funnel is working.
+## A Few Things I'd Need From You
 
-The technical pieces are there to support a relatively straightforward experience:
+- Will the podcast be audio-only or video + audio?
+- What are the main recovery situations H2W helps people with?
+- What do you currently use to schedule Fit Calls?
+- How often would you like to record the podcast?
+- Which social platforms matter most to you?
+- Do you already have an email/newsletter list?
 
-**Next.js + Amplify → Recovery Check-In → MongoDB → Resend → EventBridge / Lambda → Booking Integration → H2W Dashboard**
-
-## What I Still Need to Learn From You
-
-Before locking down the first version, there are a few important things I would want to work through together:
-
-1. Will the podcast be audio-only or video + audio?
-2. When are you thinking about recording/releasing the next episodes?
-3. What are the 4–6 primary recovery situations H2W most wants to serve?
-4. Do you currently use a booking or scheduling platform for H2W Fit Calls?
-5. What should happen operationally after someone books a Fit Call?
-6. Do you already have an email/newsletter platform or existing subscriber list?
-7. Which social platforms do you actually want to prioritize?
-8. How involved would you like me to be in recording, production, posting, and ongoing content management?
-
-I would also avoid committing to a rigid number of podcast clips or a fixed monthly content package until we know how frequently you want to record and what level of production makes sense.
-
-## Start With One Path, Then Expand
-
-The goal is not to build a giant marketing system all at once.
-
-It is to establish **one clear, useful and measurable path** from someone discovering Happy Healthy Wealthy to starting a real conversation with you.
-
-Once that path is working, additional channels can feed into the same system: more social campaigns, YouTube, organic search, paid advertising, retargeting, SMS, additional assessments or lead magnets, and more advanced personalization.
-
-We build the core journey first, see what people actually respond to, and then make the system smarter from real information rather than assumptions.`,
-  }
-];
+Once we answer those questions, we can define the first version without overbuilding it.`,
+  }];
 
 export function getProspect(slug) {
   return prospects.find((prospect) => prospect.slug === slug);
