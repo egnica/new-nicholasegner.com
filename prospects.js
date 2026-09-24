@@ -245,11 +245,10 @@ That 'Take the Quiz' CTA would be on the podcast page and/or linked in the socia
 
 ## Helpful Follow-Up
 
-After someone takes the quiz, they can receive a short series of helpful emails explaining their result, sharing useful information, and occasionally introducing the complimentary H2W Fit Call.
+After someone takes the quiz, they can receive a short series of helpful emails (4 or so emails triggered) explaining their result, sharing useful information, and occasionally introducing the complimentary H2W Fit Call.
 
 If someone books a call, the system can stop or change those follow-up emails automatically.
 
-Once a person fills out the quiz, there will be a follow-up of  4 or so emails triggered. If someone books a call, the system can stop or change those follow-up emails automatically.
 
 ## A Private Dashboard for H2W
 
