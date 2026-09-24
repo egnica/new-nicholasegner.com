@@ -239,13 +239,9 @@ Each episode can also be presented as **Sponsored by Happy Healthy Wealthy**. Du
 
 That gives the podcast a job beyond simply being content. Instead of hoping someone visits H2W after hearing the episode, interested listeners get a specific and useful next step.
 
-## Social Content With a Purpose
+That 'Take the Quiz' CTA would be on the podcast page and/or linked in the social media post.
 
-Rather than simply chopping every podcast into random clips, we can identify the strongest ideas from each conversation.
 
-You could record a short introduction or reflection around the best moments, giving the clips context and making them feel like intentional H2W content.
-
-Those posts can lead people back to the podcast, website, or recovery quiz.
 
 ## Helpful Follow-Up
 
@@ -253,19 +249,30 @@ After someone takes the quiz, they can receive a short series of helpful emails 
 
 If someone books a call, the system can stop or change those follow-up emails automatically.
 
+Once a person fills out the quiz, there will be a follow-up of  4 or so emails triggered. If someone books a call, the system can stop or change those follow-up emails automatically.
+
 ## A Private Dashboard for H2W
 
-I would also build a small private dashboard so you can see what is happening.
+I would also build a small private dashboard so you/we can see what is happening.
 
 You could see who has taken the quiz, what kind of help they may be looking for, whether they received the follow-up emails, and whether they booked a Fit Call.
 
 The goal is to make the customer journey visible instead of having to guess whether the marketing is working.
 
-## How I Would Build It
+## Social Content With a Purpose
 
-I would build the website and interactive recovery quiz in **Next.js** and host it through **AWS Amplify**.
+After the cast... rather than simply chopping every podcast into random clips, we can identify the strongest ideas from each conversation.
 
-Behind the scenes, **MongoDB** would securely keep track of leads and quiz results. **Resend** would handle the result and follow-up emails. AWS automation would make sure those emails go out at the right time, and we can connect Moe's booking system so follow-up changes when someone schedules a Fit Call.
+You could record a short introduction or reflection around the best moments, giving the clips context and making them feel like intentional H2W content.
+
+Those posts can lead people back to the podcast, website, or recovery quiz. Again all social posts will also have a link to the quiz and to call you know for an appointment.
+
+## How I Would Build It 
+*(Probably TMI - but in case you are interested)*
+
+I would build the website and interactive recovery quiz inside the current website which also looks to be built in **Next.js**.
+
+Behind the scenes, **MongoDB** would securely keep track of leads and quiz results. **Resend** would handle the result and follow-up emails. Resend also has webhooks to track if a person read the email, or clicked a link inside the email. AWS automation would make sure those emails go out at the right time, and we can connect Moe's booking system so follow-up changes when someone schedules a Fit Call.
 
 The private H2W dashboard would bring that information together in one place.
 
@@ -275,15 +282,20 @@ The first goal is straightforward: **build one clear, measurable path from disco
 
 ## A Few Things I'd Need From You
 
-- Will the podcast be audio-only or video + audio?
-- What are the main recovery situations H2W helps people with?
+- Will the podcast be audio-only or video + audio? - I highly recommend shooting it on video.
+- What are the main recovery situations H2W helps people with? Can you think of 6 or so?
 - What do you currently use to schedule Fit Calls?
 - How often would you like to record the podcast?
-- Which social platforms matter most to you?
 - Do you already have an email/newsletter list?
 
-Once we answer those questions, we can define the first version without overbuilding it.`,
-  }];
+Once we answer those questions, we can define the first version without overbuilding it.
+
+## I hope this paints a picture
+
+Honestly, I need to get better about not spitting so much info... I know I can be a bit much with that. But I do think this is a good first funnel. I'd be excited to help you along this new journey you are taking!
+`,
+  },
+];
 
 export function getProspect(slug) {
   return prospects.find((prospect) => prospect.slug === slug);
