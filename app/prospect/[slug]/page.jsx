@@ -71,7 +71,7 @@ export default async function ProspectPage({ params }) {
       <SiteHeader />
 
       <main className={styles.main}>
-        <header className={styles.hero}>
+        <header className={`${styles.hero} fullBleedHero`}>
           <div className={styles.heroMedia} aria-hidden="true">
             <Image
               src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/background_one.webp"
