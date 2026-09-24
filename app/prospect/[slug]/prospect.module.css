@@ -122,7 +122,7 @@
   margin: 0 auto;
   padding: clamp(3rem, 7vw, 6rem) 0;
   color: rgba(235, 240, 255, 0.84);
-  font-size: clamp(1.02rem, 1.25vw, 1.16rem);
+  font-size: clamp(1.12rem, 1.45vw, 1.28rem);
   line-height: 1.8;
 }
 
@@ -137,7 +137,7 @@
 
 .content h2 {
   margin: clamp(3rem, 6vw, 5rem) 0 1rem;
-  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
 }
 
 .content h3 {
