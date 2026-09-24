@@ -286,8 +286,8 @@ The first goal is straightforward: **build one clear, measurable path from disco
 - What do you currently use to schedule Fit Calls?
 - How often would you like to record the podcast?
 - Do you already have an email/newsletter list?
- 
 
+\\
 Once we answer those questions, we can define the first version without overbuilding it.
 
 ## I hope this paints a picture
