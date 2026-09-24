@@ -72,14 +72,30 @@ export default async function ProspectPage({ params }) {
 
       <main className={styles.main}>
         <header className={styles.hero}>
-          <Image
-            src={`/prospect/${prospect.slug}/image`}
-            alt={`${prospect.company}, prepared for ${prospect.personName}`}
-            fill
-            priority
-            sizes="(max-width: 1500px) 100vw, 1500px"
-            className={styles.heroImage}
-          />
+          <div className={styles.heroMedia} aria-hidden="true">
+            <Image
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne_background.webp"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 1500px) 100vw, 1500px"
+            />
+          </div>
+
+          <div className={styles.heroContent}>
+            <p className={styles.heroEyebrow}>Prepared for</p>
+            <h1>{prospect.company}</h1>
+            <p className={styles.heroPerson}>{prospect.personName}</p>
+          </div>
+
+          <div className={styles.heroLogoWrap} aria-hidden="true">
+            <Image
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
+              width={760}
+              height={760}
+              alt=""
+            />
+          </div>
         </header>
 
         <article className={styles.content}>
