@@ -74,7 +74,7 @@ export default async function ProspectPage({ params }) {
         <header className={styles.hero}>
           <div className={styles.heroMedia} aria-hidden="true">
             <Image
-              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne_background.webp"
+              src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/background_one.webp"
               alt=""
               fill
               priority
