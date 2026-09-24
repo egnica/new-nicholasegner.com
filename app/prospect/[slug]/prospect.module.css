@@ -546,3 +546,59 @@
     animation: none;
   }
 }
+
+
+/* Prospect hero mobile refinement */
+@media (max-width: 900px) {
+  .hero {
+    min-height: 0;
+  }
+
+  .heroContent {
+    min-height: 0;
+    padding: 2.5rem 2rem 1.25rem;
+  }
+
+  .heroCtas {
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin: 0 2rem 2rem;
+    grid-template-columns: 1fr 1fr;
+    transform: none;
+  }
+
+  .heroCta[href^="tel:"] {
+    display: grid;
+  }
+
+  .heroLogoWrap {
+    top: 60%;
+  }
+}
+
+@media (min-width: 901px) {
+  .heroCta[href^="tel:"] {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .heroContent {
+    padding: 2rem 1.25rem 1rem;
+  }
+
+  .heroCtas {
+    width: auto;
+    margin: 0 1.25rem 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  .heroCta {
+    min-height: 62px;
+  }
+
+  .heroLogoWrap {
+    top: 64%;
+  }
+}
