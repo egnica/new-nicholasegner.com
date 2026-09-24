@@ -264,7 +264,7 @@ After the cast... rather than simply chopping every podcast into random clips, w
 
 You could record a short introduction or reflection around the best moments, giving the clips context and making them feel like intentional H2W content.
 
-Those posts can lead people back to the podcast, website, or recovery quiz. Again all social posts will also have a link to the quiz and to call you know for an appointment.
+Those posts can lead people back to the podcast, website, or recovery quiz. Again all social posts will also have a link to the quiz and to 'call you' for an appointment.
 
 ## How I Would Build It 
 *(Probably TMI - but in case you are interested)*
