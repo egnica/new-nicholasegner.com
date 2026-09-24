@@ -88,6 +88,26 @@ export default async function ProspectPage({ params }) {
             <p className={styles.heroPerson}>{prospect.personName}</p>
           </div>
 
+          <div className={styles.heroCtas} aria-label="Contact Nicholas Egner">
+            <p>Let&apos;s connect</p>
+            <Link className={styles.heroCta} href="mailto:nick@nicholasegner.com">
+              <span className={styles.heroCtaIcon} aria-hidden="true">✉</span>
+              <span>
+                <strong>Email Me</strong>
+                <small>nick@nicholasegner.com</small>
+              </span>
+              <span className={styles.heroCtaArrow} aria-hidden="true">→</span>
+            </Link>
+            <Link className={styles.heroCta} href="tel:+16309656187">
+              <span className={styles.heroCtaIcon} aria-hidden="true">☎</span>
+              <span>
+                <strong>Call Nick</strong>
+                <small>(630) 965-6187</small>
+              </span>
+              <span className={styles.heroCtaArrow} aria-hidden="true">→</span>
+            </Link>
+          </div>
+
           <div className={styles.heroLogoWrap} aria-hidden="true">
             <Image
               src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ne-white.svg"
