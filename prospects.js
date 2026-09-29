@@ -306,7 +306,7 @@ Thanks again for taking the time to talk with me and for sending over the websit
 
 I spent some time looking through those examples, the current Commercial Laundry Services website, and how other companies in the commercial laundry space are positioning themselves online.
 
-I think there is a strong opportunity to simplify the site, make **CLS itself the focus rather than individual equipment brands**, and build the new website around both the customer experience and long-term search visibility.
+I think there is a strong opportunity to build the new website around both the customer experience and long-term search visibility.
 
 ## Website Redesign + Market & SEO Strategy
 
@@ -350,9 +350,22 @@ The goal is not simply to give the current website a new look. I would start wit
 - Analytics setup
 - Redirects from existing website URLs
 - Cleanup of old URLs where appropriate
-- Google Business Profile alignment
 - Search-friendly image optimization
 - Technical SEO review before launch
+
+### Google Business Profile Overhaul
+
+- Full review of the existing Google Business Profile
+- Update business description and service information
+- Review and refine business categories
+- Update website links and contact information
+- Review service areas
+- Add or reorganize services where appropriate
+- Update photos and branding
+- Make sure the profile matches the positioning and messaging of the new website
+- Review existing customer reviews and overall reputation
+- Create a plan for generating new legitimate customer reviews
+- Establish a structure for future Google Business posts and updates
 
 ## Informational Motion-Graphics Video
 
