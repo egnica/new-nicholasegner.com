@@ -104,7 +104,7 @@ Here’s a proof-of-concept of an interactive video format I’ve been developin
  [View Interactive Video Experience](https://nicholasegner.com/video-experience).
 _(Optimized mobile version in progress.)_
 
-![Interactive explainer video concept](https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp)
+![Video marketing concept](https://nciholasegner.s3.us-east-2.amazonaws.com/images/video-experience.webp)
 
 ## Event & Conference Highlight Videos
 
@@ -293,6 +293,152 @@ Once we answer those questions, we can define the first version without overbuil
 ## I hope this paints a picture
 
 Honestly, I need to get better about not spitting so much info... I know I can be a bit much with that. But I do think this is a good first funnel. I'd be excited to help you along this new journey you are taking!
+`,
+  },
+  {
+    id: "006",
+    slug: "commercial-laundry-services",
+    company: "Commercial Laundry Services",
+    personName: "Eric Swanson",
+    body: `Eric,
+
+Thanks again for taking the time to talk with me and for sending over the websites you like.
+
+I spent some time looking through those examples, the current Commercial Laundry Services website, and how other companies in the commercial laundry space are positioning themselves online.
+
+I think there is a strong opportunity to simplify the site, make **CLS itself the focus rather than individual equipment brands**, and build the new website around both the customer experience and long-term search visibility.
+
+## Website Redesign + Market & SEO Strategy
+
+**Project Investment: $3,500**
+
+The goal is not simply to give the current website a new look. I would start with research into the market, competition, services, and search opportunities so we can make informed decisions about how the new website should be structured.
+
+### Research & Strategy
+
+- Review the commercial laundry market and regional competition
+- Research how potential customers search for CLS services
+- Identify opportunities around commercial laundry, multi-housing, route/managed laundry, service, leasing, equipment sales, and related services
+- Review the websites you shared and identify what works well
+- Determine which CLS services should receive dedicated pages
+- Review local and regional SEO opportunities
+- Review the current Google Business Profile
+- Build a recommended site structure before development begins
+
+### Website Redesign & Development
+
+- Complete visual redesign
+- Clean, modern design informed by the examples you shared
+- Mobile-friendly responsive development
+- Simplified navigation
+- Stronger focus on CLS services rather than individual manufacturers
+- Clear paths for requesting quotes, service, or additional information
+- Reorganization and cleanup of existing website content
+- Updated calls-to-action throughout the site
+- Fast, optimized images and page performance
+- Website hosted through AWS
+- Existing domain can remain registered through GoDaddy
+
+### SEO Foundation
+
+- SEO-focused page structure
+- Page titles and meta descriptions
+- Structured data / schema where appropriate
+- Internal linking between related services
+- XML sitemap
+- Google Search Console setup and review
+- Analytics setup
+- Redirects from existing website URLs
+- Cleanup of old URLs where appropriate
+- Google Business Profile alignment
+- Search-friendly image optimization
+- Technical SEO review before launch
+
+## Informational Motion-Graphics Video
+
+**Optional Add-On: $500**
+
+A short informational video created specifically for the new website using photography, graphics, typography, and motion design in After Effects.
+
+Rather than simply adding decorative motion, the video would help tell the CLS story and quickly explain:
+
+- What Commercial Laundry Services does
+- Who CLS works with
+- Commercial laundry equipment and service
+- Multi-housing and managed/route laundry solutions
+- Leasing and equipment options
+- Local and regional support
+- A clear next step for contacting CLS
+
+The goal would be an informative, visually engaging piece that helps a visitor understand the business quickly.
+
+## Ongoing Options
+
+After the new website launches, there are two ways we can handle it.
+
+### Basic Website Hosting — $30/month
+
+For businesses that simply want the website hosted and available.
+
+Includes:
+
+- AWS website hosting
+- SSL / secure website connection
+- Basic hosting management
+- Domain can remain at GoDaddy
+
+### Website Management + Local SEO — $250/month
+
+For CLS to continue actively improving the website and online presence after launch.
+
+Includes:
+
+- AWS hosting
+- Routine website maintenance
+- Minor website and content updates
+- One jobsite / project post each month using photos and information supplied by CLS
+- Monthly Google Business Profile update
+- Adding new project photos and information
+- Google Search Console and analytics monitoring
+- Basic ongoing SEO improvements
+- Internal linking and content improvements
+- Limited repurposing of project content for CLS social channels
+- Continued recommendations based on search performance
+
+A single completed project, for example, could become a website project post, a Google Business update, and social content instead of that work disappearing after the job is finished.
+
+## Built to Grow
+
+The new website would also be built so we can expand it later rather than needing another complete rebuild.
+
+Future possibilities we discussed include:
+
+- Online store for parts, supplies, or selected products
+- Online service requests
+- Automated customer email or text confirmations
+- Service-status messaging
+- Quote follow-up automation
+- Review-request automation
+- Customer communication workflows
+- Additional service-area SEO pages
+- Expanded social content
+- Customer portal or service history tools
+
+Those features would not be part of the initial website project, but the new site can provide the foundation for adding them as they make sense.
+
+## Project Investment
+
+- **Website Redesign + Market & SEO Strategy — $3,500**
+- **Optional Informational Motion-Graphics Video — $500**
+
+Following launch:
+
+- **Basic Website Hosting — $30/month**
+- **or Website Management + Local SEO — $250/month**
+
+My goal is to give CLS more than a better-looking website. I want to create a stronger digital foundation for how potential customers find the company, understand what you offer, contact you, and eventually interact with CLS online.
+
+I'd be happy to talk through any part of this and adjust the scope based on what is most important to you.
 `,
   },
 ];
