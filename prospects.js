@@ -394,6 +394,7 @@ For CLS to continue actively improving the website and online presence after lau
 Includes:
 
 - AWS hosting
+- Monthly Google Meet update with me
 - Routine website maintenance
 - Minor website and content updates
 - One jobsite / project post each month using photos and information supplied by CLS
