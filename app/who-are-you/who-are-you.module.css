@@ -1,0 +1,511 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  color: #f5f7ff;
+  background: #080914;
+}
+
+.backgroundGlow {
+  position: absolute;
+  z-index: 0;
+  top: 4rem;
+  left: 50%;
+  width: min(1100px, 100vw);
+  height: 760px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 28%, rgba(52, 93, 255, 0.18), transparent 42%),
+    radial-gradient(circle at 72% 44%, rgba(104, 66, 255, 0.14), transparent 38%);
+  filter: blur(18px);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(5rem, 8vw, 8rem);
+}
+
+.experience {
+  width: 100%;
+}
+
+.playerShell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 333;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(14px, 2vw, 24px);
+  background: #02030a;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(101, 124, 255, 0.05) inset;
+}
+
+.playerShellPlaying {
+  aspect-ratio: 16 / 9;
+}
+
+.posterButton {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.posterButton:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.95);
+  outline-offset: -5px;
+}
+
+.posterImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease, filter 500ms ease;
+}
+
+.posterShade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 0 14%, rgba(0, 0, 0, 0.05) 42%, rgba(0, 0, 0, 0.18) 100%);
+  transition: background 350ms ease;
+}
+
+.playControl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+}
+
+.playCircle {
+  display: grid;
+  width: clamp(68px, 8vw, 96px);
+  height: clamp(68px, 8vw, 96px);
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 50%;
+  background: rgba(5, 7, 18, 0.72);
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.42),
+    0 0 0 7px rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.playCircle svg {
+  width: 48%;
+  height: 48%;
+  margin-left: 5%;
+  fill: currentColor;
+}
+
+.posterButton:hover .posterImage {
+  transform: scale(1.012);
+  filter: brightness(0.92);
+}
+
+.posterButton:hover .playCircle {
+  transform: scale(1.08);
+  background: rgba(18, 25, 59, 0.88);
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.48),
+    0 0 0 9px rgba(255, 255, 255, 0.075);
+}
+
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.credits {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem 0 1.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(230, 234, 250, 0.66);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.credits div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.credits strong {
+  color: rgba(250, 251, 255, 0.92);
+  font-weight: 700;
+}
+
+.credits a {
+  flex: 0 0 auto;
+  color: rgba(235, 239, 255, 0.78);
+  transition: color 180ms ease;
+}
+
+.credits a:hover {
+  color: #fff;
+}
+
+.intro {
+  width: min(900px, 100%);
+  margin: clamp(4.75rem, 8vw, 7.25rem) auto 0;
+}
+
+.intro h1,
+.pathsSection h2,
+.winPanel h2 {
+  margin: 0;
+  font-family: var(--font-alt), var(--font-sans), sans-serif;
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.intro h1 {
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+}
+
+.fairQuestion {
+  margin: 1.35rem 0 0;
+  color: #fff;
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.5;
+}
+
+.lead {
+  max-width: 760px;
+  margin: 0.55rem 0 0;
+  color: rgba(236, 239, 251, 0.78);
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+  line-height: 1.68;
+}
+
+.pathsSection {
+  width: min(900px, 100%);
+  margin: clamp(4rem, 7vw, 6.5rem) auto 0;
+}
+
+.pathsSection h2 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pathLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.55rem 1.25rem;
+  font-family: var(--font-alt), var(--font-sans), sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 620;
+  transition: background 180ms ease;
+}
+
+.pathLink:nth-child(even) {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pathLink:nth-child(n + 3) {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pathLink small {
+  display: block;
+  margin-bottom: 0.24rem;
+  color: rgba(224, 230, 251, 0.5);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.pathLink:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.arrow {
+  flex: 0 0 auto;
+  color: rgba(239, 242, 255, 0.62);
+  font-size: 1.4rem;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.pathLink:hover .arrow {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.gameSection {
+  width: min(980px, 100%);
+  margin: clamp(7rem, 13vw, 12rem) auto 0;
+}
+
+.gameShell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: #06070d;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(78, 102, 255, 0.08) inset;
+}
+
+.gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  background: #06070d;
+  touch-action: none;
+}
+
+.winPanel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.2rem, 4vw, 3rem);
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(78, 102, 255, 0.18), transparent 38%),
+    #06070d;
+}
+
+.winEyebrow {
+  margin: 0 0 0.85rem;
+  color: #4de06e;
+  font-family: monospace;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.winPanel h2 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+}
+
+.winPanel > p:not(.winEyebrow) {
+  margin: 0.65rem 0 0;
+  color: rgba(239, 242, 255, 0.72);
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+.winForm {
+  width: min(620px, 100%);
+  margin-top: 1.6rem;
+}
+
+.winForm textarea {
+  display: block;
+  width: 100%;
+  min-height: 108px;
+  resize: vertical;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  outline: none;
+  color: #f7f8ff;
+  background: rgba(255, 255, 255, 0.055);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.winForm textarea:focus {
+  border-color: rgba(255, 255, 255, 0.48);
+}
+
+.winForm button {
+  margin-top: 0.8rem;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7px;
+  color: #f7f8ff;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: monospace;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.winForm button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.winForm button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.sentMessage {
+  margin-top: 1.5rem;
+  color: #4de06e;
+  font-family: monospace;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.sendError {
+  margin: 0.7rem 0 0;
+  color: #ff8b8b;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.9rem;
+}
+
+.honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page > footer {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 760px) {
+  .content {
+    width: min(100% - 28px, 1180px);
+    padding-top: 2.3rem;
+  }
+
+  .playerShell {
+    border-radius: 13px;
+  }
+
+  .credits {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .paths {
+    grid-template-columns: 1fr;
+  }
+
+  .pathLink:nth-child(even) {
+    border-left: 0;
+  }
+
+  .pathLink + .pathLink {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .gameSection {
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  .gameShell {
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 520px) {
+  .content {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .playCircle {
+    width: 62px;
+    height: 62px;
+  }
+
+  .pathLink {
+    padding: 1.3rem 0.85rem;
+  }
+
+  .gameSection {
+    margin-top: 6rem;
+  }
+
+  .winPanel {
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: 1.2rem;
+  }
+
+  .winPanel h2 {
+    font-size: clamp(1.65rem, 8vw, 2.4rem);
+  }
+
+  .winForm {
+    margin-top: 1rem;
+  }
+
+  .winForm textarea {
+    min-height: 86px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .posterImage,
+  .playCircle,
+  .arrow,
+  .pathLink {
+    transition: none;
+  }
+}
