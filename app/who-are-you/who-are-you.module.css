@@ -283,7 +283,7 @@
 .gameTitle {
   margin: 0 0 1rem;
   color: #f5f7ff;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-pixel), "Courier New", Courier, monospace;
   font-size: clamp(1rem, 2.2vw, 1.5rem);
   font-weight: 900;
   letter-spacing: 0.14em;
@@ -421,7 +421,7 @@
   border-radius: 6px;
   color: #4de06e;
   background: transparent;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-pixel), "Courier New", Courier, monospace;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.1em;
