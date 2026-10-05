@@ -88,40 +88,70 @@ function drawPixelKey(ctx, x, y, scale = 1) {
   ctx.restore();
 }
 
-function drawBeachball(ctx, x, y, radius, rotation) {
-  const colors = ["#ff4d4d", "#ffcc33", "#4dcf5f", "#3f8cff", "#9f5cff", "#ff65b3"];
+function drawMacPinwheel(ctx, x, y, radius, rotation) {
+  const colors = [
+    "#ff365e",
+    "#ff7a28",
+    "#ffd52a",
+    "#9edb32",
+    "#21d86c",
+    "#20d8c5",
+    "#20a9ff",
+    "#4169ff",
+    "#7653ff",
+    "#bd4cff",
+    "#f34acb",
+    "#ff4f89",
+  ];
 
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(rotation);
 
   colors.forEach((color, index) => {
+    const start = (Math.PI * 2 * index) / colors.length;
+    const end = (Math.PI * 2 * (index + 1)) / colors.length;
+
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.arc(
+    ctx.arc(0, 0, radius, start, end);
+    ctx.closePath();
+
+    const gradient = ctx.createRadialGradient(
+      -radius * 0.2,
+      -radius * 0.28,
+      radius * 0.1,
       0,
       0,
       radius,
-      (Math.PI * 2 * index) / colors.length,
-      (Math.PI * 2 * (index + 1)) / colors.length,
     );
-    ctx.closePath();
-    ctx.fillStyle = color;
+    gradient.addColorStop(0, "#ffffff");
+    gradient.addColorStop(0.14, color);
+    gradient.addColorStop(1, color);
+    ctx.fillStyle = gradient;
     ctx.fill();
   });
 
+  const gloss = ctx.createRadialGradient(
+    -radius * 0.35,
+    -radius * 0.42,
+    0,
+    -radius * 0.2,
+    -radius * 0.3,
+    radius * 0.92,
+  );
+  gloss.addColorStop(0, "rgba(255,255,255,0.78)");
+  gloss.addColorStop(0.28, "rgba(255,255,255,0.22)");
+  gloss.addColorStop(0.62, "rgba(255,255,255,0)");
   ctx.beginPath();
   ctx.arc(0, 0, radius, 0, Math.PI * 2);
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = "#111";
-  ctx.stroke();
+  ctx.fillStyle = gloss;
+  ctx.fill();
 
   ctx.beginPath();
-  ctx.arc(0, 0, radius * 0.24, 0, Math.PI * 2);
-  ctx.fillStyle = "#f7f7f7";
-  ctx.fill();
-  ctx.strokeStyle = "#111";
-  ctx.lineWidth = 3;
+  ctx.arc(0, 0, radius, 0, Math.PI * 2);
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "rgba(255,255,255,0.72)";
   ctx.stroke();
 
   ctx.restore();
@@ -191,6 +221,8 @@ function createGameState() {
     blobX: 600,
     blobY: HEIGHT / 2,
     blobRadius: 72,
+    pinwheelX: WIDTH / 2,
+    pinwheelY: HEIGHT / 2,
   };
 }
 
@@ -289,6 +321,11 @@ export default function WhoAreYouExperience() {
         game.blobX = 600;
         game.blobY = HEIGHT / 2;
         game.blobRadius = 72;
+      }
+
+      if (nextRoom === 6 && previousRoom !== 6) {
+        game.pinwheelX = WIDTH / 2;
+        game.pinwheelY = HEIGHT / 2;
       }
 
       return true;
@@ -491,11 +528,34 @@ export default function WhoAreYouExperience() {
       }
 
       if (game.room === 6) {
-        const bx = WIDTH / 2 + Math.cos(now * 0.00115) * 135;
-        const by = HEIGHT / 2 + Math.sin(now * 0.0016) * 95;
+        ctx.fillStyle = "#f5f7ff";
+        ctx.font = "900 24px monospace";
+        ctx.fillText("MAC WHEEL OF DEATH!", WIDTH / 2, 62);
+
+        const playerCenterX = game.x + PLAYER_SIZE / 2;
+        const playerCenterY = game.y + PLAYER_SIZE / 2;
+        const dx = playerCenterX - game.pinwheelX;
+        const dy = playerCenterY - game.pinwheelY;
+        const distance = Math.hypot(dx, dy) || 1;
+        const chaseSpeed = 155;
         const radius = 34;
-        drawBeachball(ctx, bx, by, radius, now * 0.002);
-        enemies.push({ x: bx, y: by, r: radius });
+
+        game.pinwheelX += (dx / distance) * chaseSpeed * dt;
+        game.pinwheelY += (dy / distance) * chaseSpeed * dt;
+
+        drawMacPinwheel(
+          ctx,
+          game.pinwheelX,
+          game.pinwheelY,
+          radius,
+          now * 0.0065,
+        );
+
+        enemies.push({
+          x: game.pinwheelX,
+          y: game.pinwheelY,
+          r: radius,
+        });
       }
 
       if (game.room === 7) {
