@@ -134,28 +134,28 @@ function drawWalls(ctx, exits) {
 
   ctx.fillStyle = wall;
 
-  if (exits.up) {
+  if (typeof exits.up === "number") {
     ctx.fillRect(0, 0, GATE_MIN_X, thickness);
     ctx.fillRect(GATE_MAX_X, 0, WIDTH - GATE_MAX_X, thickness);
   } else {
     ctx.fillRect(0, 0, WIDTH, thickness);
   }
 
-  if (exits.down) {
+  if (typeof exits.down === "number") {
     ctx.fillRect(0, HEIGHT - thickness, GATE_MIN_X, thickness);
     ctx.fillRect(GATE_MAX_X, HEIGHT - thickness, WIDTH - GATE_MAX_X, thickness);
   } else {
     ctx.fillRect(0, HEIGHT - thickness, WIDTH, thickness);
   }
 
-  if (exits.left) {
+  if (typeof exits.left === "number") {
     ctx.fillRect(0, 0, thickness, GATE_MIN_Y);
     ctx.fillRect(0, GATE_MAX_Y, thickness, HEIGHT - GATE_MAX_Y);
   } else {
     ctx.fillRect(0, 0, thickness, HEIGHT);
   }
 
-  if (exits.right) {
+  if (typeof exits.right === "number") {
     ctx.fillRect(WIDTH - thickness, 0, thickness, GATE_MIN_Y);
     ctx.fillRect(WIDTH - thickness, GATE_MAX_Y, thickness, HEIGHT - GATE_MAX_Y);
   } else {
