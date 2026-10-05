@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Inter } from "next/font/google";
+import { Inter, Press_Start_2P } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import JsonLd from "./components/JsonLd/JsonLd";
@@ -8,6 +8,12 @@ import RouteHistoryTracker from "./components/RouteHistoryTracker/RouteHistoryTr
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const pressStart = Press_Start_2P({
+  variable: "--font-pixel",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -84,7 +90,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className={inter.variable}>
+      <body className={`${inter.variable} ${pressStart.variable}`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VDZJLKR85X"
           strategy="lazyOnload"
