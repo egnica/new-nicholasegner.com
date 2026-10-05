@@ -248,37 +248,44 @@ export default function WhoAreYouExperience() {
       const game = gameRef.current;
       const centerX = nx + PLAYER_SIZE / 2;
       const centerY = ny + PLAYER_SIZE / 2;
+      const wallInset = 16;
 
-      if (nx < 0) {
+      if (nx <= wallInset) {
         if (centerY >= GATE_MIN_Y && centerY <= GATE_MAX_Y && transition("left")) {
           return;
         }
-        nx = 16;
+        nx = wallInset;
       }
 
-      if (nx + PLAYER_SIZE > WIDTH) {
+      if (nx + PLAYER_SIZE >= WIDTH - wallInset) {
         if (centerY >= GATE_MIN_Y && centerY <= GATE_MAX_Y && transition("right")) {
           return;
         }
-        nx = WIDTH - PLAYER_SIZE - 16;
+        nx = WIDTH - PLAYER_SIZE - wallInset;
       }
 
-      if (ny < 0) {
+      if (ny <= wallInset) {
         if (centerX >= GATE_MIN_X && centerX <= GATE_MAX_X && transition("up")) {
           return;
         }
-        ny = 16;
+        ny = wallInset;
       }
 
-      if (ny + PLAYER_SIZE > HEIGHT) {
+      if (ny + PLAYER_SIZE >= HEIGHT - wallInset) {
         if (centerX >= GATE_MIN_X && centerX <= GATE_MAX_X && transition("down")) {
           return;
         }
-        ny = HEIGHT - PLAYER_SIZE - 16;
+        ny = HEIGHT - PLAYER_SIZE - wallInset;
       }
 
-      game.x = Math.max(16, Math.min(WIDTH - PLAYER_SIZE - 16, nx));
-      game.y = Math.max(16, Math.min(HEIGHT - PLAYER_SIZE - 16, ny));
+      game.x = Math.max(
+        wallInset,
+        Math.min(WIDTH - PLAYER_SIZE - wallInset, nx),
+      );
+      game.y = Math.max(
+        wallInset,
+        Math.min(HEIGHT - PLAYER_SIZE - wallInset, ny),
+      );
     }
 
     function killPlayer(now) {
@@ -286,24 +293,44 @@ export default function WhoAreYouExperience() {
       gameRef.current.flashUntil = now + 150;
     }
 
-    function drawDoor(game) {
-      const door = { x: 348, y: 14, w: 104, h: 70 };
+    function drawChest(game) {
+      const chest = { x: 320, y: 34, w: 160, h: 92 };
 
-      ctx.fillStyle = "#2d160d";
-      ctx.fillRect(door.x - 5, door.y - 5, door.w + 10, door.h + 10);
+      ctx.fillStyle = "#241007";
+      ctx.fillRect(chest.x - 6, chest.y - 6, chest.w + 12, chest.h + 12);
 
-      ctx.fillStyle = "#8f3f21";
-      ctx.fillRect(door.x, door.y, door.w, door.h);
+      ctx.fillStyle = "#6f2d12";
+      ctx.fillRect(chest.x, chest.y, chest.w, 34);
 
-      ctx.fillStyle = "#a94c28";
-      ctx.fillRect(door.x + 10, door.y + 9, door.w - 20, door.h - 18);
+      ctx.fillStyle = "#9a4219";
+      ctx.fillRect(chest.x, chest.y + 34, chest.w, chest.h - 34);
 
-      ctx.fillStyle = game.hasKey ? "#49d17d" : "#ffd43b";
-      ctx.fillRect(door.x + 44, door.y + 29, 16, 22);
+      ctx.fillStyle = "#bd5828";
+      ctx.fillRect(chest.x + 12, chest.y + 10, chest.w - 24, 10);
+      ctx.fillRect(chest.x + 12, chest.y + 49, chest.w - 24, 15);
+
+      ctx.fillStyle = "#3a190c";
+      ctx.fillRect(chest.x, chest.y + 31, chest.w, 8);
+
+      const lockX = chest.x + chest.w / 2;
+      const lockY = chest.y + 56;
+
+      ctx.fillStyle = game.hasKey ? "#63e08a" : "#ffd43b";
+      ctx.fillRect(lockX - 18, lockY - 20, 36, 42);
+
       ctx.fillStyle = "#111";
-      ctx.fillRect(door.x + 50, door.y + 35, 4, 10);
+      ctx.beginPath();
+      ctx.arc(lockX, lockY - 5, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillRect(lockX - 3, lockY - 4, 6, 15);
 
-      return door;
+      ctx.strokeStyle = game.hasKey ? "#63e08a" : "#ffd43b";
+      ctx.lineWidth = 7;
+      ctx.beginPath();
+      ctx.arc(lockX, lockY - 22, 17, Math.PI, 0);
+      ctx.stroke();
+
+      return chest;
     }
 
     function drawRoom(now) {
@@ -321,8 +348,8 @@ export default function WhoAreYouExperience() {
       const enemies = [];
 
       if (game.room === 0) {
-        const door = drawDoor(game);
-        if (rectHitsPlayer(game, door) && game.hasKey) {
+        const chest = drawChest(game);
+        if (rectHitsPlayer(game, chest) && game.hasKey) {
           setWon(true);
           setMessage(
             name
