@@ -418,6 +418,21 @@ export default function WhoAreYouExperience() {
         }
       }
 
+      if (game.room === 1) {
+        const enemy = {
+          x: 255 + Math.sin(now * 0.0011) * 145,
+          y: 118,
+          r: 18,
+        };
+
+        enemies.push(enemy);
+
+        ctx.fillStyle = "#e33232";
+        ctx.beginPath();
+        ctx.arc(enemy.x, enemy.y, enemy.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
       if (game.room === 2) {
         ctx.fillStyle = "#f5f7ff";
         ctx.font = "700 25px monospace";
