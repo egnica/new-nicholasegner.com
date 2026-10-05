@@ -17,49 +17,20 @@ const GATE_MAX_X = 500;
 const GATE_MIN_Y = 160;
 const GATE_MAX_Y = 290;
 
-const ROOM_LAYOUT = {
-  0: { x: 0, y: 0 },
-  1: { x: 1, y: 0 },
-  2: { x: 1, y: -1 },
-  3: { x: 2, y: 0 },
-  4: { x: 1, y: 1 },
-  5: { x: 0, y: 1 },
-  6: { x: 2, y: 1 },
-  7: { x: 1, y: 2 },
-  8: { x: 3, y: 1 },
-};
-
-const ROOM_BY_POSITION = Object.fromEntries(
-  Object.entries(ROOM_LAYOUT).map(([roomId, position]) => [
-    `${position.x},${position.y}`,
-    Number(roomId),
-  ]),
-);
-
-const DIRECTIONS = {
-  left: { x: -1, y: 0 },
-  right: { x: 1, y: 0 },
-  up: { x: 0, y: -1 },
-  down: { x: 0, y: 1 },
+const ROOM_EXITS = {
+  0: { right: 1 },
+  1: { left: 0, up: 2, right: 3, down: 4 },
+  2: { down: 1 },
+  3: { left: 1 },
+  4: { up: 1, left: 5, right: 6, down: 7 },
+  5: { right: 4 },
+  6: { left: 4, right: 8 },
+  7: { up: 4 },
+  8: { left: 6 },
 };
 
 function getRoomExits(roomId) {
-  const room = ROOM_LAYOUT[roomId];
-  if (!room) return {};
-
-  return Object.fromEntries(
-    Object.entries(DIRECTIONS)
-      .map(([direction, delta]) => {
-        const neighbor = ROOM_BY_POSITION[
-          `${room.x + delta.x},${room.y + delta.y}`
-        ];
-
-        return typeof neighbor === "number"
-          ? [direction, neighbor]
-          : null;
-      })
-      .filter(Boolean),
-  );
+  return ROOM_EXITS[roomId] || {};
 }
 
 function sanitizeName(value) {
