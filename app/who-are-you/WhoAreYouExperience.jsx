@@ -17,17 +17,50 @@ const GATE_MAX_X = 500;
 const GATE_MIN_Y = 160;
 const GATE_MAX_Y = 290;
 
-const rooms = {
-  0: { exits: { right: 1 } },
-  1: { exits: { left: 0, up: 2, right: 3, down: 4 } },
-  2: { exits: { down: 1 } },
-  3: { exits: { left: 1 } },
-  4: { exits: { up: 1, left: 5, right: 6, down: 7 } },
-  5: { exits: { right: 4 } },
-  6: { exits: { left: 4, right: 8 } },
-  7: { exits: { up: 4 } },
-  8: { exits: { left: 6 } },
+const ROOM_LAYOUT = {
+  0: { x: 0, y: 0 },
+  1: { x: 1, y: 0 },
+  2: { x: 1, y: -1 },
+  3: { x: 2, y: 0 },
+  4: { x: 1, y: 1 },
+  5: { x: 0, y: 1 },
+  6: { x: 2, y: 1 },
+  7: { x: 1, y: 2 },
+  8: { x: 3, y: 1 },
 };
+
+const ROOM_BY_POSITION = Object.fromEntries(
+  Object.entries(ROOM_LAYOUT).map(([roomId, position]) => [
+    `${position.x},${position.y}`,
+    Number(roomId),
+  ]),
+);
+
+const DIRECTIONS = {
+  left: { x: -1, y: 0 },
+  right: { x: 1, y: 0 },
+  up: { x: 0, y: -1 },
+  down: { x: 0, y: 1 },
+};
+
+function getRoomExits(roomId) {
+  const room = ROOM_LAYOUT[roomId];
+  if (!room) return {};
+
+  return Object.fromEntries(
+    Object.entries(DIRECTIONS)
+      .map(([direction, delta]) => {
+        const neighbor = ROOM_BY_POSITION[
+          `${room.x + delta.x},${room.y + delta.y}`
+        ];
+
+        return typeof neighbor === "number"
+          ? [direction, neighbor]
+          : null;
+      })
+      .filter(Boolean),
+  );
+}
 
 function sanitizeName(value) {
   if (!value) return "";
@@ -153,8 +186,11 @@ function createGameState() {
     y: HEIGHT / 2 - PLAYER_SIZE / 2,
     hasKey: false,
     fakeKeyVisible: true,
-    fakeMessageUntil: 0,
+    fakeKeyTriggered: false,
     flashUntil: 0,
+    blobX: 600,
+    blobY: HEIGHT / 2,
+    blobRadius: 72,
   };
 }
 
@@ -231,15 +267,29 @@ export default function WhoAreYouExperience() {
 
     function transition(direction) {
       const game = gameRef.current;
-      const nextRoom = rooms[game.room].exits[direction];
+      const exits = getRoomExits(game.room);
+      const nextRoom = exits[direction];
       if (typeof nextRoom !== "number") return false;
 
+      const previousRoom = game.room;
       game.room = nextRoom;
 
       if (direction === "right") game.x = 22;
       if (direction === "left") game.x = WIDTH - PLAYER_SIZE - 22;
       if (direction === "up") game.y = HEIGHT - PLAYER_SIZE - 22;
       if (direction === "down") game.y = 22;
+
+      if (nextRoom === 3 && previousRoom !== 3) {
+        game.blobX = 610;
+        game.blobY = HEIGHT / 2;
+        game.blobRadius = 72;
+      }
+
+      if (previousRoom === 3 && nextRoom !== 3) {
+        game.blobX = 600;
+        game.blobY = HEIGHT / 2;
+        game.blobRadius = 72;
+      }
 
       return true;
     }
@@ -333,13 +383,13 @@ export default function WhoAreYouExperience() {
       return chest;
     }
 
-    function drawRoom(now) {
+    function drawRoom(now, dt) {
       const game = gameRef.current;
       ctx.clearRect(0, 0, WIDTH, HEIGHT);
       ctx.fillStyle = "#06070d";
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-      drawWalls(ctx, rooms[game.room].exits);
+      drawWalls(ctx, getRoomExits(game.room));
 
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -368,14 +418,27 @@ export default function WhoAreYouExperience() {
       }
 
       if (game.room === 3) {
-        const cx = WIDTH / 2;
-        const cy = HEIGHT / 2;
-        const radius = 138;
+        const playerCenterX = game.x + PLAYER_SIZE / 2;
+        const playerCenterY = game.y + PLAYER_SIZE / 2;
+        const dx = playerCenterX - game.blobX;
+        const dy = playerCenterY - game.blobY;
+        const distance = Math.hypot(dx, dy) || 1;
+        const chaseSpeed = 125;
+
+        game.blobX += (dx / distance) * chaseSpeed * dt;
+        game.blobY += (dy / distance) * chaseSpeed * dt;
+        game.blobRadius = Math.min(360, game.blobRadius + 185 * dt);
+
         ctx.fillStyle = "#d92f2f";
         ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.arc(game.blobX, game.blobY, game.blobRadius, 0, Math.PI * 2);
         ctx.fill();
-        enemies.push({ x: cx, y: cy, r: radius });
+
+        enemies.push({
+          x: game.blobX,
+          y: game.blobY,
+          r: game.blobRadius,
+        });
       }
 
       if (game.room === 4) {
@@ -411,16 +474,20 @@ export default function WhoAreYouExperience() {
 
         if (rectHitsPlayer(game, fakeKey)) {
           game.fakeKeyVisible = false;
-          game.fakeMessageUntil = now + 2600;
+          game.fakeKeyTriggered = true;
         }
       }
 
-      if (game.room === 5 && now < game.fakeMessageUntil) {
+      if (game.room === 5 && game.fakeKeyTriggered) {
         ctx.fillStyle = "#ffffff";
         ctx.font = "800 32px monospace";
         ctx.fillText("NOPE.", WIDTH / 2, HEIGHT / 2 - 28);
         ctx.font = "700 22px monospace";
         ctx.fillText("YOUR KEY IS IN ANOTHER CASTLE.", WIDTH / 2, HEIGHT / 2 + 24);
+
+        ctx.fillStyle = "#777b89";
+        ctx.fillRect(WIDTH / 2 - 24, HEIGHT / 2 + 66, 48, 8);
+        ctx.fillRect(WIDTH / 2 - 5, HEIGHT / 2 + 58, 10, 24);
       }
 
       if (game.room === 6) {
@@ -499,7 +566,7 @@ export default function WhoAreYouExperience() {
         constrainOrTransition(game.x + dx, game.y + dy);
       }
 
-      drawRoom(now);
+      drawRoom(now, dt);
       animationFrame = requestAnimationFrame(tick);
     }
 
@@ -513,6 +580,17 @@ export default function WhoAreYouExperience() {
       keysRef.current.clear();
     };
   }, [name, won]);
+
+  const restartGame = () => {
+    gameRef.current = createGameState();
+    keysRef.current.clear();
+    setWon(false);
+    setMessage("");
+    setSendStatus("idle");
+    setSendError("");
+    setWebsite("");
+    startedAt.current = Date.now();
+  };
 
   const sendVictoryMessage = async (event) => {
     event.preventDefault();
@@ -648,6 +726,9 @@ export default function WhoAreYouExperience() {
       </section>
 
       <section className={styles.gameSection} aria-label="Hidden maze game">
+        <h2 className={styles.gameTitle}>
+          {name ? `${name}’s Adventure` : "Your Adventure"}
+        </h2>
         <div className={styles.gameShell} ref={gameShellRef}>
           {!won ? (
             <canvas
@@ -697,6 +778,14 @@ export default function WhoAreYouExperience() {
                   )}
                 </form>
               )}
+
+              <button
+                type="button"
+                className={styles.restartButton}
+                onClick={restartGame}
+              >
+                PLAY AGAIN ↻
+              </button>
             </div>
           )}
         </div>
