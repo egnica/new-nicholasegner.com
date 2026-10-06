@@ -305,6 +305,10 @@
   box-shadow:
     0 28px 80px rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(78, 102, 255, 0.08) inset;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .gameCanvas {
@@ -318,6 +322,10 @@
 
 .mobileControls {
   display: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobileControlButton {
@@ -335,6 +343,8 @@
   line-height: 1;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
   touch-action: none;
 }
 
@@ -425,6 +435,9 @@
   font-family: var(--font-sans), sans-serif;
   font-size: 1rem;
   line-height: 1.55;
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
 }
 
 .winForm textarea:focus {
@@ -611,62 +624,62 @@
   .winPanel {
     justify-content: center;
     overflow: hidden;
-    padding: 0.5rem 0.65rem;
+    padding: 0.7rem 0.75rem;
   }
 
   .winEyebrow {
-    margin-bottom: 0.2rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
+    margin-bottom: 0.28rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.11em;
   }
 
   .winPanel h2 {
-    font-size: 1.12rem;
-    line-height: 1.05;
+    font-size: 1.4rem;
+    line-height: 1.02;
   }
 
   .winPanel > p:not(.winEyebrow) {
-    margin-top: 0.2rem;
-    font-size: 0.64rem;
+    margin-top: 0.25rem;
+    font-size: 0.74rem;
   }
 
   .winForm {
-    width: min(92%, 320px);
-    margin-top: 0.4rem;
+    width: min(94%, 330px);
+    margin-top: 0.55rem;
   }
 
   .winForm textarea {
-    min-height: 42px;
-    height: 42px;
-    max-height: 42px;
+    min-height: 50px;
+    height: 50px;
+    max-height: 50px;
     resize: none;
-    padding: 0.45rem 0.55rem;
-    font-size: 0.72rem;
-    line-height: 1.2;
+    padding: 0.52rem 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.25;
   }
 
   .winForm button {
-    margin-top: 0.3rem;
-    padding: 0.38rem 0.58rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.05em;
+    margin-top: 0.38rem;
+    padding: 0.48rem 0.72rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.055em;
   }
 
   .sentMessage {
-    margin-top: 0.45rem;
-    font-size: 0.68rem;
+    margin-top: 0.55rem;
+    font-size: 0.78rem;
   }
 
   .sendError {
-    margin-top: 0.25rem;
-    font-size: 0.62rem;
+    margin-top: 0.28rem;
+    font-size: 0.66rem;
   }
 
   .restartButton {
-    margin-top: 0.35rem;
-    padding: 0.36rem 0.52rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.06em;
+    margin-top: 0.42rem;
+    padding: 0.46rem 0.66rem;
+    font-size: 0.63rem;
+    letter-spacing: 0.065em;
   }
 }
 
