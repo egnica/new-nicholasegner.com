@@ -472,24 +472,49 @@
   border-color: rgba(255, 255, 255, 0.48);
 }
 
-.winOptIn {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
+.winMessage {
+  display: block;
   margin-top: 0.72rem;
-  color: rgba(239, 242, 255, 0.66);
-  font-family: var(--font-sans), sans-serif;
-  font-size: 0.78rem;
-  line-height: 1.35;
   text-align: left;
 }
 
-.winOptIn input {
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  margin: 0.08rem 0 0;
-  accent-color: #4de06e;
+.winMessage > span {
+  display: block;
+  margin: 0 0 0.3rem;
+  color: rgba(239, 242, 255, 0.58);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.winMessage em {
+  font-style: normal;
+  opacity: 0.7;
+}
+
+.winMessage textarea {
+  display: block;
+  width: 100%;
+  height: 58px;
+  resize: none;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  outline: none;
+  color: #f7f8ff;
+  background: rgba(255, 255, 255, 0.055);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+.winMessage textarea:focus {
+  border-color: rgba(255, 255, 255, 0.48);
 }
 
 .winForm button {
@@ -719,17 +744,22 @@
     font-size: 16px;
   }
 
-  .winOptIn {
-    gap: 0.38rem;
-    margin-top: 0.38rem;
-    font-size: 0.58rem;
-    line-height: 1.18;
+  .winMessage {
+    margin-top: 0.34rem;
   }
 
-  .winOptIn input {
-    width: 14px;
-    height: 14px;
-    margin-top: 0;
+  .winMessage > span {
+    margin-bottom: 0.14rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .winMessage textarea {
+    height: 38px;
+    padding: 0.3rem 0.45rem;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 1.15;
   }
 
   .winForm button {
