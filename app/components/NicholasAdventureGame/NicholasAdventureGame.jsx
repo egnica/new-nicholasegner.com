@@ -192,7 +192,11 @@ function createGameState() {
   };
 }
 
-export default function NicholasAdventureGame({\n  title,\n  headingLevel = "h2",\n  messageEndpoint = "/api/nicholas-adventure",\n}) {
+export default function NicholasAdventureGame({
+  title,
+  headingLevel = "h2",
+  messageEndpoint = "/api/nicholas-adventure",
+}) {
   const searchParams = useSearchParams();
   const canvasRef = useRef(null);
   const gameShellRef = useRef(null);
@@ -668,7 +672,9 @@ export default function NicholasAdventureGame({\n  title,\n  headingLevel = "h2"
 
   return (
     <section className={styles.gameSection} aria-label="Nicholas's Adventure">
-      <HeadingTag className={styles.gameTitle}>\n        {title || (name ? `${name}’s Adventure` : "Your Adventure")}\n      </HeadingTag>
+      <HeadingTag className={styles.gameTitle}>
+        {title || (name ? `${name}’s Adventure` : "Your Adventure")}
+      </HeadingTag>
       <div className={styles.gameShell} ref={gameShellRef}>
         {!won ? (
           <canvas
