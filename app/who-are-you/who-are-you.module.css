@@ -343,8 +343,8 @@
 
 .mobileControlButton {
   display: grid;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   place-items: center;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -372,8 +372,8 @@
 
 .mobileControlIcon {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   fill: currentColor;
   pointer-events: none;
   -webkit-user-select: none;
@@ -665,8 +665,8 @@
 
   .mobileControls {
     display: grid;
-    grid-template-columns: repeat(3, 56px);
-    grid-template-rows: repeat(2, 56px);
+    grid-template-columns: repeat(3, 64px);
+    grid-template-rows: repeat(2, 64px);
     gap: 8px;
     justify-content: center;
     margin-top: 1rem;
