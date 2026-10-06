@@ -55,7 +55,7 @@ export async function POST(request) {
       );
     }
 
-    const subject = `${name} beat the Nicholas's Adventure game`;
+    const subject = `${name} beat Nicholas's Adventure`;
 
     const html = `
       <div style="font-family:Arial,Helvetica,sans-serif;background:#080914;padding:28px;color:#f5f7ff;">
@@ -73,7 +73,7 @@ export async function POST(request) {
     `;
 
     const text = [
-      `${name} beat the Nicholas's Adventure game!`,
+      `${name} beat Nicholas's Adventure!`,
       "",
       message,
       "",
