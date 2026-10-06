@@ -727,11 +727,11 @@ export default function NicholasAdventureGame({
         ) : (
           <div className={styles.winPanel}>
             <p className={styles.winEyebrow}>YOU WON!</p>
-            <h2>{name ? `${name} beat the game!` : "You beat the game!"}</h2>
+            <h2>{winnerName || name ? `${winnerName || name} beat the game!` : "You beat the game!"}</h2>
             <p>What a legend!</p>
 
             {sendStatus === "sent" ? (
-              <div className={styles.sentMessage}>SENT. LEGEND STATUS CONFIRMED.</div>
+              <div className={styles.sentMessage}>VICTORY CLAIMED. CHECK YOUR EMAIL.</div>
             ) : (
               <form onSubmit={sendVictoryMessage} className={styles.winForm}>
                 <p className={styles.winPrompt}>
