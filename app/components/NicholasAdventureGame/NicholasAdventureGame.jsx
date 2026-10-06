@@ -786,7 +786,7 @@ export default function NicholasAdventureGame({
         {title || (name ? `${name}’s Adventure` : "Your Adventure")}
       </HeadingTag>
       <div
-        className={styles.gameShell}
+        className={`${styles.gameShell} ${won ? styles.gameShellWon : ""}`}
         ref={gameShellRef}
         onContextMenu={(event) => {
           if (!won) event.preventDefault();
