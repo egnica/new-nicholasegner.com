@@ -316,6 +316,42 @@
   touch-action: none;
 }
 
+.mobileControls {
+  display: none;
+}
+
+.mobileControlButton {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #f5f7ff;
+  background: rgba(255, 255, 255, 0.07);
+  font-family: var(--font-pixel), "Courier New", Courier, monospace;
+  font-size: 1.05rem;
+  line-height: 1;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.mobileControlButton:active {
+  border-color: rgba(77, 224, 110, 0.7);
+  background: rgba(77, 224, 110, 0.16);
+  transform: translateY(1px);
+}
+
+.adventureContent {
+  padding-top: 1.5rem;
+}
+
+.adventureContent .gameSection {
+  margin-top: 0;
+}
+
 .winPanel {
   position: absolute;
   inset: 0;
@@ -498,6 +534,39 @@
 
   .gameShell {
     border-radius: 7px;
+  }
+
+  .mobileControls {
+    display: grid;
+    grid-template-columns: repeat(3, 56px);
+    grid-template-rows: repeat(2, 56px);
+    gap: 8px;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .mobileControlUp {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mobileControlLeft {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .mobileControlRight {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .mobileControlDown {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .adventureContent {
+    padding-top: 1rem;
   }
 }
 
