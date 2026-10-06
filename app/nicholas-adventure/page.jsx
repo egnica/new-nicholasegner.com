@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Particles from "../components/particlesBackground";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 import SiteHeader from "../components/SiteHeader/SiteHeader";
-import NicholasAdventureGame from "./NicholasAdventureGame";
+import NicholasAdventureGame from "../components/NicholasAdventureGame/NicholasAdventureGame";
 import styles from "../who-are-you/who-are-you.module.css";
 
 const PAGE_URL = "https://www.nicholasegner.com/nicholas-adventure";
@@ -49,7 +49,7 @@ export default function NicholasAdventurePage() {
 
       <div className={styles.content}>
         <Suspense fallback={null}>
-          <NicholasAdventureGame />
+          <NicholasAdventureGame title="Nicholas's Adventure" headingLevel="h1" />
         </Suspense>
       </div>
 
