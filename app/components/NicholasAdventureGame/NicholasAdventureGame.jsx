@@ -760,7 +760,13 @@ export default function NicholasAdventureGame({
             onPointerUp={(event) => releaseDirection(event, "ArrowUp")}
             onPointerCancel={(event) => releaseDirection(event, "ArrowUp")}
           >
-            ▲
+            <svg
+              className={styles.mobileControlIcon}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 4 3.5 15.5h17L12 4Z" />
+            </svg>
           </button>
           <button
             type="button"
@@ -770,7 +776,13 @@ export default function NicholasAdventureGame({
             onPointerUp={(event) => releaseDirection(event, "ArrowLeft")}
             onPointerCancel={(event) => releaseDirection(event, "ArrowLeft")}
           >
-            ◀
+            <svg
+              className={styles.mobileControlIcon}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 4 3.5 15.5h17L12 4Z" />
+            </svg>
           </button>
           <button
             type="button"
@@ -780,7 +792,13 @@ export default function NicholasAdventureGame({
             onPointerUp={(event) => releaseDirection(event, "ArrowRight")}
             onPointerCancel={(event) => releaseDirection(event, "ArrowRight")}
           >
-            ▶
+            <svg
+              className={styles.mobileControlIcon}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 4 3.5 15.5h17L12 4Z" />
+            </svg>
           </button>
           <button
             type="button"
@@ -790,7 +808,13 @@ export default function NicholasAdventureGame({
             onPointerUp={(event) => releaseDirection(event, "ArrowDown")}
             onPointerCancel={(event) => releaseDirection(event, "ArrowDown")}
           >
-            ▼
+            <svg
+              className={styles.mobileControlIcon}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 4 3.5 15.5h17L12 4Z" />
+            </svg>
           </button>
         </div>
       )}
