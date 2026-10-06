@@ -47,7 +47,7 @@ export default function NicholasAdventurePage() {
       <div className={styles.backgroundGlow} aria-hidden="true" />
       <SiteHeader />
 
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles.adventureContent}`}>
         <Suspense fallback={null}>
           <NicholasAdventureGame title="Nicholas's Adventure" headingLevel="h1" />
         </Suspense>
