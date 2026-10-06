@@ -207,6 +207,9 @@ export default function NicholasAdventureGame({
 
   const [won, setWon] = useState(false);
   const [message, setMessage] = useState("");
+  const [winnerName, setWinnerName] = useState("");
+  const [winnerEmail, setWinnerEmail] = useState("");
+  const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [sendStatus, setSendStatus] = useState("idle");
   const [sendError, setSendError] = useState("");
   const [website, setWebsite] = useState("");
@@ -423,6 +426,7 @@ export default function NicholasAdventureGame({
         const chest = drawChest(game);
         if (rectHitsPlayer(game, chest) && game.hasKey) {
           setWon(true);
+          setWinnerName((currentName) => currentName || name || "");
           setMessage(
             name
               ? `${name} beat the game! What a legend!`
@@ -646,6 +650,9 @@ export default function NicholasAdventureGame({
     keysRef.current.clear();
     setWon(false);
     setMessage("");
+    setWinnerName(name || "");
+    setWinnerEmail("");
+    setMarketingOptIn(false);
     setSendStatus("idle");
     setSendError("");
     setWebsite("");
@@ -664,10 +671,20 @@ export default function NicholasAdventureGame({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name || "Someone",
-          message,
+          name: winnerName || name || "Someone",
+          email: winnerEmail,
+          marketingOptIn,
+          message:
+            message ||
+            `${winnerName || name || "Someone"} beat the game! What a legend!`,
           website,
           startedAt: startedAt.current,
+          utmSource: searchParams.get("utm_source") || "",
+          utmMedium: searchParams.get("utm_medium") || "",
+          utmCampaign: searchParams.get("utm_campaign") || "",
+          referrer: typeof document !== "undefined" ? document.referrer : "",
+          sourcePath:
+            typeof window !== "undefined" ? window.location.pathname : "",
         }),
       });
 
@@ -717,17 +734,47 @@ export default function NicholasAdventureGame({
               <div className={styles.sentMessage}>SENT. LEGEND STATUS CONFIRMED.</div>
             ) : (
               <form onSubmit={sendVictoryMessage} className={styles.winForm}>
-                <label className={styles.srOnly} htmlFor="game-message">
-                  Victory message
+                <p className={styles.winPrompt}>
+                  Want proof you were here before this thing goes global?
+                </p>
+
+                <div className={styles.winFields}>
+                  <label>
+                    <span>Name</span>
+                    <input
+                      type="text"
+                      value={winnerName}
+                      onChange={(event) => setWinnerName(event.target.value)}
+                      maxLength={80}
+                      autoComplete="name"
+                      required
+                    />
+                  </label>
+
+                  <label>
+                    <span>Email</span>
+                    <input
+                      type="email"
+                      value={winnerEmail}
+                      onChange={(event) => setWinnerEmail(event.target.value)}
+                      maxLength={160}
+                      autoComplete="email"
+                      required
+                    />
+                  </label>
+                </div>
+
+                <label className={styles.winOptIn}>
+                  <input
+                    type="checkbox"
+                    checked={marketingOptIn}
+                    onChange={(event) => setMarketingOptIn(event.target.checked)}
+                  />
+                  <span>
+                    Tell me when Nicholas&apos;s next ridiculous project drops.
+                  </span>
                 </label>
-                <textarea
-                  id="game-message"
-                  value={message}
-                  onChange={(event) => setMessage(event.target.value)}
-                  maxLength={500}
-                  required
-                  rows={4}
-                />
+
                 <div className={styles.honeypot} aria-hidden="true">
                   <label htmlFor="game-website">Website</label>
                   <input
@@ -739,8 +786,9 @@ export default function NicholasAdventureGame({
                     autoComplete="off"
                   />
                 </div>
+
                 <button type="submit" disabled={sendStatus === "sending"}>
-                  {sendStatus === "sending" ? "SENDING…" : "SEND TO NICK →"}
+                  {sendStatus === "sending" ? "CLAIMING…" : "CLAIM VICTORY →"}
                 </button>
                 {sendStatus === "error" && (
                   <p className={styles.sendError}>{sendError}</p>
