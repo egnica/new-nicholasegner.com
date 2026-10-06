@@ -589,22 +589,64 @@
   }
 
   .winPanel {
-    justify-content: flex-start;
-    overflow-y: auto;
-    padding-top: 1.2rem;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .winEyebrow {
+    margin-bottom: 0.2rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
   }
 
   .winPanel h2 {
-    font-size: clamp(1.65rem, 8vw, 2.4rem);
+    font-size: 1.12rem;
+    line-height: 1.05;
+  }
+
+  .winPanel > p:not(.winEyebrow) {
+    margin-top: 0.2rem;
+    font-size: 0.64rem;
   }
 
   .winForm {
-    margin-top: 1rem;
+    width: min(92%, 320px);
+    margin-top: 0.4rem;
   }
 
   .winForm textarea {
-    min-height: 86px;
-    font-size: 0.95rem;
+    min-height: 42px;
+    height: 42px;
+    max-height: 42px;
+    resize: none;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .winForm button {
+    margin-top: 0.3rem;
+    padding: 0.38rem 0.58rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+  }
+
+  .sentMessage {
+    margin-top: 0.45rem;
+    font-size: 0.68rem;
+  }
+
+  .sendError {
+    margin-top: 0.25rem;
+    font-size: 0.62rem;
+  }
+
+  .restartButton {
+    margin-top: 0.35rem;
+    padding: 0.36rem 0.52rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.06em;
   }
 }
 
