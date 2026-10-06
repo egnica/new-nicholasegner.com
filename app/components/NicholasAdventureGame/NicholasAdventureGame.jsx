@@ -293,6 +293,9 @@ export default function NicholasAdventureGame({
     controls.addEventListener("touchend", handleTouchEnd, { passive: false });
     controls.addEventListener("touchcancel", handleTouchEnd, { passive: false });
 
+    shell.addEventListener("touchstart", blockBrowserGesture, { passive: false });
+    shell.addEventListener("touchmove", blockBrowserGesture, { passive: false });
+
     [shell, controls].forEach((element) => {
       element.addEventListener("contextmenu", blockBrowserGesture);
       element.addEventListener("selectstart", blockBrowserGesture);
@@ -304,6 +307,9 @@ export default function NicholasAdventureGame({
       controls.removeEventListener("touchmove", handleTouchMove);
       controls.removeEventListener("touchend", handleTouchEnd);
       controls.removeEventListener("touchcancel", handleTouchEnd);
+
+      shell.removeEventListener("touchstart", blockBrowserGesture);
+      shell.removeEventListener("touchmove", blockBrowserGesture);
 
       [shell, controls].forEach((element) => {
         element.removeEventListener("contextmenu", blockBrowserGesture);
