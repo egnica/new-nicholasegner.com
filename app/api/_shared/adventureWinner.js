@@ -1,6 +1,4 @@
 const RESEND_EMAILS_ENDPOINT = "https://api.resend.com/emails";
-const RESEND_CONTACTS_ENDPOINT = "https://api.resend.com/contacts";
-const WINNER_SEGMENT_ID = "88329bc5-da9c-4813-90aa-16fd4dd08e37";
 const CONTACT_TO = "nick@nicholasegner.com";
 const CONTACT_FROM = "Nicholas Egner Website <nick@nicholasegner.com>";
 const GAME_URL = "https://www.nicholasegner.com/nicholas-adventure";
@@ -22,50 +20,6 @@ function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-async function saveOptInContact({ apiKey, name, email }) {
-  const firstName = clean(name.split(/\s+/)[0], 50);
-  const encodedEmail = encodeURIComponent(email);
-
-  const createResponse = await fetch(RESEND_CONTACTS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      first_name: firstName,
-      unsubscribed: false,
-      segments: [{ id: WINNER_SEGMENT_ID }],
-    }),
-  });
-
-  if (createResponse.ok) return true;
-
-  if (createResponse.status === 409) {
-    const segmentResponse = await fetch(
-      `${RESEND_CONTACTS_ENDPOINT}/${encodedEmail}/segments/${WINNER_SEGMENT_ID}`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-      },
-    );
-
-    if (segmentResponse.ok || segmentResponse.status === 409) return true;
-
-    const segmentError = await segmentResponse.json().catch(() => ({}));
-    console.warn("Adventure winner segment add failed:", segmentError);
-    return false;
-  }
-
-  const createError = await createResponse.json().catch(() => ({}));
-  console.warn("Adventure winner contact save failed:", createError);
-  return false;
-}
-
 export async function handleAdventureWinner(
   request,
   {
@@ -78,7 +32,6 @@ export async function handleAdventureWinner(
 
     const name = clean(body?.name, 80);
     const email = clean(body?.email, 160).toLowerCase();
-    const marketingOptIn = body?.marketingOptIn === true;
     const website = clean(body?.website, 250);
     const startedAt = Number(body?.startedAt || 0);
     const message =
@@ -145,8 +98,7 @@ export async function handleAdventureWinner(
           </div>
           <div style="padding:24px 28px;">
             <div style="margin-bottom:18px;">
-              <strong>Email:</strong> ${escapeHtml(email)}<br />
-              <strong>Future project updates:</strong> ${marketingOptIn ? "YES" : "NO"}
+              <strong>Email:</strong> ${escapeHtml(email)}
             </div>
             <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f9abf;margin-bottom:8px;">Victory message</div>
             <div style="font-size:16px;line-height:1.7;color:#eef1ff;white-space:pre-wrap;">${escapeHtml(message)}</div>
@@ -161,7 +113,6 @@ export async function handleAdventureWinner(
     const notificationText = [
       `${name} beat ${subjectLabel}!`,
       `Email: ${email}`,
-      `Future project updates: ${marketingOptIn ? "YES" : "NO"}`,
       "",
       message,
       "",
@@ -225,25 +176,9 @@ export async function handleAdventureWinner(
       console.warn("Adventure winner confirmation failed:", winnerError);
     }
 
-    let contactSaved = false;
-
-    if (marketingOptIn) {
-      const contactsApiKey =
-        process.env.RESEND_CONTACTS_API_KEY || process.env.RESEND_API_KEY;
-
-      if (contactsApiKey) {
-        contactSaved = await saveOptInContact({
-          apiKey: contactsApiKey,
-          name,
-          email,
-        });
-      }
-    }
-
     return Response.json({
       ok: true,
       id: notifyData?.id || null,
-      contactSaved,
     });
   } catch (error) {
     console.error("Adventure winner request error:", error);
