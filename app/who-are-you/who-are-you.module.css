@@ -344,6 +344,26 @@
   transform: translateY(1px);
 }
 
+.mobileControlIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transform-origin: 50% 50%;
+}
+
+.mobileControlLeft .mobileControlIcon {
+  transform: rotate(-90deg);
+}
+
+.mobileControlRight .mobileControlIcon {
+  transform: rotate(90deg);
+}
+
+.mobileControlDown .mobileControlIcon {
+  transform: rotate(180deg);
+}
+
 .adventureContent {
   padding-top: 1.5rem;
 }
