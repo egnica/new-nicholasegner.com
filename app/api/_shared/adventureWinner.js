@@ -19,17 +19,17 @@ function escapeHtml(value) {
 }
 
 function isValidEmail(value) {
-  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 async function saveOptInContact({ apiKey, name, email }) {
-  const firstName = clean(name.split(/\\s+/)[0], 50);
+  const firstName = clean(name.split(/\s+/)[0], 50);
   const encodedEmail = encodeURIComponent(email);
 
   const createResponse = await fetch(RESEND_CONTACTS_ENDPOINT, {
     method: "POST",
     headers: {
-      Authorization: `Bearer \${apiKey}`,
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -44,11 +44,11 @@ async function saveOptInContact({ apiKey, name, email }) {
 
   if (createResponse.status === 409) {
     const segmentResponse = await fetch(
-      `\${RESEND_CONTACTS_ENDPOINT}/\${encodedEmail}/segments/\${WINNER_SEGMENT_ID}`,
+      `${RESEND_CONTACTS_ENDPOINT}/${encodedEmail}/segments/${WINNER_SEGMENT_ID}`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer \${apiKey}`,
+          Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
       },
@@ -83,7 +83,7 @@ export async function handleAdventureWinner(
     const startedAt = Number(body?.startedAt || 0);
     const message =
       clean(body?.message, 500) ||
-      `\${name || "Someone"} beat the game! What a legend!`;
+      `${name || "Someone"} beat the game! What a legend!`;
 
     const utmSource = clean(body?.utmSource, 100);
     const utmMedium = clean(body?.utmMedium, 100);
@@ -129,29 +129,29 @@ export async function handleAdventureWinner(
     }
 
     const sourceBits = [
-      utmSource ? `utm_source: \${utmSource}` : "",
-      utmMedium ? `utm_medium: \${utmMedium}` : "",
-      utmCampaign ? `utm_campaign: \${utmCampaign}` : "",
-      referrer ? `referrer: \${referrer}` : "",
-      `path: \${submittedPath}`,
+      utmSource ? `utm_source: ${utmSource}` : "",
+      utmMedium ? `utm_medium: ${utmMedium}` : "",
+      utmCampaign ? `utm_campaign: ${utmCampaign}` : "",
+      referrer ? `referrer: ${referrer}` : "",
+      `path: ${submittedPath}`,
     ].filter(Boolean);
 
     const notificationHtml = `
       <div style="font-family:Arial,Helvetica,sans-serif;background:#080914;padding:28px;color:#f5f7ff;">
         <div style="max-width:680px;margin:0 auto;background:#111320;border:1px solid #2a2f48;border-radius:16px;overflow:hidden;">
           <div style="padding:24px 28px;border-bottom:1px solid #2a2f48;">
-            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8f9abf;margin-bottom:8px;">nicholasegner.com\${escapeHtml(sourcePath)}</div>
-            <h1 style="font-size:24px;line-height:1.2;margin:0;color:#ffffff;">\${escapeHtml(name)} beat the game!</h1>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8f9abf;margin-bottom:8px;">nicholasegner.com${escapeHtml(sourcePath)}</div>
+            <h1 style="font-size:24px;line-height:1.2;margin:0;color:#ffffff;">${escapeHtml(name)} beat the game!</h1>
           </div>
           <div style="padding:24px 28px;">
             <div style="margin-bottom:18px;">
-              <strong>Email:</strong> \${escapeHtml(email)}<br />
-              <strong>Future project updates:</strong> \${marketingOptIn ? "YES" : "NO"}
+              <strong>Email:</strong> ${escapeHtml(email)}<br />
+              <strong>Future project updates:</strong> ${marketingOptIn ? "YES" : "NO"}
             </div>
             <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f9abf;margin-bottom:8px;">Victory message</div>
-            <div style="font-size:16px;line-height:1.7;color:#eef1ff;white-space:pre-wrap;">\${escapeHtml(message)}</div>
+            <div style="font-size:16px;line-height:1.7;color:#eef1ff;white-space:pre-wrap;">${escapeHtml(message)}</div>
             <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2a2f48;font-size:12px;line-height:1.7;color:#8f9abf;">
-              \${sourceBits.map((item) => escapeHtml(item)).join("<br />")}
+              ${sourceBits.map((item) => escapeHtml(item)).join("<br />")}
             </div>
           </div>
         </div>
@@ -159,26 +159,26 @@ export async function handleAdventureWinner(
     `;
 
     const notificationText = [
-      `\${name} beat \${subjectLabel}!`,
-      `Email: \${email}`,
-      `Future project updates: \${marketingOptIn ? "YES" : "NO"}`,
+      `${name} beat ${subjectLabel}!`,
+      `Email: ${email}`,
+      `Future project updates: ${marketingOptIn ? "YES" : "NO"}`,
       "",
       message,
       "",
       ...sourceBits,
-    ].join("\\n");
+    ].join("\n");
 
     const notifyResponse = await fetch(RESEND_EMAILS_ENDPOINT, {
       method: "POST",
       headers: {
-        Authorization: `Bearer \${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         from: CONTACT_FROM,
         to: [CONTACT_TO],
         reply_to: email,
-        subject: `\${name} beat \${subjectLabel}`,
+        subject: `${name} beat ${subjectLabel}`,
         html: notificationHtml,
         text: notificationText,
       }),
@@ -198,9 +198,9 @@ export async function handleAdventureWinner(
       <div style="font-family:Arial,Helvetica,sans-serif;background:#080914;padding:28px;color:#f5f7ff;">
         <div style="max-width:620px;margin:0 auto;background:#111320;border:1px solid #2a2f48;border-radius:16px;padding:30px;text-align:center;">
           <div style="font-family:monospace;font-size:13px;font-weight:800;letter-spacing:.14em;color:#4de06e;margin-bottom:12px;">YOU WON!</div>
-          <h1 style="font-size:30px;line-height:1.15;margin:0 0 12px;color:#ffffff;">\${escapeHtml(name)} beat Nicholas&apos;s Adventure.</h1>
+          <h1 style="font-size:30px;line-height:1.15;margin:0 0 12px;color:#ffffff;">${escapeHtml(name)} beat Nicholas&apos;s Adventure.</h1>
           <p style="font-size:16px;line-height:1.65;color:#c9cee2;margin:0 0 22px;">Officially recorded. You were here before this thing went global. What a legend.</p>
-          <a href="\${GAME_URL}" style="display:inline-block;padding:12px 18px;border:1px solid #4de06e;border-radius:7px;color:#4de06e;text-decoration:none;font-family:monospace;font-size:13px;font-weight:800;letter-spacing:.08em;">PLAY AGAIN ↻</a>
+          <a href="${GAME_URL}" style="display:inline-block;padding:12px 18px;border:1px solid #4de06e;border-radius:7px;color:#4de06e;text-decoration:none;font-family:monospace;font-size:13px;font-weight:800;letter-spacing:.08em;">PLAY AGAIN ↻</a>
         </div>
       </div>
     `;
@@ -208,7 +208,7 @@ export async function handleAdventureWinner(
     const winnerResponse = await fetch(RESEND_EMAILS_ENDPOINT, {
       method: "POST",
       headers: {
-        Authorization: `Bearer \${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -216,7 +216,7 @@ export async function handleAdventureWinner(
         to: [email],
         subject: "YOU WON — Nicholas's Adventure",
         html: winnerHtml,
-        text: `\${name} beat Nicholas's Adventure. Officially recorded. You were here before this thing went global. What a legend.\\n\\nPlay again: \${GAME_URL}`,
+        text: `${name} beat Nicholas's Adventure. Officially recorded. You were here before this thing went global. What a legend.\n\nPlay again: ${GAME_URL}`,
       }),
     });
 
