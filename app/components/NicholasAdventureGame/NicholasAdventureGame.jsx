@@ -218,6 +218,20 @@ export default function NicholasAdventureGame({
 
   const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
 
+  const pressDirection = (event, key) => {
+    event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    keysRef.current.add(key);
+  };
+
+  const releaseDirection = (event, key) => {
+    event.preventDefault();
+    keysRef.current.delete(key);
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
   useEffect(() => {
     if (won) return undefined;
 
@@ -735,6 +749,51 @@ export default function NicholasAdventureGame({
           </div>
         )}
       </div>
+
+      {!won && (
+        <div className={styles.mobileControls} aria-label="Game controls">
+          <button
+            type="button"
+            className={`${styles.mobileControlButton} ${styles.mobileControlUp}`}
+            aria-label="Move up"
+            onPointerDown={(event) => pressDirection(event, "ArrowUp")}
+            onPointerUp={(event) => releaseDirection(event, "ArrowUp")}
+            onPointerCancel={(event) => releaseDirection(event, "ArrowUp")}
+          >
+            ▲
+          </button>
+          <button
+            type="button"
+            className={`${styles.mobileControlButton} ${styles.mobileControlLeft}`}
+            aria-label="Move left"
+            onPointerDown={(event) => pressDirection(event, "ArrowLeft")}
+            onPointerUp={(event) => releaseDirection(event, "ArrowLeft")}
+            onPointerCancel={(event) => releaseDirection(event, "ArrowLeft")}
+          >
+            ◀
+          </button>
+          <button
+            type="button"
+            className={`${styles.mobileControlButton} ${styles.mobileControlRight}`}
+            aria-label="Move right"
+            onPointerDown={(event) => pressDirection(event, "ArrowRight")}
+            onPointerUp={(event) => releaseDirection(event, "ArrowRight")}
+            onPointerCancel={(event) => releaseDirection(event, "ArrowRight")}
+          >
+            ▶
+          </button>
+          <button
+            type="button"
+            className={`${styles.mobileControlButton} ${styles.mobileControlDown}`}
+            aria-label="Move down"
+            onPointerDown={(event) => pressDirection(event, "ArrowDown")}
+            onPointerUp={(event) => releaseDirection(event, "ArrowDown")}
+            onPointerCancel={(event) => releaseDirection(event, "ArrowDown")}
+          >
+            ▼
+          </button>
+        </div>
+      )}
     </section>
   );
 }
