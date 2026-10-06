@@ -209,7 +209,6 @@ export default function NicholasAdventureGame({
   const [message, setMessage] = useState("");
   const [winnerName, setWinnerName] = useState("");
   const [winnerEmail, setWinnerEmail] = useState("");
-  const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [sendStatus, setSendStatus] = useState("idle");
   const [sendError, setSendError] = useState("");
   const [website, setWebsite] = useState("");
@@ -427,11 +426,7 @@ export default function NicholasAdventureGame({
         if (rectHitsPlayer(game, chest) && game.hasKey) {
           setWon(true);
           setWinnerName((currentName) => currentName || name || "");
-          setMessage(
-            name
-              ? `${name} beat the game! What a legend!`
-              : "I beat the game! What a legend!",
-          );
+          setMessage("");
           return;
         }
       }
@@ -652,7 +647,6 @@ export default function NicholasAdventureGame({
     setMessage("");
     setWinnerName(name || "");
     setWinnerEmail("");
-    setMarketingOptIn(false);
     setSendStatus("idle");
     setSendError("");
     setWebsite("");
@@ -673,10 +667,7 @@ export default function NicholasAdventureGame({
         body: JSON.stringify({
           name: winnerName || name || "Someone",
           email: winnerEmail,
-          marketingOptIn,
-          message:
-            message ||
-            `${winnerName || name || "Someone"} beat the game! What a legend!`,
+          message,
           website,
           startedAt: startedAt.current,
           utmSource: searchParams.get("utm_source") || "",
@@ -764,15 +755,15 @@ export default function NicholasAdventureGame({
                   </label>
                 </div>
 
-                <label className={styles.winOptIn}>
-                  <input
-                    type="checkbox"
-                    checked={marketingOptIn}
-                    onChange={(event) => setMarketingOptIn(event.target.checked)}
+                <label className={styles.winMessage}>
+                  <span>Message <em>(optional)</em></span>
+                  <textarea
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    maxLength={300}
+                    rows={2}
+                    placeholder="Say something to Nick..."
                   />
-                  <span>
-                    Tell me when Nicholas&apos;s next ridiculous project drops.
-                  </span>
                 </label>
 
                 <div className={styles.honeypot} aria-hidden="true">
