@@ -663,6 +663,19 @@
     border-radius: 7px;
   }
 
+  .gameShellWon {
+    aspect-ratio: auto;
+    overflow: hidden;
+  }
+
+  .gameShellWon .winPanel {
+    position: relative;
+    inset: auto;
+    min-height: 0;
+    padding: 1.1rem 0.9rem 1.2rem;
+    overflow: visible;
+  }
+
   .mobileControls {
     display: grid;
     grid-template-columns: repeat(3, 80px);
@@ -719,6 +732,11 @@
     justify-content: center;
     overflow: hidden;
     padding: 0.7rem 0.75rem;
+  }
+
+  .gameShellWon .winPanel {
+    padding: 1rem 0.8rem 1.1rem;
+    overflow: visible;
   }
 
   .winEyebrow {
