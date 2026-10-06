@@ -418,15 +418,44 @@
 
 .winForm {
   width: min(620px, 100%);
-  margin-top: 1.6rem;
+  margin-top: 1.35rem;
 }
 
-.winForm textarea {
+.winPrompt {
+  margin: 0 0 0.8rem;
+  color: rgba(239, 242, 255, 0.72);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.winFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  text-align: left;
+}
+
+.winFields label {
+  min-width: 0;
+}
+
+.winFields label > span {
+  display: block;
+  margin: 0 0 0.3rem;
+  color: rgba(239, 242, 255, 0.58);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.winFields input {
   display: block;
   width: 100%;
-  min-height: 108px;
-  resize: vertical;
-  padding: 1rem;
+  height: 44px;
+  padding: 0.65rem 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   outline: none;
@@ -434,14 +463,33 @@
   background: rgba(255, 255, 255, 0.055);
   font-family: var(--font-sans), sans-serif;
   font-size: 1rem;
-  line-height: 1.55;
   -webkit-user-select: text;
   user-select: text;
   -webkit-touch-callout: default;
 }
 
-.winForm textarea:focus {
+.winFields input:focus {
   border-color: rgba(255, 255, 255, 0.48);
+}
+
+.winOptIn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 0.72rem;
+  color: rgba(239, 242, 255, 0.66);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.winOptIn input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 0.08rem 0 0;
+  accent-color: #4de06e;
 }
 
 .winForm button {
@@ -644,25 +692,51 @@
   }
 
   .winForm {
-    width: min(94%, 330px);
-    margin-top: 0.55rem;
+    width: min(96%, 340px);
+    margin-top: 0.42rem;
   }
 
-  .winForm textarea {
-    min-height: 50px;
-    height: 50px;
-    max-height: 50px;
-    resize: none;
-    padding: 0.52rem 0.6rem;
-    font-size: 0.8rem;
-    line-height: 1.25;
+  .winPrompt {
+    margin-bottom: 0.42rem;
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .winFields {
+    gap: 0.42rem;
+  }
+
+  .winFields label > span {
+    margin-bottom: 0.16rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.06em;
+  }
+
+  .winFields input {
+    height: 35px;
+    padding: 0.34rem 0.48rem;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  .winOptIn {
+    gap: 0.38rem;
+    margin-top: 0.38rem;
+    font-size: 0.58rem;
+    line-height: 1.18;
+  }
+
+  .winOptIn input {
+    width: 14px;
+    height: 14px;
+    margin-top: 0;
   }
 
   .winForm button {
-    margin-top: 0.38rem;
-    padding: 0.48rem 0.72rem;
-    font-size: 0.66rem;
-    letter-spacing: 0.055em;
+    margin-top: 0.34rem;
+    padding: 0.46rem 0.7rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
   }
 
   .sentMessage {
