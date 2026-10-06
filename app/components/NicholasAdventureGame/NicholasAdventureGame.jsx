@@ -689,7 +689,16 @@ export default function NicholasAdventureGame({
       <HeadingTag className={styles.gameTitle}>
         {title || (name ? `${name}’s Adventure` : "Your Adventure")}
       </HeadingTag>
-      <div className={styles.gameShell} ref={gameShellRef}>
+      <div
+        className={styles.gameShell}
+        ref={gameShellRef}
+        onContextMenu={(event) => {
+          if (!won) event.preventDefault();
+        }}
+        onDragStart={(event) => {
+          if (!won) event.preventDefault();
+        }}
+      >
         {!won ? (
           <canvas
             ref={canvasRef}
@@ -751,7 +760,12 @@ export default function NicholasAdventureGame({
       </div>
 
       {!won && (
-        <div className={styles.mobileControls} aria-label="Game controls">
+        <div
+          className={styles.mobileControls}
+          aria-label="Game controls"
+          onContextMenu={(event) => event.preventDefault()}
+          onDragStart={(event) => event.preventDefault()}
+        >
           <button
             type="button"
             className={`${styles.mobileControlButton} ${styles.mobileControlUp}`}
