@@ -200,6 +200,7 @@ export default function NicholasAdventureGame({
   const searchParams = useSearchParams();
   const canvasRef = useRef(null);
   const gameShellRef = useRef(null);
+  const mobileControlsRef = useRef(null);
   const keysRef = useRef(new Set());
   const activeRef = useRef(false);
   const gameRef = useRef(createGameState());
@@ -220,19 +221,100 @@ export default function NicholasAdventureGame({
 
   const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
 
-  const pressDirection = (event, key) => {
+  const pressMouseDirection = (event, key) => {
     event.preventDefault();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
     keysRef.current.add(key);
   };
 
-  const releaseDirection = (event, key) => {
+  const releaseMouseDirection = (event, key) => {
     event.preventDefault();
     keysRef.current.delete(key);
-    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
   };
+
+  useEffect(() => {
+    if (won) return undefined;
+
+    const shell = gameShellRef.current;
+    const controls = mobileControlsRef.current;
+
+    if (!shell || !controls) return undefined;
+
+    const touchDirections = new Map();
+    const blockBrowserGesture = (event) => event.preventDefault();
+
+    const keyAtPoint = (clientX, clientY) => {
+      const element = document.elementFromPoint(clientX, clientY);
+      const button = element?.closest?.("[data-game-key]");
+      return button?.dataset?.gameKey || "";
+    };
+
+    const updateTouchDirection = (touch) => {
+      const previousKey = touchDirections.get(touch.identifier);
+      const nextKey = keyAtPoint(touch.clientX, touch.clientY);
+
+      if (previousKey === nextKey) return;
+
+      if (previousKey) {
+        keysRef.current.delete(previousKey);
+      }
+
+      if (nextKey) {
+        keysRef.current.add(nextKey);
+        touchDirections.set(touch.identifier, nextKey);
+      } else {
+        touchDirections.delete(touch.identifier);
+      }
+    };
+
+    const handleTouchStart = (event) => {
+      event.preventDefault();
+      Array.from(event.changedTouches).forEach(updateTouchDirection);
+    };
+
+    const handleTouchMove = (event) => {
+      event.preventDefault();
+      Array.from(event.changedTouches).forEach(updateTouchDirection);
+    };
+
+    const handleTouchEnd = (event) => {
+      event.preventDefault();
+
+      Array.from(event.changedTouches).forEach((touch) => {
+        const key = touchDirections.get(touch.identifier);
+        if (key) {
+          keysRef.current.delete(key);
+        }
+        touchDirections.delete(touch.identifier);
+      });
+    };
+
+    controls.addEventListener("touchstart", handleTouchStart, { passive: false });
+    controls.addEventListener("touchmove", handleTouchMove, { passive: false });
+    controls.addEventListener("touchend", handleTouchEnd, { passive: false });
+    controls.addEventListener("touchcancel", handleTouchEnd, { passive: false });
+
+    [shell, controls].forEach((element) => {
+      element.addEventListener("contextmenu", blockBrowserGesture);
+      element.addEventListener("selectstart", blockBrowserGesture);
+      element.addEventListener("dragstart", blockBrowserGesture);
+    });
+
+    return () => {
+      controls.removeEventListener("touchstart", handleTouchStart);
+      controls.removeEventListener("touchmove", handleTouchMove);
+      controls.removeEventListener("touchend", handleTouchEnd);
+      controls.removeEventListener("touchcancel", handleTouchEnd);
+
+      [shell, controls].forEach((element) => {
+        element.removeEventListener("contextmenu", blockBrowserGesture);
+        element.removeEventListener("selectstart", blockBrowserGesture);
+        element.removeEventListener("dragstart", blockBrowserGesture);
+      });
+
+      touchDirections.forEach((key) => keysRef.current.delete(key));
+      touchDirections.clear();
+    };
+  }, [won]);
 
   useEffect(() => {
     if (won) return undefined;
@@ -800,18 +882,18 @@ export default function NicholasAdventureGame({
 
       {!won && (
         <div
+          ref={mobileControlsRef}
           className={styles.mobileControls}
           aria-label="Game controls"
-          onContextMenu={(event) => event.preventDefault()}
-          onDragStart={(event) => event.preventDefault()}
         >
           <button
             type="button"
             className={`${styles.mobileControlButton} ${styles.mobileControlUp}`}
             aria-label="Move up"
-            onPointerDown={(event) => pressDirection(event, "ArrowUp")}
-            onPointerUp={(event) => releaseDirection(event, "ArrowUp")}
-            onPointerCancel={(event) => releaseDirection(event, "ArrowUp")}
+            data-game-key="ArrowUp"
+            onMouseDown={(event) => pressMouseDirection(event, "ArrowUp")}
+            onMouseUp={(event) => releaseMouseDirection(event, "ArrowUp")}
+            onMouseLeave={(event) => releaseMouseDirection(event, "ArrowUp")}
           >
             <svg
               className={styles.mobileControlIcon}
@@ -825,9 +907,10 @@ export default function NicholasAdventureGame({
             type="button"
             className={`${styles.mobileControlButton} ${styles.mobileControlLeft}`}
             aria-label="Move left"
-            onPointerDown={(event) => pressDirection(event, "ArrowLeft")}
-            onPointerUp={(event) => releaseDirection(event, "ArrowLeft")}
-            onPointerCancel={(event) => releaseDirection(event, "ArrowLeft")}
+            data-game-key="ArrowLeft"
+            onMouseDown={(event) => pressMouseDirection(event, "ArrowLeft")}
+            onMouseUp={(event) => releaseMouseDirection(event, "ArrowLeft")}
+            onMouseLeave={(event) => releaseMouseDirection(event, "ArrowLeft")}
           >
             <svg
               className={styles.mobileControlIcon}
@@ -841,9 +924,10 @@ export default function NicholasAdventureGame({
             type="button"
             className={`${styles.mobileControlButton} ${styles.mobileControlRight}`}
             aria-label="Move right"
-            onPointerDown={(event) => pressDirection(event, "ArrowRight")}
-            onPointerUp={(event) => releaseDirection(event, "ArrowRight")}
-            onPointerCancel={(event) => releaseDirection(event, "ArrowRight")}
+            data-game-key="ArrowRight"
+            onMouseDown={(event) => pressMouseDirection(event, "ArrowRight")}
+            onMouseUp={(event) => releaseMouseDirection(event, "ArrowRight")}
+            onMouseLeave={(event) => releaseMouseDirection(event, "ArrowRight")}
           >
             <svg
               className={styles.mobileControlIcon}
@@ -857,9 +941,10 @@ export default function NicholasAdventureGame({
             type="button"
             className={`${styles.mobileControlButton} ${styles.mobileControlDown}`}
             aria-label="Move down"
-            onPointerDown={(event) => pressDirection(event, "ArrowDown")}
-            onPointerUp={(event) => releaseDirection(event, "ArrowDown")}
-            onPointerCancel={(event) => releaseDirection(event, "ArrowDown")}
+            data-game-key="ArrowDown"
+            onMouseDown={(event) => pressMouseDirection(event, "ArrowDown")}
+            onMouseUp={(event) => releaseMouseDirection(event, "ArrowDown")}
+            onMouseLeave={(event) => releaseMouseDirection(event, "ArrowDown")}
           >
             <svg
               className={styles.mobileControlIcon}
