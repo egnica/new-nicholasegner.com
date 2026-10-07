@@ -9,7 +9,7 @@ function sanitizeName(value) {
 
   return String(value)
     .normalize("NFKC")
-    .replace(/[^\p{L}\p{M} .\'-]/gu, "")
+    .replace(/[^\p{L}\p{M} .'-]/gu, "")
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 40);
