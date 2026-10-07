@@ -1,3 +1,5 @@
+import { recordTrackedContactEvent } from "./contactTracking";
+
 const RESEND_EMAILS_ENDPOINT = "https://api.resend.com/emails";
 const CONTACT_TO = "nick@nicholasegner.com";
 const CONTACT_FROM = "Nicholas Egner Website <nick@nicholasegner.com>";
@@ -30,13 +32,12 @@ export async function handleAdventureWinner(
   try {
     const body = await request.json();
 
-    const name = clean(body?.name, 80);
-    const email = clean(body?.email, 160).toLowerCase();
+    const trackingId = clean(body?.trackingId, 32).toUpperCase();
+    let name = clean(body?.name, 80);
+    let email = clean(body?.email, 160).toLowerCase();
     const website = clean(body?.website, 250);
     const startedAt = Number(body?.startedAt || 0);
-    const message =
-      clean(body?.message, 500) ||
-      `${name || "Someone"} beat the game! What a legend!`;
+    let trackedContact = null;
 
     const utmSource = clean(body?.utmSource, 100);
     const utmMedium = clean(body?.utmMedium, 100);
@@ -48,26 +49,53 @@ export async function handleAdventureWinner(
       return Response.json({ ok: true });
     }
 
-    if (!name) {
-      return Response.json(
-        { error: "Add your name to claim the win." },
-        { status: 400 },
-      );
-    }
-
-    if (!email || !isValidEmail(email)) {
-      return Response.json(
-        { error: "Add a valid email to claim the win." },
-        { status: 400 },
-      );
-    }
-
     if (startedAt && Date.now() - startedAt < 1500) {
       return Response.json(
         { error: "Give it a second and try again." },
         { status: 400 },
       );
     }
+
+    if (trackingId) {
+      try {
+        trackedContact = await recordTrackedContactEvent({
+          trackingId,
+          event: "adventure_win",
+          sourcePath: submittedPath,
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          referrer,
+        });
+      } catch (error) {
+        console.error("Tracked adventure win lookup failed:", error);
+      }
+    }
+
+    if (trackedContact) {
+      name = clean(trackedContact.firstName, 80) || "Tracked contact";
+      email = "";
+    }
+
+    const message = trackedContact
+      ? `${name} beat the game from a tracked CRM link.`
+      : clean(body?.message, 500) ||
+        `${name || "Someone"} beat the game! What a legend!`;
+
+    if (!trackedContact && !name) {
+      return Response.json(
+        { error: "Add your name to claim the win." },
+        { status: 400 },
+      );
+    }
+
+    if (!trackedContact && (!email || !isValidEmail(email))) {
+      return Response.json(
+        { error: "Add a valid email to claim the win." },
+        { status: 400 },
+      );
+    }
+
 
     const apiKey = process.env.RESEND_API_KEY;
 
@@ -82,6 +110,10 @@ export async function handleAdventureWinner(
     }
 
     const sourceBits = [
+      trackedContact ? `tracking id: ${trackedContact.trackingId}` : "",
+      trackedContact?.winCount
+        ? `adventure win #: ${trackedContact.winCount}`
+        : "",
       utmSource ? `utm_source: ${utmSource}` : "",
       utmMedium ? `utm_medium: ${utmMedium}` : "",
       utmCampaign ? `utm_campaign: ${utmCampaign}` : "",
@@ -97,9 +129,11 @@ export async function handleAdventureWinner(
             <h1 style="font-size:24px;line-height:1.2;margin:0;color:#ffffff;">${escapeHtml(name)} beat the game!</h1>
           </div>
           <div style="padding:24px 28px;">
-            <div style="margin-bottom:18px;">
-              <strong>Email:</strong> ${escapeHtml(email)}
-            </div>
+            ${
+              email
+                ? `<div style="margin-bottom:18px;"><strong>Email:</strong> ${escapeHtml(email)}</div>`
+                : ""
+            }
             <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f9abf;margin-bottom:8px;">Victory message</div>
             <div style="font-size:16px;line-height:1.7;color:#eef1ff;white-space:pre-wrap;">${escapeHtml(message)}</div>
             <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2a2f48;font-size:12px;line-height:1.7;color:#8f9abf;">
@@ -112,7 +146,7 @@ export async function handleAdventureWinner(
 
     const notificationText = [
       `${name} beat ${subjectLabel}!`,
-      `Email: ${email}`,
+      email ? `Email: ${email}` : "",
       "",
       message,
       "",
@@ -128,7 +162,7 @@ export async function handleAdventureWinner(
       body: JSON.stringify({
         from: CONTACT_FROM,
         to: [CONTACT_TO],
-        reply_to: email,
+        ...(email ? { reply_to: email } : {}),
         subject: `${name} beat ${subjectLabel}`,
         html: notificationHtml,
         text: notificationText,
@@ -143,6 +177,16 @@ export async function handleAdventureWinner(
         { error: "The victory could not be claimed right now." },
         { status: 502 },
       );
+    }
+
+    if (trackedContact) {
+      return Response.json({
+        ok: true,
+        tracked: true,
+        name,
+        winCount: trackedContact.winCount || 0,
+        id: notifyData?.id || null,
+      });
     }
 
     const winnerHtml = `
@@ -178,6 +222,7 @@ export async function handleAdventureWinner(
 
     return Response.json({
       ok: true,
+      tracked: false,
       id: notifyData?.id || null,
     });
   } catch (error) {

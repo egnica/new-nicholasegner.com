@@ -1,34 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import NicholasAdventureGame from "../components/NicholasAdventureGame/NicholasAdventureGame";
+import useTrackedContact from "../hooks/useTrackedContact";
 import styles from "./who-are-you.module.css";
 
 const POSTER_URL =
   "https://nciholasegner.s3.us-east-2.amazonaws.com/images/who.gif";
 const YOUTUBE_ID = "PNbBDrceCy8";
 
-function sanitizeName(value) {
-  if (!value) return "";
-
-  return value
-    .normalize("NFKC")
-    .replace(/[^\p{L}\p{M} .'-]/gu, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 40);
-}
-
 export default function WhoAreYouExperience() {
   const searchParams = useSearchParams();
   const [playing, setPlaying] = useState(false);
 
-  const name = useMemo(
-    () => sanitizeName(searchParams.get("name")),
-    [searchParams],
-  );
+  const { name } = useTrackedContact(searchParams);
 
   return (
     <section className={styles.experience}>

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "../../who-are-you/who-are-you.module.css";
+import useTrackedContact from "../../hooks/useTrackedContact";
 
 const WIDTH = 800;
 const HEIGHT = 450;
@@ -26,17 +27,6 @@ const ROOM_EXITS = {
 
 function getRoomExits(roomId) {
   return ROOM_EXITS[roomId] || {};
-}
-
-function sanitizeName(value) {
-  if (!value) return "";
-
-  return value
-    .normalize("NFKC")
-    .replace(/[^\p{L}\p{M} .'-]/gu, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 40);
 }
 
 function drawPixelKey(ctx, x, y, scale = 1) {
@@ -205,6 +195,7 @@ export default function NicholasAdventureGame({
   const activeRef = useRef(false);
   const gameRef = useRef(createGameState());
   const startedAt = useRef(Date.now());
+  const autoWinAttemptedRef = useRef(false);
 
   const [won, setWon] = useState(false);
   const [message, setMessage] = useState("");
@@ -214,12 +205,71 @@ export default function NicholasAdventureGame({
   const [sendError, setSendError] = useState("");
   const [website, setWebsite] = useState("");
 
-  const name = useMemo(
-    () => sanitizeName(searchParams.get("name")),
-    [searchParams],
-  );
+  const {
+    trackingId,
+    isKnownContact,
+    name,
+    resolving: resolvingContact,
+  } = useTrackedContact(searchParams);
 
   const HeadingTag = headingLevel === "h1" ? "h1" : "h2";
+
+  useEffect(() => {
+    if (
+      !won ||
+      !isKnownContact ||
+      !trackingId ||
+      autoWinAttemptedRef.current
+    ) {
+      return;
+    }
+
+    autoWinAttemptedRef.current = true;
+    setSendStatus("sending");
+    setSendError("");
+
+    fetch(messageEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        trackingId,
+        startedAt: startedAt.current,
+        utmSource: searchParams.get("utm_source") || "",
+        utmMedium: searchParams.get("utm_medium") || "",
+        utmCampaign: searchParams.get("utm_campaign") || "",
+        referrer: typeof document !== "undefined" ? document.referrer : "",
+        sourcePath:
+          typeof window !== "undefined" ? window.location.pathname : "",
+      }),
+    })
+      .then(async (response) => {
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok || !data?.tracked) {
+          throw new Error(
+            data?.error || "Automatic victory tracking is unavailable.",
+          );
+        }
+
+        if (data?.name) {
+          setWinnerName(data.name);
+        }
+        setSendStatus("sent");
+      })
+      .catch((error) => {
+        setSendStatus("error");
+        setSendError(
+          error?.message ||
+            "Automatic victory tracking is unavailable. You can claim it below.",
+        );
+      });
+  }, [
+    isKnownContact,
+    messageEndpoint,
+    searchParams,
+    trackingId,
+    won,
+  ]);
 
   const pressMouseDirection = (event, key) => {
     event.preventDefault();
@@ -738,6 +788,7 @@ export default function NicholasAdventureGame({
     setSendStatus("idle");
     setSendError("");
     setWebsite("");
+    autoWinAttemptedRef.current = false;
     startedAt.current = Date.now();
   };
 
@@ -810,7 +861,15 @@ export default function NicholasAdventureGame({
             <p>What a legend!</p>
 
             {sendStatus === "sent" ? (
-              <div className={styles.sentMessage}>VICTORY CLAIMED. CHECK YOUR EMAIL.</div>
+              <div className={styles.sentMessage}>
+                {isKnownContact
+                  ? "VICTORY RECORDED."
+                  : "VICTORY CLAIMED. CHECK YOUR EMAIL."}
+              </div>
+            ) : isKnownContact && sendStatus === "sending" ? (
+              <div className={styles.sentMessage}>RECORDING VICTORY…</div>
+            ) : resolvingContact && trackingId ? (
+              <div className={styles.sentMessage}>VERIFYING PLAYER…</div>
             ) : (
               <form onSubmit={sendVictoryMessage} className={styles.winForm}>
                 <p className={styles.winPrompt}>
