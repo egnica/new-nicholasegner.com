@@ -11,10 +11,12 @@ function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-async function requestContent(path, validate) {
-  const response = await fetch(`${CONTENT_API_BASE_URL}${path}`, {
-    next: { revalidate: CONTENT_REVALIDATE_SECONDS },
-  });
+async function requestContent(
+  path,
+  validate,
+  fetchOptions = { next: { revalidate: CONTENT_REVALIDATE_SECONDS } },
+) {
+  const response = await fetch(`${CONTENT_API_BASE_URL}${path}`, fetchOptions);
 
   if (!response.ok) {
     throw new Error(
@@ -32,7 +34,10 @@ async function requestContent(path, validate) {
 }
 
 export async function getBlogData() {
-  return requestContent("/api/blog?site=nicholasegner", isRecord);
+  // Read the live hub feed on each render instead of retaining a prerendered blog.
+  return requestContent("/api/blog?site=nicholasegner", isRecord, {
+    cache: "no-store",
+  });
 }
 
 export async function getProjectsData() {

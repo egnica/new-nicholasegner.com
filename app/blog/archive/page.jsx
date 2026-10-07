@@ -56,9 +56,11 @@ export default async function BlogArchive() {
   const Posts = await getBlogData();
 
   const posts = Object.values(Posts)
-    .filter((post) => post.live !== false)
+    .filter((post) => post.live !== false && post.published !== false)
     .sort(
-      (a, b) => new Date(b.published_time) - new Date(a.published_time),
+      (a, b) =>
+        new Date(b.published_time || b.date || 0) -
+        new Date(a.published_time || a.date || 0),
     );
 
   return (
