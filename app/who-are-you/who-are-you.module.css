@@ -644,9 +644,11 @@
   background: rgba(6, 12, 13, 0.86);
   color: #4de06e;
   text-align: center;
-  font-family: var(--font-pixel), "Courier New", Courier, monospace;
-  font-size: clamp(0.64rem, 1.15vw, 0.82rem);
-  line-height: 1.9;
+  font-family: monospace;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  line-height: 1.65;
 }
 
 .srOnly {
