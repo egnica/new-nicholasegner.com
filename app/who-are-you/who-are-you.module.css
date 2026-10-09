@@ -561,6 +561,32 @@
   opacity: 0.65;
 }
 
+.trackedNoteForm {
+  width: min(500px, 100%);
+  margin-top: 0.8rem;
+}
+
+.trackedNoteForm .winMessage {
+  margin-top: 0;
+}
+
+.trackedNoteForm button {
+  margin-top: 0.7rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(77, 224, 110, 0.48);
+  border-radius: 7px;
+  background: rgba(77, 224, 110, 0.1);
+  color: #4de06e;
+  font-family: var(--font-pixel), "Courier New", Courier, monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.trackedNoteForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .sentMessage {
   margin-top: 1.5rem;
   color: #4de06e;
