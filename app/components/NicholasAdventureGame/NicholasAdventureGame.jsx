@@ -838,7 +838,7 @@ export default function NicholasAdventureGame({
       </HeadingTag>
       {isKnownContact && name && (
         <p className={styles.gameWelcome}>
-          Welcome, {name}! Ready for a little adventure? Use your arrow keys on
+          {name}, welcome to Nicholas’s Adventure! Use your arrow keys on
           desktop or the on-screen controls on mobile to explore the dungeon.
           Find the key, avoid the enemies, and enjoy!
         </p>
