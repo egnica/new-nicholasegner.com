@@ -199,6 +199,8 @@ export default function NicholasAdventureGame({
 
   const [won, setWon] = useState(false);
   const [message, setMessage] = useState("");
+  const [noteStatus, setNoteStatus] = useState("idle");
+  const [noteError, setNoteError] = useState("");
   const [winnerName, setWinnerName] = useState("");
   const [winnerEmail, setWinnerEmail] = useState("");
   const [sendStatus, setSendStatus] = useState("idle");
@@ -783,6 +785,8 @@ export default function NicholasAdventureGame({
     keysRef.current.clear();
     setWon(false);
     setMessage("");
+    setNoteStatus("idle");
+    setNoteError("");
     setWinnerName(name || "");
     setWinnerEmail("");
     setSendStatus("idle");
@@ -828,6 +832,30 @@ export default function NicholasAdventureGame({
     } catch (error) {
       setSendStatus("error");
       setSendError(error?.message || "Message could not be sent.");
+    }
+  };
+
+  const sendTrackedNote = async (event) => {
+    event.preventDefault();
+    if (!isKnownContact || !trackingId || sendStatus !== "sent" || noteStatus === "sending" || noteStatus === "sent") return;
+    const note = message.trim();
+    if (!note) return;
+
+    setNoteStatus("sending");
+    setNoteError("");
+    try {
+      const response = await fetch("/api/adventure-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ trackingId, message: note, website }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data?.error || "Message could not be sent.");
+      setNoteStatus("sent");
+      setMessage("");
+    } catch (error) {
+      setNoteStatus("error");
+      setNoteError(error?.message || "Message could not be sent.");
     }
   };
 
@@ -939,6 +967,41 @@ export default function NicholasAdventureGame({
                   <p className={styles.sendError}>{sendError}</p>
                 )}
               </form>
+            )}
+
+            {isKnownContact && sendStatus === "sent" && (
+              noteStatus === "sent" ? (
+                <p className={styles.sentMessage} role="status">MESSAGE SENT!</p>
+              ) : (
+                <form onSubmit={sendTrackedNote} className={styles.trackedNoteForm}>
+                  <label className={styles.winMessage}>
+                    <span>Want to leave Nicholas a message?</span>
+                    <textarea
+                      value={message}
+                      onChange={(event) => setMessage(event.target.value)}
+                      maxLength={500}
+                      rows={3}
+                      placeholder="Type your message here..."
+                      required
+                    />
+                  </label>
+                  <div className={styles.honeypot} aria-hidden="true">
+                    <label htmlFor="tracked-game-website">Website</label>
+                    <input
+                      id="tracked-game-website"
+                      type="text"
+                      value={website}
+                      onChange={(event) => setWebsite(event.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+                  <button type="submit" disabled={noteStatus === "sending" || !message.trim()}>
+                    {noteStatus === "sending" ? "SENDING…" : "SEND MESSAGE →"}
+                  </button>
+                  {noteStatus === "error" && <p className={styles.sendError} role="alert">{noteError}</p>}
+                </form>
+              )
             )}
 
             <button
