@@ -836,6 +836,13 @@ export default function NicholasAdventureGame({
       <HeadingTag className={styles.gameTitle}>
         {title || (name ? `${name}’s Adventure` : "Your Adventure")}
       </HeadingTag>
+      {isKnownContact && name && (
+        <p className={styles.gameWelcome}>
+          Welcome, {name}! Ready for a little adventure? Use your arrow keys on
+          desktop or the on-screen controls on mobile to explore the dungeon.
+          Find the key, avoid the enemies, and enjoy!
+        </p>
+      )}
       <div
         className={`${styles.gameShell} ${won ? styles.gameShellWon : ""}`}
         ref={gameShellRef}
