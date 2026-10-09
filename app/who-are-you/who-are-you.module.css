@@ -610,12 +610,17 @@
 }
 
 .gameWelcome {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto 1.2rem;
-  color: #d7e0ed;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(77, 224, 110, 0.42);
+  border-radius: 7px;
+  background: rgba(6, 12, 13, 0.86);
+  color: #4de06e;
   text-align: center;
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  line-height: 1.65;
+  font-family: var(--font-pixel), "Courier New", Courier, monospace;
+  font-size: clamp(0.64rem, 1.15vw, 0.82rem);
+  line-height: 1.9;
 }
 
 .srOnly {
