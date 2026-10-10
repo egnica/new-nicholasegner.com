@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "./video.module.css";
 import VideoCapabilityFilters from "./VideoCapabilityFilters";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 const DEAD_ZONE = 0.34;
 const MAX_SCROLL_SPEED = 3.4;
@@ -574,16 +575,18 @@ export default function VideoHubClient({
         </div>
       </section>
 
-      <section className={styles.ctaSection}>
-        <p className={styles.eyebrow}>Have a Video Project?</p>
-        <h2>Build the video and the experience around it.</h2>
-        <p>
-          If you need video production, editing, motion graphics, or a better
-          way to publish video on the web, I can help connect those pieces.
-        </p>
-        <a href="mailto:nick@nicholasegner.com" className={styles.ctaButton}>
-          Email Me
-        </a>
+      <section className={styles.ctaSection} aria-labelledby="video-contact-heading">
+        <div className={styles.ctaIntro}>
+          <p className={styles.eyebrow}>Have a Video Project?</p>
+          <h2 id="video-contact-heading">Build the video and the experience around it.</h2>
+          <p>
+            If you need video production, editing, motion graphics, or a better
+            way to publish video on the web, I can help connect those pieces.
+          </p>
+        </div>
+        <div className={styles.ctaForm}>
+          <ContactForm source="video-page" />
+        </div>
       </section>
     </>
   );
