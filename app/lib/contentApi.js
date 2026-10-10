@@ -81,5 +81,6 @@ export async function getVideoWorkData() {
       isRecord(data.capabilities) &&
       Array.isArray(data.items) &&
       isRecord(data.assets),
+    { cache: "no-store" },
   );
 }
