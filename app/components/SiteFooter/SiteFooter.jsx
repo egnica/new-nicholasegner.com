@@ -177,6 +177,7 @@ export default function SiteFooter() {
         <p>© {year} Nicholas Egner. All rights reserved.</p>
 
         <div className={styles.bottomLinks}>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/sitemap.xml">Sitemap</Link>
           <a href="mailto:nick@nicholasegner.com">nick@nicholasegner.com</a>
         </div>
