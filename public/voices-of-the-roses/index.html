@@ -130,6 +130,94 @@
  #story .journey-map{overflow:visible}
  #story .social-demo,#story .action-demo,#story .web-format-grid{overflow:visible}
 }
+
+/* Section 05: foundational film concepts and visual video portfolio */
+.media-section .media-heading{margin-bottom:24px}
+.media-section .media-heading h2{margin-bottom:17px}
+.media-section .media-heading .lead{max-width:950px;color:#edf0e9;font-size:19px}
+.media-film-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.media-film{background:#f7f3eb;color:var(--green);min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.media-film-poster{height:218px;position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:19px 23px}
+.media-film-poster img{position:absolute;z-index:-2;width:75%;height:140%;right:-5%;top:-20%;object-fit:contain;mix-blend-mode:screen;opacity:.56;transform:rotate(-14deg)}
+.media-film-poster-shade{position:absolute;inset:0;z-index:-1}
+.media-film-poster-restoration{background:#385949;color:#fff9e9}
+.media-film-poster-restoration .media-film-poster-shade{background:linear-gradient(90deg,#244035fa 0%,#284638cc 50%,#34534257 100%)}
+.media-film-poster-history{background:#674d52;color:#fff9f2}
+.media-film-poster-history img{right:-13%;opacity:.46;transform:rotate(18deg) scale(1.12)}
+.media-film-poster-history .media-film-poster-shade{background:linear-gradient(90deg,#573e47fa 0%,#694956bf 65%,#6949564d 100%)}
+.media-film-index,.media-film-kind{font:700 10px/1.5 Arial,sans-serif;letter-spacing:1.65px}
+.media-film-kind{color:#f0d9df}
+.media-film-poster-title{display:flex;flex-direction:column;font:clamp(27px,3.05vw,43px)/1.03 Georgia,serif;letter-spacing:-.7px;text-wrap:balance;max-width:80%;margin:auto 0}
+.media-film-copy{padding:20px 24px 18px;display:flex;flex-direction:column;flex:1}
+.media-film-copy h3{font:26px/1.2 Georgia,serif;letter-spacing:-.5px;margin:0 0 7px}
+.media-film-copy p{font-size:14px;line-height:1.5;margin:0 0 18px}
+.media-film-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:1px solid var(--line);padding-top:13px;margin-top:auto;font-size:12px;line-height:1.45}
+.media-film-facts span{display:block}
+.media-film-facts strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--pink);margin-bottom:2px}
+.media-concept-note{color:#cad6c8;font-size:11px;margin:8px 0 0;max-width:none}
+.media-proof-heading{display:flex;justify-content:space-between;align-items:end;gap:22px;margin:37px 0 17px}
+.media-proof-heading .eyebrow{margin:0 0 10px}
+.media-proof-heading h3{font:32px/1.12 Georgia,serif;letter-spacing:-.7px;margin:0}
+.media-proof-heading>p{font-size:13px;color:#d3dbcf;max-width:310px;line-height:1.55;margin:0}
+.media-work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.media-work-card{display:flex;flex-direction:column;min-width:0;color:var(--green);background:#f7f3eb;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.media-work-card:hover,.media-work-card:focus-visible{transform:translateY(-3px);box-shadow:0 12px 28px #0003}
+.media-work-image{position:relative;aspect-ratio:16/9;overflow:hidden;background:#d7d9ce}
+.media-work-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .2s ease}
+.media-work-card:hover img{transform:scale(1.035)}
+.media-work-play{position:absolute;right:10px;bottom:10px;background:#203d32d9;color:white;width:33px;height:33px;display:grid;place-items:center;border-radius:50%;font-size:12px}
+.media-work-copy{padding:14px 16px 16px;display:flex;flex:1;flex-direction:column;gap:5px}
+.media-work-label{font-size:9px;color:var(--pink);letter-spacing:1.4px;font-weight:bold}
+.media-work-copy h4{font:22px/1.14 Georgia,serif;letter-spacing:-.4px;margin:0}
+.media-work-copy p{font-size:12px;line-height:1.45;margin:2px 0 9px}
+.media-work-link{font-size:11px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:9px;margin-top:auto}
+.media-afterword{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;margin-top:26px;padding-top:20px;border-top:1px solid #64796b}
+.media-afterword .eyebrow{margin:0 0 7px}
+.media-afterword>div>p:last-child{font-size:13px;line-height:1.6;color:#e0e5dc;margin:0}
+.media-afterword details{margin:0;border-color:#64796b;color:#fff;padding:9px 0}
+.media-afterword details>div{padding-top:10px}
+.media-afterword details p{font-size:13px;color:#e0e5dc}
+@media(max-width:900px){
+ .media-film-poster{height:190px}
+ .media-film-poster-title{font-size:32px}
+ .media-film-facts{grid-template-columns:1fr}
+ .media-work-copy h4{font-size:19px}
+}
+@media(max-width:650px){
+ .media-film-grid,.media-afterword{grid-template-columns:1fr}
+ .media-film-poster{height:205px}
+ .media-film-poster-title{font-size:35px}
+ .media-film-facts{grid-template-columns:1fr 1fr}
+ .media-proof-heading{display:block}
+ .media-proof-heading>p{margin-top:8px}
+ .media-work-grid{grid-template-columns:1fr}
+ .media-work-image{max-height:210px}
+ .media-work-card{display:grid;grid-template-columns:41% 1fr}
+ .media-work-image{height:100%;max-height:none;aspect-ratio:auto;min-height:150px}
+ .media-work-copy{min-width:0}
+ .media-work-copy h4{font-size:21px}
+ .media-afterword{gap:15px}
+}
+@media(max-width:400px){
+ .media-work-card{grid-template-columns:1fr}
+ .media-work-image{aspect-ratio:16/9;min-height:0}
+ .media-film-facts{grid-template-columns:1fr}
+}
+@media print{
+ .media-section .media-film,.media-section .media-work-card{break-inside:avoid;border:1px solid #e2e0da}
+ .media-section .media-film-poster{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .media-section .media-work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .media-section .media-work-card{display:block}
+ .media-section .media-work-image{aspect-ratio:16/9;height:auto;min-height:0}
+ .media-section .media-work-copy h4{font-size:17px}
+ .media-section .media-work-copy p{font-size:11px}
+ .media-section .media-heading .lead,.media-section .media-afterword>div>p:last-child,.media-section .media-proof-heading>p{color:#526058}
+ .media-section .media-film-poster{height:165px}
+ .media-section .media-film-copy{padding:12px}
+ .media-section .media-film-copy h3{font-size:23px}
+ .media-section .media-film-copy p{font-size:12px}
+ .media-section .media-proof-heading{margin-top:25px}
+}
 </style></head><body>
 <a class="skip" href="#vision">Skip to presentation</a>
 <header class="topbar"><a class="brand" href="#vision">Voices of the Roses<small>A proposal by Nicholas Egner</small></a><div class="tools"><label><span class="sr-only" style="position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden">Go to section</span><select id="section-menu"><option value="vision">01 / The vision</option><option value="program">02 / The program</option><option value="website">03 / The website</option><option value="story">04 / One story</option><option value="media">05 / The media</option><option value="rhythm">06 / Working together</option><option value="investment">07 / Investment</option><option value="next">08 / Next steps</option></select></label><button class="btn print" id="print">Save as PDF</button><button class="btn primary" id="mode" aria-pressed="false">Present ↗</button></div></header>
@@ -207,7 +295,65 @@
   </div>
   <p class="caption story-disclaimer">Visual examples are illustrative. Final formats, channels and source materials will be agreed together.</p>
 </section>
-<section class="slide dark" id="media" aria-labelledby="media-title"><div class="inner"><p class="eyebrow">05 / Create the media</p><h2 id="media-title">Let people hear why<br>the roses matter.</h2><div class="split"><div><p class="lead">Two foundational videos give the program a story to launch with.</p><div class="pillar"><h3>The restoration and the invitation.</h3><p>A fundraising video explaining the work, what donations support, and how people can help.</p></div><div class="pillar"><h3>The rose garden’s history.</h3><p>A story built from supplied historical materials, interviews, and rose garden footage.</p></div></div><div><p class="eyebrow">Relevant work / Nicholas Egner</p><h3>Storytelling grounded in real people and places.</h3><a class="video-link" href="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/whittier.mp4" target="_blank" rel="noopener">Watch: Neighborhood documentary <span>↗</span></a><a class="video-link" href="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4" target="_blank" rel="noopener">Watch: Landscape Structures collaboration <span>↗</span></a><p class="muted" style="font-size:14px;margin-top:25px">Future stories could include seasonal rose care, volunteers, restoration milestones, and educational clips. Additional filming and editing are quoted by project.</p><details><summary>Planning the two initial videos</summary><div><p>We will agree on video lengths, participants, filming dates, locations, supplied materials, revisions, and final formats before production begins.</p></div></details></div></div></div></section>
+<section class="slide dark media-section" id="media" aria-labelledby="media-title">
+  <div class="inner">
+    <header class="media-heading">
+      <p class="eyebrow">05 / Create the media</p>
+      <h2 id="media-title">Let people hear why<br>the roses matter.</h2>
+      <p class="lead">Starting with two foundational videos, we can introduce the restoration, preserve the garden’s history, and create meaningful stories that support fundraising and ongoing communication.</p>
+    </header>
+    <div class="media-film-grid" aria-label="Two proposed foundational videos">
+      <article class="media-film">
+        <div class="media-film-poster media-film-poster-restoration">
+          <img src="rose-watercolor.jpg" alt="" loading="lazy">
+          <div class="media-film-poster-shade"></div>
+          <span class="media-film-index">PROPOSED FILM / 01</span>
+          <div class="media-film-poster-title"><span>The Restoration</span><span>&amp; the Invitation</span></div>
+          <span class="media-film-kind">FUNDRAISING · AWARENESS</span>
+        </div>
+        <div class="media-film-copy">
+          <h3>A story that inspires support.</h3>
+          <p>A fundraising video that shows what’s happening at the rose garden, why the restoration matters, and how people can help shape its future.</p>
+          <div class="media-film-facts"><span><strong>Purpose</strong>Build awareness and inspire donations</span><span><strong>Where it works</strong>Website · Fundraising · Email · Social</span></div>
+        </div>
+      </article>
+      <article class="media-film">
+        <div class="media-film-poster media-film-poster-history">
+          <img src="rose-watercolor.jpg" alt="" loading="lazy">
+          <div class="media-film-poster-shade"></div>
+          <span class="media-film-index">PROPOSED FILM / 02</span>
+          <div class="media-film-poster-title"><span>The Garden’s</span><span>History</span></div>
+          <span class="media-film-kind">DOCUMENTARY · HERITAGE</span>
+        </div>
+        <div class="media-film-copy">
+          <h3>A story worth preserving.</h3>
+          <p>A documentary-style piece combining historical materials, interviews, and footage of the garden today to celebrate its past and connect that history to its future.</p>
+          <div class="media-film-facts"><span><strong>Purpose</strong>Preserve history and build connection</span><span><strong>Where it works</strong>Website · Education · Email · Social</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="media-concept-note">Conceptual poster treatments for the proposed videos. Final creative direction and footage will be developed together.</p>
+    <div class="media-proof-heading"><div><p class="eyebrow">Relevant work / Nicholas Egner</p><h3>Stories about people, places,<br>and the communities around them.</h3></div><p>Three examples of how I approach storytelling through interviews, atmosphere, and considered editing.</p></div>
+    <div class="media-work-grid">
+      <a class="media-work-card" href="https://www.nicholasegner.com/video/your-gardens-by-design" target="_blank" rel="noopener noreferrer" aria-label="View Your Gardens By Design video project">
+        <div class="media-work-image"><img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/yourGardens-Thumb.webp" alt="Your Gardens By Design video thumbnail" loading="lazy"><span class="media-work-play" aria-hidden="true">▶</span></div>
+        <div class="media-work-copy"><span class="media-work-label">BRAND STORYTELLING</span><h4>Your Gardens By Design</h4><p>A personal, garden-focused story that brings people and their work to life.</p><span class="media-work-link">View project <span aria-hidden="true">↗</span></span></div>
+      </a>
+      <a class="media-work-card" href="https://www.nicholasegner.com/video/ywca-womens-triathlon" target="_blank" rel="noopener noreferrer" aria-label="View YWCA Women's Triathlon video project">
+        <div class="media-work-image"><img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/ywca.webp" alt="YWCA Women’s Triathlon video thumbnail" loading="lazy"><span class="media-work-play" aria-hidden="true">▶</span></div>
+        <div class="media-work-copy"><span class="media-work-label">EVENT &amp; COMMUNITY</span><h4>YWCA Women’s Triathlon</h4><p>Capturing the energy, people, and shared experience of a community event.</p><span class="media-work-link">View project <span aria-hidden="true">↗</span></span></div>
+      </a>
+      <a class="media-work-card" href="https://www.nicholasegner.com/video/landscape-structures" target="_blank" rel="noopener noreferrer" aria-label="View Landscape Structures video project">
+        <div class="media-work-image"><img src="https://nciholasegner.s3.us-east-2.amazonaws.com/images/landscape.webp" alt="Landscape Structures video thumbnail" loading="lazy"><span class="media-work-play" aria-hidden="true">▶</span></div>
+        <div class="media-work-copy"><span class="media-work-label">BRANDED COLLABORATION</span><h4>Landscape Structures</h4><p>Clear organizational storytelling with engaging footage and a polished edit.</p><span class="media-work-link">View project <span aria-hidden="true">↗</span></span></div>
+      </a>
+    </div>
+    <div class="media-afterword">
+      <div><p class="eyebrow">And this is just the beginning</p><p>Future videos could highlight volunteers, seasonal rose care, educational topics, and restoration milestones. Additional productions can be planned and priced as the program grows.</p></div>
+      <details><summary>Planning the two foundational videos</summary><div><p>We’ll agree on video lengths, participants, filming dates, locations, supplied historical materials, revisions, and final formats before production begins. The agreed deliverables and production scope will be documented separately.</p></div></details>
+    </div>
+  </div>
+</section>
 <section class="slide" id="rhythm" aria-labelledby="rhythm-title"><p class="eyebrow">06 / Keep communication moving</p><h2 id="rhythm-title">A clear rhythm.<br>A person responsible.</h2><div class="split"><div><p class="lead">I bring the website, production, and publishing together using the content and email systems I’ve built for this work.</p><div class="steps"><div class="step"><div><h3>Choose the story.</h3><p>Agree on the update, available media, and the action we want supporters to take.</p></div></div><div class="step"><div><h3>Create and review.</h3><p>I prepare the website update, email, and social content. Your designated contact consolidates feedback.</p></div></div><div class="step"><div><h3>Publish and maintain.</h3><p>I publish approved material and keep the website and supporter list maintained.</p></div></div></div></div><div><div class="callout"><p class="eyebrow">Proposed monthly rhythm</p><h3>1 website story<br>1 supporter email<br>4 social content pieces</h3><p style="margin-bottom:0">The same supplied update can inform the blog and newsletter. Social content is adapted across agreed platforms where the format is supported.</p></div><details><summary>What I handle</summary><div><p>Website design and development, the agreed video production, email setup, adding and editing content, approved publishing, and routine maintenance.</p></div></details><details><summary>What I need from the organization</summary><div><p>One main contact; approved facts, plans, historical materials, and updates; access to participants; account ownership; and timely consolidated feedback.</p><p>We will define who creates and supplies ongoing source content and what the fundraising or marketing company handles.</p></div></details><details><summary>What the monthly allowance covers</summary><div><p>Routine upkeep and up to 30 minutes of minor website changes each month. New pages, features, original graphics, extra posting, filming, and additional video editing are separately scoped.</p></div></details></div></div></section>
 <section class="slide" id="investment" aria-labelledby="investment-title"><p class="eyebrow">07 / The recommended investment</p><h2 id="investment-title">Build it together.<br>Keep it working together.</h2><p class="lead">One recommended program, with a defined launch investment and ongoing communication.</p><div class="price-grid"><div class="price-box"><p class="eyebrow">Website + systems + two videos</p><div class="price">$5,600 <small>initial estimate</small></div><p>New website, content hub, email setup, fundraising video, and rose garden history video.</p></div><div class="price-box pink"><p class="eyebrow">Website + email + social</p><div class="price">$300 <small>/ month</small></div><p>One blog update, one HTML newsletter, four social content pieces, and defined website and list maintenance.</p></div></div><details open><summary>Initial investment breakdown</summary><div><table><thead><tr><th scope="col">Deliverable</th><th scope="col">Estimate</th></tr></thead><tbody><tr><td>New website</td><td>$3,000</td></tr><tr><td>Blog and content hub</td><td>$500</td></tr><tr><td>Email system setup, template, and welcome email</td><td>$500</td></tr><tr><td>Fundraising video</td><td>$800</td></tr><tr><td>Rose garden history video</td><td>$800</td></tr><tr><th scope="row">Recommended initial program</th><th>$5,600</th></tr></tbody></table></div></details><details><summary>Ongoing investment and scope</summary><div><table><tbody><tr><td>Website and supporter updates</td><td>$200/month</td></tr><tr><td>Social publishing</td><td>$100/month</td></tr><tr><td>Additional filming and video production</td><td>Quoted separately</td></tr></tbody></table><p style="margin-top:18px">Four social posts means four pieces of content adapted across agreed platforms. It does not mean four unique posts per platform. Ongoing work uses supplied updates, available photos, finished videos, and approved material.</p></div></details><details><summary>Estimates, external charges, and final scope</summary><div><p>Amounts are based on the October 14, 2026 proposal. This presentation recommends the complete program previously itemized as individual options.</p><p>Final deliverables, content needs, filming requirements, revisions, schedule, responsibilities, and payment terms will be agreed in writing before work begins.</p><p>Hosting, domain renewals, payment processing, email delivery, and other external service charges will be identified separately before approval. Existing branding and available approved materials are assumed. Additional work is estimated and approved before it begins.</p></div></details></section>
 <section class="slide" id="next" aria-labelledby="next-title"><p class="eyebrow">08 / Move forward with the whole program</p><h2 id="next-title">A home for the story.<br>A voice for the roses.<br><span class="rose-text">A plan to keep it growing.</span></h2><p class="lead">The proposed decision: move forward with the website, foundational media, and ongoing supporter communication, subject to an agreed written scope.</p><div class="phase"><span class="section-number">01</span><h3>Align and plan.</h3><p>Confirm scope, budget, source materials, main contact, and responsibilities. Agree on timing and payment terms.</p></div><div class="phase"><span class="section-number">02</span><h3>Create and connect.</h3><p>Design and build the website, produce the initial videos, and connect supporter signup and email.</p></div><div class="phase"><span class="section-number">03</span><h3>Launch and continue.</h3><p>Review and launch the experience, then begin the agreed monthly publishing and maintenance rhythm.</p></div><details><summary>Board discussion questions</summary><div><ul class="list"><li>What funding or timing requirements should shape the schedule?</li><li>Will the existing name, logo, and branding remain?</li><li>Who will create and supply source content, photographs, plans, and historical materials?</li><li>What will the fundraising or marketing company handle?</li><li>Who will consolidate approvals, and on what schedule?</li><li>One-time gifts only, or recurring gifts too? Who handles donor questions, receipts, and refunds?</li></ul></div></details><div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn primary" href="mailto:nick@nicholasegner.com?subject=Voices%20of%20the%20Roses%20proposal">Discuss the proposal →</a><button class="btn no-print" id="print-bottom">Save this resource as PDF</button></div></section>
