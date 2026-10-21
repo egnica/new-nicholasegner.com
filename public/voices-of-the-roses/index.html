@@ -5,6 +5,131 @@
 @media(max-width:800px){.slide{padding:55px 6vw;min-height:0}.split,.story-layout,.price-grid{grid-template-columns:1fr;gap:30px}.hero .split{grid-template-columns:1fr}.hero-art{position:absolute;width:300px;opacity:.18;right:-50px;top:30px}.hero{min-height:650px}.three{grid-template-columns:1fr;gap:10px}.tools select{max-width:125px;font-size:11px}.tools .print{display:none}.brand{font-size:17px}.brand small{font-size:8px}.topbar{gap:6px;padding:10px 4vw;height:78px}.tools .btn{white-space:nowrap;font-size:11px;padding:10px 9px}.tools select{width:95px}.brand{min-width:0}.tools{gap:4px}.btn{padding:10px 12px}.phase{grid-template-columns:45px 1fr;gap:15px}.phase p{grid-column:2}.lead{font-size:19px}.presenting .slide{padding:32px 6vw 45px;margin-top:78px;height:calc(100dvh - 142px)}.presenting .hero-art{width:300px;top:15px}.price{font-size:58px}.section-number{font-size:52px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{html,body{background:white;color:#203d32}.topbar,.deck-controls,.tabs,.no-print,.skip{display:none!important}.slide,.presenting .slide{display:block!important;height:auto!important;overflow:visible!important;min-height:0;margin:0!important;padding:25px 0;break-before:page;border:0;max-width:none}.slide:first-child{break-before:auto}.hero-art{width:100%;max-height:500px}.dark{background:white;color:#203d32}.dark .eyebrow,.dark .muted{color:#526058}.story-panel[hidden]{display:block!important}.story-panel{min-height:0;margin-bottom:20px;break-inside:avoid}.story-image{height:100px}.three{gap:20px}.footer,.presenting .footer{display:block;padding:25px 0}h1{font-size:55px}h2{font-size:40px}h3{font-size:25px}.price{font-size:50px}.split{gap:30px}details{break-inside:avoid}a{text-decoration:none}.price-box{background:white;border:1px solid #ccc}.story-layout{display:block}.story-layout>div:first-child{margin-bottom:20px}@page{margin:18mm}}
+
+/* Section 04: illustrated, format-led content journey */
+#story .story-lead{max-width:920px;margin-bottom:0}
+.journey-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;margin:30px 0 12px}
+.journey-node{position:relative;min-width:0;background:#e8ecdf;padding:12px 14px;border:1px solid #dce2d4;min-height:72px;display:flex;flex-direction:column;justify-content:center;gap:1px}
+.journey-node:not(:last-child):after{content:"→";position:absolute;right:-17px;top:50%;width:17px;text-align:center;transform:translateY(-50%);font-size:18px;color:var(--pink)}
+.journey-node>span{font:10px Arial,sans-serif;letter-spacing:1px;color:var(--pink)}
+.journey-node>strong{font-size:14px;line-height:1.2}
+.journey-node>small{font-size:11px;line-height:1.4;color:var(--muted)}
+.journey-action{font-size:13px;max-width:none;margin:0;padding:11px 15px;background:#f0e1e2;border-left:3px solid var(--pink);line-height:1.5}
+.journey-action>span{color:var(--pink);padding-right:5px}
+#story .story-tabs{margin:24px 0 14px;gap:7px}
+#story .story-tabs .tab{border-radius:5px;flex:1;min-width:0;padding:12px 8px;white-space:nowrap;font-weight:bold;transition:background .15s,border-color .15s}
+.story-tabs .tab-count{font-size:10px;opacity:.7;margin-right:5px}
+#story .story-panel{border:1px solid var(--line);background:#fff;padding:22px 25px;min-height:0}
+#story .story-panel-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(200px,1fr);column-gap:34px;align-items:end;margin-bottom:18px}
+#story .story-meta{grid-column:1/-1;margin-bottom:7px;display:block}
+#story .story-panel h3{font-size:clamp(25px,3vw,35px);margin-bottom:0;max-width:550px}
+#story .story-panel-intro p{font-size:15px;line-height:1.45;margin:0;color:var(--muted)}
+#story .story-note{font-size:12px;color:var(--muted);max-width:none;margin:13px 0 0;line-height:1.5}
+#story .demo-stage{border:1px solid #deddd2;background:#f6f3ed;padding:16px;min-height:225px}
+#story .demo-card{background:white;border:1px solid #e4e3da;min-width:0;padding:9px;display:flex;flex-direction:column;gap:5px}
+#story .demo-card strong,#story .social-preview strong{font-size:14px;line-height:1.25}
+#story .demo-card small,#story .social-preview small{font-size:11px;color:var(--muted);line-height:1.3}
+#story .demo-label{font-size:9px;letter-spacing:1.1px;color:var(--pink);font-weight:bold;line-height:1.5}
+#story .demo-cta{display:inline-block;padding:7px 11px;background:var(--green);color:white;font-size:11px;font-weight:bold;align-self:start}
+#story .source-demo{display:grid;grid-template-columns:1.1fr 1fr .85fr;gap:12px;align-items:stretch}
+#story .demo-photo,#story .demo-video-frame{height:140px;background:#e9e2de;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#story .demo-photo img{width:100%;height:100%;object-fit:cover}
+#story .demo-photo-tag{position:absolute;bottom:6px;left:7px;background:#fffdf1eF;padding:4px 6px;font-size:9px;font-weight:bold}
+#story .demo-video-frame{background:linear-gradient(135deg,#334f45,#718977)}
+#story .demo-video-frame:before{content:"";height:78px;width:115px;background:#ffffff14;border:1px solid #ffffff33;position:absolute;transform:rotate(-8deg)}
+#story .demo-video-frame>span:last-child{position:absolute;bottom:7px;right:7px;font-size:10px;color:white}
+#story .demo-play{display:grid;place-items:center;border-radius:50%;width:41px;height:41px;background:#fffef0df;color:var(--green);font-size:16px;position:relative;z-index:1}
+#story .source-notes{background:#f1e6e2;padding:17px;justify-content:center}
+#story .source-notes>strong{font:25px/1.1 Georgia,serif}
+#story .source-notes p{font-size:12px;margin:6px 0;color:var(--muted)}
+#story .demo-stamp{display:inline-block;align-self:start;margin-top:auto;border-top:1px solid var(--pink);padding-top:12px;font-size:11px}
+#story .website-demo{background:white}
+#story .demo-site-top,#story .demo-site-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;padding:1px 3px 11px}
+#story .demo-site-top strong{font:18px Georgia,serif}
+#story .demo-site-top span{color:var(--muted)}
+#story .demo-site-footer{padding:10px 3px 0}
+#story .web-format-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#story .web-format-grid .demo-card{padding:8px 8px 12px}
+#story .format-image,#story .photo-mosaic,#story .guide-lines{height:122px;background:#eee5e6;position:relative;overflow:hidden}
+#story .format-image{display:flex;align-items:center;justify-content:center}
+#story .format-image img{position:absolute;width:100%;height:100%;object-fit:cover}
+#story .photo-mosaic{display:grid;grid-template-columns:2fr 1fr;gap:4px}
+#story .photo-mosaic>img{height:100%;width:100%;object-fit:cover}
+#story .mosaic-side{display:grid;gap:4px}
+#story .mosaic-side span:first-child{background:#d3b5bd}
+#story .mosaic-side span:last-child{background:#8ba18c}
+#story .guide-lines{display:flex;flex-direction:column;justify-content:center;gap:7px;padding:13px 17px;background:#e8ecdf}
+#story .guide-lines span{font-size:11px}
+#story .guide-lines .guide-symbol{font-size:27px;color:var(--pink);line-height:1}
+#story .social-demo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;align-items:stretch}
+#story .social-preview{padding:10px;border-radius:8px;background:#fff;border:1px solid #e4e1d8;display:flex;flex-direction:column;gap:7px;min-width:0}
+#story .social-preview-top{font-size:9px;color:var(--muted);font-weight:bold;letter-spacing:1px}
+#story .social-visual{height:165px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+#story .vertical-video{background:#334b3f}
+#story .vertical-video img{height:100%;width:80%;object-fit:cover}
+#story .vertical-video .demo-play{position:absolute}
+#story .carousel-visual img{width:100%;height:100%;object-fit:cover}
+#story .slide-dots{position:absolute;bottom:7px;background:#fffc;padding:2px 10px;letter-spacing:4px;font-size:9px}
+#story .article-visual{background:#e8ecdf;flex-direction:column;text-align:center;font:22px/1.1 Georgia,serif;gap:7px;padding:12px}
+#story .article-flower{color:var(--pink);font-size:27px}
+#story .email-demo{background:#efe8e5}
+#story .email-envelope{max-width:650px;margin:0 auto 9px;font-size:11px;display:flex;gap:8px;align-items:center}
+#story .email-envelope>span:first-child{font-size:15px;color:var(--pink)}
+#story .email-date{margin-left:auto;color:var(--muted)}
+#story .email-page{max-width:650px;margin:auto;background:white;padding:16px 26px;border:1px solid #e0d8d0}
+#story .email-masthead{text-align:center;font:25px Georgia,serif;border-bottom:1px solid var(--line);padding-bottom:10px}
+#story .email-masthead small{display:block;font:9px Arial,sans-serif;letter-spacing:2px;margin-top:4px;color:var(--pink)}
+#story .email-feature{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:12px 0}
+#story .email-feature img{width:100%;height:90px;object-fit:cover}
+#story .email-feature strong{display:block;font:21px/1.2 Georgia,serif;margin:4px 0}
+#story .email-feature p{font-size:11px;color:var(--muted);margin:0 0 4px}
+#story .email-link{font-size:11px;text-decoration:underline}
+#story .email-row{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:9px 0}
+#story .email-icon{background:#f0e1e2;color:var(--pink);padding:9px;min-width:36px;text-align:center}
+#story .email-row strong,#story .email-row small{display:block;font-size:12px}
+#story .email-row small{font-size:10px;color:var(--muted)}
+#story .email-footer-demo{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;font-weight:bold}
+#story .action-demo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#story .action-example{display:flex;flex-direction:column;gap:9px}
+#story .action-preview{padding:18px 13px;background:white;border:1px solid #e7e2d9;min-height:186px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;text-align:center}
+#story .action-preview strong{font:21px/1.15 Georgia,serif}
+#story .action-flower{font-size:28px;color:var(--pink);line-height:1}
+#story .action-buttons{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+#story .action-buttons span{font-size:11px;padding:7px 8px;background:var(--green);color:#fff}
+#story .story-disclaimer{margin-top:11px}
+@media(max-width:800px){
+ #story .journey-map{gap:11px;grid-template-columns:repeat(4,minmax(110px,1fr));overflow-x:auto;padding-bottom:5px}
+ #story .journey-node:not(:last-child):after{right:-11px;width:11px;font-size:13px}
+ #story .story-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}
+ #story .story-tabs .tab{flex:0 0 auto;padding:10px 13px;font-size:12px}
+ #story .story-panel-intro{grid-template-columns:1fr;gap:7px}
+ #story .story-panel-intro .story-meta{margin:0}
+ #story .source-demo{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #story .source-notes{grid-column:1/-1;min-height:130px}
+ #story .source-notes>strong{font-size:23px}
+ #story .web-format-grid,.story-panel .social-demo,.story-panel .action-demo{grid-template-columns:repeat(3,minmax(150px,1fr));overflow-x:auto}
+ #story .social-demo,#story .action-demo{overflow-x:auto}
+ #story .story-panel{padding:17px}
+ #story .demo-stage{padding:10px}
+}
+@media(max-width:480px){
+ #story .email-page{padding:12px}
+ #story .email-feature{grid-template-columns:75px 1fr;gap:10px}
+ #story .email-feature strong{font-size:18px}
+ #story .email-feature img{height:82px}
+ #story .email-footer-demo{flex-wrap:wrap}
+ #story .demo-site-top>span{display:none}
+ #story .demo-site-footer{font-size:10px}
+}
+@media print{
+ #story .story-tabs{display:none!important}
+ #story .story-panel[hidden]{display:block!important}
+ #story .story-panel{break-inside:avoid;page-break-inside:avoid;margin-bottom:14px;padding:12px}
+ #story .story-panel-intro h3{font-size:23px}
+ #story .demo-stage{min-height:0}
+ #story .journey-map{overflow:visible}
+ #story .social-demo,#story .action-demo,#story .web-format-grid{overflow:visible}
+}
 </style></head><body>
 <a class="skip" href="#vision">Skip to presentation</a>
 <header class="topbar"><a class="brand" href="#vision">Voices of the Roses<small>A proposal by Nicholas Egner</small></a><div class="tools"><label><span class="sr-only" style="position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden">Go to section</span><select id="section-menu"><option value="vision">01 / The vision</option><option value="program">02 / The program</option><option value="website">03 / The website</option><option value="story">04 / One story</option><option value="media">05 / The media</option><option value="rhythm">06 / Working together</option><option value="investment">07 / Investment</option><option value="next">08 / Next steps</option></select></label><button class="btn print" id="print">Save as PDF</button><button class="btn primary" id="mode" aria-pressed="false">Present ↗</button></div></header>
@@ -12,7 +137,76 @@
 <section class="slide hero active" id="vision" aria-labelledby="title"><div class="split"><div class="hero-copy"><p class="eyebrow">Lyndale Park Rose Garden · Board presentation</p><h1>A rose garden.<br>A shared story.<br><span class="rose-text">A growing community.</span></h1><p class="lead">A new website at the center of a connected communication system, bringing storytelling, video, email, social media, and donations together to grow support for the rose garden’s restoration.</p><p class="integration-line">One person who understands and connects the entire system.</p><a class="btn primary no-print" href="#program">Explore the proposal <span>↓</span></a><div class="signature"><img src="ne-logo.svg" alt="Nicholas Egner logo" style="float:left;width:50px;height:50px;object-fit:contain;filter:brightness(0);margin:0 16px 10px 0"><strong>Prepared by Nicholas Egner</strong>Website · Video · Supporter communication<br>Discussion draft · October 2026</div></div><img class="hero-art" src="rose-watercolor.jpg" alt="The Voices of the Roses watercolor rose"></div></section>
 <section class="slide dark" id="program" aria-labelledby="program-title"><div class="inner"><p class="eyebrow">02 / One connected program</p><h2 id="program-title">Help people care.<br>Give them a way to act.<br>Keep them connected.</h2><p class="lead">The website is the central hub for the rose garden’s stories, restoration updates, and opportunities to get involved. Video, email, and social media work together to bring people to that hub and keep them connected.</p><div class="three"><div class="pillar"><span class="section-number">01</span><h3>A place to understand and act.</h3><p>A website where visitors can discover the garden’s history, follow the restoration, donate, volunteer, and join the supporter list.</p></div><div class="pillar"><span class="section-number">02</span><h3>A reason to care.</h3><p>Video and visual storytelling that introduce the people, history, and ongoing work behind the garden, giving supporters something meaningful to share.</p></div><div class="pillar"><span class="section-number">03</span><h3>A reason to return.</h3><p>Email and social media connect people back to new stories, progress updates, and opportunities to support the garden over time.</p></div></div></div></section>
 <section class="slide" id="website" aria-labelledby="website-title"><div class="split"><div><p class="eyebrow">03 / A new digital home</p><h2 id="website-title">Bring the rose garden’s story together.</h2><p class="lead">The website becomes the central home for the rose garden’s history, restoration progress, stories, and opportunities to get involved. Every video, email, and social campaign has a place to bring people back to.</p><ul class="list"><li>The garden’s history, restoration plans, and progress updates.</li><li>One-time and monthly donations through a secure checkout.</li><li>A content hub for stories, photographs, and videos.</li><li>Easy email signup with an automated welcome message.</li><li>Volunteer opportunities and a contact form.</li></ul><details><summary>What the website work includes</summary><div><p>The proposed program brings together website design and development, a content hub, and email setup, each itemized in the investment section. I will manage website updates and publishing using organization-approved information and materials. We will agree on pages, migration, source materials, revisions, and the approval process before work begins. Additional original content creation is quoted separately.</p><p>Donation payments will go to an organization-owned account, with checkout supporting both one-time and recurring gifts. We will define who manages donor questions, receipts, refunds, and records during scoping.</p></div></details></div><div><span class="sample-label">Website direction / illustrative concept</span><div class="browser"><div class="browser-bar"><span>● ● ●</span><span>Voices of the Roses</span><span>↗</span></div><div class="site-nav">Voices of the Roses<small>Our story &nbsp; Get involved</small></div><div class="website-hero"><img src="rose-watercolor.jpg" alt="" loading="lazy"><p class="eyebrow">A rose garden for generations</p><h3>Help the next<br>chapter bloom.</h3><p>Discover the story of the Lyndale Park Rose Garden and the people caring for its future.</p><span class="mock-cta">Explore the restoration →</span></div><div class="site-links"><div><strong>Discover</strong>The rose garden’s story</div><div><strong>Participate</strong>Give or volunteer</div><div><strong>Stay connected</strong>News from the roses</div></div></div><p class="caption">A visual direction to discuss. Final design and content will be developed together.</p></div></div></section>
-<section class="slide" id="story" aria-labelledby="story-title"><p class="eyebrow">04 / See the pieces work together</p><h2 id="story-title">One garden story.<br>More ways to share it.</h2><div class="story-layout"><div><p class="lead">Start with what you want to share and the material we have: news, photographs, video, or a combination.</p><p>I give the story a home on the website, share it with your email list, and publish supplied social content on the channels that fit. Each piece gives people a way to get involved.</p><div class="tabs" role="tablist" aria-label="Follow a rose garden story from update to action"><button class="tab" role="tab" id="tab-update" aria-controls="panel-update" aria-selected="true" tabindex="0" data-tab="update">1. The update</button><button class="tab" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="false" tabindex="-1" data-tab="web">2. Website</button><button class="tab" role="tab" id="tab-email" aria-controls="panel-email" aria-selected="false" tabindex="-1" data-tab="email">3. Email</button><button class="tab" role="tab" id="tab-social" aria-controls="panel-social" aria-selected="false" tabindex="-1" data-tab="social">4. Social</button><button class="tab" role="tab" id="tab-action" aria-controls="panel-action" aria-selected="false" tabindex="-1" data-tab="action">5. Next step</button></div><p class="caption">Monthly publishing uses supplied, approved content. Additional writing, design, filming, and editing are quoted separately.</p></div><div><article class="story-panel" role="tabpanel" id="panel-update" aria-labelledby="tab-update" tabindex="0"><span class="story-meta">Step 1 of 5 / Illustrative story flow</span><h3>Start with the update.</h3><p>The organization supplies approved rose garden news, photographs, video, or a combination. Additional content creation is available when needed.</p><div class="callout">For example: a restoration update explaining the work underway and how supporters can help.</div></article><article class="story-panel" role="tabpanel" id="panel-web" aria-labelledby="tab-web" tabindex="0" hidden><span class="story-meta">Step 2 of 5 / Illustrative story flow</span><h3>Give the story a home.</h3><p>I publish the update in the website’s content hub, using the available text, photographs, and video to explain what is happening and why it matters.</p><div class="callout">A lasting page that supporter emails and social posts can link to.</div></article><article class="story-panel" role="tabpanel" id="panel-email" aria-labelledby="tab-email" tabindex="0" hidden><span class="story-meta">Step 3 of 5 / Illustrative story flow</span><h3>Invite supporters to read or watch.</h3><p>A branded HTML email introduces the update and links to the full story or video on the website.</p><div class="callout">Example invitation: See the latest restoration update and learn how your support helps.</div></article><article class="story-panel" role="tabpanel" id="panel-social" aria-labelledby="tab-social" tabindex="0" hidden><span class="story-meta">Step 4 of 5 / Illustrative story flow</span><h3>Publish where the content fits.</h3><p>The content’s format determines how and where it is shared. A video, photograph, or article may each call for a different approach across the agreed social channels.</p><div class="callout">Monthly social publishing uses supplied, approved posts and media. Additional writing, design, filming, and editing are quoted separately.</div></article><article class="story-panel" role="tabpanel" id="panel-action" aria-labelledby="tab-action" tabindex="0" hidden><span class="story-meta">Step 5 of 5 / Illustrative story flow</span><h3>Give people a way to get involved.</h3><p>Each story offers a relevant next step: donate once, become a monthly supporter, volunteer, or join the email list.</p><div class="callout">Email signup keeps interested visitors connected to future rose garden updates.</div></article></div></div></section>
+<section class="slide" id="story" aria-labelledby="story-title">
+  <p class="eyebrow">04 / See the pieces work together</p>
+  <h2 id="story-title">One idea. Multiple formats.<br>One connected system.</h2>
+  <p class="lead story-lead">Start with approved news, photographs, video, or a combination. The website gives each story its home, social media shares it where the format fits, and a monthly email brings the highlights together.</p>
+  <div class="journey-map" aria-label="Content moves from source material to the website, social media and a monthly email">
+    <div class="journey-node"><span>01</span><strong>Create</strong><small>Ideas &amp; media</small></div>
+    <div class="journey-node"><span>02</span><strong>Website hub</strong><small>Stories &amp; formats</small></div>
+    <div class="journey-node"><span>03</span><strong>Social</strong><small>Format-led publishing</small></div>
+    <div class="journey-node"><span>04</span><strong>Monthly email</strong><small>Round up the month</small></div>
+  </div>
+  <p class="journey-action"><span aria-hidden="true">♥</span> <strong>At every touchpoint:</strong> Donate once · Give monthly · Volunteer · Join the email list</p>
+  <div class="tabs story-tabs" role="tablist" aria-label="Explore the connected communication workflow">
+    <button class="tab" role="tab" id="tab-update" aria-controls="panel-update" aria-selected="true" tabindex="0" data-tab="update"><span class="tab-count">01</span> Content</button>
+    <button class="tab" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="false" tabindex="-1" data-tab="web"><span class="tab-count">02</span> Website</button>
+    <button class="tab" role="tab" id="tab-social" aria-controls="panel-social" aria-selected="false" tabindex="-1" data-tab="social"><span class="tab-count">03</span> Social</button>
+    <button class="tab" role="tab" id="tab-email" aria-controls="panel-email" aria-selected="false" tabindex="-1" data-tab="email"><span class="tab-count">04</span> Email</button>
+    <button class="tab" role="tab" id="tab-action" aria-controls="panel-action" aria-selected="false" tabindex="-1" data-tab="action"><span class="tab-count">05</span> Take action</button>
+  </div>
+  <div class="story-frames" aria-live="off">
+    <article class="story-panel" role="tabpanel" id="panel-update" aria-labelledby="tab-update" tabindex="0">
+      <div class="story-panel-intro"><span class="story-meta">01 / Content &amp; source material</span><h3>It begins with a story worth sharing.</h3><p>An approved update, new garden photographs, a video, or an educational idea becomes the source for everything that follows.</p></div>
+      <div class="demo-stage source-demo" aria-label="Illustrative set of source materials: photo gallery, video and article idea">
+        <div class="source-photo demo-card"><div class="demo-photo"><img src="rose-watercolor.jpg" alt="Illustrative rose garden image"><span class="demo-photo-tag">PHOTO SET · 8 IMAGES</span></div><strong>Restoration in pictures</strong><small>Approved garden photographs</small></div>
+        <div class="source-video demo-card"><div class="demo-video-frame"><span class="demo-play" aria-hidden="true">▶</span><span>00:42</span></div><strong>Garden update video</strong><small>Footage and interviews</small></div>
+        <div class="source-notes demo-card"><span class="demo-label">STORY IDEA</span><strong>How are the roses cared for?</strong><p>Seasonal care · Steps · Helpful images</p><span class="demo-stamp">Source material →</span></div>
+      </div>
+      <p class="story-note">The organization supplies approved news and media. Original writing, filming, photography and editing beyond the agreed scope are quoted separately.</p>
+    </article>
+    <article class="story-panel" role="tabpanel" id="panel-web" tabindex="0" aria-labelledby="tab-web" hidden>
+      <div class="story-panel-intro"><span class="story-meta">02 / The website content hub</span><h3>Each format gets the right presentation.</h3><p>Video shouldn't look like a photo collage, and a how-to guide needs a different layout again. Every piece has a lasting home on the website.</p></div>
+      <div class="demo-stage website-demo" aria-label="Illustrative website content hub displaying video story, photo gallery and how-to guide">
+        <div class="demo-site-top"><strong>Voices of the Roses</strong><span>Stories &amp; updates / Get involved</span></div>
+        <div class="web-format-grid">
+          <div class="demo-card format-video"><div class="format-image"><img src="rose-watercolor.jpg" alt=""><span class="demo-play" aria-hidden="true">▶</span></div><span class="demo-label">WATCH THE STORY</span><strong>Restoration in motion</strong><small>Video feature</small></div>
+          <div class="demo-card format-gallery"><div class="photo-mosaic"><img src="rose-watercolor.jpg" alt=""><div class="mosaic-side"><span></span><span></span></div></div><span class="demo-label">PHOTO JOURNAL</span><strong>Garden progress</strong><small>Image gallery</small></div>
+          <div class="demo-card format-guide"><div class="guide-lines"><span class="guide-symbol">✿</span><span>01 · Prepare the soil</span><span>02 · Care for new growth</span><span>03 · Follow the season</span></div><span class="demo-label">LEARN</span><strong>A rose care guide</strong><small>Step-by-step article</small></div>
+        </div>
+        <div class="demo-site-footer"><span>Read · Watch · Discover</span><span class="demo-cta">Support the garden →</span></div>
+      </div>
+      <p class="story-note">I publish approved stories, images and video in the website hub, with a relevant opportunity to donate, volunteer or subscribe.</p>
+    </article>
+    <article class="story-panel" role="tabpanel" id="panel-social" tabindex="0" aria-labelledby="tab-social" hidden>
+      <div class="story-panel-intro"><span class="story-meta">03 / Social publishing</span><h3>Publish where the content fits.</h3><p>The type of media determines the channel and presentation. Each post can bring people back to the full story on the website.</p></div>
+      <div class="demo-stage social-demo" aria-label="Illustrative social publishing formats for a vertical video, photo carousel and educational post">
+        <div class="social-preview social-reel"><div class="social-preview-top">SHORT VIDEO · REEL</div><div class="social-visual vertical-video"><img src="rose-watercolor.jpg" alt=""><span class="demo-play" aria-hidden="true">▶</span></div><strong>See the restoration</strong><small>Vertical video</small></div>
+        <div class="social-preview social-carousel"><div class="social-preview-top">PHOTO CAROUSEL</div><div class="social-visual carousel-visual"><img src="rose-watercolor.jpg" alt=""><span class="slide-dots" aria-hidden="true">● ● ●</span></div><strong>See what's blooming</strong><small>Swipeable image collection</small></div>
+        <div class="social-preview social-article"><div class="social-preview-top">EDUCATIONAL POST</div><div class="social-visual article-visual"><span class="article-flower">✿</span><span>Rose care<br>through the seasons</span></div><strong>Learn with the garden</strong><small>Article preview or link</small></div>
+      </div>
+      <p class="story-note">These are illustrative formats, not a promise to post on every platform. Monthly social publishing uses supplied, approved content; new production is scoped separately.</p>
+    </article>
+    <article class="story-panel" role="tabpanel" id="panel-email" tabindex="0" aria-labelledby="tab-email" hidden>
+      <div class="story-panel-intro"><span class="story-meta">04 / Monthly supporter email</span><h3>Bring the month together.</h3><p>Not an email for every post. One designed monthly newsletter gathers recent stories, restoration news, videos and opportunities to help.</p></div>
+      <div class="demo-stage email-demo" aria-label="Illustrative branded newsletter highlighting several garden stories and a donation call to action">
+        <div class="email-envelope"><span aria-hidden="true">✉</span> Monthly supporter update <span class="email-date">October / Example</span></div>
+        <div class="email-page"><div class="email-masthead">Voices of the Roses<small>NEWS FROM THE GARDEN</small></div><div class="email-feature"><img src="rose-watercolor.jpg" alt=""><div><span class="demo-label">RESTORATION UPDATE</span><strong>A new chapter is blooming.</strong><p>See the latest progress and the people bringing the garden forward.</p><span class="email-link">Explore the story →</span></div></div><div class="email-row"><span class="email-icon">▶</span><div><strong>Watch: The restoration story</strong><small>Latest video · Watch online →</small></div></div><div class="email-row"><span class="email-icon">✿</span><div><strong>From the garden this month</strong><small>Photos, upcoming events and volunteer news →</small></div></div><div class="email-footer-demo">Help the next chapter bloom. <span class="demo-cta">Give once or monthly →</span></div></div>
+      </div>
+      <p class="story-note">One agreed HTML supporter email per month, drawing on the approved stories and materials shared during that month.</p>
+    </article>
+    <article class="story-panel" role="tabpanel" id="panel-action" tabindex="0" aria-labelledby="tab-action" hidden>
+      <div class="story-panel-intro"><span class="story-meta">05 / Calls to action throughout</span><h3>Give people a way to act, everywhere.</h3><p>Action isn't the last stop. Each story, post and newsletter can lead to the next meaningful step for that supporter.</p></div>
+      <div class="demo-stage action-demo" aria-label="Illustrative calls to action appearing in the website, social post and email">
+        <div class="action-example"><span class="demo-label">ON THE WEBSITE</span><div class="action-preview"><span class="action-flower">✿</span><strong>Help the garden grow.</strong><span class="action-buttons"><span>Give once</span><span>Give monthly</span></span></div></div>
+        <div class="action-example"><span class="demo-label">ON SOCIAL</span><div class="action-preview"><span class="action-flower">♡</span><strong>Be part of the restoration.</strong><span class="demo-cta">Explore volunteer opportunities →</span></div></div>
+        <div class="action-example"><span class="demo-label">IN EMAIL</span><div class="action-preview"><span class="action-flower">✉</span><strong>Stay close to the roses.</strong><span class="demo-cta">Read, share &amp; support →</span></div></div>
+      </div>
+      <p class="story-note">One-time or monthly donations, volunteering and email signup are easy to find throughout the connected experience.</p>
+    </article>
+  </div>
+  <p class="caption story-disclaimer">Visual examples are illustrative. Final formats, channels and source materials will be agreed together.</p>
+</section>
 <section class="slide dark" id="media" aria-labelledby="media-title"><div class="inner"><p class="eyebrow">05 / Create the media</p><h2 id="media-title">Let people hear why<br>the roses matter.</h2><div class="split"><div><p class="lead">Two foundational videos give the program a story to launch with.</p><div class="pillar"><h3>The restoration and the invitation.</h3><p>A fundraising video explaining the work, what donations support, and how people can help.</p></div><div class="pillar"><h3>The rose garden’s history.</h3><p>A story built from supplied historical materials, interviews, and rose garden footage.</p></div></div><div><p class="eyebrow">Relevant work / Nicholas Egner</p><h3>Storytelling grounded in real people and places.</h3><a class="video-link" href="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/whittier.mp4" target="_blank" rel="noopener">Watch: Neighborhood documentary <span>↗</span></a><a class="video-link" href="https://nciholasegner.s3.us-east-2.amazonaws.com/video/website-videos/Landscape.mp4" target="_blank" rel="noopener">Watch: Landscape Structures collaboration <span>↗</span></a><p class="muted" style="font-size:14px;margin-top:25px">Future stories could include seasonal rose care, volunteers, restoration milestones, and educational clips. Additional filming and editing are quoted by project.</p><details><summary>Planning the two initial videos</summary><div><p>We will agree on video lengths, participants, filming dates, locations, supplied materials, revisions, and final formats before production begins.</p></div></details></div></div></div></section>
 <section class="slide" id="rhythm" aria-labelledby="rhythm-title"><p class="eyebrow">06 / Keep communication moving</p><h2 id="rhythm-title">A clear rhythm.<br>A person responsible.</h2><div class="split"><div><p class="lead">I bring the website, production, and publishing together using the content and email systems I’ve built for this work.</p><div class="steps"><div class="step"><div><h3>Choose the story.</h3><p>Agree on the update, available media, and the action we want supporters to take.</p></div></div><div class="step"><div><h3>Create and review.</h3><p>I prepare the website update, email, and social content. Your designated contact consolidates feedback.</p></div></div><div class="step"><div><h3>Publish and maintain.</h3><p>I publish approved material and keep the website and supporter list maintained.</p></div></div></div></div><div><div class="callout"><p class="eyebrow">Proposed monthly rhythm</p><h3>1 website story<br>1 supporter email<br>4 social content pieces</h3><p style="margin-bottom:0">The same supplied update can inform the blog and newsletter. Social content is adapted across agreed platforms where the format is supported.</p></div><details><summary>What I handle</summary><div><p>Website design and development, the agreed video production, email setup, adding and editing content, approved publishing, and routine maintenance.</p></div></details><details><summary>What I need from the organization</summary><div><p>One main contact; approved facts, plans, historical materials, and updates; access to participants; account ownership; and timely consolidated feedback.</p><p>We will define who creates and supplies ongoing source content and what the fundraising or marketing company handles.</p></div></details><details><summary>What the monthly allowance covers</summary><div><p>Routine upkeep and up to 30 minutes of minor website changes each month. New pages, features, original graphics, extra posting, filming, and additional video editing are separately scoped.</p></div></details></div></div></section>
 <section class="slide" id="investment" aria-labelledby="investment-title"><p class="eyebrow">07 / The recommended investment</p><h2 id="investment-title">Build it together.<br>Keep it working together.</h2><p class="lead">One recommended program, with a defined launch investment and ongoing communication.</p><div class="price-grid"><div class="price-box"><p class="eyebrow">Website + systems + two videos</p><div class="price">$5,600 <small>initial estimate</small></div><p>New website, content hub, email setup, fundraising video, and rose garden history video.</p></div><div class="price-box pink"><p class="eyebrow">Website + email + social</p><div class="price">$300 <small>/ month</small></div><p>One blog update, one HTML newsletter, four social content pieces, and defined website and list maintenance.</p></div></div><details open><summary>Initial investment breakdown</summary><div><table><thead><tr><th scope="col">Deliverable</th><th scope="col">Estimate</th></tr></thead><tbody><tr><td>New website</td><td>$3,000</td></tr><tr><td>Blog and content hub</td><td>$500</td></tr><tr><td>Email system setup, template, and welcome email</td><td>$500</td></tr><tr><td>Fundraising video</td><td>$800</td></tr><tr><td>Rose garden history video</td><td>$800</td></tr><tr><th scope="row">Recommended initial program</th><th>$5,600</th></tr></tbody></table></div></details><details><summary>Ongoing investment and scope</summary><div><table><tbody><tr><td>Website and supporter updates</td><td>$200/month</td></tr><tr><td>Social publishing</td><td>$100/month</td></tr><tr><td>Additional filming and video production</td><td>Quoted separately</td></tr></tbody></table><p style="margin-top:18px">Four social posts means four pieces of content adapted across agreed platforms. It does not mean four unique posts per platform. Ongoing work uses supplied updates, available photos, finished videos, and approved material.</p></div></details><details><summary>Estimates, external charges, and final scope</summary><div><p>Amounts are based on the October 14, 2026 proposal. This presentation recommends the complete program previously itemized as individual options.</p><p>Final deliverables, content needs, filming requirements, revisions, schedule, responsibilities, and payment terms will be agreed in writing before work begins.</p><p>Hosting, domain renewals, payment processing, email delivery, and other external service charges will be identified separately before approval. Existing branding and available approved materials are assumed. Additional work is estimated and approved before it begins.</p></div></details></section>
