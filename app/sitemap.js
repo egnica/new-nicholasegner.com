@@ -35,6 +35,9 @@ export default async function sitemap() {
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
+    ...(process.env.STRIPE_SECRET_KEY && process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+      ? [{ path: "/support", priority: 0.4, changeFrequency: "monthly" }]
+      : []),
     { path: "/video", priority: 0.8, changeFrequency: "monthly" },
     { path: "/video-experience", priority: 0.7, changeFrequency: "monthly" },
     { path: "/photos", priority: 0.6, changeFrequency: "monthly" },
