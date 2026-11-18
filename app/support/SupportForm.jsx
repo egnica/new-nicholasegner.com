@@ -132,6 +132,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
             <p className={styles.label} id="support-card-label">Card details</p>
             <div className={styles.cardInput} role="group" aria-labelledby="support-card-label">
               <CardElement options={{
+                disableLink: true,
                 hidePostalCode: true,
                 style: {
                   base: { color: "#f6f8ff", fontSize: "16px", "::placeholder": { color: "#aab6d4" } },
