@@ -18,13 +18,11 @@ export default function SupportPage() {
       <SiteHeader />
       <section className={styles.section}>
         <div className={styles.intro}>
-          <p className={styles.eyebrow}>For the videos</p>
-          <h1>Enjoyed a video?</h1>
+          <h1>Enjoyed my Work?</h1>
           <p>
-            I make videos about the movies and stories I can’t stop thinking about.
-            If one made your day, you can help me make the next one.
+            My videos aren’t monetized. If you’d like to support what I make,
+            you can leave a one-time tip here. Thanks for watching.
           </p>
-          <p className={styles.note}>Thanks for watching, whether or not you contribute.</p>
         </div>
         <SupportForm />
       </section>

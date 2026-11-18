@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Elements, ExpressCheckoutElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { CardElement, Elements, ExpressCheckoutElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import styles from "./support.module.css";
 
@@ -40,7 +40,35 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
     if (elements && cents) elements.update({ amount: cents });
   }, [elements, cents]);
 
-  async function pay() {
+  function handleResult({ error: paymentError, paymentIntent }) {
+    if (paymentError) throw paymentError;
+    if (paymentIntent?.status === "succeeded") {
+      onSuccess();
+    } else {
+      setError("Your payment is processing. Please check your payment method before trying again.");
+    }
+  }
+
+  async function payWithCard() {
+    if (!stripe || !elements || !cents || processing) return;
+    setError("");
+    setProcessing(true);
+
+    try {
+      const card = elements.getElement(CardElement);
+      if (!card) throw new Error("Card details are not ready. Please try again.");
+      const clientSecret = await createIntent(amount);
+      handleResult(await stripe.confirmCardPayment(clientSecret, {
+        payment_method: { card },
+      }));
+    } catch (paymentError) {
+      setError(paymentError.message || "Payment could not be completed. Please try again.");
+    } finally {
+      setProcessing(false);
+    }
+  }
+
+  async function payWithWallet() {
     if (!stripe || !elements || !cents || processing) return;
     setError("");
     setProcessing(true);
@@ -48,21 +76,13 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
     try {
       const { error: submitError } = await elements.submit();
       if (submitError) throw submitError;
-
       const clientSecret = await createIntent(amount);
-      const { error: paymentError, paymentIntent } = await stripe.confirmPayment({
+      handleResult(await stripe.confirmPayment({
         elements,
         clientSecret,
         confirmParams: { return_url: `${window.location.origin}/support` },
         redirect: "if_required",
-      });
-
-      if (paymentError) throw paymentError;
-      if (paymentIntent?.status === "succeeded") {
-        onSuccess();
-      } else {
-        setError("Your payment is processing. Please check your payment method before trying again.");
-      }
+      }));
     } catch (paymentError) {
       setError(paymentError.message || "Payment could not be completed. Please try again.");
     } finally {
@@ -90,23 +110,35 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
         />
       </div>
       <p id="support-amount-hint" className={styles.hint}>
-        {cents ? "Change this to any amount from $1 to $500." : "Enter an amount from $1 to $500."}
+        {cents ? "$1–$500" : "Enter an amount from $1 to $500."}
       </p>
 
       {cents && (
         <div className={styles.paymentArea}>
           <div>
             <ExpressCheckoutElement
-              options={{ buttonHeight: 48 }}
+              options={{
+                buttonHeight: 48,
+                paymentMethods: { link: "never", paypal: "never", amazonPay: "never", klarna: "never" },
+              }}
               onReady={({ availablePaymentMethods }) => setWalletsAvailable(Boolean(availablePaymentMethods && Object.values(availablePaymentMethods).some(Boolean)))}
-              onConfirm={pay}
+              onConfirm={payWithWallet}
             />
           </div>
 
           {walletsAvailable && <p className={styles.divider}><span>or pay with a card</span></p>}
 
-          <form onSubmit={(event) => { event.preventDefault(); pay(); }}>
-            <PaymentElement options={{ layout: "accordion" }} />
+          <form onSubmit={(event) => { event.preventDefault(); payWithCard(); }}>
+            <p className={styles.label} id="support-card-label">Card details</p>
+            <div className={styles.cardInput} role="group" aria-labelledby="support-card-label">
+              <CardElement options={{
+                hidePostalCode: true,
+                style: {
+                  base: { color: "#f6f8ff", fontSize: "16px", "::placeholder": { color: "#aab6d4" } },
+                  invalid: { color: "#ff9c9c" },
+                },
+              }} />
+            </div>
             <button className={styles.submit} type="submit" disabled={!stripe || processing}>
               {processing ? "Processing…" : `Support with $${(cents / 100).toFixed(2)}`}
             </button>
@@ -115,7 +147,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
       )}
 
       {error && <p className={styles.error} role="alert">{error}</p>}
-      <p className={styles.secure}>Secure payment powered by Stripe. One time only.</p>
+      <p className={styles.secure}>Secure payment by Stripe</p>
     </div>
   );
 }
