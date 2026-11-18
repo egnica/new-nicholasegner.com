@@ -119,7 +119,14 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
             <ExpressCheckoutElement
               options={{
                 buttonHeight: 48,
-                paymentMethods: { link: "never", paypal: "never", amazonPay: "never", klarna: "never" },
+                paymentMethods: {
+                  applePay: "always",
+                  googlePay: "always",
+                  link: "never",
+                  paypal: "never",
+                  amazonPay: "never",
+                  klarna: "never",
+                },
               }}
               onReady={({ availablePaymentMethods }) => setWalletsAvailable(Boolean(availablePaymentMethods && Object.values(availablePaymentMethods).some(Boolean)))}
               onConfirm={payWithWallet}
