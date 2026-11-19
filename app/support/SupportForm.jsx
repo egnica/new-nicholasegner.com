@@ -109,9 +109,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
           aria-describedby="support-amount-hint"
         />
       </div>
-      <p id="support-amount-hint" className={styles.hint}>
-        {cents ? "$1–$500" : "Enter an amount from $1 to $500."}
-      </p>
+
 
       {cents && (
         <div className={styles.paymentArea}>
