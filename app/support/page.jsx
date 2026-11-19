@@ -20,8 +20,8 @@ export default function SupportPage() {
         <div className={styles.intro}>
           <h1>Enjoyed my Work?</h1>
           <p>
-            My videos aren’t monetized. If you’d like to support what I make,
-            you can leave a one-time tip here. Thanks for watching.
+            My content isn't monetized. If you’d like to support what I make,
+            you can leave a tip here. Thanks for watching!
           </p>
         </div>
         <SupportForm />
