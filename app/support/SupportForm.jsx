@@ -92,7 +92,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
 
   return (
     <div className={styles.card}>
-      <label className={styles.label} htmlFor="support-amount">One-time amount</label>
+      <label className={styles.label} htmlFor="support-amount">Enter amount</label>
       <div className={styles.amountWrap}>
         <span aria-hidden="true">$</span>
         <input
