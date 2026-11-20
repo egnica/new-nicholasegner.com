@@ -203,7 +203,7 @@ export default async function ProjectCaseStudyPage({ params }) {
     projects[(currentIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
-  const extraMedia = project.media || project.gallery || [];
+  const extraMedia = (project.media || project.gallery || []).filter((media) => media?.src);
   const caseSections = project.caseStudy?.sections || [];
 
   return (
@@ -213,14 +213,16 @@ export default async function ProjectCaseStudyPage({ params }) {
       <div className={styles.mainBackColor} />
 
       <article className={styles.caseStudyPage}>
-        <header className={`${styles.caseHero} fullBleedHero`}>
-          <div className={styles.caseHeroMediaWrap}>
-            <ProjectMedia media={project.heroMedia} variant="hero" />
+        <header className={`${styles.caseHero} ${!project.heroMedia?.src ? styles.caseHeroTextOnly : ""} fullBleedHero`}>
+          {project.heroMedia?.src && (
+            <div className={styles.caseHeroMediaWrap}>
+              <ProjectMedia media={project.heroMedia} variant="hero" />
 
-            {project.heroMedia?.caption && (
-              <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
-            )}
-          </div>
+              {project.heroMedia.caption && (
+                <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
+              )}
+            </div>
+          )}
 
           <div className={styles.caseHeroCopy}>
             <Link href="/projects" className={styles.backLink}>
