@@ -9,22 +9,16 @@ import SkillBackButton from "./SkillBackButton";
 import {
   getProjects,
   getTechStackData,
-  getTechnologies,
   getVideoWorkData,
 } from "../../lib/contentApi";
 import { DEFAULT_IMAGE, SITE_URL, getSkillPageSchema } from "../../lib/schema";
 
-export async function generateStaticParams() {
-  const allTech = await getTechnologies();
-
-  return allTech.map((tech) => ({
-    tech: tech.slug,
-  }));
-}
+// Render skills added to the Content Hub without a website rebuild.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { tech } = await params;
-  const { technologies } = await getTechStackData();
+  const { technologies } = await getTechStackData({ cache: "no-store" });
   const techData = technologies[tech];
 
   if (!techData) {
@@ -261,7 +255,7 @@ export default async function TechPage({ params }) {
     projects,
     { items: videoWork },
   ] = await Promise.all([
-    getTechStackData(),
+    getTechStackData({ cache: "no-store" }),
     getProjects(),
     getVideoWorkData(),
   ]);
