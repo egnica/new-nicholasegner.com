@@ -48,13 +48,16 @@ export async function getProjects() {
   return Object.values(await getProjectsData());
 }
 
-export async function getTechStackData() {
+export async function getTechStackData(
+  fetchOptions = { next: { revalidate: CONTENT_REVALIDATE_SECONDS } },
+) {
   return requestContent(
     "/api/tech-stack?site=nicholasegner",
     (data) =>
       isRecord(data) &&
       Array.isArray(data.categoryOrder) &&
       isRecord(data.technologies),
+    fetchOptions,
   );
 }
 
@@ -64,7 +67,8 @@ export async function getTechnologies() {
 }
 
 export async function getSkillGroups() {
-  const { categoryOrder, technologies } = await getTechStackData();
+  // Skill catalog updates should appear without a website rebuild.
+  const { categoryOrder, technologies } = await getTechStackData({ cache: "no-store" });
   const all = Object.values(technologies);
 
   return categoryOrder.map((category) => ({
