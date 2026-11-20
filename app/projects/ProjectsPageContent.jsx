@@ -125,19 +125,21 @@ function ProjectContent({ project, technologies }) {
 
   return (
     <article className={styles.projectDetail} aria-labelledby={`${project.slug}-title`}>
-      <section className={styles.projectHero}>
+      <section className={`${styles.projectHero} ${!project.heroMedia?.src ? styles.projectHeroTextOnly : ""}`}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{project.eyebrow}</p>
           <h1 id={`${project.slug}-title`}>{project.title}</h1>
           <p className={styles.lead}>{project.summary}</p>
         </div>
 
-        <div className={styles.heroMediaWrap}>
-          <ProjectMedia media={project.heroMedia} />
-          {project.heroMedia?.caption && (
-            <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
-          )}
-        </div>
+        {project.heroMedia?.src && (
+          <div className={styles.heroMediaWrap}>
+            <ProjectMedia media={project.heroMedia} />
+            {project.heroMedia.caption && (
+              <p className={styles.mediaCaption}>{project.heroMedia.caption}</p>
+            )}
+          </div>
+        )}
       </section>
 
       <section className={styles.storySection} aria-label="Project overview">
