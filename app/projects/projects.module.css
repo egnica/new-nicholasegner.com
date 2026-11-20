@@ -141,6 +141,14 @@
   align-items: center;
 }
 
+.projectHeroTextOnly {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.projectHeroTextOnly .heroCopy {
+  max-width: 900px;
+}
+
 .heroCopy {
   min-width: 0;
 }
@@ -866,6 +874,14 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: #080718;
+}
+
+.caseHeroTextOnly {
+  background: radial-gradient(circle at 80% 35%, rgba(66, 85, 170, 0.3), transparent 52%), #080718;
+}
+
+.caseHeroTextOnly .caseHeroCopy {
+  width: min(100%, 960px);
 }
 
 .caseHero::after {
