@@ -9,6 +9,9 @@ import oldStyles from "../page.module.css";
 import { getSkillGroups } from "../lib/contentApi";
 import { SITE_URL } from "../lib/schema";
 
+// Read the current skills catalog from the Content Hub on every request.
+export const dynamic = "force-dynamic";
+
 const pageUrl = `${SITE_URL}/skills`;
 const heroImage =
   "https://nciholasegner.s3.us-east-2.amazonaws.com/video-page-website/skills-hero.webp";
