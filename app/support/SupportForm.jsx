@@ -15,11 +15,11 @@ function centsFor(value) {
   return amount >= 100 && amount <= 50000 ? amount : null;
 }
 
-async function createIntent(amount) {
+async function createIntent(amount, message) {
   const response = await fetch("/api/support/payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ amount }),
+    body: JSON.stringify({ amount, message }),
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data.clientSecret) {
@@ -28,7 +28,7 @@ async function createIntent(amount) {
   return data.clientSecret;
 }
 
-function PaymentForm({ amount, onAmountChange, onSuccess }) {
+function PaymentForm({ amount, message, onAmountChange, onMessageChange, onSuccess }) {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -57,7 +57,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
     try {
       const card = elements.getElement(CardElement);
       if (!card) throw new Error("Card details are not ready. Please try again.");
-      const clientSecret = await createIntent(amount);
+      const clientSecret = await createIntent(amount, message);
       handleResult(await stripe.confirmCardPayment(clientSecret, {
         payment_method: { card },
       }));
@@ -76,7 +76,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
     try {
       const { error: submitError } = await elements.submit();
       if (submitError) throw submitError;
-      const clientSecret = await createIntent(amount);
+      const clientSecret = await createIntent(amount, message);
       handleResult(await stripe.confirmPayment({
         elements,
         clientSecret,
@@ -110,6 +110,10 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
         />
       </div>
 
+      <label className={styles.label} htmlFor="support-message">Leave a message (optional)</label>
+      <textarea id="support-message" className={styles.message} rows={3} maxLength={500}
+        placeholder="A note for Nicholas" value={message}
+        onChange={(event) => onMessageChange(event.target.value)} />
 
       {cents && (
         <div className={styles.paymentArea}>
@@ -160,6 +164,7 @@ function PaymentForm({ amount, onAmountChange, onSuccess }) {
 
 export default function SupportForm() {
   const [amount, setAmount] = useState("5");
+  const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [returnStatus, setReturnStatus] = useState(null);
   const options = useMemo(() => ({
@@ -206,7 +211,7 @@ export default function SupportForm() {
     <>
       {returnStatus && <p className={styles.error} role="alert">{returnStatus}</p>}
       <Elements stripe={stripePromise} options={options}>
-        <PaymentForm amount={amount} onAmountChange={setAmount} onSuccess={() => setSuccess(true)} />
+        <PaymentForm amount={amount} message={message} onAmountChange={setAmount} onMessageChange={setMessage} onSuccess={() => setSuccess(true)} />
       </Elements>
     </>
   );

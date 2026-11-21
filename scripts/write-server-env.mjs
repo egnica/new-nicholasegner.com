@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 const envPath = ".env.production";
-const keys = ["RESEND_API_KEY", "STRIPE_SECRET_KEY"];
+const keys = ["RESEND_API_KEY", "STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET"];
 const available = keys.filter((key) => process.env[key]);
 
 if (!available.length) {

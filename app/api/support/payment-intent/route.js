@@ -25,6 +25,11 @@ export async function POST(request) {
     return Response.json({ error: "Enter an amount between $1 and $500." }, { status: 400 });
   }
 
+  if (body?.message != null && (typeof body.message !== "string" || body.message.length > 500)) {
+    return Response.json({ error: "Your message must be 500 characters or fewer." }, { status: 400 });
+  }
+  const message = (body?.message || "").trim();
+
   if (!process.env.STRIPE_SECRET_KEY) {
     return Response.json({ error: "Support payments are temporarily unavailable." }, { status: 503 });
   }
@@ -36,7 +41,7 @@ export async function POST(request) {
       currency: "usd",
       payment_method_types: ["card"],
       description: "Tip for Nicholas Egner's videos",
-      metadata: { source: "nicholasegner.com/support" },
+      metadata: { source: "nicholasegner.com/support", ...(message ? { message } : {}) },
     });
 
     return Response.json({ clientSecret: intent.client_secret });

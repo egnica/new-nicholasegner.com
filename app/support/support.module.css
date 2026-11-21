@@ -113,6 +113,9 @@
   color: #aab6d4;
   font-size: 0.82rem;
 }
+.message { width: 100%; min-height: 92px; padding: .9rem 1rem; resize: vertical; border: 1px solid #65749c; border-radius: 12px; color: #fff; background: #0d1022; font: inherit; }
+.message:focus { outline: 0; border-color: #8cdbff; box-shadow: 0 0 0 3px rgba(140, 219, 255, .17); }
+.message::placeholder { color: #aab6d4; }
 .paymentArea {
   margin-top: 1.5rem;
 }
